@@ -7,4 +7,17 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Icons\pangolin.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MaterialDesignColors" Version="2.0.0-ci2063" />
+    <PackageReference Include="MaterialDesignThemes" Version="4.0.0-ci2063" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Icons\pangolin.png" />
+  </ItemGroup>
+
 </Project>

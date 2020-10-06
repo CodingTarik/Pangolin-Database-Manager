@@ -1,0 +1,25 @@
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\obj\Debug\netcoreapp3.1\Pangolin Database-App.csprojAssemblyReference.cache
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\obj\Debug\netcoreapp3.1\MainWindow.g.cs
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\obj\Debug\netcoreapp3.1\Views\Login.g.cs
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\obj\Debug\netcoreapp3.1\App.g.cs
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\obj\Debug\netcoreapp3.1\Pangolin Database-App_MarkupCompile.cache
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\obj\Debug\netcoreapp3.1\Pangolin Database-App_MarkupCompile.lref
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\bin\Debug\netcoreapp3.1\Pangolin Database-App.exe
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\bin\Debug\netcoreapp3.1\Pangolin Database-App.deps.json
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\bin\Debug\netcoreapp3.1\Pangolin Database-App.runtimeconfig.json
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\bin\Debug\netcoreapp3.1\Pangolin Database-App.runtimeconfig.dev.json
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\bin\Debug\netcoreapp3.1\Pangolin Database-App.dll
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\bin\Debug\netcoreapp3.1\Pangolin Database-App.pdb
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\bin\Debug\netcoreapp3.1\MaterialDesignColors.dll
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\bin\Debug\netcoreapp3.1\MaterialDesignThemes.Wpf.dll
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\obj\Debug\netcoreapp3.1\App.baml
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\obj\Debug\netcoreapp3.1\MainWindow.baml
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\obj\Debug\netcoreapp3.1\Views\Login.baml
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\obj\Debug\netcoreapp3.1\Pangolin Database-App.g.resources
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\obj\Debug\netcoreapp3.1\Pangolin Database-App.AssemblyInfoInputs.cache
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\obj\Debug\netcoreapp3.1\Pangolin Database-App.AssemblyInfo.cs
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\obj\Debug\netcoreapp3.1\Pangolin Database-App.csproj.CoreCompileInputs.cache
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\obj\Debug\netcoreapp3.1\Pangolin Database-App.csproj.CopyComplete
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\obj\Debug\netcoreapp3.1\Pangolin Database-App.dll
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\obj\Debug\netcoreapp3.1\Pangolin Database-App.pdb
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\obj\Debug\netcoreapp3.1\Pangolin Database-App.genruntimeconfig.cache
