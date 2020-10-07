@@ -1,9 +1,6 @@
-﻿using Pangolin_Database_App.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -14,17 +11,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Pangolin_Database_App
+namespace Pangolin_Database_App.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaktionslogik für MainMenuView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainMenuView : UserControl
     {
-        public MainWindow()
+        public MainMenuView()
         {
             InitializeComponent();
-            this.DataContext = new MainMenuViewModel() { Username = "Dr. Tarik Azzouzi", isAdmin = true };
         }
     }
 }

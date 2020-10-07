@@ -3,10 +3,47 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:viewmodels="clr-namespace:Pangolin_Database_App.ViewModels"
+        xmlns:views="clr-namespace:Pangolin_Database_App.Views"
         xmlns:local="clr-namespace:Pangolin_Database_App"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Pangolin - Database" MinHeight="485" MinWidth="800" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="CanResizeWithGrip">
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="32"></WindowChrome>
+    </WindowChrome.WindowChrome>
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type viewmodels:MainMenuViewModel}">
+            <views:MainMenuView DataContext="{Binding}"></views:MainMenuView>
+        </DataTemplate>
+    </Window.Resources>
     <Grid>
-
+        <Border Height="32" VerticalAlignment="Top">
+            <Border.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="Red" Offset="0.0"></GradientStop>
+                    <GradientStop Color="#FC1E8A" Offset="0.93"></GradientStop>
+                </LinearGradientBrush>
+            </Border.Background>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.1*"></ColumnDefinition>
+                    <ColumnDefinition Width="0.95*"></ColumnDefinition>
+                    <ColumnDefinition Width="35"></ColumnDefinition>
+                    <ColumnDefinition Width="35"></ColumnDefinition>
+                    <ColumnDefinition Width="35"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <materialDesign:PackIcon Kind="WindowMinimize"></materialDesign:PackIcon>
+                </StackPanel>
+                <StackPanel Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <materialDesign:PackIcon Kind="WindowMaximize"></materialDesign:PackIcon>
+                </StackPanel>
+                <StackPanel Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <materialDesign:PackIcon Kind="WindowClose"></materialDesign:PackIcon>
+                </StackPanel>
+            </Grid>
+        </Border>
+        <ContentControl Content="{Binding}" Margin="0,32,0,0"/>
     </Grid>
 </Window>

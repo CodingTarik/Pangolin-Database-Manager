@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1
 D:\Programmierprojekte\Pangolin\Pangolin Database-App\App.xaml
-2-1542128202
+3-1759613147
 
-41957593559
+6726414545
 194-1601837629
-MainWindow.xaml;Views\Login.xaml;
+MainWindow.xaml;Views\LoginView.xaml;Views\MainMenuView.xaml;
 
 False
 

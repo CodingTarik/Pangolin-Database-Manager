@@ -1,6 +1,5 @@
 D:\Programmierprojekte\Pangolin\Pangolin Database-App\obj\Debug\netcoreapp3.1\Pangolin Database-App.csprojAssemblyReference.cache
 D:\Programmierprojekte\Pangolin\Pangolin Database-App\obj\Debug\netcoreapp3.1\MainWindow.g.cs
-D:\Programmierprojekte\Pangolin\Pangolin Database-App\obj\Debug\netcoreapp3.1\Views\Login.g.cs
 D:\Programmierprojekte\Pangolin\Pangolin Database-App\obj\Debug\netcoreapp3.1\App.g.cs
 D:\Programmierprojekte\Pangolin\Pangolin Database-App\obj\Debug\netcoreapp3.1\Pangolin Database-App_MarkupCompile.cache
 D:\Programmierprojekte\Pangolin\Pangolin Database-App\obj\Debug\netcoreapp3.1\Pangolin Database-App_MarkupCompile.lref
@@ -14,7 +13,6 @@ D:\Programmierprojekte\Pangolin\Pangolin Database-App\bin\Debug\netcoreapp3.1\Ma
 D:\Programmierprojekte\Pangolin\Pangolin Database-App\bin\Debug\netcoreapp3.1\MaterialDesignThemes.Wpf.dll
 D:\Programmierprojekte\Pangolin\Pangolin Database-App\obj\Debug\netcoreapp3.1\App.baml
 D:\Programmierprojekte\Pangolin\Pangolin Database-App\obj\Debug\netcoreapp3.1\MainWindow.baml
-D:\Programmierprojekte\Pangolin\Pangolin Database-App\obj\Debug\netcoreapp3.1\Views\Login.baml
 D:\Programmierprojekte\Pangolin\Pangolin Database-App\obj\Debug\netcoreapp3.1\Pangolin Database-App.g.resources
 D:\Programmierprojekte\Pangolin\Pangolin Database-App\obj\Debug\netcoreapp3.1\Pangolin Database-App.AssemblyInfoInputs.cache
 D:\Programmierprojekte\Pangolin\Pangolin Database-App\obj\Debug\netcoreapp3.1\Pangolin Database-App.AssemblyInfo.cs
@@ -23,3 +21,8 @@ D:\Programmierprojekte\Pangolin\Pangolin Database-App\obj\Debug\netcoreapp3.1\Pa
 D:\Programmierprojekte\Pangolin\Pangolin Database-App\obj\Debug\netcoreapp3.1\Pangolin Database-App.dll
 D:\Programmierprojekte\Pangolin\Pangolin Database-App\obj\Debug\netcoreapp3.1\Pangolin Database-App.pdb
 D:\Programmierprojekte\Pangolin\Pangolin Database-App\obj\Debug\netcoreapp3.1\Pangolin Database-App.genruntimeconfig.cache
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\obj\Debug\netcoreapp3.1\Views\LoginView.g.cs
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\obj\Debug\netcoreapp3.1\Views\MainMenuView.g.cs
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\obj\Debug\netcoreapp3.1\Views\LoginView.baml
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\obj\Debug\netcoreapp3.1\Views\MainMenuView.baml
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\obj\Debug\netcoreapp3.1\GeneratedInternalTypeHelper.g.cs

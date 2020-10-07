@@ -1,0 +1,146 @@
+﻿<UserControl x:Class="Pangolin_Database_App.Views.MainMenuView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Pangolin_Database_App.Views"
+              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.4*"></ColumnDefinition>
+            <ColumnDefinition Width="50"></ColumnDefinition>
+            <ColumnDefinition Width="0.4*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition Height="0.8*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" Grid.ColumnSpan="3" Grid.Row="0" Grid.Column="0">
+            <TextBlock FontFamily="Roboto" FontSize="40"><Run Text="Welcome back," BaselineAlignment="Center"/><Run Text=" "/><Run Text="{Binding Username, Mode=OneWay}"/><Run Text=" "/><Run Text="!"/></TextBlock>
+            <materialDesign:PackIcon Kind="Person" Width="54" Height="54" VerticalAlignment="Top"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="0" Margin="10, 0, 0, 0">
+            <Button>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock>ADD NEW RECORD</TextBlock>
+                    <materialDesign:PackIcon Kind="Add" Height="24" Width="24"></materialDesign:PackIcon>
+                </StackPanel>
+            </Button>
+            <Button>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock>EDIT RECORD</TextBlock>
+                    <materialDesign:PackIcon Kind="Edit" Height="24" Width="24"></materialDesign:PackIcon>
+                </StackPanel>
+            </Button>
+            <Button>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock>DAILY RECORDING</TextBlock>
+                    <materialDesign:PackIcon Kind="CalendarDay" Height="24" Width="24"></materialDesign:PackIcon>
+                </StackPanel>
+            </Button>
+            <Button>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock>INFANT FEEDING</TextBlock>
+                    <materialDesign:PackIcon Kind="FoodVariant" Height="24" Width="24"></materialDesign:PackIcon>
+                </StackPanel>
+            </Button>
+            <Button>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock>VETERINARY TREATMENT</TextBlock>
+                    <materialDesign:PackIcon Kind="Doctor" Height="24" Width="24"></materialDesign:PackIcon>
+                </StackPanel>
+            </Button>
+            <Button>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock>INTERDEPARTMENT MOVEMENT</TextBlock>
+                    <materialDesign:PackIcon Kind="Map" Height="24" Width="24"></materialDesign:PackIcon>
+                </StackPanel>
+            </Button>
+            <Button>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock>MEASUREMENTS</TextBlock>
+                    <materialDesign:PackIcon Kind="MotionSensor" Height="24" Width="24"></materialDesign:PackIcon>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="2" Margin="0, 0, 10, 0">
+            <Button>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock>MORTALITY</TextBlock>
+                    <materialDesign:PackIcon Kind="EmoticonDead" Height="24" Width="24"></materialDesign:PackIcon>
+                </StackPanel>
+            </Button>
+            <Button>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock>RELEASE</TextBlock>
+                    <materialDesign:PackIcon Kind="Tree" Height="24" Width="24"></materialDesign:PackIcon>
+                </StackPanel>
+            </Button>
+            <Button>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock>MICROCHIP</TextBlock>
+                    <materialDesign:PackIcon Kind="Chip" Height="24" Width="24"></materialDesign:PackIcon>
+                </StackPanel>
+            </Button>
+            <Button>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock>TRACKING DEVICE</TextBlock>
+                    <materialDesign:PackIcon Kind="GpsFixed" Height="24" Width="24"></materialDesign:PackIcon>
+                </StackPanel>
+            </Button>
+            <Button>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock>CRIMINAL CASE OUTECOME</TextBlock>
+                    <materialDesign:PackIcon Kind="PoliceBadge" Height="24" Width="24"></materialDesign:PackIcon>
+                </StackPanel>
+            </Button>
+            <Button>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock>DOCUMENTS</TextBlock>
+                    <materialDesign:PackIcon Kind="FileDocument" Height="24" Width="24"></materialDesign:PackIcon>
+                </StackPanel>
+            </Button>
+            <Button Cursor="Hand">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock>ADMIN PANEL</TextBlock>
+                    <materialDesign:PackIcon Kind="ShieldPerson" Height="24" Width="24"></materialDesign:PackIcon>
+                </StackPanel>
+                <Button.Style>
+                    <Style BasedOn="{StaticResource {x:Type Button}}" TargetType="{x:Type Button}">
+                        <Style.Resources>
+                            <SolidColorBrush x:Key="PrimaryHueDarkBrush" Color="#E81212"/>
+                        </Style.Resources>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </StackPanel>
+    </Grid>
+    <UserControl.Resources>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Margin" Value="0, 0, 0, 20"></Setter>
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
+            <Setter Property="VerticalContentAlignment" Value="Stretch"></Setter>
+            <Setter Property="VerticalAlignment" Value="Stretch"></Setter>
+            <Style.Resources>
+                <SolidColorBrush x:Key="PrimaryHueDarkBrush" Color="#707070"/>
+                <Style TargetType="{x:Type StackPanel}">
+                    <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+                    <Setter Property="VerticalAlignment" Value="Center"></Setter>
+                </Style>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="FontSize" Value="18"></Setter>
+                    <Setter Property="FontFamily" Value="Roboto"></Setter>
+                    <Setter Property="TextAlignment" Value="Center"></Setter>
+                    <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+                    <Setter Property="VerticalAlignment" Value="Center"></Setter>
+                </Style>
+            </Style.Resources>
+            <Style.BasedOn>
+                <StaticResource ResourceKey="MaterialDesignRaisedDarkButton"/>
+            </Style.BasedOn>
+        </Style>
+    </UserControl.Resources>
+</UserControl>

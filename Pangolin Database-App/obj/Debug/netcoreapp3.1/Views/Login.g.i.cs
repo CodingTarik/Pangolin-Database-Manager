@@ -12,6 +12,7 @@
 using MaterialDesignThemes.Wpf;
 using MaterialDesignThemes.Wpf.Converters;
 using MaterialDesignThemes.Wpf.Transitions;
+using Pangolin_Database_App;
 using Pangolin_Database_App.Views;
 using System;
 using System.Diagnostics;
