@@ -1,0 +1,434 @@
+﻿<UserControl x:Class="Pangolin_Database_App.Views.AddPangolinView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Pangolin_Database_App.Views"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <!-- Main Grid Definitions-->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.3*"></ColumnDefinition>
+            <ColumnDefinition Width="25"></ColumnDefinition>
+            <ColumnDefinition Width="0.7*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*"></RowDefinition>
+            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition Height="0.5*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <!-- Border for Formals -->
+        <Border Grid.Column="0" Grid.Row="0" Background="#E8E8E8" CornerRadius="10" BorderThickness="5" Margin="2, 2">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"></RowDefinition>
+                    <RowDefinition Height="0.3*"></RowDefinition>
+                    <RowDefinition Height="0.3*"></RowDefinition>
+                    <RowDefinition Height="0.3*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <!-- Title and Icon-->
+                <StackPanel Orientation="Horizontal" Grid.Row="0">
+                    <TextBlock FontSize="22" Margin="10, 10, 0, 0" FontFamily="Roboto" TextDecorations="Underline">FORMAL</TextBlock>
+                    <materialDesign:PackIcon Kind="Paper" Width="24" Height="24" VerticalAlignment="Center" Margin="2, 5, 0, 0"></materialDesign:PackIcon>
+                </StackPanel>
+                <!-- Reference Number-->
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40"></ColumnDefinition>
+                        <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <materialDesign:PackIcon Kind="FormatListNumberedRightToLeft" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
+                    <TextBox Grid.Column="1"
+                materialDesign:HintAssist.Hint="REFERENCE NUMBER"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                VerticalAlignment="Center" 
+                          Margin="0, 2, 2, 0"/>
+                </Grid>
+                <!-- Document Reference-->
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40"></ColumnDefinition>
+                        <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <materialDesign:PackIcon Kind="FileDocumentBox" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
+                    <TextBox Grid.Column="1"
+                materialDesign:HintAssist.Hint="DOCUMENT REFERENCE"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                VerticalAlignment="Center" 
+                         Margin="0, 2, 2, 0"/>
+                </Grid>
+                <!-- Date & Time Pick-->
+                <Grid Grid.Row="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40"></ColumnDefinition>
+                        <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                        <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <materialDesign:PackIcon Kind="Calendar" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
+
+                    <DatePicker Grid.Column="1"  Margin="0, 2, 2, 0"            
+                    materialDesign:HintAssist.Hint="Pick Date"
+                    Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+
+                    <materialDesign:TimePicker Grid.Column="2"  Margin="0, 8, 2, 0"
+                    Style="{StaticResource MaterialDesignFloatingHintTimePicker}"
+                    Is24Hours="True"
+                    materialDesign:HintAssist.Hint="Pick Time" 
+                    x:Name="PresetTimePicker"
+                   />
+                </Grid>
+            </Grid>
+        </Border>
+        <!-- Border for Save -->
+        <Border Grid.Column="0" Grid.Row="2" Background="#E8E8E8" CornerRadius="10" BorderThickness="5" Margin="2, 2">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"></RowDefinition>
+                    <RowDefinition Height="0.3*"></RowDefinition>
+                    <RowDefinition Height="0.3*"></RowDefinition>
+                    <RowDefinition Height="0.3*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <!-- Title and Icon -->
+                <StackPanel Orientation="Horizontal" Grid.Row="0">
+                    <TextBlock FontSize="22" Margin="10, 10, 0, 0" FontFamily="Roboto" TextDecorations="Underline">SAVE</TextBlock>
+                    <materialDesign:PackIcon Kind="ContentSave" Width="24" Height="24" VerticalAlignment="Center" Margin="2, 5, 0, 0"></materialDesign:PackIcon>
+                </StackPanel>
+                <!-- SAVE YES-->
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40"></ColumnDefinition>
+                        <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <materialDesign:PackIcon Kind="ThumbUp" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
+                    <Button Grid.Column="1"
+    Style="{StaticResource MaterialDesignFlatDarkBgButton}"
+    ToolTip="MaterialDesignFlatDarkButton">
+                        YES
+                    </Button>
+                </Grid>
+                <!-- SAVE NO-->
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40"></ColumnDefinition>
+                        <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <materialDesign:PackIcon Kind="ThumbDown" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
+                    <Button Grid.Column="1"
+                             Style="{StaticResource MaterialDesignFlatLightBgButton}"
+     
+    ToolTip="MaterialDesignFlatAccentBackgroundButton">
+                        NO
+                    </Button>
+                </Grid>
+                <!-- CANCEL -->
+                <Grid Grid.Row="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40"></ColumnDefinition>
+                        <ColumnDefinition Width="0.5*"></ColumnDefinition>
+
+                    </Grid.ColumnDefinitions>
+                    <materialDesign:PackIcon Kind="Cancel" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
+                    <Button Grid.Column="1"
+    Style="{StaticResource MaterialDesignFlatAccentBgButton}"
+    ToolTip="MaterialDesignFlatLightButton">
+                        CANCEL
+                    </Button>
+                </Grid>
+            </Grid>
+        </Border>
+        <!-- Border for Pangolin Edit-->
+        <Border Grid.Column="2" Grid.Row="0" Grid.RowSpan="3" Background="#E8E8E8" CornerRadius="10" BorderThickness="5" Margin="2, 2">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"></RowDefinition>
+                    <RowDefinition Height="0.3*"></RowDefinition>
+                    <RowDefinition Height="0.3*"></RowDefinition>
+                    <RowDefinition Height="0.3*"></RowDefinition>
+                    <RowDefinition Height="0.3*"></RowDefinition>
+                    <RowDefinition Height="0.3*"></RowDefinition>
+                    <RowDefinition Height="0.3*"></RowDefinition>
+                    <RowDefinition Height="0.5*"></RowDefinition>
+                    <RowDefinition Height="0.5*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                    <ColumnDefinition Width="25"></ColumnDefinition>
+                    <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <!-- Title and Icon -->
+                <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3">
+                    <TextBlock FontSize="22" Margin="10, 10, 0, 0" FontFamily="Roboto" TextDecorations="Underline">PANGOLIN DATA</TextBlock>
+                    <Image Width="24" Height="24" VerticalAlignment="Center" Margin="2, 5, 0, 0" Source="/Icons/Pangolin.png"></Image>
+                </StackPanel>
+                <!-- NAME -->
+                <Grid Grid.Row="1" Grid.Column="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40"></ColumnDefinition>
+                        <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <materialDesign:PackIcon Kind="Rename" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
+                    <TextBox Grid.Column="1"
+                materialDesign:HintAssist.Hint="NAME"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                VerticalAlignment="Center" 
+                         Margin="2, 2, 2, 0"/>
+                </Grid>
+                <!-- Gender -->
+                <Grid Grid.Row="2" Grid.Column="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40"></ColumnDefinition>
+                        <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <materialDesign:PackIcon Kind="GenderMaleFemale" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
+                    <ComboBox Grid.Column="1"
+                               materialDesign:HintAssist.Hint="GENDER"
+                              Margin="2, 2, 2, 0"
+                              VerticalAlignment="Center">
+                        <ComboBoxItem>
+                            Male
+                        </ComboBoxItem>
+                        <ComboBoxItem>
+                            Female
+                        </ComboBoxItem>
+                    </ComboBox>
+                </Grid>
+                <!-- Weight-->
+                <Grid Grid.Row="3" Grid.Column="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40"></ColumnDefinition>
+                        <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <materialDesign:PackIcon Kind="Weight" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
+                    <TextBox Grid.Column="1"
+                materialDesign:HintAssist.Hint="WEIGHT"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                VerticalAlignment="Center" 
+                         Margin="2, 2, 2, 0"/>
+                </Grid>
+                <!-- Parasites -->
+                <Grid Grid.Row="4" Grid.Column="0" Margin="0, 3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40"></ColumnDefinition>
+                        <ColumnDefinition Width="0.4*"></ColumnDefinition>
+
+                    </Grid.ColumnDefinitions>
+                    <materialDesign:PackIcon Kind="Insect" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
+                    <materialDesign:ColorZone Grid.Column="1" VerticalAlignment="Center"
+                    Mode="Light">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="75"></ColumnDefinition>
+                                <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                                <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock VerticalAlignment="Center" FontSize="18" Grid.Column="0" HorizontalAlignment="Center"> 
+                                Parasites
+                            </TextBlock>
+                            <RadioButton Grid.Column="1"
+                              Style="{StaticResource MaterialDesignDarkRadioButton}"
+                            IsChecked="True"
+                            Content="YES"
+                                         FontSize="16"
+                                         HorizontalContentAlignment="Center"
+                                         HorizontalAlignment="Center"
+                                         VerticalAlignment="Center"
+                                />
+                            <RadioButton Grid.Column="2"
+        Style="{StaticResource MaterialDesignDarkRadioButton}"
+      IsChecked="False"
+                                         HorizontalContentAlignment="Center"
+                                         HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                         FontSize="16"
+      Content="NO" />
+
+                        </Grid>
+                    </materialDesign:ColorZone>
+                </Grid>
+                <!-- Time in Captivity-->
+                <Grid Grid.Row="5" Grid.Column="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40"></ColumnDefinition>
+                        <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <materialDesign:PackIcon Kind="Handcuffs" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
+                    <TextBox Grid.Column="1"
+                materialDesign:HintAssist.Hint="DAYS IN CAPTIVITY"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                VerticalAlignment="Center" 
+                         Margin="2, 2, 2, 0"/>
+                </Grid>
+                <!-- Authoritive Point of contact-->
+                <Grid Grid.Row="6" Grid.Column="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40"></ColumnDefinition>
+                        <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <materialDesign:PackIcon Kind="Contact" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
+                    <TextBox Grid.Column="1"
+                materialDesign:HintAssist.Hint="AUTHORITIVE POINT OF CONTACT"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                VerticalAlignment="Center" 
+                         Margin="2, 2, 2, 0"/>
+                </Grid>
+                <!-- Criminal CASE-->
+                <Border Grid.Row="1" Grid.Column="2" Margin="3, 3" Grid.RowSpan="2" Background="#FAFAFA" CornerRadius="5">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="40"></ColumnDefinition>
+                            <ColumnDefinition Width="80"></ColumnDefinition>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="0.5*">
+                            </RowDefinition>
+                            <RowDefinition Height="0.5*">
+                            </RowDefinition>
+                        </Grid.RowDefinitions>
+                        <materialDesign:PackIcon Kind="PoliceBadge" Grid.RowSpan="2" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
+                        <TextBlock TextWrapping="Wrap" VerticalAlignment="Center" FontSize="17" Grid.Column="1" Grid.RowSpan="2" HorizontalAlignment="Center" TextAlignment="Center"> 
+                                CRIMINAL CASE
+                        </TextBlock>
+                        <RadioButton Grid.Column="2" Grid.Row="0"
+                              Style="{StaticResource MaterialDesignDarkRadioButton}"
+                            IsChecked="True"
+                            Content="CRIMINAL CASE"
+                                         FontSize="14"
+                                         HorizontalAlignment="Left"
+                                         VerticalAlignment="Center"
+                                />
+                        <RadioButton Grid.Column="2" Grid.Row="1"
+        Style="{StaticResource MaterialDesignDarkRadioButton}"
+      IsChecked="False"
+                                         HorizontalAlignment="Left"
+                                           VerticalAlignment="Center"
+                                         FontSize="14"
+      Content="HAND IN" />
+                    </Grid>
+                </Border>
+                <!-- Approx Age-->
+                <Grid Grid.Row="3" Grid.Column="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40"></ColumnDefinition>
+                        <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <materialDesign:PackIcon Kind="BirthdayCake" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
+                    <ComboBox Grid.Column="1"
+                               materialDesign:HintAssist.Hint="AGE"
+                              Margin="2, 2, 2, 0"
+                              VerticalAlignment="Center">
+                        <ComboBoxItem>
+                            Adult
+                        </ComboBoxItem>
+                        <ComboBoxItem>
+                            Young Adult (> 5KG)
+                        </ComboBoxItem>
+                        <ComboBoxItem>
+                            Juvenile
+                        </ComboBoxItem>
+                        <ComboBoxItem>
+                            Milk dependant Juvenile
+                        </ComboBoxItem>
+                        <ComboBoxItem>
+                            Neonate
+                        </ComboBoxItem>
+                    </ComboBox>
+                </Grid>
+                <!-- Health Status -->
+                <Grid Grid.Row="4" Grid.Column="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40"></ColumnDefinition>
+                        <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <materialDesign:PackIcon Kind="Heart" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
+                    <ComboBox Grid.Column="1"
+                               materialDesign:HintAssist.Hint="HEALTH STATUS"
+                              Margin="2, 2, 2, 0"
+                              VerticalAlignment="Center">
+                        <ComboBoxItem>
+                            1 (Severely compromised and thin)
+                        </ComboBoxItem>
+                        <ComboBoxItem>
+                            2  (thin but able to walk)
+                        </ComboBoxItem>
+                        <ComboBoxItem>
+                            3 (average condition)
+                        </ComboBoxItem>
+                        <ComboBoxItem>
+                            4 (good condition)
+                        </ComboBoxItem>
+                        <ComboBoxItem>
+                            5 (excellent condition)
+                        </ComboBoxItem>
+                    </ComboBox>
+                </Grid>
+                <!-- Origin -->
+                <Grid Grid.Row="5" Grid.Column="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40"></ColumnDefinition>
+                        <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <materialDesign:PackIcon Kind="Map" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
+                    <TextBox Grid.Column="1"
+                materialDesign:HintAssist.Hint="ORIGIN"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                VerticalAlignment="Center" 
+                         Margin="2, 2, 2, 0"/>
+                </Grid>
+                <!-- Mode of Transport-->
+                <Grid Grid.Row="6" Grid.Column="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40"></ColumnDefinition>
+                        <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <materialDesign:PackIcon Kind="Transportation" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
+                    <TextBox Grid.Column="1"
+                materialDesign:HintAssist.Hint="MODE OF TRANSPORT"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                VerticalAlignment="Center" 
+                         Margin="2, 2, 2, 0"/>
+                </Grid>
+                <!-- DETAILS OF RECEIVING & ANY OTHER CIRCUMSTANCES-->
+                <Grid Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40"></ColumnDefinition>
+                        <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <materialDesign:PackIcon Kind="Package" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
+                    <TextBox Grid.Column="1"
+                materialDesign:HintAssist.Hint="DETAILS OF RECEIVING AND CIRCUMSTANCES"
+                AcceptsReturn="True"
+                VerticalScrollBarVisibility="Auto"
+                             Background="#FAFAFA"                             
+                VerticalAlignment="Bottom"
+                            TextWrapping="Wrap"                             
+                         Margin="2,0,2,0" MinHeight="60"/>
+                </Grid>
+                <!-- DISTINGUISHING MARKS OR DISFIGURATIONS-->
+                <Grid Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40"></ColumnDefinition>
+                        <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <materialDesign:PackIcon Kind="Mustache" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
+                    <TextBox Grid.Column="1"
+                materialDesign:HintAssist.Hint="DISTINGUISHING MARKS OR DISFIGURATIONS"
+                AcceptsReturn="True"
+                VerticalScrollBarVisibility="Auto"
+                             Background="#FAFAFA"                             
+                VerticalAlignment="Bottom"
+                            TextWrapping="Wrap"                             
+                         Margin="2,0,2,0" MinHeight="60"/>
+                </Grid>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

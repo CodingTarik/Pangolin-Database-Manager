@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pangolin_Database_App.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -21,6 +22,18 @@ namespace Pangolin_Database_App.Views
         public MainMenuView()
         {
             InitializeComponent();
+        }
+      
+        /// <summary>
+        /// If button for "add new pangolin" is pressed then swicht datacontext to new "add pangolin view model"
+        /// </summary>
+        /// <author>Tarik A.</author>
+        /// 
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AddNewPangolinButton_Click(object sender, RoutedEventArgs e)
+        {
+            Window.GetWindow(this).DataContext = new AddPangolinViewModel();
         }
     }
 }

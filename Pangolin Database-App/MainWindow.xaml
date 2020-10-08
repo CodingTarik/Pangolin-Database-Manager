@@ -16,6 +16,9 @@
         <DataTemplate DataType="{x:Type viewmodels:MainMenuViewModel}">
             <views:MainMenuView DataContext="{Binding}"></views:MainMenuView>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:AddPangolinViewModel}">
+            <views:AddPangolinView DataContext="{Binding}"></views:AddPangolinView>
+        </DataTemplate>
     </Window.Resources>
     <Grid>
         <Border Height="32" VerticalAlignment="Top">

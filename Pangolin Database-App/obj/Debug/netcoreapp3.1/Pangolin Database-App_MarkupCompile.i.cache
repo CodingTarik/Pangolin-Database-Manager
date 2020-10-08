@@ -1,5 +1,5 @@
 ﻿Pangolin Database-App
-
+1.0.0.0
 
 winexe
 C#
@@ -12,9 +12,9 @@ TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1
 D:\Programmierprojekte\Pangolin\Pangolin Database-App\App.xaml
 4-209737705
 
-8-1848226781
+101569594688
 194-1601837629
 MainWindow.xaml;Views\AddPangolinView.xaml;Views\LoginView.xaml;Views\MainMenuView.xaml;
 
-False
+True
 
