@@ -28,3 +28,7 @@ D:\Programmierprojekte\Pangolin\Pangolin Database-App\obj\Debug\netcoreapp3.1\Vi
 D:\Programmierprojekte\Pangolin\Pangolin Database-App\obj\Debug\netcoreapp3.1\GeneratedInternalTypeHelper.g.cs
 D:\Programmierprojekte\Pangolin\Pangolin Database-App\obj\Debug\netcoreapp3.1\Views\AddPangolinView.g.cs
 D:\Programmierprojekte\Pangolin\Pangolin Database-App\obj\Debug\netcoreapp3.1\Views\AddPangolinView.baml
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\obj\Debug\netcoreapp3.1\User Controls\SaveControl.g.cs
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\obj\Debug\netcoreapp3.1\Views\DailyActivitySheetView.g.cs
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\obj\Debug\netcoreapp3.1\User Controls\SaveControl.baml
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\obj\Debug\netcoreapp3.1\Views\DailyActivitySheetView.baml

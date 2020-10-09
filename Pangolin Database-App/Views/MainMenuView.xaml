@@ -34,7 +34,7 @@
                     <materialDesign:PackIcon Kind="Edit" Height="24" Width="24"></materialDesign:PackIcon>
                 </StackPanel>
             </Button>
-            <Button>
+            <Button Click="DailyActivitySheet_Click">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock>DAILY RECORDING</TextBlock>
                     <materialDesign:PackIcon Kind="CalendarDay" Height="24" Width="24"></materialDesign:PackIcon>

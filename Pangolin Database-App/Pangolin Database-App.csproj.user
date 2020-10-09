@@ -7,7 +7,13 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="User Controls\SaveControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\AddPangolinView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\DailyActivitySheetView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\LoginView.xaml.cs">
@@ -21,7 +27,13 @@
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="User Controls\SaveControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\AddPangolinView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\DailyActivitySheetView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\LoginView.xaml">

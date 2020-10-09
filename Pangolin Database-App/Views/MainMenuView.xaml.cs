@@ -35,5 +35,15 @@ namespace Pangolin_Database_App.Views
         {
             Window.GetWindow(this).DataContext = new AddPangolinViewModel();
         }
+
+        /// <summary>
+        /// If button for "daily activity sheet" is pressed the switch datacontext to new "daily activity sheet view model"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DailyActivitySheet_Click(object sender, RoutedEventArgs e)
+        {
+            Window.GetWindow(this).DataContext = new DailyActivitySheetViewModel();
+        }
     }
 }

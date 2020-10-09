@@ -8,10 +8,14 @@
         xmlns:views="clr-namespace:Pangolin_Database_App.Views"
         xmlns:local="clr-namespace:Pangolin_Database_App"
         mc:Ignorable="d"
-        Title="Pangolin - Database" MinHeight="485" MinWidth="800" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="CanResizeWithGrip">
+        Title="Pangolin - Database" MinHeight="500" MinWidth="800" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="CanResizeWithGrip">
+    
+    <!-- Definition of Caption Heights-->
     <WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="32"></WindowChrome>
     </WindowChrome.WindowChrome>
+    
+    <!-- Window Resources & DataTemplates-->
     <Window.Resources>
         <DataTemplate DataType="{x:Type viewmodels:MainMenuViewModel}">
             <views:MainMenuView DataContext="{Binding}"></views:MainMenuView>
@@ -19,8 +23,13 @@
         <DataTemplate DataType="{x:Type viewmodels:AddPangolinViewModel}">
             <views:AddPangolinView DataContext="{Binding}"></views:AddPangolinView>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:DailyActivitySheetViewModel}">
+            <views:DailyActivitySheetView DataContext="{Binding}"></views:DailyActivitySheetView>
+        </DataTemplate>
     </Window.Resources>
+    
     <Grid>
+        <!-- Caption Border-->
         <Border Height="32" VerticalAlignment="Top">
             <Border.Background>
                 <LinearGradientBrush>
@@ -36,17 +45,58 @@
                     <ColumnDefinition Width="35"></ColumnDefinition>
                     <ColumnDefinition Width="35"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <StackPanel Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center">
-                    <materialDesign:PackIcon Kind="WindowMinimize"></materialDesign:PackIcon>
-                </StackPanel>
-                <StackPanel Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center">
-                    <materialDesign:PackIcon Kind="WindowMaximize"></materialDesign:PackIcon>
-                </StackPanel>
-                <StackPanel Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center">
-                    <materialDesign:PackIcon Kind="WindowClose"></materialDesign:PackIcon>
-                </StackPanel>
+                <!-- Window Minimize-->
+                <Grid Grid.Column="2" WindowChrome.IsHitTestVisibleInChrome="True" MouseDown="MinimizeWindow_Click">
+                    <materialDesign:PackIcon Kind="WindowMinimize" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
+                    <Grid.Style>
+                        <Style TargetType="Grid">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="LightGray"></Setter>
+                                </Trigger>
+                                <Trigger Property="IsMouseOver" Value="False">
+                                    <Setter Property="Background" Value="Transparent"></Setter>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Grid.Style>
+                </Grid>
+                <!-- Window Maximize-->
+                <Grid Grid.Column="3" WindowChrome.IsHitTestVisibleInChrome="True" MouseDown="WindowMaximize_Click">
+                    <materialDesign:PackIcon Kind="WindowMaximize" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
+                    <Grid.Style>
+                        <Style TargetType="Grid">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="LightGray"></Setter>
+                                </Trigger>
+                                <Trigger Property="IsMouseOver" Value="False">
+                                    <Setter Property="Background" Value="Transparent"></Setter>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Grid.Style>
+                </Grid>
+                <!-- Close Button-->
+                <Grid Grid.Column="4" WindowChrome.IsHitTestVisibleInChrome="True" MouseDown="WindowClose_Click">
+                    <materialDesign:PackIcon Kind="WindowClose" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
+                    <Grid.Style>
+                        <Style TargetType="Grid">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="Red"></Setter>
+                                </Trigger>
+                                <Trigger Property="IsMouseOver" Value="False">
+                                    <Setter Property="Background" Value="Transparent"></Setter>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Grid.Style>
+                </Grid>
             </Grid>
         </Border>
+        
+        <!-- Content-->
         <ContentControl Content="{Binding}" Margin="0,32,0,0"/>
     </Grid>
 </Window>
