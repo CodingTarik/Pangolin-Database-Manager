@@ -35,6 +35,9 @@
         <DataTemplate DataType="{x:Type viewmodels:InterdepartmentalMovementViewModel}">
             <views:InterdepartmentalMovementView DataContext="{Binding}"></views:InterdepartmentalMovementView>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:PhysicalMesaurementsViewModel}">
+            <views:PhysicalMeasurementsView DataContext="{Binding}"></views:PhysicalMeasurementsView>
+        </DataTemplate>
     </Window.Resources>
     
     <Grid>

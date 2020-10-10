@@ -66,9 +66,24 @@ namespace Pangolin_Database_App.Views
             Window.GetWindow(this).DataContext = new VeterinaryTreatmentViewModel();
         }
 
+        /// <summary>
+        /// If button "interdepartmentmovement" is pressed, then switch to new datacontext "interdepartment movement"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void InterdepartmentMovement_Click(object sender, RoutedEventArgs e)
         {
             Window.GetWindow(this).DataContext = new InterdepartmentalMovementViewModel();
+        }
+
+        /// <summary>
+        /// If button "physical measurement" is pressed, then switch to new datacontext "physical measurements"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void PhysicalMeasurements_Click(object sender, RoutedEventArgs e)
+        {
+            Window.GetWindow(this).DataContext = new PhysicalMesaurementsViewModel();
         }
     }
 }

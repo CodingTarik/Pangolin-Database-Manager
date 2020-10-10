@@ -1,0 +1,178 @@
+﻿<UserControl x:Class="Pangolin_Database_App.Views.PhysicalMeasurementsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:customcontrols="clr-namespace:Pangolin_Database_App.User_Controls"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:Pangolin_Database_App.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.3*"></ColumnDefinition>
+            <ColumnDefinition Width="25"></ColumnDefinition>
+            <ColumnDefinition Width="0.9*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="0.5*"></RowDefinition>
+            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition Height="0.6*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <!-- Title and Icon-->
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" >
+            <materialDesign:PackIcon Kind="Ruler" VerticalAlignment="Center" Width="32" Height="32"></materialDesign:PackIcon>
+            <TextBlock FontFamily="Roboto" FontSize="22" VerticalAlignment="Center">Physical Measurements</TextBlock>
+        </StackPanel>
+        <!-- Formals -->
+        <Border Grid.Column="0" Grid.Row="1" Background="#E8E8E8" CornerRadius="10" BorderThickness="5" Margin="2, 2">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"></RowDefinition>
+                    <RowDefinition Height="0.3*"></RowDefinition>
+                    <RowDefinition Height="0.3*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <!-- Title and Icon-->
+                <StackPanel Orientation="Horizontal" Grid.Row="0">
+                    <TextBlock FontSize="22" Margin="10, 10, 0, 0" FontFamily="Roboto" TextDecorations="Underline">FORMAL</TextBlock>
+                    <materialDesign:PackIcon Kind="Paper" Width="24" Height="24" VerticalAlignment="Center" Margin="2, 5, 0, 0"></materialDesign:PackIcon>
+                </StackPanel>
+                <!-- Reference Number-->
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40"></ColumnDefinition>
+                        <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <materialDesign:PackIcon Kind="FormatListNumberedRightToLeft" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
+                    <ComboBox Grid.Row="0" Grid.Column="1"
+                    Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                    IsEditable="True"
+                    materialDesign:TextFieldAssist.HasClearButton="True"                                  
+                    materialDesign:HintAssist.Hint="REFERENCE NUMBER">
+                    </ComboBox>
+                </Grid>
+                <!-- Date & Time Pick-->
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40"></ColumnDefinition>
+                        <ColumnDefinition Width="0.5*"></ColumnDefinition>
+
+                    </Grid.ColumnDefinitions>
+                    <materialDesign:PackIcon Kind="Calendar" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
+
+                    <DatePicker Grid.Column="1"  Margin="0, 2, 2, 0"            
+                    materialDesign:HintAssist.Hint="Pick Date"
+                    Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                </Grid>
+            </Grid>
+        </Border>
+        <!-- Save Control-->
+        <customcontrols:SaveControl Grid.Column="0" Grid.Row="3"></customcontrols:SaveControl>
+        <!-- Template Control -->
+        <Border Grid.Column="2" Grid.Row="1" Grid.RowSpan="3" Background="#E8E8E8" CornerRadius="10" BorderThickness="5" Margin="2, 2">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25"></RowDefinition>
+                    <RowDefinition Height="0.3*"></RowDefinition>
+                    <RowDefinition Height="0.3*"></RowDefinition>
+                    <RowDefinition Height="0.3*"></RowDefinition>
+                    <RowDefinition Height="0.3*"></RowDefinition>
+                    <RowDefinition Height="0.3*"></RowDefinition>
+                    <RowDefinition Height="0.3*"></RowDefinition>
+                    <RowDefinition Height="0.5*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                    <ColumnDefinition Width="5"></ColumnDefinition>
+                    <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                    <ColumnDefinition Width="5"></ColumnDefinition>
+                    <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <!-- Title and Icon -->
+                <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4">
+                    <TextBlock FontSize="22" Margin="10, 0, 0, 0" FontFamily="Roboto" TextDecorations="Underline" VerticalAlignment="Center">MEASUREMENTS</TextBlock>
+                    <materialDesign:PackIcon Kind="Resize" Width="24" Height="24" VerticalAlignment="Center"></materialDesign:PackIcon>
+                </StackPanel>
+                <!-- Column 1-->
+                <TextBox Grid.Row="1" Grid.Column="0" materialDesign:HintAssist.Hint="BODY LENGTH (CDL) CURLED" 
+                         materialDesign:HintAssist.HelperText="TIP OF NOSE TO TIP OF TAIL" 
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                         VerticalAlignment="Center"></TextBox>
+                <TextBox Grid.Row="2" Grid.Column="0" materialDesign:HintAssist.Hint="LENGTH OF BODY (dorsal)" 
+                         materialDesign:HintAssist.HelperText="ANUS TO TIP" 
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                         VerticalAlignment="Center"></TextBox>
+                <TextBox Grid.Row="3" Grid.Column="0" materialDesign:HintAssist.Hint="FLESH PORTION OF NOS" 
+                         materialDesign:HintAssist.HelperText="WITHOUT LOSS OF SCALES" 
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                         VerticalAlignment="Center"></TextBox>
+                <TextBox Grid.Row="4" Grid.Column="0" materialDesign:HintAssist.Hint="LEFT LEG - LENGTH" 
+                         materialDesign:HintAssist.HelperText="" 
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                         VerticalAlignment="Center"></TextBox>
+                <TextBox Grid.Row="5" Grid.Column="0" materialDesign:HintAssist.Hint="RIGHT LEG - LENGTH" 
+                         materialDesign:HintAssist.HelperText="" 
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                         VerticalAlignment="Center"></TextBox>
+                <TextBox Grid.Row="6" Grid.Column="0" materialDesign:HintAssist.Hint="SCALE PATTERN" 
+                         materialDesign:HintAssist.HelperText="DORSAL LINE HEAD TO TAIL" 
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                         VerticalAlignment="Center"></TextBox>
+                <!-- Column 2 -->
+                <TextBox Grid.Row="1" Grid.Column="2" materialDesign:HintAssist.Hint="CDL IF ANAETHETISED" 
+                         materialDesign:HintAssist.HelperText="TIP OF NOSE TO TIP OF TAIL" 
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                         VerticalAlignment="Center"></TextBox>
+                <TextBox Grid.Row="2" Grid.Column="2" materialDesign:HintAssist.Hint="LENGTH OF TAIL (VENTRAL)" 
+                         materialDesign:HintAssist.HelperText="ANUS TO TIP" 
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"  
+                         VerticalAlignment="Center"></TextBox>
+                <TextBox Grid.Row="3" Grid.Column="2" materialDesign:HintAssist.Hint="FLESH PORTION OF NOSE" 
+                         materialDesign:HintAssist.HelperText="WITH LOSS OF SCALES" 
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                         VerticalAlignment="Center"></TextBox>
+                <TextBox Grid.Row="4" Grid.Column="2" materialDesign:HintAssist.Hint="LEFT FOOT - WIDTH" 
+                         materialDesign:HintAssist.HelperText="" 
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                         VerticalAlignment="Center"></TextBox>
+                <TextBox Grid.Row="5" Grid.Column="2" materialDesign:HintAssist.Hint="RIGHT FOOT - WIDTH" 
+                         materialDesign:HintAssist.HelperText="" 
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                         VerticalAlignment="Center"></TextBox>
+                <!-- Column 3-->
+                <TextBox Grid.Row="1" Grid.Column="4" materialDesign:HintAssist.Hint="HEAD MEASUREMENT" 
+                         materialDesign:HintAssist.HelperText="BETWEEN EYES" 
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                         VerticalAlignment="Center"></TextBox>
+                <TextBox Grid.Row="2" Grid.Column="4" materialDesign:HintAssist.Hint="HEAD MEASUREMENT" 
+                         materialDesign:HintAssist.HelperText="FROM BASE SKULL TO TIP OF NOSE" 
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                         VerticalAlignment="Center"></TextBox>
+                <TextBox Grid.Row="3" Grid.Column="4" materialDesign:HintAssist.Hint="GIRTH" 
+                         materialDesign:HintAssist.HelperText="AT LAST SET OF RIBS" 
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                         VerticalAlignment="Center"></TextBox>
+                <TextBox Grid.Row="4" Grid.Column="4" materialDesign:HintAssist.Hint="LEFT FOOT - LENGTH" 
+                         materialDesign:HintAssist.HelperText="" 
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                         VerticalAlignment="Center"></TextBox>
+                <TextBox Grid.Row="5" Grid.Column="4" materialDesign:HintAssist.Hint="RIGHT FOOT - LENGTH" 
+                         materialDesign:HintAssist.HelperText="" 
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                         VerticalAlignment="Center"></TextBox>
+                <TextBox Grid.Row="6" Grid.Column="4" materialDesign:HintAssist.Hint="SCALE PATTERN" 
+                         materialDesign:HintAssist.HelperText="VENTRAL LINE TAIL" 
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                         VerticalAlignment="Center"></TextBox>
+                <!-- Other Observations-->
+                <TextBox Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="5" materialDesign:HintAssist.Hint="OTHER OBSERVATIONS" 
+                         materialDesign:HintAssist.HelperText="" 
+                         AcceptsReturn="True"
+                         TextWrapping="Wrap"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                         VerticalAlignment="Center"></TextBox>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>
