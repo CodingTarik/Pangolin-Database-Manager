@@ -45,5 +45,25 @@ namespace Pangolin_Database_App.Views
         {
             Window.GetWindow(this).DataContext = new DailyActivitySheetViewModel();
         }
+
+        /// <summary>
+        /// If button for "Infant feeding" is pressed, then switch to new datacontext "infant feeding view model"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void InfantFeeding_Click(object sender, RoutedEventArgs e)
+        {
+            Window.GetWindow(this).DataContext = new InfantFeedingViewModel();
+        }
+
+        /// <summary>
+        /// If button for "veterinary treatment" is pressed, then switch to new datacontext "veterinary treatment"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void VeterinaryTreatment_Click(object sender, RoutedEventArgs e)
+        {
+            Window.GetWindow(this).DataContext = new VeterinaryTreatmentViewModel();
+        }
     }
 }

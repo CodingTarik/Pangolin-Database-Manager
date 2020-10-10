@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1
 D:\Programmierprojekte\Pangolin\Pangolin Database-App\App.xaml
-6-236651881
+91303186235
 
-14-515279928
+19-715404845
 194-1601837629
-MainWindow.xaml;User Controls\SaveControl.xaml;Views\AddPangolinView.xaml;Views\DailyActivitySheetView.xaml;Views\LoginView.xaml;Views\MainMenuView.xaml;
+MainWindow.xaml;User Controls\SaveControl.xaml;Views\AddPangolinView.xaml;Views\DailyActivitySheetView.xaml;Views\InfantFeedingView.xaml;Views\LoginView.xaml;Views\MainMenuView.xaml;Views\TemplateView.xaml;Views\VeterinaryTreatmentView.xaml;
 
-False
+True
 

@@ -40,13 +40,13 @@
                     <materialDesign:PackIcon Kind="CalendarDay" Height="24" Width="24"></materialDesign:PackIcon>
                 </StackPanel>
             </Button>
-            <Button>
+            <Button Click="InfantFeeding_Click">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock>INFANT FEEDING</TextBlock>
                     <materialDesign:PackIcon Kind="FoodVariant" Height="24" Width="24"></materialDesign:PackIcon>
                 </StackPanel>
             </Button>
-            <Button>
+            <Button Click="VeterinaryTreatment_Click">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock>VETERINARY TREATMENT</TextBlock>
                     <materialDesign:PackIcon Kind="Doctor" Height="24" Width="24"></materialDesign:PackIcon>

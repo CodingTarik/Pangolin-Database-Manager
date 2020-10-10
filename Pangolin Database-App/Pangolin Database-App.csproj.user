@@ -16,10 +16,19 @@
     <Compile Update="Views\DailyActivitySheetView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\InfantFeedingView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\LoginView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\MainMenuView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\TemplateView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\VeterinaryTreatmentView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -36,10 +45,19 @@
     <Page Update="Views\DailyActivitySheetView.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Views\InfantFeedingView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\LoginView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\MainMenuView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\TemplateView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\VeterinaryTreatmentView.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

@@ -26,6 +26,12 @@
         <DataTemplate DataType="{x:Type viewmodels:DailyActivitySheetViewModel}">
             <views:DailyActivitySheetView DataContext="{Binding}"></views:DailyActivitySheetView>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:InfantFeedingViewModel}">
+            <views:InfantFeedingView DataContext="{Binding}"></views:InfantFeedingView>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:VeterinaryTreatmentViewModel}">
+            <views:VeterinaryTreatmentView DataContext="{Binding}"></views:VeterinaryTreatmentView>
+        </DataTemplate>
     </Window.Resources>
     
     <Grid>
