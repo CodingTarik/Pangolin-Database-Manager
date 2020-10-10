@@ -58,7 +58,7 @@
                     <materialDesign:PackIcon Kind="Cancel" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
                     <Button Grid.Column="1"
     Style="{StaticResource MaterialDesignFlatAccentBgButton}"
-    ToolTip="MaterialDesignFlatLightButton" Click="CancelClick">
+    ToolTip="MaterialDesignFlatLightButton" Click="CancelClick" Cursor="Hand">
                         CANCEL
                     </Button>
                 </Grid>

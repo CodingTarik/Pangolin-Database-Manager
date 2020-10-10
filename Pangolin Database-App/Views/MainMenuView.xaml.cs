@@ -65,5 +65,10 @@ namespace Pangolin_Database_App.Views
         {
             Window.GetWindow(this).DataContext = new VeterinaryTreatmentViewModel();
         }
+
+        private void InterdepartmentMovement_Click(object sender, RoutedEventArgs e)
+        {
+            Window.GetWindow(this).DataContext = new InterdepartmentalMovementViewModel();
+        }
     }
 }

@@ -32,6 +32,9 @@
         <DataTemplate DataType="{x:Type viewmodels:VeterinaryTreatmentViewModel}">
             <views:VeterinaryTreatmentView DataContext="{Binding}"></views:VeterinaryTreatmentView>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:InterdepartmentalMovementViewModel}">
+            <views:InterdepartmentalMovementView DataContext="{Binding}"></views:InterdepartmentalMovementView>
+        </DataTemplate>
     </Window.Resources>
     
     <Grid>

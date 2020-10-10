@@ -19,6 +19,9 @@
     <Compile Update="Views\InfantFeedingView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\InterdepartmentalMovementView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\LoginView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -46,6 +49,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\InfantFeedingView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\InterdepartmentalMovementView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\LoginView.xaml">

@@ -52,7 +52,7 @@
                     <materialDesign:PackIcon Kind="Doctor" Height="24" Width="24"></materialDesign:PackIcon>
                 </StackPanel>
             </Button>
-            <Button>
+            <Button Click="InterdepartmentMovement_Click">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock>INTERDEPARTMENT MOVEMENT</TextBlock>
                     <materialDesign:PackIcon Kind="Map" Height="24" Width="24"></materialDesign:PackIcon>

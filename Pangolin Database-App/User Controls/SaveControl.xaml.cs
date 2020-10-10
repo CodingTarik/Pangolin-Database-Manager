@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pangolin_Database_App.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -47,8 +48,9 @@ namespace Pangolin_Database_App.User_Controls
         {
             if(CancelClickEvent != null)
             {
-                CancelClickEvent(this, EventArgs.Empty);
+                CancelClickEvent(this, EventArgs.Empty);              
             }
+            Window.GetWindow(this).DataContext = new MainMenuViewModel();
         }
     }
 }
