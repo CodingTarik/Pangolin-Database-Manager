@@ -1,13 +1,13 @@
-﻿ <UserControl x:Class="Pangolin_Database_App.Views.TemplateView"
+﻿<UserControl x:Class="Pangolin_Database_App.Views.MicrochipView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Pangolin_Database_App.Views"
-             xmlns:customcontrols="clr-namespace:Pangolin_Database_App.User_Controls"
+              xmlns:customcontrols="clr-namespace:Pangolin_Database_App.User_Controls"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="500" d:DesignWidth="800">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.3*"></ColumnDefinition>
@@ -22,8 +22,8 @@
         </Grid.RowDefinitions>
         <!-- Title and Icon-->
         <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" >
-            <materialDesign:PackIcon Kind="CalendarDay" VerticalAlignment="Center" Width="32" Height="32"></materialDesign:PackIcon>
-            <TextBlock FontFamily="Roboto" FontSize="22" VerticalAlignment="Center">Daily Activity Sheet</TextBlock>
+            <materialDesign:PackIcon Kind="Chip32Bit" VerticalAlignment="Center" Width="32" Height="32"></materialDesign:PackIcon>
+            <TextBlock FontFamily="Roboto" FontSize="22" VerticalAlignment="Center">MICROCHIP</TextBlock>
         </StackPanel>
         <!-- Formals -->
         <Border Grid.Column="0" Grid.Row="1" Background="#E8E8E8" CornerRadius="10" BorderThickness="5" Margin="2, 2">
@@ -77,10 +77,6 @@
                     <RowDefinition Height="0.3*"></RowDefinition>
                     <RowDefinition Height="0.3*"></RowDefinition>
                     <RowDefinition Height="0.3*"></RowDefinition>
-                    <RowDefinition Height="0.3*"></RowDefinition>
-                    <RowDefinition Height="0.3*"></RowDefinition>
-                    <RowDefinition Height="0.3*"></RowDefinition>
-                    <RowDefinition Height="0.5*"></RowDefinition>
                     <RowDefinition Height="0.5*"></RowDefinition>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
@@ -90,9 +86,67 @@
                 </Grid.ColumnDefinitions>
                 <!-- Title and Icon -->
                 <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3">
-                    <TextBlock FontSize="22" Margin="10, 0, 0, 0" FontFamily="Roboto" TextDecorations="Underline" VerticalAlignment="Center">TEMPLATE</TextBlock>
-                    <materialDesign:PackIcon Kind="Baseball" Width="24" Height="24" VerticalAlignment="Center"></materialDesign:PackIcon>
+                    <TextBlock FontSize="22" Margin="10, 0, 0, 0" FontFamily="Roboto" TextDecorations="Underline" VerticalAlignment="Center">MICROCHIP</TextBlock>
+                    <materialDesign:PackIcon Kind="Computer" Width="24" Height="24" VerticalAlignment="Center"></materialDesign:PackIcon>
                 </StackPanel>
+                <!-- Textbox -->
+                <!-- CHIP NUMBER -->
+                <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40"></ColumnDefinition>
+                        <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <materialDesign:PackIcon Kind="Number1Box" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
+                    <TextBox Grid.Column="1"
+                             VerticalAlignment="Center"
+                materialDesign:HintAssist.Hint="CHIP NUMBER"
+                             TextWrapping="Wrap"
+                             AcceptsReturn="True"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                />
+                </Grid>
+                <!-- MANUFACTURER-->
+                <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40"></ColumnDefinition>
+                        <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <materialDesign:PackIcon Kind="Manufacturing" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
+                    <TextBox Grid.Column="1"
+                             VerticalAlignment="Center"
+                materialDesign:HintAssist.Hint="MANUFACTURER"
+                             TextWrapping="Wrap"
+                             AcceptsReturn="True"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                />
+                </Grid>
+                <!-- TESTED -->
+                <Grid Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40"></ColumnDefinition>
+                        <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <materialDesign:PackIcon Kind="Assistant" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
+                    <ComboBox Grid.Column="1" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="TESTED" >
+                        <ComboBoxItem>YES</ComboBoxItem>
+                        <ComboBoxItem>NO</ComboBoxItem>
+                    </ComboBox>
+                </Grid>
+                <!-- COMMENTS OR OBSERVATIONS-->
+                <Grid Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40"></ColumnDefinition>
+                        <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <materialDesign:PackIcon Kind="Comment" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
+                    <TextBox Grid.Column="1"
+                             VerticalAlignment="Center"
+                materialDesign:HintAssist.Hint="COMMENTS OR OBSERVATIONS"
+                             TextWrapping="Wrap"
+                             AcceptsReturn="True"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                />
+                </Grid>
             </Grid>
         </Border>
     </Grid>

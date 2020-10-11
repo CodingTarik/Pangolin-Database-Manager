@@ -38,6 +38,15 @@
         <DataTemplate DataType="{x:Type viewmodels:PhysicalMesaurementsViewModel}">
             <views:PhysicalMeasurementsView DataContext="{Binding}"></views:PhysicalMeasurementsView>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:ReleaseViewModel}">
+            <views:ReleaseView DataContext="{Binding}"></views:ReleaseView>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:MicrochipViewModel}">
+            <views:MicrochipView DataContext="{Binding}"></views:MicrochipView>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:TrackingDeviceViewModel}">
+            <views:TrackingDeviceView DataContext="{Binding}"></views:TrackingDeviceView>
+        </DataTemplate>
     </Window.Resources>
     
     <Grid>

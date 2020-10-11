@@ -28,10 +28,19 @@
     <Compile Update="Views\MainMenuView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\MicrochipView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\PhysicalMeasurementsView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\ReleaseView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\TemplateView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\TrackingDeviceView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\VeterinaryTreatmentView.xaml.cs">
@@ -63,10 +72,19 @@
     <Page Update="Views\MainMenuView.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Views\MicrochipView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\PhysicalMeasurementsView.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Views\ReleaseView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\TemplateView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\TrackingDeviceView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\VeterinaryTreatmentView.xaml">

@@ -85,5 +85,35 @@ namespace Pangolin_Database_App.Views
         {
             Window.GetWindow(this).DataContext = new PhysicalMesaurementsViewModel();
         }
+
+        /// <summary>
+        /// If button "release" is pressed, then switch to new datacontext "release"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Release_Click(object sender, RoutedEventArgs e)
+        {
+            Window.GetWindow(this).DataContext = new ReleaseViewModel();
+        }
+
+        /// <summary>
+        /// If button "microchip" is pressed, then switch to new datacontext "microchip"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Microchip_Click(object sender, RoutedEventArgs e)
+        {
+            Window.GetWindow(this).DataContext = new MicrochipViewModel();
+        }
+
+        /// <summary>
+        /// If button "tracking device" is pressed, then switch to new datacontext "tracking device"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void TrackingDevice_Click(object sender, RoutedEventArgs e)
+        {
+            Window.GetWindow(this).DataContext = new TrackingDeviceViewModel();
+        }
     }
 }

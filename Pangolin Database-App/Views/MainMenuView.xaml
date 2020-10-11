@@ -72,19 +72,19 @@
                     <materialDesign:PackIcon Kind="EmoticonDead" Height="24" Width="24"></materialDesign:PackIcon>
                 </StackPanel>
             </Button>
-            <Button>
+            <Button Click="Release_Click">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock>RELEASE</TextBlock>
                     <materialDesign:PackIcon Kind="Tree" Height="24" Width="24"></materialDesign:PackIcon>
                 </StackPanel>
             </Button>
-            <Button>
+            <Button Click="Microchip_Click">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock>MICROCHIP</TextBlock>
                     <materialDesign:PackIcon Kind="Chip" Height="24" Width="24"></materialDesign:PackIcon>
                 </StackPanel>
             </Button>
-            <Button>
+            <Button Click="TrackingDevice_Click">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock>TRACKING DEVICE</TextBlock>
                     <materialDesign:PackIcon Kind="GpsFixed" Height="24" Width="24"></materialDesign:PackIcon>

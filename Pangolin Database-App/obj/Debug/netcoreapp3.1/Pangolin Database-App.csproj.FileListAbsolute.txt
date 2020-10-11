@@ -42,3 +42,9 @@ D:\Programmierprojekte\Pangolin\Pangolin Database-App\obj\Debug\netcoreapp3.1\Vi
 D:\Programmierprojekte\Pangolin\Pangolin Database-App\obj\Debug\netcoreapp3.1\Views\InterdepartmentalMovementView.baml
 D:\Programmierprojekte\Pangolin\Pangolin Database-App\obj\Debug\netcoreapp3.1\Views\PhysicalMeasurementsView.g.cs
 D:\Programmierprojekte\Pangolin\Pangolin Database-App\obj\Debug\netcoreapp3.1\Views\PhysicalMeasurementsView.baml
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\obj\Debug\netcoreapp3.1\Views\ReleaseView.g.cs
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\obj\Debug\netcoreapp3.1\Views\ReleaseView.baml
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\obj\Debug\netcoreapp3.1\Views\MicrochipView.g.cs
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\obj\Debug\netcoreapp3.1\Views\MicrochipView.baml
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\obj\Debug\netcoreapp3.1\Views\TrackingDeviceView.g.cs
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\obj\Debug\netcoreapp3.1\Views\TrackingDeviceView.baml
