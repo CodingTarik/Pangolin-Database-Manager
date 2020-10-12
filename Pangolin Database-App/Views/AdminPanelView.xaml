@@ -1,0 +1,252 @@
+﻿<UserControl x:Class="Pangolin_Database_App.Views.AdminPanelView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Pangolin_Database_App.Views"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"       
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="800">
+    <Grid>
+        <TabControl
+  Style="{StaticResource MaterialDesignNavigatilRailTabControl}"
+  materialDesign:ColorZoneAssist.Mode="PrimaryDark">
+            <!-- ADD NEW USER-->
+            <TabItem
+    Style="{StaticResource MaterialDesignNavigationRailTabItem}">
+                <TabItem.Header>
+                    <materialDesign:PackIcon
+        Kind="UserAdd"
+        Width="32"
+        Height="32" />
+                </TabItem.Header>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"></RowDefinition>
+                        <RowDefinition Height="1*"></RowDefinition>
+                        <RowDefinition Height="1*"></RowDefinition>
+                        <RowDefinition Height="1*"></RowDefinition>
+                        <RowDefinition Height="1*"></RowDefinition>
+                        <RowDefinition Height="1*"></RowDefinition>
+                        <RowDefinition Height="1*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <TextBlock FontSize="22" VerticalAlignment="Center" FontFamily="Roboto" FontWeight="Black" Grid.Row="0">ADD NEW USER</TextBlock>
+                    <!-- USERNAME -->
+                    <TextBox
+                        Grid.Row="1"
+  materialDesign:HintAssist.Hint="USERNAME"
+                        FontSize="22"
+  Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+  VerticalAlignment="Center" />
+                    <!-- FIRST NAME -->
+                    <TextBox
+                        Grid.Row="2"
+  materialDesign:HintAssist.Hint="FIRST NAME"
+                        FontSize="22"
+  Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+  VerticalAlignment="Center" />
+                    <!-- LAST NAME -->
+                    <TextBox
+                        Grid.Row="3"
+  materialDesign:HintAssist.Hint="LAST NAME"
+                        FontSize="22"
+  Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+  VerticalAlignment="Center" />
+                    <!-- PASSWORD -->
+                    <TextBox
+                        Grid.Row="4"
+  materialDesign:HintAssist.Hint="PASSWORD"
+                        FontSize="22"
+  Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+  VerticalAlignment="Center" />
+                    <!-- REPEAT PASSWORD-->
+                    <TextBox
+                        Grid.Row="5"
+  materialDesign:HintAssist.Hint="REPEAT PASSWORD"
+                        FontSize="22"
+  Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+  VerticalAlignment="Center" />
+                    <!-- ADD NEW USER BUTTON -->
+                    <Button Grid.Row="6"
+    Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                            Margin="50, 20"
+    ToolTip="Resource name: MaterialDesignRaisedLightDarkButton">
+                        ADD USER
+                    </Button>
+                </Grid>
+            </TabItem>
+            <!-- RESET PASSWORD-->
+            <TabItem
+    Style="{StaticResource MaterialDesignNavigationRailTabItem}">
+                <TabItem.Header>
+                    <materialDesign:PackIcon
+        Kind="PasswordReset"
+        Width="32"
+        Height="32" />
+                </TabItem.Header>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"></RowDefinition>
+                        <RowDefinition Height="1*"></RowDefinition>
+                        <RowDefinition Height="1*"></RowDefinition>
+                        <RowDefinition Height="1*"></RowDefinition>
+                        <RowDefinition Height="1*"></RowDefinition>
+                        <RowDefinition Height="1*"></RowDefinition>
+                        <RowDefinition Height="1*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <TextBlock FontSize="22" VerticalAlignment="Center" FontFamily="Roboto" FontWeight="Black" Grid.Row="0">RESET PASSWORD</TextBlock>
+                    <!-- USER COMBOBOX-->
+                    <ComboBox
+                        Grid.Row="1"
+  materialDesign:HintAssist.Hint="SELECT USER"
+                        FontSize="22"
+  materialDesign:HintAssist.HintOpacity=".26"
+                        Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+  IsEditable="True">
+                    </ComboBox>
+                    <!-- NEW PASSWORD -->
+                    <PasswordBox
+                        Grid.Row="2"
+  materialDesign:HintAssist.Hint="NEW PASSWORD"
+  materialDesign:HintAssist.Foreground="Green"
+  materialDesign:TextFieldAssist.UnderlineBrush="Green"
+                        VerticalAlignment="Center"
+                        FontSize="22"
+  Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
+                    <!-- REPEAT NEW PASSWORD-->
+                    <PasswordBox
+                        Grid.Row="3"
+  materialDesign:HintAssist.Hint="REPEAT NEW PASSWORD"
+  materialDesign:HintAssist.Foreground="Green"
+  materialDesign:TextFieldAssist.UnderlineBrush="Green"
+                        VerticalAlignment="Center"
+                        FontSize="22"
+  Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
+                    <!-- SAVE BUTTON-->
+                    <Button Grid.Row="4"
+    Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                            Margin="50, 20"
+    ToolTip="Resource name: MaterialDesignRaisedLightDarkButton">
+                        SAVE
+                    </Button>
+                </Grid>
+            </TabItem>
+            <!-- REMOVE USER -->
+            <TabItem
+    Style="{StaticResource MaterialDesignNavigationRailTabItem}">
+                <TabItem.Header>
+                    <materialDesign:PackIcon
+        Kind="UserRemove"
+        Width="32"
+        Height="32" />
+                </TabItem.Header>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"></RowDefinition>
+                        <RowDefinition Height="1*"></RowDefinition>
+                        <RowDefinition Height="1*"></RowDefinition>
+                        <RowDefinition Height="1*"></RowDefinition>
+                        <RowDefinition Height="1*"></RowDefinition>
+                        <RowDefinition Height="1*"></RowDefinition>
+                        <RowDefinition Height="1*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <TextBlock FontSize="22" VerticalAlignment="Center" FontFamily="Roboto" FontWeight="Black" Grid.Row="0">DELETE USER</TextBlock>
+                    <!-- USER COMBOBOX-->
+                    <ComboBox
+                        Grid.Row="1"
+  materialDesign:HintAssist.Hint="SELECT USER"
+                        FontSize="22"
+  materialDesign:HintAssist.HintOpacity=".26"
+                        Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+  IsEditable="True"></ComboBox>
+                    <!-- USER DELETE BUTTON-->
+                    <Button Grid.Row="2"
+    Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                            Margin="50, 20"
+    ToolTip="Resource name: MaterialDesignRaisedLightDarkButton">
+                        DELETE USER
+                    </Button>
+                </Grid>
+            </TabItem>
+            <!-- REMOVE PANGOLIN -->
+            <TabItem
+    Style="{StaticResource MaterialDesignNavigationRailTabItem}">
+                <TabItem.Header>
+                    <materialDesign:PackIcon
+        Kind="CommentRemove"
+        Width="32"
+        Height="32" />
+                </TabItem.Header>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"></RowDefinition>
+                        <RowDefinition Height="1*"></RowDefinition>
+                        <RowDefinition Height="1*"></RowDefinition>
+                        <RowDefinition Height="1*"></RowDefinition>
+                        <RowDefinition Height="1*"></RowDefinition>
+                        <RowDefinition Height="1*"></RowDefinition>
+                        <RowDefinition Height="1*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <TextBlock FontSize="22" VerticalAlignment="Center" FontFamily="Roboto" FontWeight="Black" Grid.Row="0">REMOVE PANGOLIN</TextBlock>
+                    <!-- PANGOLIN COMBOBOX-->
+                    <ComboBox
+                        Grid.Row="1"
+  materialDesign:HintAssist.Hint="SELECT PANGOLIN REFERENCE NUMBER"
+                        FontSize="22"
+  materialDesign:HintAssist.HintOpacity=".26"
+                        Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+  IsEditable="True"></ComboBox>
+                    <!-- USER DELETE BUTTON-->
+                    <Button Grid.Row="2"
+    Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                            Margin="50, 20"
+    ToolTip="Resource name: MaterialDesignRaisedLightDarkButton">
+                        DELETE PANGOLIN AND DATA
+                    </Button>
+                </Grid>
+            </TabItem>
+            <!-- MERGE DB DIFF FILES -->
+            <TabItem
+    Style="{StaticResource MaterialDesignNavigationRailTabItem}">
+                <TabItem.Header>
+                    <materialDesign:PackIcon
+        Kind="DatabaseSync"
+        Width="32"
+        Height="32" />
+                </TabItem.Header>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"></RowDefinition>
+                        <RowDefinition Height="2*"></RowDefinition>
+                        <RowDefinition Height="1*"></RowDefinition>
+                        <RowDefinition Height="1*"></RowDefinition>
+                        <RowDefinition Height="1*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <TextBlock FontSize="22" VerticalAlignment="Center" FontFamily="Roboto" FontWeight="Black" Grid.Row="0">MERGE DATABASE DIFF FILES</TextBlock>
+                    <!-- USER DELETE BUTTON-->
+                    <StackPanel Grid.Row="1">
+                        <materialDesign:PackIcon Kind="Warning" Width="64" Height="64" HorizontalAlignment="Center"></materialDesign:PackIcon>
+                        <TextBlock Grid.Row="1" FontSize="25" TextWrapping="Wrap" TextAlignment="Center">CAUTION! MAKE SURE THAT EVERYONE SYNCHRONIZED HIS DATA AND THAT NOBODY IS WORKING WITH THIS APPLICATION!</TextBlock>
+                    </StackPanel>
+                     
+                    <Button Grid.Row="2"
+    Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                            Margin="50, 20"
+                            Height="50"
+                            FontSize="22"
+    ToolTip="Resource name: MaterialDesignRaisedLightDarkButton">
+                       MERGE
+                    </Button>
+                </Grid>
+            </TabItem>
+            <materialDesign:NavigationRailAssist.FloatingContent>
+                <Button
+      Style="{StaticResource MaterialDesignFloatingActionAccentButton}"
+      Margin="0,8" Click="NavToMainMenu_Click">
+                    <materialDesign:PackIcon
+        Kind="ArrowLeft" Height="24" Width="24" />
+                </Button>
+            </materialDesign:NavigationRailAssist.FloatingContent>
+        </TabControl>
+    </Grid>
+</UserControl>

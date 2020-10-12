@@ -90,19 +90,19 @@
                     <materialDesign:PackIcon Kind="GpsFixed" Height="24" Width="24"></materialDesign:PackIcon>
                 </StackPanel>
             </Button>
-            <Button>
+            <Button Click="CriminalCase_Click">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock>CRIMINAL CASE OUTECOME</TextBlock>
                     <materialDesign:PackIcon Kind="PoliceBadge" Height="24" Width="24"></materialDesign:PackIcon>
                 </StackPanel>
             </Button>
-            <Button>
+            <Button Click="Documents_Click">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock>DOCUMENTS</TextBlock>
                     <materialDesign:PackIcon Kind="FileDocument" Height="24" Width="24"></materialDesign:PackIcon>
                 </StackPanel>
             </Button>
-            <Button Cursor="Hand">
+            <Button Cursor="Hand" Click="AdminPanel_Click">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock>ADMIN PANEL</TextBlock>
                     <materialDesign:PackIcon Kind="ShieldPerson" Height="24" Width="24"></materialDesign:PackIcon>

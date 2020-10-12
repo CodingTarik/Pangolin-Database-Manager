@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Pangolin_Database_App.Views"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:customcontrols="clr-namespace:Pangolin_Database_App.User_Controls"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
@@ -82,62 +83,7 @@
             </Grid>
         </Border>
         <!-- Border for Save -->
-        <Border Grid.Column="0" Grid.Row="2" Background="#E8E8E8" CornerRadius="10" BorderThickness="5" Margin="2, 2">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="40"></RowDefinition>
-                    <RowDefinition Height="0.3*"></RowDefinition>
-                    <RowDefinition Height="0.3*"></RowDefinition>
-                    <RowDefinition Height="0.3*"></RowDefinition>
-                </Grid.RowDefinitions>
-                <!-- Title and Icon -->
-                <StackPanel Orientation="Horizontal" Grid.Row="0">
-                    <TextBlock FontSize="22" Margin="10, 10, 0, 0" FontFamily="Roboto" TextDecorations="Underline">SAVE</TextBlock>
-                    <materialDesign:PackIcon Kind="ContentSave" Width="24" Height="24" VerticalAlignment="Center" Margin="2, 5, 0, 0"></materialDesign:PackIcon>
-                </StackPanel>
-                <!-- SAVE YES-->
-                <Grid Grid.Row="1">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="40"></ColumnDefinition>
-                        <ColumnDefinition Width="0.8*"></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-                    <materialDesign:PackIcon Kind="ThumbUp" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
-                    <Button Grid.Column="1"
-    Style="{StaticResource MaterialDesignFlatDarkBgButton}"
-    ToolTip="MaterialDesignFlatDarkButton">
-                        YES
-                    </Button>
-                </Grid>
-                <!-- SAVE NO-->
-                <Grid Grid.Row="2">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="40"></ColumnDefinition>
-                        <ColumnDefinition Width="0.8*"></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-                    <materialDesign:PackIcon Kind="ThumbDown" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
-                    <Button Grid.Column="1"
-                             Style="{StaticResource MaterialDesignFlatLightBgButton}"
-     
-    ToolTip="MaterialDesignFlatAccentBackgroundButton">
-                        NO
-                    </Button>
-                </Grid>
-                <!-- CANCEL -->
-                <Grid Grid.Row="3">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="40"></ColumnDefinition>
-                        <ColumnDefinition Width="0.5*"></ColumnDefinition>
-
-                    </Grid.ColumnDefinitions>
-                    <materialDesign:PackIcon Kind="Cancel" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
-                    <Button Grid.Column="1"
-    Style="{StaticResource MaterialDesignFlatAccentBgButton}"
-    ToolTip="MaterialDesignFlatLightButton">
-                        CANCEL
-                    </Button>
-                </Grid>
-            </Grid>
-        </Border>
+        <customcontrols:SaveControl Grid.Column="0" Grid.Row="2"></customcontrols:SaveControl>
         <!-- Border for Pangolin Edit-->
         <Border Grid.Column="2" Grid.Row="0" Grid.RowSpan="3" Background="#E8E8E8" CornerRadius="10" BorderThickness="5" Margin="2, 2">
             <Grid>

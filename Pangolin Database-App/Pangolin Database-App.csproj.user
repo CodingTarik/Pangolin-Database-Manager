@@ -13,7 +13,16 @@
     <Compile Update="Views\AddPangolinView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\AdminPanelView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\CriminalCaseView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\DailyActivitySheetView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\DocumentsView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\InfantFeedingView.xaml.cs">
@@ -57,7 +66,16 @@
     <Page Update="Views\AddPangolinView.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Views\AdminPanelView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\CriminalCaseView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\DailyActivitySheetView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\DocumentsView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\InfantFeedingView.xaml">

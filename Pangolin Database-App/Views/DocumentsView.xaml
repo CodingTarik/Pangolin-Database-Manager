@@ -1,0 +1,250 @@
+﻿<UserControl x:Class="Pangolin_Database_App.Views.DocumentsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Pangolin_Database_App.Views"
+                 xmlns:customcontrols="clr-namespace:Pangolin_Database_App.User_Controls"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"     
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.3*"></ColumnDefinition>
+            <ColumnDefinition Width="25"></ColumnDefinition>
+            <ColumnDefinition Width="0.7*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="0.5*"></RowDefinition>
+            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition Height="0.3*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <!-- Title and Icon-->
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" >
+            <materialDesign:PackIcon Kind="FileDocumentMultiple" VerticalAlignment="Center" Width="32" Height="32"></materialDesign:PackIcon>
+            <TextBlock FontFamily="Roboto" FontSize="22" VerticalAlignment="Center">DOCUMENTS</TextBlock>
+        </StackPanel>
+        <!-- Formals -->
+        <Border Grid.Column="0" Grid.Row="1" Background="#E8E8E8" CornerRadius="10" BorderThickness="5" Margin="2, 2">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"></RowDefinition>
+                    <RowDefinition Height="0.3*"></RowDefinition>
+                    <RowDefinition Height="0.3*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <!-- Title and Icon-->
+                <StackPanel Orientation="Horizontal" Grid.Row="0">
+                    <TextBlock FontSize="22" Margin="10, 10, 0, 0" FontFamily="Roboto" TextDecorations="Underline">FORMAL</TextBlock>
+                    <materialDesign:PackIcon Kind="Paper" Width="24" Height="24" VerticalAlignment="Center" Margin="2, 5, 0, 0"></materialDesign:PackIcon>
+                </StackPanel>
+                <!-- Reference Number-->
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40"></ColumnDefinition>
+                        <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <materialDesign:PackIcon Kind="FormatListNumberedRightToLeft" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
+                    <ComboBox Grid.Row="0" Grid.Column="1"
+                    Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                    IsEditable="True"
+                    materialDesign:TextFieldAssist.HasClearButton="True"                                  
+                    materialDesign:HintAssist.Hint="REFERENCE NUMBER">
+                    </ComboBox>
+                </Grid>
+                <!-- Date & Time Pick-->
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40"></ColumnDefinition>
+                        <ColumnDefinition Width="0.5*"></ColumnDefinition>
+
+                    </Grid.ColumnDefinitions>
+                    <materialDesign:PackIcon Kind="Calendar" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
+
+                    <DatePicker Grid.Column="1"  Margin="0, 2, 2, 0"            
+                    materialDesign:HintAssist.Hint="Pick Date"
+                    Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                </Grid>
+            </Grid>
+        </Border>
+        <!-- Save Control-->
+        <Border Grid.Column="0" Grid.Row="3" Background="#E8E8E8" CornerRadius="10" BorderThickness="5" Margin="2, 2">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"></RowDefinition>
+                    <RowDefinition Height="0.3*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <!-- Title and Icon -->
+                <StackPanel Orientation="Horizontal" Grid.Row="0">
+                    <TextBlock FontSize="22" Margin="10, 10, 0, 0" FontFamily="Roboto" TextDecorations="Underline">SAVE</TextBlock>
+                    <materialDesign:PackIcon Kind="ContentSave" Width="24" Height="24" VerticalAlignment="Center" Margin="2, 5, 0, 0"></materialDesign:PackIcon>
+                </StackPanel>
+                <!-- CANCEL -->
+                <Grid Grid.Row="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40"></ColumnDefinition>
+                        <ColumnDefinition Width="0.5*"></ColumnDefinition>
+
+                    </Grid.ColumnDefinitions>
+                    <materialDesign:PackIcon Kind="Cancel" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
+                    <Button Grid.Column="1" VerticalAlignment="Center"
+    Style="{StaticResource MaterialDesignFlatAccentBgButton}"
+    ToolTip="MaterialDesignFlatLightButton" Click="Cancel_Click" Cursor="Hand">
+                        CANCEL
+                    </Button>
+                </Grid>
+            </Grid>
+        </Border>
+        <!-- File Upload & Download-->
+        <Border Grid.Column="2" Grid.Row="1" Grid.RowSpan="3" Background="#E8E8E8" CornerRadius="10" BorderThickness="5" Margin="2, 2">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25"></RowDefinition>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="0.2*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                    <ColumnDefinition Width="25"></ColumnDefinition>
+                    <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <!-- Title and Icon -->
+                <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3">
+                    <TextBlock FontSize="22" Margin="10, 0, 0, 0" FontFamily="Roboto" TextDecorations="Underline" VerticalAlignment="Center">DOCUMENTS</TextBlock>
+                    <materialDesign:PackIcon Kind="DriveDocument" Width="24" Height="24" VerticalAlignment="Center"></materialDesign:PackIcon>
+                </StackPanel>
+                <!-- File upload-->
+                <Border Grid.Row="1" Grid.ColumnSpan="3" Margin="5, 5" Background="White" CornerRadius="8">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20"></RowDefinition>
+                            <RowDefinition Height="0.4*"></RowDefinition>
+                            <RowDefinition Height="0.3*"></RowDefinition>
+                            <RowDefinition Height="1*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.5*">
+                            </ColumnDefinition>
+                            <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <!-- Drag and DROP A FILE-->
+                        <Border Grid.Row="1" Grid.Column="0" Margin="5" Background="LightGray" BorderThickness="1" CornerRadius="5">
+                            <Border.BorderBrush>
+                                <VisualBrush>
+                                    <VisualBrush.Visual>
+                                        <Rectangle StrokeDashArray="4 2" Stroke="Black" StrokeThickness="1" RadiusX="5" RadiusY="5" Width="{Binding RelativeSource={RelativeSource AncestorType={x:Type Border}}, Path=ActualWidth}"  Height="{Binding RelativeSource={RelativeSource AncestorType={x:Type Border}}, Path=ActualHeight}"/>
+                                    </VisualBrush.Visual> 
+                                </VisualBrush>
+                            </Border.BorderBrush>
+                            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <materialDesign:PackIcon Kind="FileCloud" HorizontalAlignment="Center"></materialDesign:PackIcon>
+                                <TextBlock HorizontalAlignment="Center" FontFamily="Roboto" FontSize="12">DRAG AND DROP A FILE</TextBlock>
+                            </StackPanel>
+                        </Border>
+                        <!-- Description -->
+                        <Grid Grid.Row="1" Grid.Column="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40"></ColumnDefinition>
+                                <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <materialDesign:PackIcon Kind="ImageDescription" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
+                            <TextBox Grid.Column="1"
+                materialDesign:HintAssist.Hint="DESCRIPTION OF FILE"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                VerticalAlignment="Top"/>
+                        </Grid>
+                        <!-- Uploadbutton-->                       
+                        <Grid Grid.Row="2" Grid.ColumnSpan="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40"></ColumnDefinition>
+                                <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <materialDesign:PackIcon Kind="Upload" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
+                            <Button Grid.Column="1" Click="Upload_Click"
+    Style="{StaticResource MaterialDesignRaisedDarkButton}"
+    ToolTip="MaterialDesignFlatDarkButton">
+                                UPLOAD
+                            </Button>
+                        </Grid>
+                        <!-- Files List-->
+                        <ScrollViewer VerticalScrollBarVisibility="Visible" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" HorizontalScrollBarVisibility="Auto">
+                            <ListView>
+                                <ListView.View>
+                                    <GridView>
+                                        <GridViewColumn Header="Filename"></GridViewColumn>
+                                        <GridViewColumn Header="Date"></GridViewColumn>
+                                        <GridViewColumn Header="Description"></GridViewColumn>
+                                        <GridViewColumn Header="Open"></GridViewColumn>
+                                        <GridViewColumn Header="Save"></GridViewColumn>
+                                        <GridViewColumn Header="Delete"></GridViewColumn>
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
+                        </ScrollViewer>
+                    </Grid>
+                </Border>
+                <Border Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3" Background="White" CornerRadius="5" Margin="5 5">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                            <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                            <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <!-- Open Report -->
+                        <Grid Grid.Column="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40"></ColumnDefinition>
+                                <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <materialDesign:PackIcon Kind="OpenInApp" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
+                            <Button Grid.Column="1" Click="OpenReport_Click"
+    Style="{StaticResource MaterialDesignRaisedDarkButton}"
+    ToolTip="MaterialDesignFlatDarkButton">
+                                OPEN REPORT
+                            </Button>
+                        </Grid>
+                        <!-- Save Report -->
+                        <Grid Grid.Column="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40"></ColumnDefinition>
+                                <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <materialDesign:PackIcon Kind="ContentSaveOutline" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
+                            <Button Grid.Column="1" Click="SaveReport_Click"
+    Style="{StaticResource MaterialDesignRaisedDarkButton}"
+    ToolTip="MaterialDesignFlatDarkButton">
+                                SAVE REPORT
+                            </Button>
+                        </Grid>
+                        <!-- Save Report -->
+                        <Grid Grid.Column="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40"></ColumnDefinition>
+                                <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <materialDesign:PackIcon Kind="ContentSaveOutline" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
+                            <Button Grid.Column="1" Click="PrintReport_Click"
+    Style="{StaticResource MaterialDesignRaisedDarkButton}"
+    ToolTip="MaterialDesignFlatDarkButton">
+                                SAVE REPORT
+                            </Button>
+                        </Grid>
+                        <!-- PRINT REPORT -->
+                        <Grid Grid.Column="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40"></ColumnDefinition>
+                                <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <materialDesign:PackIcon Kind="Printer" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
+                            <Button Grid.Column="1" Click="PrintReport_Click"
+    Style="{StaticResource MaterialDesignRaisedDarkButton}"
+    ToolTip="MaterialDesignFlatDarkButton">
+                                PRINT REPORT
+                            </Button>
+                        </Grid>
+                    </Grid>
+                </Border>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

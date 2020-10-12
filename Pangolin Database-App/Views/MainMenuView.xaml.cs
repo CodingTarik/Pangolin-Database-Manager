@@ -115,5 +115,35 @@ namespace Pangolin_Database_App.Views
         {
             Window.GetWindow(this).DataContext = new TrackingDeviceViewModel();
         }
+
+        /// <summary>
+        /// If button "criminale case" is pressed, then switch to new datacontext "criminal case"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CriminalCase_Click(object sender, RoutedEventArgs e)
+        {
+            Window.GetWindow(this).DataContext = new CriminalCaseViewModel();
+        }
+
+        /// <summary>
+        /// If button "documents" is pressed, then switch to new datacontext "documents"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Documents_Click(object sender, RoutedEventArgs e)
+        {
+            Window.GetWindow(this).DataContext = new DocumentsViewModel();
+        }
+
+        /// <summary>
+        /// If button "admin panel" is pressed, then switch to new datacontext "admin panel"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AdminPanel_Click(object sender, RoutedEventArgs e)
+        {
+            Window.GetWindow(this).DataContext = new AdminPanelViewModel();
+        }
     }
 }

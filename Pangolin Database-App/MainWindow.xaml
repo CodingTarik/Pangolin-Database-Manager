@@ -47,6 +47,15 @@
         <DataTemplate DataType="{x:Type viewmodels:TrackingDeviceViewModel}">
             <views:TrackingDeviceView DataContext="{Binding}"></views:TrackingDeviceView>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:CriminalCaseViewModel}">
+            <views:CriminalCaseView DataContext="{Binding}"></views:CriminalCaseView>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:DocumentsViewModel}">
+            <views:DocumentsView DataContext="{Binding}"></views:DocumentsView>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:AdminPanelViewModel}">
+            <views:AdminPanelView DataContext="{Binding}"></views:AdminPanelView>
+        </DataTemplate>
     </Window.Resources>
     
     <Grid>

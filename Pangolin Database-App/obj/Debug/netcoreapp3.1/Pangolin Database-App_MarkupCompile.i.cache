@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1
 D:\Programmierprojekte\Pangolin\Pangolin Database-App\App.xaml
-14808201070
+17583254663
 
-291348762302
+351244329493
 194-1601837629
-MainWindow.xaml;User Controls\SaveControl.xaml;Views\AddPangolinView.xaml;Views\DailyActivitySheetView.xaml;Views\InfantFeedingView.xaml;Views\InterdepartmentalMovementView.xaml;Views\LoginView.xaml;Views\MainMenuView.xaml;Views\MicrochipView.xaml;Views\PhysicalMeasurementsView.xaml;Views\ReleaseView.xaml;Views\TemplateView.xaml;Views\TrackingDeviceView.xaml;Views\VeterinaryTreatmentView.xaml;
+MainWindow.xaml;User Controls\SaveControl.xaml;Views\AddPangolinView.xaml;Views\AdminPanelView.xaml;Views\CriminalCaseView.xaml;Views\DailyActivitySheetView.xaml;Views\DocumentsView.xaml;Views\InfantFeedingView.xaml;Views\InterdepartmentalMovementView.xaml;Views\LoginView.xaml;Views\MainMenuView.xaml;Views\MicrochipView.xaml;Views\PhysicalMeasurementsView.xaml;Views\ReleaseView.xaml;Views\TemplateView.xaml;Views\TrackingDeviceView.xaml;Views\VeterinaryTreatmentView.xaml;
 
 True
 

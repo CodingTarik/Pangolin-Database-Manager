@@ -1,0 +1,37 @@
+﻿using Pangolin_Database_App.ViewModels;
+using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+
+namespace Pangolin_Database_App.Views
+{
+    /// <summary>
+    /// Interaktionslogik für AdminPanelView.xaml
+    /// </summary>
+    public partial class AdminPanelView : UserControl
+    {
+        public AdminPanelView()
+        {
+            InitializeComponent();
+        }
+
+        /// <summary>
+        /// If button "back" is pressed then switch to main menu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void NavToMainMenu_Click(object sender, RoutedEventArgs e)
+        {
+            Window.GetWindow(this).DataContext = new MainMenuViewModel();
+        }
+    }
+}
