@@ -40,6 +40,9 @@
     <Compile Update="Views\MicrochipView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\MortalityView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\PhysicalMeasurementsView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -91,6 +94,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\MicrochipView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\MortalityView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\PhysicalMeasurementsView.xaml">

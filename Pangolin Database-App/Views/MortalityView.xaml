@@ -1,0 +1,375 @@
+﻿<UserControl x:Class="Pangolin_Database_App.Views.MortalityView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Pangolin_Database_App.Views"
+                xmlns:customcontrols="clr-namespace:Pangolin_Database_App.User_Controls"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.3*"></ColumnDefinition>
+            <ColumnDefinition Width="25"></ColumnDefinition>
+            <ColumnDefinition Width="0.7*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="0.5*"></RowDefinition>
+            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition Height="0.6*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <!-- Title and Icon-->
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" >
+            <materialDesign:PackIcon Kind="EmoticonDead" VerticalAlignment="Center" Width="32" Height="32"></materialDesign:PackIcon>
+            <TextBlock FontFamily="Roboto" FontSize="22" VerticalAlignment="Center">MORTALITY</TextBlock>
+        </StackPanel>
+        <!-- Formals -->
+        <Border Grid.Column="0" Grid.Row="1" Background="#E8E8E8" CornerRadius="10" BorderThickness="5" Margin="2, 2">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"></RowDefinition>
+                    <RowDefinition Height="0.3*"></RowDefinition>
+                    <RowDefinition Height="0.3*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <!-- Title and Icon-->
+                <StackPanel Orientation="Horizontal" Grid.Row="0">
+                    <TextBlock FontSize="22" Margin="10, 10, 0, 0" FontFamily="Roboto" TextDecorations="Underline">FORMAL</TextBlock>
+                    <materialDesign:PackIcon Kind="Paper" Width="24" Height="24" VerticalAlignment="Center" Margin="2, 5, 0, 0"></materialDesign:PackIcon>
+                </StackPanel>
+                <!-- Reference Number-->
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40"></ColumnDefinition>
+                        <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <materialDesign:PackIcon Kind="FormatListNumberedRightToLeft" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
+                    <ComboBox Grid.Row="0" Grid.Column="1"
+                    Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                    IsEditable="True"
+                    materialDesign:TextFieldAssist.HasClearButton="True"                                  
+                    materialDesign:HintAssist.Hint="REFERENCE NUMBER">
+                    </ComboBox>
+                </Grid>
+                <!-- Date & Time Pick-->
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40"></ColumnDefinition>
+                        <ColumnDefinition Width="0.5*"></ColumnDefinition>
+
+                    </Grid.ColumnDefinitions>
+                    <materialDesign:PackIcon Kind="Calendar" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
+
+                    <DatePicker Grid.Column="1"  Margin="0, 2, 2, 0"            
+                    materialDesign:HintAssist.Hint="Pick Date"
+                    Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                </Grid>
+            </Grid>
+        </Border>
+        <!-- Save Control-->
+        <customcontrols:SaveControl Grid.Column="0" Grid.Row="3"></customcontrols:SaveControl>
+        <!-- Template Control -->
+        <Border Grid.Column="2" Grid.Row="1" Grid.RowSpan="3" Background="#E8E8E8" CornerRadius="10" BorderThickness="5" Margin="2, 2">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25"></RowDefinition>
+                    <RowDefinition Height="0.3*"></RowDefinition>
+                    <RowDefinition Height="0.3*"></RowDefinition>
+                    <RowDefinition Height="0.3*"></RowDefinition>
+                    <RowDefinition Height="0.3*"></RowDefinition>
+                    <RowDefinition Height="1.8*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                    <ColumnDefinition Width="25"></ColumnDefinition>
+                    <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <!-- Title and Icon -->
+                <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3">
+                    <TextBlock FontSize="22" Margin="10, 0, 0, 0" FontFamily="Roboto" TextDecorations="Underline" VerticalAlignment="Center">MORTALITY INFORMATIONS</TextBlock>
+                    <materialDesign:PackIcon Kind="GraveStone" Width="24" Height="24" VerticalAlignment="Center"></materialDesign:PackIcon>
+                </StackPanel>
+                <!-- SPECIES -->
+                <Grid Grid.Row="1" Grid.Column="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40"></ColumnDefinition>
+                        <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <materialDesign:PackIcon Kind="DinosaurPixel" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
+                    <TextBox Grid.Column="1"
+                materialDesign:HintAssist.Hint="SPECIES"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                VerticalAlignment="Center"/>
+                </Grid>
+                <!-- LOCALITY -->
+                <Grid Grid.Row="2" Grid.Column="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40"></ColumnDefinition>
+                        <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <materialDesign:PackIcon Kind="Location" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
+                    <TextBox Grid.Column="1"
+                materialDesign:HintAssist.Hint="LOCALITY"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                VerticalAlignment="Center"/>
+                </Grid>
+                <!-- LENGTH -->
+                <Grid Grid.Row="1" Grid.Column="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40"></ColumnDefinition>
+                        <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <materialDesign:PackIcon Kind="Ruler" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
+                    <TextBox Grid.Column="1"
+                materialDesign:HintAssist.Hint="LENGTH"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                VerticalAlignment="Center"/>
+                </Grid>
+                <!-- MASS -->
+                <Grid Grid.Row="2" Grid.Column="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40"></ColumnDefinition>
+                        <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <materialDesign:PackIcon Kind="WeightKg" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
+                    <TextBox Grid.Column="1"
+                materialDesign:HintAssist.Hint="MASS"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                VerticalAlignment="Center"/>
+                </Grid>
+                <!-- SAMPLERS -->
+                <Grid Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40"></ColumnDefinition>
+                        <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <materialDesign:PackIcon Kind="Person" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
+                    <TextBox Grid.Column="1"
+                materialDesign:HintAssist.Hint="SAMPLER(S)"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                VerticalAlignment="Center"/>
+                </Grid>
+                <!-- SAMPLERS -->
+                <Grid Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40"></ColumnDefinition>
+                        <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <materialDesign:PackIcon Kind="History" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
+                    <TextBox Grid.Column="1"
+                materialDesign:HintAssist.Hint="CASE HISTORY"
+                             TextWrapping="Wrap"
+                             AcceptsReturn="True"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                VerticalAlignment="Center"/>
+                </Grid>
+                <!-- Samples taken -->
+                <Border Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3" Background="White" Margin="5 5" CornerRadius="7">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20"></RowDefinition>
+                            <RowDefinition Height="1*"></RowDefinition>
+                            <RowDefinition Height="1*"></RowDefinition>
+                            <RowDefinition Height="1*"></RowDefinition>
+                            <RowDefinition Height="20"></RowDefinition>
+                            <RowDefinition Height="1*"></RowDefinition>
+                            <RowDefinition Height="1*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" FontSize="15" FontFamily="Roboto" FontWeight="Bold">SAMPLES TAKEN</TextBlock>
+                        <!-- HEART -->
+                        <Grid Grid.Row="1" Grid.Column="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="32"></ColumnDefinition>
+                                <ColumnDefinition Width="1*"></ColumnDefinition>
+                                <ColumnDefinition Width="0.3*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <materialDesign:PackIcon Kind="Heart" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
+                            <TextBlock Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Roboto" FontSize="15" TextWrapping="Wrap" TextAlignment="Center">HEART</TextBlock>
+                            <CheckBox Grid.Column="2"
+                            IsChecked="True"
+                            Style="{StaticResource MaterialDesignDarkCheckBox}"
+                            VerticalAlignment="Center"  HorizontalAlignment="Center"/>
+                        </Grid>
+                        <!-- LUNG -->
+                        <Grid Grid.Row="2" Grid.Column="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="32"></ColumnDefinition>
+                                <ColumnDefinition Width="1*"></ColumnDefinition>
+                                <ColumnDefinition Width="0.3*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <materialDesign:PackIcon Kind="Lungs" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
+                            <TextBlock Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Roboto" FontSize="15" TextWrapping="Wrap" TextAlignment="Center">LUNG</TextBlock>
+                            <CheckBox Grid.Column="2"
+                            IsChecked="True"
+                            Style="{StaticResource MaterialDesignDarkCheckBox}"
+                            VerticalAlignment="Center"  HorizontalAlignment="Center"/>
+                        </Grid>
+                        <!-- LIVER -->
+                        <Grid Grid.Row="3" Grid.Column="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="32"></ColumnDefinition>
+                                <ColumnDefinition Width="1*"></ColumnDefinition>
+                                <ColumnDefinition Width="0.3*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <materialDesign:PackIcon Kind="Sausage" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
+                            <TextBlock Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Roboto" FontSize="15" TextWrapping="Wrap" TextAlignment="Center">LIVER</TextBlock>
+                            <CheckBox Grid.Column="2"
+                            IsChecked="True"
+                            Style="{StaticResource MaterialDesignDarkCheckBox}"
+                            VerticalAlignment="Center"  HorizontalAlignment="Center"/>
+                        </Grid>
+                        <!-- SPLEEN -->
+                        <Grid Grid.Row="1" Grid.Column="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="32"></ColumnDefinition>
+                                <ColumnDefinition Width="1*"></ColumnDefinition>
+                                <ColumnDefinition Width="0.3*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <materialDesign:PackIcon Kind="Stomach" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
+                            <TextBlock Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Roboto" FontSize="15" TextWrapping="Wrap" TextAlignment="Center">SPLEEN</TextBlock>
+                            <CheckBox Grid.Column="2"
+                            IsChecked="True"
+                            Style="{StaticResource MaterialDesignDarkCheckBox}"
+                            VerticalAlignment="Center"  HorizontalAlignment="Center"/>
+                        </Grid>
+                        <!-- KIDNEY -->
+                        <Grid Grid.Row="2" Grid.Column="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="32"></ColumnDefinition>
+                                <ColumnDefinition Width="1*"></ColumnDefinition>
+                                <ColumnDefinition Width="0.3*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <materialDesign:PackIcon Kind="HeartHalf" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
+                            <TextBlock Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Roboto" FontSize="15" TextWrapping="Wrap" TextAlignment="Center">KIDNEY</TextBlock>
+                            <CheckBox Grid.Column="2"
+                            IsChecked="True"
+                            Style="{StaticResource MaterialDesignDarkCheckBox}"
+                            VerticalAlignment="Center"  HorizontalAlignment="Center"/>
+                        </Grid>
+                        <!-- MUSCLE -->
+                        <Grid Grid.Row="3" Grid.Column="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="32"></ColumnDefinition>
+                                <ColumnDefinition Width="1*"></ColumnDefinition>
+                                <ColumnDefinition Width="0.3*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <materialDesign:PackIcon Kind="WeightLifter" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
+                            <TextBlock Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Roboto" FontSize="15" TextWrapping="Wrap" TextAlignment="Center">MUSCLE</TextBlock>
+                            <CheckBox Grid.Column="2"
+                            IsChecked="True"
+                            Style="{StaticResource MaterialDesignDarkCheckBox}"
+                            VerticalAlignment="Center"  HorizontalAlignment="Center"/>
+                        </Grid>
+                        <!-- SCALE -->
+                        <Grid Grid.Row="1" Grid.Column="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="32"></ColumnDefinition>
+                                <ColumnDefinition Width="1*"></ColumnDefinition>
+                                <ColumnDefinition Width="0.3*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <materialDesign:PackIcon Kind="PokerSpade" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
+                            <TextBlock Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Roboto" FontSize="15" TextWrapping="Wrap" TextAlignment="Center">SCALE</TextBlock>
+                            <CheckBox Grid.Column="2"
+                            IsChecked="True"
+                            Style="{StaticResource MaterialDesignDarkCheckBox}"
+                            VerticalAlignment="Center"  HorizontalAlignment="Center"/>
+                        </Grid>
+                        <!-- REPRODUCTIVE ORGAN -->
+                        <Grid Grid.Row="2" Grid.Column="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="32"></ColumnDefinition>
+                                <ColumnDefinition Width="1*"></ColumnDefinition>
+                                <ColumnDefinition Width="0.3*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <materialDesign:PackIcon Kind="Reproduction" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
+                            <TextBlock Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Roboto" FontSize="15" TextWrapping="Wrap" TextAlignment="Center">REPRODUCTIVE ORGAN</TextBlock>
+                            <CheckBox Grid.Column="2"
+                            IsChecked="True"
+                            Style="{StaticResource MaterialDesignDarkCheckBox}"
+                            VerticalAlignment="Center"  HorizontalAlignment="Center"/>
+                        </Grid>
+                        <TextBlock Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" FontSize="15" FontFamily="Roboto" FontWeight="Bold">OTHER (PLEASE SPECIFY)</TextBlock>
+                        <!-- OTHER 1 -->
+                        <Grid Grid.Row="5" Grid.Column="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"></ColumnDefinition>
+                                <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <materialDesign:PackIcon Kind="NumericOneCircle" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
+                            <TextBox Grid.Column="1"
+                materialDesign:HintAssist.Hint="SAMPLE TAKEN"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                VerticalAlignment="Center"/>
+                        </Grid>
+                        <!-- OTHER 2 -->
+                        <Grid Grid.Row="6" Grid.Column="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"></ColumnDefinition>
+                                <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <materialDesign:PackIcon Kind="NumericTwoCircle" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
+                            <TextBox Grid.Column="1"
+                materialDesign:HintAssist.Hint="SAMPLE TAKEN"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                VerticalAlignment="Center"/>
+                        </Grid>
+                        <!-- OTHER 3 -->
+                        <Grid Grid.Row="5" Grid.Column="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"></ColumnDefinition>
+                                <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <materialDesign:PackIcon Kind="NumericThreeCircle" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
+                            <TextBox Grid.Column="1"
+                materialDesign:HintAssist.Hint="SAMPLE TAKEN"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                VerticalAlignment="Center"/>
+                        </Grid>
+                        <!-- OTHER 4 -->
+                        <Grid Grid.Row="6" Grid.Column="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"></ColumnDefinition>
+                                <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <materialDesign:PackIcon Kind="NumericFourCircle" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
+                            <TextBox Grid.Column="1"
+                materialDesign:HintAssist.Hint="SAMPLE TAKEN"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                VerticalAlignment="Center"/>
+                        </Grid>
+                        <!-- OTHER 5 -->
+                        <Grid Grid.Row="5" Grid.Column="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"></ColumnDefinition>
+                                <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <materialDesign:PackIcon Kind="NumericFiveCircle" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
+                            <TextBox Grid.Column="1"
+                materialDesign:HintAssist.Hint="SAMPLE TAKEN"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                VerticalAlignment="Center"/>
+                        </Grid>
+                        <!-- OTHER 6 -->
+                        <Grid Grid.Row="6" Grid.Column="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"></ColumnDefinition>
+                                <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <materialDesign:PackIcon Kind="NumericSixCircle" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
+                            <TextBox Grid.Column="1"
+                materialDesign:HintAssist.Hint="SAMPLE TAKEN"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                VerticalAlignment="Center"/>
+                        </Grid>
+                    </Grid>
+                </Border>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

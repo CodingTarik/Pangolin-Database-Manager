@@ -135,5 +135,15 @@ namespace Pangolin_Database_App.Views
         {
             Window.GetWindow(this).DataContext = new AdminPanelViewModel();
         }
+
+        /// <summary>
+        /// If button "mortality" is pressed, then switch to new datacontext "mortality"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Mortality_Click(object sender, RoutedEventArgs e)
+        {
+            Window.GetWindow(this).DataContext = new MortalityViewModel();
+        }
     }
 }
