@@ -1,16 +1,7 @@
 ﻿using Pangolin_Database_App.ViewModels;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Pangolin_Database_App.User_Controls
 {
@@ -28,27 +19,42 @@ namespace Pangolin_Database_App.User_Controls
         public event EventHandler NoClickEvent;
         public event EventHandler CancelClickEvent;
 
+        /// <summary>
+        /// Fire "No Click" event if button is pressed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void NoClick(object sender, RoutedEventArgs e)
         {
-            if(NoClickEvent != null)
+            if (NoClickEvent != null)
             {
                 NoClickEvent(this, EventArgs.Empty);
             }
         }
 
+        /// <summary>
+        /// Fire YesClickEvent if button is pressed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void YesClick(object sender, RoutedEventArgs e)
         {
-            if(YesClickEvent != null)
+            if (YesClickEvent != null)
             {
                 YesClickEvent(this, EventArgs.Empty);
             }
         }
 
+        /// <summary>
+        /// Fire cancelclickevent if button is pressed, then switch to mainmenuviewmodel data context
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CancelClick(object sender, RoutedEventArgs e)
         {
-            if(CancelClickEvent != null)
+            if (CancelClickEvent != null)
             {
-                CancelClickEvent(this, EventArgs.Empty);              
+                CancelClickEvent(this, EventArgs.Empty);
             }
             Window.GetWindow(this).DataContext = new MainMenuViewModel();
         }

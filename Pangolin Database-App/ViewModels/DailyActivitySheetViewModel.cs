@@ -21,7 +21,7 @@ namespace Pangolin_Database_App.ViewModels
                 }
                 else
                 {
-                    return 0d;  
+                    return 0d;
                 }
             }
             private set { }
@@ -33,17 +33,17 @@ namespace Pangolin_Database_App.ViewModels
                 return (TotalHoursWalked / 24d) * 100d;
             }
         }
-      
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         private void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
         {
-            if(!String.IsNullOrEmpty(propertyName) && PropertyChanged != null)
+            if (!String.IsNullOrEmpty(propertyName) && PropertyChanged != null)
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
 
-       
+
     }
 }

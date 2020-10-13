@@ -4,6 +4,7 @@
              xmlns:local="clr-namespace:Pangolin_Database_App"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              StartupUri="MainWindow.xaml">
+    <!-- Default Resources for App theme-->
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>

@@ -49,6 +49,14 @@
             "MaterialDesignThemes": {
               "target": "Package",
               "version": "[4.0.0-ci2063, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.0-rc.1.20451.13, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[5.0.0-rc.1.20451.13, )"
             }
           },
           "imports": [
