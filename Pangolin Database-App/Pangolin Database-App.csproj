@@ -26,8 +26,4 @@
     <Resource Include="Icons\pangolin.png" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
-
 </Project>
