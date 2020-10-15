@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Pangolin_Database_App.Models
 {
-    class Release
+    public class Release
     {
         /// <summary>
         /// the ReferenceNumber of the Pangolin

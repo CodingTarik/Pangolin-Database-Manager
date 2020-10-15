@@ -1,11 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Pangolin_Database_App.Models
 {
-    class CriminalCase
+    public class CriminalCase
     {
+        /// <summary>
+        /// Primary Key
+        /// </summary>
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int CrimeID { get; set; }
+
         /// <summary>
         /// the ReferenceNumber of the Pangolin
         /// </summary>

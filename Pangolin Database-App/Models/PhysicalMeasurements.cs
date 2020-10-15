@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Pangolin_Database_App.Models
 {
-    class PhysicalMeasurements
+    public class PhysicalMeasurements
     {
         /// <summary>
         /// The primary key (unique id) for a pangolin

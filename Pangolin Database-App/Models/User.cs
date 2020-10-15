@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Pangolin_Database_App.Models
 {
-    class User
+    public class User
     {
         /// <summary>
         /// The Username

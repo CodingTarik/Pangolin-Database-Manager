@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Pangolin_Database_App.Enums
 {
-    enum Transportation
+    public enum Transportation
     {
         Vehicel,
         Air

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Pangolin_Database_App.Models
 {
-    class TrackingDevice
+    public class TrackingDevice
     {
         /// <summary>
         /// The reference number of the pangolin the tracking device is attached to

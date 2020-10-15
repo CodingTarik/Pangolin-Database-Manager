@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Pangolin_Database_App.Models
 {
-    class Document
+    public class Document
     {
         /// <summary>
         /// ReferenceNumber of the Pangolin

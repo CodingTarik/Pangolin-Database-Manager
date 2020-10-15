@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Pangolin_Database_App.Models
 {
-    class VeterinaryTreatment
+    public class VeterinaryTreatment
     {
         /// <summary>
         /// the ReferenceNumber of the Pangolin
@@ -67,7 +67,5 @@ namespace Pangolin_Database_App.Models
         /// Fifth bit = Hot
         /// </summary>
         public int method { get; set; }
-
-
     }
 }

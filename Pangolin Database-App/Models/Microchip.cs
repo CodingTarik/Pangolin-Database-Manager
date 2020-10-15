@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Pangolin_Database_App.Models
 {
-    class Microchip
+    public class Microchip
     {
         /// <summary>
         /// the ReferenceNumber of the Pangolin

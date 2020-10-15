@@ -13,9 +13,10 @@ namespace Pangolin_Database_App.Database
             if(database == null)
             {
                 database = new PangolinContext();
-                database.Database.EnsureCreated();
+                database.Database.EnsureCreated(); // TODO Replace with Sync later (check for database)
             }
             return database;
         }
+
     }
 }
