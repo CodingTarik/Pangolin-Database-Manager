@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Pangolin_Database_App.Enums
 {
-    enum Sex
+    public enum Sex
     {
         male,
         female

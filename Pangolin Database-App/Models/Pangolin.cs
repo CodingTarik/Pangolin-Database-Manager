@@ -1,15 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 using Pangolin_Database_App.Enums;
 
 namespace Pangolin_Database_App.Models
 {
-    class Pangolin
+    public class Pangolin
     {
         /// <summary>
         /// The primary key (unique id) for a pangolin
         /// </summary>
+        [Key]
         public string ReferenceNumber { get; set; }
         /// <summary>
         /// Reference to the official document

@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pangolin Database-App", "Pangolin Database-App.csproj", "{D81A452B-8A80-4B19-ACA4-A1C238D6C5CD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pangolin Database-App", "Pangolin Database-App.csproj", "{D81A452B-8A80-4B19-ACA4-A1C238D6C5CD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pangolin-Database-Unit-Tests", "..\Pangolin-Database-Unit-Tests\Pangolin-Database-Unit-Tests.csproj", "{83D1A5CA-A51E-4E22-ACEF-0D3F097D1FEE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{D81A452B-8A80-4B19-ACA4-A1C238D6C5CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D81A452B-8A80-4B19-ACA4-A1C238D6C5CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D81A452B-8A80-4B19-ACA4-A1C238D6C5CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83D1A5CA-A51E-4E22-ACEF-0D3F097D1FEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83D1A5CA-A51E-4E22-ACEF-0D3F097D1FEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83D1A5CA-A51E-4E22-ACEF-0D3F097D1FEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83D1A5CA-A51E-4E22-ACEF-0D3F097D1FEE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
