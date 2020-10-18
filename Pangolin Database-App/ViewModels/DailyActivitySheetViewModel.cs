@@ -1,11 +1,18 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using Pangolin_Database_App.Database;
+using Pangolin_Database_App.Models;
 
 namespace Pangolin_Database_App.ViewModels
 {
-    internal class DailyActivitySheetViewModel : INotifyPropertyChanged
+    internal class DailyActivitySheetViewModel : ViewModelBase<DailyActivity>
     {
+      
+        public DailyActivitySheetViewModel() : base(DatabaseManager.GetDatabase().DailyActivities)
+        {
+
+        }
         private DateTime? _walkingStart;
         public DateTime? WalkingStart { get { return _walkingStart; } set { _walkingStart = value; NotifyPropertyChanged(); NotifyPropertyChanged("TotalHoursWalked"); NotifyPropertyChanged("TotalHoursWalkedInPercent"); } }
 
@@ -26,6 +33,7 @@ namespace Pangolin_Database_App.ViewModels
             }
             private set { }
         }
+
         public double TotalHoursWalkedInPercent
         {
             get
@@ -34,15 +42,7 @@ namespace Pangolin_Database_App.ViewModels
             }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
-        {
-            if (!String.IsNullOrEmpty(propertyName) && PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
-        }
+    
 
 
     }

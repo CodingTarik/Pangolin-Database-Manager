@@ -1,4 +1,5 @@
-﻿using Pangolin_Database_App.ViewModels;
+﻿using Pangolin_Database_App.Database;
+using Pangolin_Database_App.ViewModels;
 using System.Windows;
 using System.Windows.Input;
 
@@ -11,6 +12,7 @@ namespace Pangolin_Database_App
     {
         public MainWindow()
         {
+            DatabaseManager.InitDatabase();
             InitializeComponent();
             this.DataContext = new MainMenuViewModel() { Username = "Dr. Tarik Azzouzi", isAdmin = true };
         }

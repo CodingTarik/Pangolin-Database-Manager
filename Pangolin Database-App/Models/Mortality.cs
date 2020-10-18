@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace Pangolin_Database_App.Models
@@ -7,8 +9,15 @@ namespace Pangolin_Database_App.Models
     public class Mortality
     {
         /// <summary>
+        /// Primary Key
+        /// </summary>
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int MortalityID { get; set; }
+
+        /// <summary>
         /// the ReferenceNumber of the Pangolin
         /// </summary>
+        [Required, ForeignKey(Pangolin_Database_App.Settings.Settings.PANGOLIN_TABLENAME)]
         public string ReferenceNumber { get; set; }
 
         /// <summary>
@@ -89,6 +98,31 @@ namespace Pangolin_Database_App.Models
         /// <summary>
         /// other Samples that were taken
         /// </summary>
-        public string[] other { get; set; }
+        public string other1 { get; set; }
+
+        /// <summary>
+        /// other Samples that were taken
+        /// </summary>
+        public string other2 { get; set; }
+
+        /// <summary>
+        /// other Samples that were taken
+        /// </summary>
+        public string other3 { get; set; }
+
+        /// <summary>
+        /// other Samples that were taken
+        /// </summary>
+        public string other4 { get; set; }
+
+        /// <summary>
+        /// other Samples that were taken
+        /// </summary>
+        public string other5 { get; set; }
+
+        /// <summary>
+        /// other Samples that were taken
+        /// </summary>
+        public string other6 { get; set; }
     }
 }

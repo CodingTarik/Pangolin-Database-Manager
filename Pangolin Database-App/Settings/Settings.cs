@@ -8,6 +8,7 @@ namespace Pangolin_Database_App.Settings
     {
         public const string SQLiteConnectionString = "Filename=Pangolin-Database.db";
         public const bool debug = false;
-        public readonly string MYSQL_Server;
+        public readonly string MYSQL_Server_ADDRESS = "";
+        public const string PANGOLIN_TABLENAME = "Panngolin";
     }
 }

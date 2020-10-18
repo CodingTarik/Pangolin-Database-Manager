@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 using Pangolin_Database_App.Enums;
 
@@ -10,8 +11,12 @@ namespace Pangolin_Database_App.Models
     {
         /// <summary>
         /// The primary key (unique id) for a pangolin
+        /// </summary> 
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int PangolinID { get; set; }
+        /// <summary>
+        /// Reference Number of pangolin
         /// </summary>
-        [Key]
         public string ReferenceNumber { get; set; }
         /// <summary>
         /// Reference to the official document
@@ -36,11 +41,11 @@ namespace Pangolin_Database_App.Models
         /// <summary>
         /// Aproximated age of pangolin
         /// </summary>
-        public int ApproxAge { get; set; }
+        public string ApproxAge { get; set; }
         /// <summary>
         /// The health state of a pangolin
         /// </summary>
-        public HealthStatus HealthState { get; set; }
+        public string HealthState { get; set; }
         /// <summary>
         /// The details of receiving
         /// </summary>
@@ -66,9 +71,17 @@ namespace Pangolin_Database_App.Models
         /// </summary>
         public string DistinguishingMarks { get; set; }
         /// <summary>
+        /// true = criminal case, false = hand in
+        /// </summary>
+        public bool CriminalCase { get; set; }
+        /// <summary>
         /// The date
         /// </summary>
         public DateTime Date { get; set; }
+        /// <summary>
+        /// The time
+        /// </summary>
+        public DateTime Time { get; set; }
 
     }
 }

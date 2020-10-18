@@ -3,8 +3,13 @@ using Pangolin_Database_App.Models;
 
 namespace Pangolin_Database_App.Database
 {
+    /// <summary>
+    /// Context class for pangolin database, stores informations about table
+    /// UseDatabaseManager if you want to get the database
+    /// </summary>
     public class PangolinContext : DbContext
     {
+        // Tables of database
         public DbSet<CriminalCase> CriminalCases { get; set; }
         public DbSet<DailyActivity> DailyActivities { get; set; }
         public DbSet<Document> Documents { get; set; }
@@ -20,14 +25,13 @@ namespace Pangolin_Database_App.Database
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite("Filename=Pangolin-Database.db");
+            optionsBuilder.UseSqlite(Pangolin_Database_App.Settings.Settings.SQLiteConnectionString);
         }
 
-        /*protected override void OnModelCreating(ModelBuilder modelBuilder)
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //Write Fluent API configurations here
-            //Property Configurations
-                            
-        }*/
+            //Property Configurations                       
+        }
     }
 }

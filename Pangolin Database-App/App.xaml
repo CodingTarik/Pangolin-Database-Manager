@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Pangolin_Database_App"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             StartupUri="MainWindow.xaml">
+             StartupUri="MainWindow.xaml"
+             xmlns:util="clr-namespace:Pangolin_Database_App.Util">
     <!-- Default Resources for App theme-->
     <Application.Resources>
         <ResourceDictionary>
@@ -11,6 +12,21 @@
                 <materialDesign:BundledTheme BaseTheme="Light" PrimaryColor="DeepPurple" SecondaryColor="Lime" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
             </ResourceDictionary.MergedDictionaries>
+            <Style TargetType="ComboBox" x:Key="Pangolinbox" BasedOn="{StaticResource MaterialDesignFloatingHintComboBox}">
+                <Style.Setters>
+                    <Setter Property="materialDesign:HintAssist.Hint" Value="SELECT PANGOLIN"></Setter>
+                    <Setter Property="ItemsSource" Value="{Binding Path=Pangolins, UpdateSourceTrigger=PropertyChanged}"></Setter>
+                    <Setter Property="DisplayMemberPath" Value="ReferenceNumber"></Setter>
+                </Style.Setters>
+            </Style>
+            <util:ValueConverter x:Key="StringToNumeric"></util:ValueConverter>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
+
+<!--   <ComboBox Grid.Row="0" Grid.Column="1"
+                    Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                    IsEditable="True"
+                    materialDesign:TextFieldAssist.HasClearButton="True"                                  
+                    materialDesign:HintAssist.Hint="REFERENCE NUMBER">
+    </ComboBox> -->

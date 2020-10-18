@@ -7,6 +7,7 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:customcontrols="clr-namespace:Pangolin_Database_App.User_Controls"
              mc:Ignorable="d" 
+             xmlns:enums="clr-namespace:Pangolin_Database_App.Enums"
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <!-- Main Grid Definitions-->
@@ -16,7 +17,7 @@
             <ColumnDefinition Width="0.7*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.5*"></RowDefinition>
+            <RowDefinition Height="0.7*"></RowDefinition>
             <RowDefinition Height="20"></RowDefinition>
             <RowDefinition Height="0.5*"></RowDefinition>
         </Grid.RowDefinitions>
@@ -28,14 +29,29 @@
                     <RowDefinition Height="0.3*"></RowDefinition>
                     <RowDefinition Height="0.3*"></RowDefinition>
                     <RowDefinition Height="0.3*"></RowDefinition>
+                    <RowDefinition Height="0.3*"></RowDefinition>
                 </Grid.RowDefinitions>
                 <!-- Title and Icon-->
                 <StackPanel Orientation="Horizontal" Grid.Row="0">
                     <TextBlock FontSize="22" Margin="10, 10, 0, 0" FontFamily="Roboto" TextDecorations="Underline">FORMAL</TextBlock>
                     <materialDesign:PackIcon Kind="Paper" Width="24" Height="24" VerticalAlignment="Center" Margin="2, 5, 0, 0"></materialDesign:PackIcon>
                 </StackPanel>
-                <!-- Reference Number-->
+                <!-- Selected Pangolin -->
                 <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40"></ColumnDefinition>
+                        <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <materialDesign:PackIcon Kind="ListStatus" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
+                    <ComboBox Grid.Column="1"
+                Style="{StaticResource Pangolinbox}"
+                SelectedValue="{Binding SelectedModel}"
+                VerticalAlignment="Center" 
+                Margin="0, 2, 2, 0"/>
+                </Grid>
+                <!-- Document Reference-->
+                <!-- Reference Number-->
+                <Grid Grid.Row="2">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="40"></ColumnDefinition>
                         <ColumnDefinition Width="0.8*"></ColumnDefinition>
@@ -44,11 +60,12 @@
                     <TextBox Grid.Column="1"
                 materialDesign:HintAssist.Hint="REFERENCE NUMBER"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                Text="{Binding SelectedModel.ReferenceNumber}"
                 VerticalAlignment="Center" 
-                          Margin="0, 2, 2, 0"/>
+                Margin="0, 2, 2, 0"/>
                 </Grid>
                 <!-- Document Reference-->
-                <Grid Grid.Row="2">
+                <Grid Grid.Row="3">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="40"></ColumnDefinition>
                         <ColumnDefinition Width="0.8*"></ColumnDefinition>
@@ -56,12 +73,13 @@
                     <materialDesign:PackIcon Kind="FileDocumentBox" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
                     <TextBox Grid.Column="1"
                 materialDesign:HintAssist.Hint="DOCUMENT REFERENCE"
+                Text="{Binding SelectedModel.OfficialDocumentReference}"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                 VerticalAlignment="Center" 
                          Margin="0, 2, 2, 0"/>
                 </Grid>
                 <!-- Date & Time Pick-->
-                <Grid Grid.Row="3">
+                <Grid Grid.Row="4">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="40"></ColumnDefinition>
                         <ColumnDefinition Width="0.5*"></ColumnDefinition>
@@ -71,22 +89,25 @@
 
                     <DatePicker Grid.Column="1"  Margin="0, 2, 2, 0"            
                     materialDesign:HintAssist.Hint="Pick Date"
-                    Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                    Style="{StaticResource MaterialDesignFloatingHintDatePicker}"
+                                SelectedDate="{Binding SelectedModel.Date}"/>
 
                     <materialDesign:TimePicker Grid.Column="2"  Margin="0, 8, 2, 0"
                     Style="{StaticResource MaterialDesignFloatingHintTimePicker}"
                     Is24Hours="True"
                     materialDesign:HintAssist.Hint="Pick Time" 
                     x:Name="PresetTimePicker"
+                    SelectedTime="{Binding SelectedModel.Time}"
                    />
                 </Grid>
             </Grid>
         </Border>
         <!-- Border for Save -->
-        <customcontrols:SaveControl Grid.Column="0" Grid.Row="2"></customcontrols:SaveControl>
+        <customcontrols:SaveControl Grid.Column="0" Grid.Row="2" YesClickEvent="SaveControl_YesClickEvent"></customcontrols:SaveControl>
         <!-- Border for Pangolin Edit-->
         <Border Grid.Column="2" Grid.Row="0" Grid.RowSpan="3" Background="#E8E8E8" CornerRadius="10" BorderThickness="5" Margin="2, 2">
             <Grid>
+              
                 <Grid.RowDefinitions>
                     <RowDefinition Height="40"></RowDefinition>
                     <RowDefinition Height="0.3*"></RowDefinition>
@@ -103,6 +124,15 @@
                     <ColumnDefinition Width="25"></ColumnDefinition>
                     <ColumnDefinition Width="0.5*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
+                <materialDesign:Snackbar Grid.Row="8" Grid.ColumnSpan="3" Panel.ZIndex="3"
+  HorizontalAlignment="Stretch"
+ Margin="5, 25, 0, 5"
+  IsActive="{Binding SnackbarActive}">
+                    <materialDesign:SnackbarMessage
+    Content="{Binding SnackbarMessage}"
+    ActionContent="OK"
+    ActionCommand="{Binding HideSnackbar}"/>
+                </materialDesign:Snackbar>
                 <!-- Title and Icon -->
                 <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3">
                     <TextBlock FontSize="22" Margin="10, 10, 0, 0" FontFamily="Roboto" TextDecorations="Underline">PANGOLIN DATA</TextBlock>
@@ -118,6 +148,7 @@
                     <TextBox Grid.Column="1"
                 materialDesign:HintAssist.Hint="NAME"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                Text="{Binding SelectedModel.Name}"
                 VerticalAlignment="Center" 
                          Margin="2, 2, 2, 0"/>
                 </Grid>
@@ -129,15 +160,12 @@
                     </Grid.ColumnDefinitions>
                     <materialDesign:PackIcon Kind="GenderMaleFemale" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
                     <ComboBox Grid.Column="1"
-                               materialDesign:HintAssist.Hint="GENDER"
+                              materialDesign:HintAssist.Hint="GENDER"
                               Margin="2, 2, 2, 0"
-                              VerticalAlignment="Center">
-                        <ComboBoxItem>
-                            Male
-                        </ComboBoxItem>
-                        <ComboBoxItem>
-                            Female
-                        </ComboBoxItem>
+                              ItemsSource="{Binding Genders}"
+                              SelectedItem="{Binding SelectedModel.Gender}"
+                              VerticalAlignment="Center"
+                              Text="{Binding SelectedModel.Gender}">
                     </ComboBox>
                 </Grid>
                 <!-- Weight-->
@@ -150,6 +178,7 @@
                     <TextBox Grid.Column="1"
                 materialDesign:HintAssist.Hint="WEIGHT"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                Text="{Binding SelectedModel.Weight, Converter={StaticResource StringToNumeric}}"
                 VerticalAlignment="Center" 
                          Margin="2, 2, 2, 0"/>
                 </Grid>
@@ -174,7 +203,7 @@
                             </TextBlock>
                             <RadioButton Grid.Column="1"
                               Style="{StaticResource MaterialDesignDarkRadioButton}"
-                            IsChecked="True"
+                            IsChecked="{Binding SelectedModel.ParasitesPresent}"
                             Content="YES"
                                          FontSize="16"
                                          HorizontalContentAlignment="Center"
@@ -183,10 +212,10 @@
                                 />
                             <RadioButton Grid.Column="2"
         Style="{StaticResource MaterialDesignDarkRadioButton}"
-      IsChecked="False"
                                          HorizontalContentAlignment="Center"
                                          HorizontalAlignment="Center"
-                                           VerticalAlignment="Center"
+                                         VerticalAlignment="Center"
+                                         IsChecked="True"
                                          FontSize="16"
       Content="NO" />
 
@@ -204,6 +233,7 @@
                 materialDesign:HintAssist.Hint="DAYS IN CAPTIVITY"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                 VerticalAlignment="Center" 
+                             Text="{Binding SelectedModel.TimeInCaptivity, Converter={StaticResource StringToNumeric}}"
                          Margin="2, 2, 2, 0"/>
                 </Grid>
                 <!-- Authoritive Point of contact-->
@@ -216,6 +246,7 @@
                     <TextBox Grid.Column="1"
                 materialDesign:HintAssist.Hint="AUTHORITIVE POINT OF CONTACT"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                             Text="{Binding SelectedModel.AuhtoritivePointOfContact}"
                 VerticalAlignment="Center" 
                          Margin="2, 2, 2, 0"/>
                 </Grid>
@@ -239,7 +270,7 @@
                         </TextBlock>
                         <RadioButton Grid.Column="2" Grid.Row="0"
                               Style="{StaticResource MaterialDesignDarkRadioButton}"
-                            IsChecked="True"
+                            IsChecked="{Binding SelectedModel.CriminalCase}"
                             Content="CRIMINAL CASE"
                                          FontSize="14"
                                          HorizontalAlignment="Left"
@@ -247,11 +278,10 @@
                                 />
                         <RadioButton Grid.Column="2" Grid.Row="1"
         Style="{StaticResource MaterialDesignDarkRadioButton}"
-      IsChecked="False"
                                          HorizontalAlignment="Left"
-                                           VerticalAlignment="Center"
+                                           VerticalAlignment="Top"
                                          FontSize="14"
-      Content="HAND IN" />
+      Content="HAND IN" Margin="0,10,0,0" />
                     </Grid>
                 </Border>
                 <!-- Approx Age-->
@@ -264,7 +294,8 @@
                     <ComboBox Grid.Column="1"
                                materialDesign:HintAssist.Hint="AGE"
                               Margin="2, 2, 2, 0"
-                              VerticalAlignment="Center">
+                              VerticalAlignment="Center"
+                              SelectedItem="{Binding SelectedModel.ApproxAge}">
                         <ComboBoxItem>
                             Adult
                         </ComboBoxItem>
@@ -292,7 +323,8 @@
                     <ComboBox Grid.Column="1"
                                materialDesign:HintAssist.Hint="HEALTH STATUS"
                               Margin="2, 2, 2, 0"
-                              VerticalAlignment="Center">
+                              VerticalAlignment="Center"
+                              SelectedItem="{Binding SelectedModel.HealthState}">
                         <ComboBoxItem>
                             1 (Severely compromised and thin)
                         </ComboBoxItem>
@@ -319,6 +351,7 @@
                     <materialDesign:PackIcon Kind="Map" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
                     <TextBox Grid.Column="1"
                 materialDesign:HintAssist.Hint="ORIGIN"
+                             Text="{Binding SelectedModel.AreaOriginallyFrom}"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                 VerticalAlignment="Center" 
                          Margin="2, 2, 2, 0"/>
@@ -332,6 +365,7 @@
                     <materialDesign:PackIcon Kind="Transportation" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
                     <TextBox Grid.Column="1"
                 materialDesign:HintAssist.Hint="MODE OF TRANSPORT"
+                             Text="{Binding SelectedModel.ModeOfTransport}"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                 VerticalAlignment="Center" 
                          Margin="2, 2, 2, 0"/>
@@ -352,6 +386,7 @@
                 VerticalScrollBarVisibility="Auto"
                              Background="#FAFAFA"                             
                 VerticalAlignment="Bottom"
+                             Text="{Binding SelectedModel.DetailsOfReceiving}"
                             TextWrapping="Wrap"                             
                          Margin="2,0,2,0" MinHeight="60"/>
                 </Grid>
@@ -371,6 +406,7 @@
                 VerticalScrollBarVisibility="Auto"
                              Background="#FAFAFA"                             
                 VerticalAlignment="Bottom"
+                             Text="{Binding SelectedModel.DistinguishingMarks}"
                             TextWrapping="Wrap"                             
                          Margin="2,0,2,0" MinHeight="60"/>
                 </Grid>

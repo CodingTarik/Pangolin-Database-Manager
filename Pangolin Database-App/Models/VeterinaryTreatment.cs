@@ -1,15 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
-namespace Pangolin_Database_App.Models
-{
-    public class VeterinaryTreatment
-    {
+namespace Pangolin_Database_App.Models {
+    public class VeterinaryTreatment {
+        /// <summary>
+        /// Primary Key
+        /// </summary>
+        [Key, DatabaseGenerated (DatabaseGeneratedOption.Identity)]
+        public int VeterinaryTreatmentID { get; set; }
+
         /// <summary>
         /// the ReferenceNumber of the Pangolin
         /// </summary>
+        [Required, ForeignKey (Pangolin_Database_App.Settings.Settings.PANGOLIN_TABLENAME)]
         public string ReferenceNumber { get; set; }
+
         /// <summary>
         /// Date of treatment
         /// </summary>

@@ -1,14 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Pangolin_Database_App.Models
 {
     public class TrackingDevice
     {
         /// <summary>
+        /// Primary Key
+        /// </summary>
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int TrackingDeviceID { get; set; }
+
+        /// <summary>
         /// The reference number of the pangolin the tracking device is attached to
         /// </summary>
+        [Required, ForeignKey(Pangolin_Database_App.Settings.Settings.PANGOLIN_TABLENAME)]
         public string ReferenceNumber { get; set; }
         /// <summary>
         /// Date of update

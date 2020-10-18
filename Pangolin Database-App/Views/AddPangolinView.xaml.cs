@@ -11,5 +11,10 @@ namespace Pangolin_Database_App.Views
         {
             InitializeComponent();
         }
+
+        private void SaveControl_YesClickEvent(object sender, System.EventArgs e)
+        {
+
+        }
     }
 }
