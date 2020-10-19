@@ -17,9 +17,11 @@
                     <Setter Property="materialDesign:HintAssist.Hint" Value="SELECT PANGOLIN"></Setter>
                     <Setter Property="ItemsSource" Value="{Binding Path=Pangolins, UpdateSourceTrigger=PropertyChanged}"></Setter>
                     <Setter Property="DisplayMemberPath" Value="ReferenceNumber"></Setter>
+                    <Setter Property="SelectedValue" Value="{Binding SelectedPangolin}"></Setter>
                 </Style.Setters>
             </Style>
             <util:ValueConverter x:Key="StringToNumeric"></util:ValueConverter>
+            <util:BoolToIndexConverter x:Key="BoolToIndex"></util:BoolToIndexConverter>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

@@ -1,4 +1,5 @@
-﻿using Pangolin_Database_App.ViewModels;
+﻿using Pangolin_Database_App.Models;
+using Pangolin_Database_App.ViewModels;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -144,6 +145,21 @@ namespace Pangolin_Database_App.Views
         private void Mortality_Click(object sender, RoutedEventArgs e)
         {
             Window.GetWindow(this).DataContext = new MortalityViewModel();
+        }
+
+      
+        /// <summary>
+        /// Edit button in pangolin selection clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void EditButton_Click(object sender, RoutedEventArgs e)
+        {
+            Pangolin selectedPangolin = ((MainMenuViewModel)(Window.GetWindow(this).DataContext)).SelectedPangolin;
+            if(selectedPangolin != null)
+            {
+                Window.GetWindow(this).DataContext = new AddPangolinViewModel(selectedPangolin);
+            }
         }
     }
 }

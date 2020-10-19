@@ -8,6 +8,7 @@
              xmlns:customcontrols="clr-namespace:Pangolin_Database_App.User_Controls"
              mc:Ignorable="d" 
              xmlns:enums="clr-namespace:Pangolin_Database_App.Enums"
+             xmlns:extension="clr-namespace:Pangolin_Database_App.Extensions"
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <!-- Main Grid Definitions-->
@@ -295,7 +296,8 @@
                                materialDesign:HintAssist.Hint="AGE"
                               Margin="2, 2, 2, 0"
                               VerticalAlignment="Center"
-                              SelectedItem="{Binding SelectedModel.ApproxAge}">
+                              SelectedValuePath="Content"
+                              SelectedValue="{Binding SelectedModel.ApproxAge}">
                         <ComboBoxItem>
                             Adult
                         </ComboBoxItem>
@@ -324,23 +326,10 @@
                                materialDesign:HintAssist.Hint="HEALTH STATUS"
                               Margin="2, 2, 2, 0"
                               VerticalAlignment="Center"
-                              SelectedItem="{Binding SelectedModel.HealthState}">
-                        <ComboBoxItem>
-                            1 (Severely compromised and thin)
-                        </ComboBoxItem>
-                        <ComboBoxItem>
-                            2  (thin but able to walk)
-                        </ComboBoxItem>
-                        <ComboBoxItem>
-                            3 (average condition)
-                        </ComboBoxItem>
-                        <ComboBoxItem>
-                            4 (good condition)
-                        </ComboBoxItem>
-                        <ComboBoxItem>
-                            5 (excellent condition)
-                        </ComboBoxItem>
-                    </ComboBox>
+                              ItemsSource="{Binding Source={extension:Enumeration {x:Type enums:HealthStatus}}}"
+                              DisplayMemberPath="Description"
+                              SelectedValue="{Binding SelectedModel.HealthState}"
+                              SelectedValuePath="Value"/>
                 </Grid>
                 <!-- Origin -->
                 <Grid Grid.Row="5" Grid.Column="2">

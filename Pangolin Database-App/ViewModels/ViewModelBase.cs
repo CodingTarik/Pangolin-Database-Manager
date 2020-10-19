@@ -7,7 +7,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 
@@ -38,15 +37,29 @@ namespace Pangolin_Database_App.ViewModels
             get { return _snackbarMessage; }
             set { _snackbarMessage = value; NotifyPropertyChanged(); }
         }
+
+        /// <summary>
+        /// Saves relaycommand for hide snackbar
+        /// </summary>
         private RelayCommand _hideSnackbar;
 
+        /// <summary>
+        /// Relay command for hide snackbar
+        /// </summary>
         public RelayCommand HideSnackbar { get { return _hideSnackbar; } set { _hideSnackbar = value; NotifyPropertyChanged(); } }
 
+        /// <summary>
+        /// Hides snackbar
+        /// </summary>
         private void HideAppSnackbar()
         {
             SnackbarActive = false;
         }
 
+        /// <summary>
+        /// Shows snackbar with a message
+        /// </summary>
+        /// <param name="message"></param>
         private void ShowSnackbar(string message)
         {
             SnackbarActive = false;
@@ -54,10 +67,13 @@ namespace Pangolin_Database_App.ViewModels
             SnackbarActive = true;
         }
 
+        /// <summary>
+        /// Saves dbset that should be used for this view model
+        /// </summary>
         private DbSet<T> dbset;
 
         /// <summary>
-        /// 
+        /// Applies dbset and relay command for hidesnackbar
         /// </summary>
         /// <param name="dbset">dbset the view model base should access</param>
         public ViewModelBase(DbSet<T> dbset)
@@ -66,6 +82,9 @@ namespace Pangolin_Database_App.ViewModels
             HideSnackbar = new RelayCommand(HideAppSnackbar);
         }
 
+        /// <summary>
+        /// Saves all pangolins
+        /// </summary>
         private ObservableCollection<Pangolin> _pangolins = new ObservableCollection<Pangolin>(DatabaseManager.GetPangolins());
 
         /// <summary>
@@ -73,7 +92,12 @@ namespace Pangolin_Database_App.ViewModels
         /// </summary>
         public ObservableCollection<Pangolin> Pangolins { get { return _pangolins; } private set { _pangolins = value; NotifyPropertyChanged(); } }
 
+        /// <summary>
+        /// Saves selected pangolin
+        /// </summary>
         private Pangolin _selectedPangolin;
+
+        public event EventHandler<Pangolin> PangolinChanged;
 
         /// <summary>
         /// Selected Pangolin for reference
@@ -86,11 +110,35 @@ namespace Pangolin_Database_App.ViewModels
                 if (value != _selectedPangolin)
                 {
                     _selectedPangolin = value;
+                    ChangePangolinReferenceForModel();
                     NotifyPropertyChanged();
+
+                    if(PangolinChanged != null)
+                    {
+                        PangolinChanged(this, SelectedPangolin);
+                    }
                 }
             }
         }
 
+        /// <summary>
+        /// Searches for Pangolin references in model and sets it to selectedpangolin
+        /// </summary>
+        private void ChangePangolinReferenceForModel()
+        {
+            Type type = SelectedModel.GetType();
+            PropertyInfo[] properties = type.GetProperties();
+            foreach(PropertyInfo prop in properties)
+            {
+                if(prop.PropertyType == typeof(Pangolin))
+                {
+                    prop.SetValue(SelectedModel, SelectedPangolin);
+                    NotifyPropertyChanged("SelectedModel");
+                    return;
+                }
+            }
+            throw new Exception("No Pangolin model found for selected model");
+        }
 
         private T _selectedModel;
 
@@ -104,8 +152,9 @@ namespace Pangolin_Database_App.ViewModels
             {
                 if (_selectedModel != value)
                 {
-                    ReloadSelectedModel(true);
+                    T modelForReset = _selectedModel;
                     _selectedModel = value;
+                    ReloadModel(modelForReset);
                     NotifyPropertyChanged();
                 }
             }
@@ -126,7 +175,7 @@ namespace Pangolin_Database_App.ViewModels
             PangolinContext db = DatabaseManager.GetDatabase();
             if (db != null && SelectedModel != null)
             {
-                if (ModelExistInDatabase())
+                if (ModelExistInDatabase(SelectedModel))
                 {
                     db.Update(SelectedModel);
                     ShowSnackbar("The model has been sucessfull updated");
@@ -145,26 +194,42 @@ namespace Pangolin_Database_App.ViewModels
             }
         }
 
-        public event EventHandler ReloadSelectedModelEvent;
+        /// <summary>
+        /// Event for handeling selected model reload, will be called before model reload (use) reloadmodelevent if you want to catch after
+        /// </summary>
+        public event EventHandler<T> ReloadSelectedModelEvent;
 
+        /// <summary>
+        /// Reloads the selected model
+        /// </summary>
+        public void ReloadSelectedModel()
+        {
+            if (ReloadSelectedModelEvent != null)
+            {
+                ReloadSelectedModelEvent(this, SelectedModel);
+            }
+            ReloadModel(SelectedModel);
+            NotifyPropertyChanged("SelectedModel");
+        }
+
+        /// <summary>
+        /// Event for handeling a model reload, will be called after model reload
+        /// </summary>
+        public event EventHandler<T> ReloadModelEvent;
         /// <summary>
         /// Resets the selected model to its default value
         /// </summary>
-        public void ReloadSelectedModel(bool switchingModel = false)
+        private void ReloadModel(T model)
         {
             // Resets all changes made to model
-            if (_selectedModel != null)
+            if (model != null)
             {
-                if (ModelExistInDatabase())
+                if (ModelExistInDatabase(model))
                 {
-                    DatabaseManager.GetDatabase().Entry(_selectedModel).Reload(); // CRASH
-                    NotifyPropertyChanged("SelectedModel");
-                }
-                if (ReloadSelectedModelEvent != null)
-                {
-                    if (!switchingModel)
+                    DatabaseManager.GetDatabase().Entry(model).Reload();
+                    if (ReloadModelEvent != null)
                     {
-                        ReloadSelectedModelEvent(this, EventArgs.Empty);
+                        ReloadModelEvent(this, model);
                     }
                 }
             }
@@ -177,9 +242,9 @@ namespace Pangolin_Database_App.ViewModels
         /// true if it exists
         /// false if the model does not exist in the database
         /// </returns>
-        private bool ModelExistInDatabase()
+        private bool ModelExistInDatabase(T model)
         {
-            object primarykeyOfModel = GetPrimaryKeyForModel();
+            object primarykeyOfModel = GetPrimaryKeyForModel(model);
             return PrimaryKeyExist(dbset, new object[] { primarykeyOfModel });
         }
 
@@ -189,9 +254,9 @@ namespace Pangolin_Database_App.ViewModels
         /// if no property is found, KeyNotFoundException will be thrown
         /// </summary>
         /// <returns>Value of the primary key</returns>
-        private object GetPrimaryKeyForModel()
+        private object GetPrimaryKeyForModel(T model)
         {
-            Type type = SelectedModel.GetType();
+            Type type = model.GetType();
             PropertyInfo[] properties = type.GetProperties();
             foreach (PropertyInfo prop in properties)
             {
@@ -201,7 +266,7 @@ namespace Pangolin_Database_App.ViewModels
                     KeyAttribute key = attr as KeyAttribute;
                     if (key != null)
                     {
-                        return prop.GetValue(SelectedModel);
+                        return prop.GetValue(model);
                     }
                 }
             }

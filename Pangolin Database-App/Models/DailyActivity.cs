@@ -17,8 +17,8 @@ namespace Pangolin_Database_App.Models
         /// <summary>
         /// the ReferenceNumber of the Pangolin
         /// </summary>
-        [Required, ForeignKey(Pangolin_Database_App.Settings.Settings.PANGOLIN_TABLENAME)]
-        public string ReferenceNumber { get; set; }
+        [Required]
+        public Pangolin ReferencePangolin { get; set; }
 
         /// <summary>
         /// the date
@@ -58,7 +58,7 @@ namespace Pangolin_Database_App.Models
         /// <summary>
         /// the manueWeight
         /// </summary>
-        public double ManueWeight { get; set; }
+        public double ManureWeight { get; set; }
 
         /// <summary>
         /// the wakeup time
@@ -83,6 +83,6 @@ namespace Pangolin_Database_App.Models
         /// <summary>
         /// other comments
         /// </summary>
-        public string comment { get; set; }
+        public string Comment { get; set; }
     }
 }

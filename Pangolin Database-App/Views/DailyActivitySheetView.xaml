@@ -46,11 +46,7 @@
                     </Grid.ColumnDefinitions>
                     <materialDesign:PackIcon Kind="FormatListNumberedRightToLeft" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
                     <ComboBox Grid.Row="0" Grid.Column="1"
-                    Style="{StaticResource MaterialDesignFloatingHintComboBox}"
-                    IsEditable="True"
-                    materialDesign:TextFieldAssist.HasClearButton="True"                                  
-                    materialDesign:HintAssist.Hint="REFERENCE NUMBER">
-                    </ComboBox>
+                    Style="{StaticResource Pangolinbox}"/>
                 </Grid>
                 <!-- Date & Time Pick-->
                 <Grid Grid.Row="2">
@@ -63,7 +59,8 @@
 
                     <DatePicker Grid.Column="1"  Margin="0, 2, 2, 0"            
                     materialDesign:HintAssist.Hint="Pick Date"
-                    Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                    Style="{StaticResource MaterialDesignFloatingHintDatePicker}" 
+                    SelectedDate="{Binding Date}"/>
                 </Grid>
             </Grid>
         </Border>
@@ -104,6 +101,7 @@
                 materialDesign:HintAssist.Hint="WALKER"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                 VerticalAlignment="Top"
+                Text="{Binding SelectedModel.Walker}"
                          />
                 </Grid>
                 <!-- Area walked -->
@@ -117,6 +115,7 @@
                 materialDesign:HintAssist.Hint="AREA WALKED"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                 VerticalAlignment="Top"
+                Text="{Binding SelectedModel.AreaWalked}"
                          />
                 </Grid>
                 <!-- Initial Weight -->
@@ -129,6 +128,7 @@
                     <TextBox Grid.Column="1"
                 materialDesign:HintAssist.Hint="INITIAL WEIGHT"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                Text="{Binding SelectedModel.InititalWeight, Converter={StaticResource StringToNumeric}}"
                 VerticalAlignment="Top"/>
                 </Grid>
                 <!-- Final Weight -->
@@ -141,6 +141,7 @@
                     <TextBox Grid.Column="1"
                 materialDesign:HintAssist.Hint="FINAL WEIGHT"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                Text="{Binding SelectedModel.FinalWeight, Converter={StaticResource StringToNumeric}}"
                 VerticalAlignment="Top"/>
                 </Grid>
                 <!-- Manure Weight -->
@@ -153,7 +154,8 @@
                     <TextBox Grid.Column="1"
                 materialDesign:HintAssist.Hint="MANURE WEIGHT"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                VerticalAlignment="Top"/>
+                VerticalAlignment="Top"
+                 Text="{Binding SelectedModel.ManureWeight, Converter={StaticResource StringToNumeric}}"/>
                 </Grid>
                 <!-- Defectation-->
                 <Grid Grid.Row="1" Grid.Column="2">
@@ -163,14 +165,13 @@
                     </Grid.ColumnDefinitions>
                     <materialDesign:PackIcon Kind="Toilet" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
                     <ComboBox Grid.Column="1" VerticalAlignment="Center"
-  materialDesign:HintAssist.Hint="DEFECTATION">
+  materialDesign:HintAssist.Hint="DEFECTATION" SelectedIndex="{Binding SelectedModel.Defectation, Converter={StaticResource BoolToIndex}}">
                         <ComboBoxItem>
                             YES
                         </ComboBoxItem>
                         <ComboBoxItem>
                             NO
                         </ComboBoxItem>
-                        
                     </ComboBox>
                 </Grid>
                 <!-- Pangolin Drink water -->
@@ -181,7 +182,7 @@
                     </Grid.ColumnDefinitions>
                     <materialDesign:PackIcon Kind="Water" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
                     <ComboBox Grid.Column="1" VerticalAlignment="Center"
-  materialDesign:HintAssist.Hint="PANGOLIN DRANK WATER TODAY?">
+  materialDesign:HintAssist.Hint="PANGOLIN DRANK WATER TODAY?" SelectedIndex="{Binding SelectedModel.DrankWater, Converter={StaticResource BoolToIndex}}">
                         <ComboBoxItem>
                             YES
                         </ComboBoxItem>
@@ -197,7 +198,7 @@
                         <ColumnDefinition Width="0.8*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <materialDesign:PackIcon Kind="AlarmClock" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
-                    <materialDesign:TimePicker Grid.Column="1" Is24Hours="True"  Style="{StaticResource MaterialDesignFloatingHintTimePicker}" materialDesign:HintAssist.Hint="PICK WAKEUP TIME"/>
+                    <materialDesign:TimePicker Grid.Column="1" Is24Hours="True" SelectedTime="{Binding SelectedModel.WakeupTime}"  Style="{StaticResource MaterialDesignFloatingHintTimePicker}" materialDesign:HintAssist.Hint="PICK WAKEUP TIME"/>
                 </Grid>
                 <!-- Walking time start -->
                 <Grid Grid.Row="4" Grid.Column="2">
@@ -215,7 +216,7 @@
                         <ColumnDefinition Width="0.8*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <materialDesign:PackIcon Kind="StopCircle" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
-                    <materialDesign:TimePicker  SelectedTime="{Binding Path=WalkingStop, Mode=OneWayToSource}" Grid.Column="1" Is24Hours="True"  Style="{StaticResource MaterialDesignFloatingHintTimePicker}" materialDesign:HintAssist.Hint="PICK WALKING TIME STOP" SelectedTimeChanged="WalkingStop_TimeChanged"/>
+                    <materialDesign:TimePicker SelectedTime="{Binding Path=WalkingStop, Mode=OneWayToSource}" Grid.Column="1" Is24Hours="True"  Style="{StaticResource MaterialDesignFloatingHintTimePicker}" materialDesign:HintAssist.Hint="PICK WALKING TIME STOP" SelectedTimeChanged="WalkingStop_TimeChanged"/>
                 </Grid>
                 <!-- Total time walked -->
                 <Grid Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="3">
@@ -245,21 +246,21 @@
                     </Grid.RowDefinitions>
                     <TextBlock Grid.Row="0" Grid.Column="1" FontFamily="Roboto" FontSize="20" VerticalAlignment="Bottom">Weather Observation</TextBlock>
                     <materialDesign:PackIcon Kind="WeatherCloudy" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.RowSpan="2"></materialDesign:PackIcon>
-                    <ListBox Grid.Column="1" Grid.Row="1"
+                    <ListBox Grid.Column="1" Grid.Row="1" 
                      Style="{StaticResource MaterialDesignFilterChipPrimaryListBox}" FontSize="20" FontFamily="Roboto" VerticalAlignment="Center" Background="White">
-                        <ListBoxItem>
+                        <ListBoxItem IsSelected="{Binding Hot}">
                            Hot
                         </ListBoxItem>
-                        <ListBoxItem>
+                        <ListBoxItem IsSelected="{Binding Sunny}">
                             Sunny
                         </ListBoxItem>
-                        <ListBoxItem>
+                        <ListBoxItem IsSelected="{Binding PartCloud}">
                             Part Cloud
                         </ListBoxItem>
-                        <ListBoxItem>
+                        <ListBoxItem IsSelected="{Binding FullCloud}">
                             Full Cloud
                         </ListBoxItem>
-                        <ListBoxItem>
+                        <ListBoxItem IsSelected="{Binding Rain}">
                             Rain
                         </ListBoxItem>
                     </ListBox>
@@ -271,7 +272,7 @@
                         <ColumnDefinition Width="0.3*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <materialDesign:PackIcon Kind="Comment" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.RowSpan="2"></materialDesign:PackIcon>
-                    <TextBox Grid.Column="1"   VerticalScrollBarVisibility="Auto" materialDesign:HintAssist.Hint="COMMENTS OR OBSERVATIONS"  AcceptsReturn="True" TextWrapping="Wrap" VerticalAlignment="Center"></TextBox>
+                    <TextBox Grid.Column="1"   VerticalScrollBarVisibility="Auto" materialDesign:HintAssist.Hint="COMMENTS OR OBSERVATIONS"  AcceptsReturn="True" TextWrapping="Wrap" VerticalAlignment="Center" Text="{Binding SelectedModel.Comment}"></TextBox>
                 </Grid>
             </Grid>
         </Border>

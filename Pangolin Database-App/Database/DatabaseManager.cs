@@ -26,23 +26,31 @@ namespace Pangolin_Database_App.Database
             if (database == null)
             {
                 database = new PangolinContext();
-                database.Database.EnsureCreatedAsync(); // SYNC AT THIS POINT (IF INTERNET)
+                database.Database.EnsureCreated(); // SYNC AT THIS POINT (IF INTERNET)
             }
             return database;
         }
 
         public static List<Pangolin> GetPangolins()
         {
-            if(pangolinList == null)
+            if (pangolinList == null)
             {
                 RefreshPangolinList();
             }
+            RefreshPangolinList();
             return pangolinList;
         }
 
         public static void RefreshPangolinList()
         {
-            pangolinList = GetDatabase().Pangolins.ToList();
+            if (GetDatabase().Pangolins.Count() > 0)
+            {
+                pangolinList = GetDatabase().Pangolins.ToList();
+            }
+            else
+            {
+                pangolinList = new List<Pangolin>();
+            }
         }
 
     }

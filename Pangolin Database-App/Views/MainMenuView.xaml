@@ -7,6 +7,33 @@
               xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <materialDesign:DialogHost>
+        <materialDesign:DialogHost.DialogContent>
+            <StackPanel Margin="16">
+                <TextBlock>Select a Pangolin you want to edit</TextBlock>
+                <ComboBox Style="{StaticResource Pangolinbox}" SelectedValue="{Binding SelectedPangolin}"></ComboBox>
+                <StackPanel
+        Orientation="Horizontal"
+        HorizontalAlignment="Right">
+                    <Button
+          Style="{StaticResource MaterialDesignFlatButton}"
+          IsDefault="True"
+          Margin="0 8 8 0"
+           Click="EditButton_Click"
+          Command="materialDesign:DialogHost.CloseDialogCommand">
+                        EDIT
+                    </Button>
+                    <Button
+          Style="{StaticResource MaterialDesignFlatButton}"
+          IsCancel="True"
+          Margin="0 8 8 0"
+          Command="materialDesign:DialogHost.CloseDialogCommand">
+                        CANCEL
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+        </materialDesign:DialogHost.DialogContent>
+    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.4*"></ColumnDefinition>
@@ -28,7 +55,7 @@
                     <materialDesign:PackIcon Kind="Add" Height="24" Width="24"></materialDesign:PackIcon>
                 </StackPanel>
             </Button>
-            <Button>
+                <Button Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock>EDIT RECORD</TextBlock>
                     <materialDesign:PackIcon Kind="Edit" Height="24" Width="24"></materialDesign:PackIcon>
@@ -117,6 +144,7 @@
             </Button>
         </StackPanel>
     </Grid>
+    </materialDesign:DialogHost>
     <UserControl.Resources>
         <Style TargetType="{x:Type Button}">
             <Setter Property="Margin" Value="0, 0, 0, 20"></Setter>

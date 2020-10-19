@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Runtime.CompilerServices;
 using System.Text;
 using Pangolin_Database_App.Enums;
 
 namespace Pangolin_Database_App.Models
 {
-    public class Pangolin
+    public class Pangolin : INotifyPropertyChanged
     {
         /// <summary>
         /// The primary key (unique id) for a pangolin
@@ -17,7 +19,8 @@ namespace Pangolin_Database_App.Models
         /// <summary>
         /// Reference Number of pangolin
         /// </summary>
-        public string ReferenceNumber { get; set; }
+        private string _referenceNumber;
+        public string ReferenceNumber { get { return _referenceNumber; } set { _referenceNumber = value; NotifyPropertyChanged(); } }
         /// <summary>
         /// Reference to the official document
         /// </summary>
@@ -45,7 +48,7 @@ namespace Pangolin_Database_App.Models
         /// <summary>
         /// The health state of a pangolin
         /// </summary>
-        public string HealthState { get; set; }
+        public HealthStatus HealthState { get; set; }
         /// <summary>
         /// The details of receiving
         /// </summary>
@@ -83,5 +86,19 @@ namespace Pangolin_Database_App.Models
         /// </summary>
         public DateTime Time { get; set; }
 
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Method if a property changed
+        /// </summary>
+        /// <param name="propertyName"></param>
+        public void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
+        {
+            if (!String.IsNullOrEmpty(propertyName) && PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
     }
 }

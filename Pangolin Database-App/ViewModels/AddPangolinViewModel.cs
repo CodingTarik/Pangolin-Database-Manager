@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Reflection;
 
 namespace Pangolin_Database_App.ViewModels
 {
@@ -34,6 +35,12 @@ namespace Pangolin_Database_App.ViewModels
             UpdateModelEvent += AddPangolinViewModel_UpdateModelEvent;
             ReloadSelectedModelEvent += AddPangolinViewModel_ReloadSelectedModelEvent;
             PropertyChanged += AddPangolinViewModel_PropertyChanged;
+            ReloadModelEvent += AddPangolinViewModel_ReloadModelEvent;
+        }
+
+        private void AddPangolinViewModel_ReloadModelEvent(object sender, Pangolin e)
+        {
+            e.NotifyPropertyChanged("ReferenceNumber");
         }
 
         /// <summary>
@@ -45,6 +52,7 @@ namespace Pangolin_Database_App.ViewModels
         {
             if(e.PropertyName == "SelectedModel")
             {
+                // Called if switching from one model to another that is not the standard model
                 if(SelectedModel != _pangolinStandardModel)
                 {
                     ResetStandardModel();
@@ -57,12 +65,12 @@ namespace Pangolin_Database_App.ViewModels
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void AddPangolinViewModel_ReloadSelectedModelEvent(object sender, EventArgs e)
+        private void AddPangolinViewModel_ReloadSelectedModelEvent(object sender, Pangolin model)
         {
             if (SelectedModel == _pangolinStandardModel)
             {
                 ResetStandardModel();
-            }
+            }             
         }
 
         /// <summary>
@@ -81,10 +89,18 @@ namespace Pangolin_Database_App.ViewModels
         /// <summary>
         /// Resets standardmodel if change of pangolin selection
         /// </summary>
-        private void ResetStandardModel()
+        private static void ResetStandardModel()
         {
-            Pangolins.Remove(_pangolinStandardModel);
-            Pangolins.Add(GetPangolinStandardModel(true));
+            if (_pangolinStandardModel != null)
+            {
+                Type type = _pangolinStandardModel.GetType();
+                PropertyInfo[] properties = type.GetProperties();
+                foreach (PropertyInfo p in properties)
+                {
+                    p.SetValue(_pangolinStandardModel, null);
+                }
+                _pangolinStandardModel.ReferenceNumber = "<NEW PANGOLIN>";
+            }
         }
 
         /// <summary>
@@ -96,6 +112,18 @@ namespace Pangolin_Database_App.ViewModels
             {
                 return Enum.GetValues(typeof(Sex))
                     .Cast<Sex>();
+            }
+        }
+
+        /// <summary>
+        /// Returns all health states as IEnumerable
+        /// </summary>
+        public IEnumerable<HealthStatus> HealthStates
+        {
+            get
+            {
+                return Enum.GetValues(typeof(HealthStatus))
+                    .Cast<HealthStatus>();
             }
         }
 
@@ -111,7 +139,7 @@ namespace Pangolin_Database_App.ViewModels
             if (_pangolinStandardModel == null || createNew)
             {
                 _pangolinStandardModel = new Pangolin();
-                _pangolinStandardModel.ReferenceNumber = "<NEW PANGOLIN>";
+                ResetStandardModel();                
             }
             return _pangolinStandardModel;
         }
