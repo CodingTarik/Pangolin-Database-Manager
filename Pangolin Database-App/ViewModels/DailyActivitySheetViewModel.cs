@@ -53,7 +53,7 @@ namespace Pangolin_Database_App.ViewModels
         public DateTime WalkingStart
         {
             get { return SelectedModel.WalkingTimeStart; }
-            set { SelectedModel.WalkingTimeStop = value; NotifyPropertyChanged(); NotifyPropertyChanged("TotalHoursWalked"); NotifyPropertyChanged("TotalHoursWalkedInPercent"); }
+            set { SelectedModel.WalkingTimeStart = value; NotifyPropertyChanged(); NotifyPropertyChanged("TotalHoursWalked"); NotifyPropertyChanged("TotalHoursWalkedInPercent"); }
         }
 
         public DateTime WalkingStop

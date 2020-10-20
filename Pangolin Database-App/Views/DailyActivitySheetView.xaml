@@ -207,7 +207,7 @@
                         <ColumnDefinition Width="0.8*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <materialDesign:PackIcon Kind="ClockStart" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
-                    <materialDesign:TimePicker SelectedTime="{Binding Path=WalkingStart, Mode=OneWayToSource}" Grid.Column="1" Is24Hours="True"  Style="{StaticResource MaterialDesignFloatingHintTimePicker}" materialDesign:HintAssist.Hint="PICK WALKING TIME START" SelectedTimeChanged="WalkingStart_TimeChanged"/>
+                    <materialDesign:TimePicker SelectedTime="{Binding Path=WalkingStart}" Grid.Column="1" Is24Hours="True"  Style="{StaticResource MaterialDesignFloatingHintTimePicker}" materialDesign:HintAssist.Hint="PICK WALKING TIME START" SelectedTimeChanged="WalkingStart_TimeChanged"/>
                 </Grid>
                 <!-- Walking time stop -->
                 <Grid Grid.Row="5" Grid.Column="2">
@@ -216,7 +216,7 @@
                         <ColumnDefinition Width="0.8*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <materialDesign:PackIcon Kind="StopCircle" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
-                    <materialDesign:TimePicker SelectedTime="{Binding Path=WalkingStop, Mode=OneWayToSource}" Grid.Column="1" Is24Hours="True"  Style="{StaticResource MaterialDesignFloatingHintTimePicker}" materialDesign:HintAssist.Hint="PICK WALKING TIME STOP" SelectedTimeChanged="WalkingStop_TimeChanged"/>
+                    <materialDesign:TimePicker SelectedTime="{Binding Path=WalkingStop}" Grid.Column="1" Is24Hours="True"  Style="{StaticResource MaterialDesignFloatingHintTimePicker}" materialDesign:HintAssist.Hint="PICK WALKING TIME STOP" SelectedTimeChanged="WalkingStop_TimeChanged"/>
                 </Grid>
                 <!-- Total time walked -->
                 <Grid Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="3">
