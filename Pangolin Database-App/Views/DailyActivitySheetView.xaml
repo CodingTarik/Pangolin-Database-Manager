@@ -85,7 +85,10 @@
                         <ColumnDefinition Width="25"></ColumnDefinition>
                         <ColumnDefinition Width="0.5*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <!-- Title and Icon -->
+                <materialDesign:Snackbar Grid.Row="8" Grid.ColumnSpan="3" Panel.ZIndex="3" Style="{StaticResource SnackbarStyle}">
+                    <materialDesign:SnackbarMessage></materialDesign:SnackbarMessage>
+                </materialDesign:Snackbar>
+                <!-- Title and Icon -->
                     <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3">
                         <TextBlock FontSize="22" Margin="10, 0, 0, 0" FontFamily="Roboto" TextDecorations="Underline" VerticalAlignment="Center">ACTIVITY</TextBlock>
                     <materialDesign:PackIcon Kind="Baseball" Width="24" Height="24" VerticalAlignment="Center"></materialDesign:PackIcon>

@@ -47,10 +47,7 @@
                     </Grid.ColumnDefinitions>
                     <materialDesign:PackIcon Kind="FormatListNumberedRightToLeft" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
                     <ComboBox Grid.Row="0" Grid.Column="1"
-                    Style="{StaticResource MaterialDesignFloatingHintComboBox}"
-                    IsEditable="True"
-                    materialDesign:TextFieldAssist.HasClearButton="True"                                  
-                    materialDesign:HintAssist.Hint="REFERENCE NUMBER">
+                    Style="{StaticResource Pangolinbox}">
                     </ComboBox>
                 </Grid>
                 <!-- Date Pick-->
@@ -64,6 +61,7 @@
 
                     <DatePicker Grid.Column="1"  Margin="0, 2, 2, 0"            
                     materialDesign:HintAssist.Hint="Pick Date"
+                                SelectedDate="{Binding SelectedModel.Date}"
                     Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
                 </Grid>
                 <!-- Time Pick-->
@@ -78,6 +76,7 @@
                     <materialDesign:TimePicker Grid.Column="1"         
                     materialDesign:HintAssist.Hint="Pick Time"
                     Style="{StaticResource MaterialDesignFloatingHintTimePicker}"
+                                               SelectedTime="{Binding SelectedModel.Time}"
                     Is24Hours="True"/>
                 </Grid>
             </Grid>
@@ -130,7 +129,8 @@
                             </Grid.ColumnDefinitions>
                             <materialDesign:PackIcon Kind="Magnify" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
                             <ComboBox Grid.Column="1" VerticalAlignment="Center"
-                            materialDesign:HintAssist.Hint="VET VISIT">
+                                      Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                            materialDesign:HintAssist.Hint="VET VISIT" SelectedIndex="{Binding SelectedModel.VetVisit, Converter={StaticResource BoolToIndex}}">
                                 <ComboBoxItem>
                                     YES
                                 </ComboBoxItem>
@@ -150,6 +150,7 @@
                             <TextBox Grid.Column="1"
                 materialDesign:HintAssist.Hint="VET OR FACILITY"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                     Text="{Binding SelectedModel.Vet}"
                 VerticalAlignment="Top"/>
                         </Grid>
                         
@@ -163,6 +164,7 @@
                             <TextBox Grid.Column="1"
                 materialDesign:HintAssist.Hint="BODY TEMPERATURE"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                     Text="{Binding SelectedModel.BodyTemperature, Converter={StaticResource StringToNumeric}}"
                 VerticalAlignment="Top"/>
                         </Grid>
                         
@@ -176,6 +178,7 @@
                             <TextBox Grid.Column="1"
                 materialDesign:HintAssist.Hint="GLUCOSE READING"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                     Text="{Binding SelectedModel.GlucoseReading}"
                 VerticalAlignment="Top"/>
                         </Grid>
 
@@ -190,6 +193,7 @@
                 materialDesign:HintAssist.Hint="REASON FOR VISIT, DIAGNOSIS AND TREATMENT PLAN"
                                      TextWrapping="Wrap"
                                      AcceptsReturn="True"
+                                     Text="{Binding SelectedModel.TreatmentDescription}"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
                         </Grid>
 
@@ -201,7 +205,7 @@
                             </Grid.ColumnDefinitions>
                             <materialDesign:PackIcon Kind="MotionSensor" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
                             <ComboBox Grid.Column="1" VerticalAlignment="Center"
-                            materialDesign:HintAssist.Hint="ANAESTHESIA">
+                            materialDesign:HintAssist.Hint="ANESTHESIA" SelectedIndex="{Binding Anesthesia, Converter={StaticResource BoolToIndex}}">
                                 <ComboBoxItem>
                                     YES
                                 </ComboBoxItem>
@@ -219,7 +223,8 @@
                             </Grid.ColumnDefinitions>
                             <materialDesign:PackIcon Kind="Medicine" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
                             <ComboBox Grid.Column="1" VerticalAlignment="Center"
-                            materialDesign:HintAssist.Hint="MEDICATION">
+                                      Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                            materialDesign:HintAssist.Hint="MEDICATION" SelectedIndex="{Binding SelectedModel.Medication, Converter={StaticResource BoolToIndex}}">
                                 <ComboBoxItem>
                                     YES
                                 </ComboBoxItem>
@@ -240,6 +245,7 @@
                                      AcceptsReturn="True"
                                      TextWrapping="Wrap"
                 materialDesign:HintAssist.Hint="REASON FOR MEDICATION AND TIME FRAME"
+                                    Text="{Binding SelectedModel.ReasonForMedication}"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
                         </Grid>
                         
@@ -253,6 +259,7 @@
                             <TextBox Grid.Column="1"
                 materialDesign:HintAssist.Hint="DRUG ADMINISTERED"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                     Text="{Binding SelectedModel.DrugAdministered}"
                 VerticalAlignment="Top"/>
                         </Grid>
                         
@@ -266,6 +273,7 @@
                             <TextBox Grid.Column="1"
                 materialDesign:HintAssist.Hint="VOLUME"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                     Text="{Binding SelectedModel.Volume, Converter={StaticResource StringToNumeric}}"
                 VerticalAlignment="Top"/>
                         </Grid>
                         
@@ -283,16 +291,16 @@
                             <materialDesign:PackIcon Kind="Screwdriver" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.RowSpan="2"></materialDesign:PackIcon>
                             <ListBox Grid.Column="1" Grid.Row="1"
                      Style="{StaticResource MaterialDesignFilterChipPrimaryListBox}" FontSize="20" FontFamily="Roboto" VerticalAlignment="Center" Background="White">
-                                <ListBoxItem>
+                                <ListBoxItem IsSelected="{Binding Subcut}">
                                     Subcut
                                 </ListBoxItem>
-                                <ListBoxItem>
+                                <ListBoxItem IsSelected="{Binding IM}">
                                     I.M.
                                 </ListBoxItem>
-                                <ListBoxItem>
+                                <ListBoxItem IsSelected="{Binding IS}">
                                     I.V.
                                 </ListBoxItem>
-                                <ListBoxItem>
+                                <ListBoxItem IsSelected="{Binding Oral}">
                                     Oral
                                 </ListBoxItem>
                             </ListBox>
@@ -310,7 +318,7 @@
                             <TextBlock Grid.Row="0" Grid.Column="1" FontFamily="Roboto" FontSize="20" VerticalAlignment="Bottom">Previously Treatments</TextBlock>
                             <materialDesign:PackIcon Kind="ClockOut" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.RowSpan="2"></materialDesign:PackIcon>
                             <ScrollViewer Grid.Row="1" Grid.Column="1" Margin="0" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible">
-                                <ListView>
+                                <ListView ItemsSource="{Binding PreviousTreatments, UpdateSourceTrigger=PropertyChanged}">
                                     <ListView.Resources>
                                         <Style TargetType="GridViewColumnHeader" BasedOn="{StaticResource MaterialDesignFlatButton}">
                                             <Setter Property="TextElement.FontSize" Value="13"></Setter>
@@ -321,16 +329,16 @@
                                     </ListView.Resources>
                                     <ListView.View>
                                         <GridView>
-                                            <GridViewColumn Header="VET VISIT"></GridViewColumn>
-                                            <GridViewColumn Header="GLUCOSE READING"></GridViewColumn>
-                                            <GridViewColumn Header="ANASTHESIA"></GridViewColumn>
-                                            <GridViewColumn Header="REASON FOR VET, DIAGNOSIS, TREATMENT PLAN"></GridViewColumn>
-                                            <GridViewColumn Header="MEDICATION"></GridViewColumn>
-                                            <GridViewColumn Header="REASON FOR MEDICATION"></GridViewColumn>
-                                            <GridViewColumn Header="DRUG ADMINISTERED"></GridViewColumn>
-                                            <GridViewColumn Header="VOLUME"></GridViewColumn>
-                                            <GridViewColumn Header="METHOD"></GridViewColumn>
-                                            <GridViewColumn Header="GENERAL TREATMENT"></GridViewColumn>
+                                            <GridViewColumn Header="VET VISIT" DisplayMemberBinding="{Binding VetVisit}"></GridViewColumn>
+                                            <GridViewColumn Header="GLUCOSE READING" DisplayMemberBinding="{Binding GlucoseReading}"></GridViewColumn>
+                                            <GridViewColumn Header="ANGESTHESIA" DisplayMemberBinding="{Binding Anesthesia}"></GridViewColumn>
+                                            <GridViewColumn Header="REASON FOR VET, DIAGNOSIS, TREATMENT PLAN" DisplayMemberBinding="{Binding ReasonForMedication}"></GridViewColumn>
+                                            <GridViewColumn Header="MEDICATION" DisplayMemberBinding="{Binding Medication}"></GridViewColumn>
+                                            <GridViewColumn Header="REASON FOR MEDICATION" DisplayMemberBinding="{Binding ReasonForMedication}"></GridViewColumn>
+                                            <GridViewColumn Header="DRUG ADMINISTERED" DisplayMemberBinding="{Binding DrugAdministered}"></GridViewColumn>
+                                            <GridViewColumn Header="VOLUME" DisplayMemberBinding="{Binding Volume}"></GridViewColumn>
+                                            <GridViewColumn Header="METHOD" DisplayMemberBinding="{Binding Method, Converter={StaticResource MedicineTreatmentConvert}}"></GridViewColumn>
+                                            <GridViewColumn Header="GENERAL TREATMENT" DisplayMemberBinding="{Binding Date}"></GridViewColumn>
                                         </GridView>
                                     </ListView.View>
                                 </ListView>

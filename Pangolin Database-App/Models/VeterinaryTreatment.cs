@@ -15,8 +15,8 @@ namespace Pangolin_Database_App.Models {
         /// <summary>
         /// the ReferenceNumber of the Pangolin
         /// </summary>
-        [Required, ForeignKey (Pangolin_Database_App.Settings.Settings.PANGOLIN_TABLENAME)]
-        public string ReferenceNumber { get; set; }
+        [Required]
+        public Pangolin ReferenceNumber { get; set; }
 
         /// <summary>
         /// Date of treatment
@@ -49,7 +49,7 @@ namespace Pangolin_Database_App.Models {
         /// <summary>
         /// Was the Pangolin angesthesied
         /// </summary>
-        public bool Angesthesia { get; set; }
+        public bool Anesthesia { get; set; }
         /// <summary>
         /// did the pangolin get medication
         /// </summary>
@@ -68,12 +68,11 @@ namespace Pangolin_Database_App.Models {
         public double Volume { get; set; }
         /// <summary>
         /// Method used for medication
-        /// First bit = Rain
-        /// Second bit = Full Cloud
-        /// Third bit = Part Cloud
-        /// Fourth bit = Sunny
-        /// Fifth bit = Hot
+        /// First bit = Oral
+        /// Second bit = I.V.
+        /// Third bit = I.M.
+        /// Fourth bit = Subcut
         /// </summary>
-        public int method { get; set; }
+        public int Method { get; set; }
     }
 }

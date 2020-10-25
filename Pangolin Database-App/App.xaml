@@ -20,8 +20,21 @@
                     <Setter Property="SelectedValue" Value="{Binding SelectedPangolin}"></Setter>
                 </Style.Setters>
             </Style>
+            <Style TargetType="materialDesign:Snackbar" x:Key="SnackbarStyle">
+                <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
+                <Setter Property="Margin" Value="5, 25, 0, 5"></Setter>
+                <Setter Property="IsActive" Value="{Binding SnackbarActive}"></Setter>
+                <Style.Resources>
+                    <Style TargetType="materialDesign:SnackbarMessage">
+                        <Setter Property="Content" Value="{Binding SnackbarMessage}"></Setter>
+                        <Setter Property="ActionContent" Value="OK"></Setter>
+                        <Setter Property="ActionCommand" Value="{Binding HideSnackbar}"></Setter>
+                    </Style>
+                </Style.Resources>
+            </Style>
             <util:ValueConverter x:Key="StringToNumeric"></util:ValueConverter>
             <util:BoolToIndexConverter x:Key="BoolToIndex"></util:BoolToIndexConverter>
+            <util:IntToMethodConverter x:Key="MedicineTreatmentConvert"></util:IntToMethodConverter>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

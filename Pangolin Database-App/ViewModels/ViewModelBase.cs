@@ -9,6 +9,7 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Reflection;
 using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 
 namespace Pangolin_Database_App.ViewModels
 {
@@ -17,6 +18,38 @@ namespace Pangolin_Database_App.ViewModels
 
 
         private bool _snackbarActive;
+
+        public delegate void IntValue(int count);
+        /// <summary>
+        /// Sets bit in bitmask
+        /// </summary>
+        /// <param name="bit"></param>
+        /// <param name="value"></param>
+        public void SetBit(int property, int bit, bool value, IntValue i = null)
+        {
+            if (value)
+            {
+                property |= (0b1 << bit);
+            }
+            else
+            {
+                property &= ~(0b1 << bit);
+            }
+            if (i != null)
+            {
+                i(property);
+            }
+        }
+
+        /// <summary>
+        /// Reads bit in bitmask
+        /// </summary>
+        /// <param name="bit"></param>
+        /// <returns></returns>
+        public bool ReadBit(int property, int bit)
+        {
+            return (property & (0b1 << bit)) > 0;
+        }
 
         /// <summary>
         /// Property for snackbar
@@ -51,7 +84,7 @@ namespace Pangolin_Database_App.ViewModels
         /// <summary>
         /// Hides snackbar
         /// </summary>
-        private void HideAppSnackbar()
+        public void HideAppSnackbar()
         {
             SnackbarActive = false;
         }
@@ -60,13 +93,22 @@ namespace Pangolin_Database_App.ViewModels
         /// Shows snackbar with a message
         /// </summary>
         /// <param name="message"></param>
-        private void ShowSnackbar(string message)
+        public void ShowSnackbar(string message)
         {
             SnackbarActive = false;
             SnackbarMessage = message;
             SnackbarActive = true;
         }
 
+        /// <summary>
+        /// Shows snackbar with a message
+        /// </summary>
+        /// <param name="message"></param>
+        public void ShowSnackbar(string message, int seconds)
+        {
+            ShowSnackbar(message);
+            Task.Delay(new TimeSpan(0, 0, seconds)).ContinueWith(o => { if (message == SnackbarMessage) HideAppSnackbar(); });
+        }
         /// <summary>
         /// Saves dbset that should be used for this view model
         /// </summary>
@@ -113,7 +155,7 @@ namespace Pangolin_Database_App.ViewModels
                     ChangePangolinReferenceForModel();
                     NotifyPropertyChanged();
 
-                    if(PangolinChanged != null)
+                    if (PangolinChanged != null)
                     {
                         PangolinChanged(this, SelectedPangolin);
                     }
@@ -128,9 +170,9 @@ namespace Pangolin_Database_App.ViewModels
         {
             Type type = SelectedModel.GetType();
             PropertyInfo[] properties = type.GetProperties();
-            foreach(PropertyInfo prop in properties)
+            foreach (PropertyInfo prop in properties)
             {
-                if(prop.PropertyType == typeof(Pangolin))
+                if (prop.PropertyType == typeof(Pangolin))
                 {
                     prop.SetValue(SelectedModel, SelectedPangolin);
                     NotifyPropertyChanged("SelectedModel");
@@ -185,12 +227,14 @@ namespace Pangolin_Database_App.ViewModels
                     db.Add(SelectedModel);
                     ShowSnackbar("The model has been sucessfull added");
                 }
+                db.SaveChanges(); // save
 
+                // fire update event
                 if (UpdateModelEvent != null)
                 {
                     UpdateModelEvent(this, EventArgs.Empty);
                 }
-                db.SaveChanges();
+                
             }
         }
 

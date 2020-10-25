@@ -20,6 +20,7 @@
             <RowDefinition Height="20"></RowDefinition>
             <RowDefinition Height="0.6*"></RowDefinition>
         </Grid.RowDefinitions>
+         
         <!-- Title and Icon-->
         <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" >
             <materialDesign:PackIcon Kind="Food" VerticalAlignment="Center" Width="32" Height="32"></materialDesign:PackIcon>
@@ -47,10 +48,7 @@
                     </Grid.ColumnDefinitions>
                     <materialDesign:PackIcon Kind="FormatListNumberedRightToLeft" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
                     <ComboBox Grid.Row="0" Grid.Column="1"
-                    Style="{StaticResource MaterialDesignFloatingHintComboBox}"
-                    IsEditable="True"
-                    materialDesign:TextFieldAssist.HasClearButton="True"                                  
-                    materialDesign:HintAssist.Hint="REFERENCE NUMBER">
+                    Style="{StaticResource Pangolinbox}">
                     </ComboBox>
                 </Grid>
                 <!-- Date Pick-->
@@ -64,7 +62,8 @@
 
                     <DatePicker Grid.Column="1"  Margin="0, 2, 2, 0"            
                     materialDesign:HintAssist.Hint="Pick Date"
-                    Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                    Style="{StaticResource MaterialDesignFloatingHintDatePicker}"
+                                SelectedDate="{Binding SelectedModel.Date}"/>
                 </Grid>
                 <!-- Time Pick-->
                 <Grid Grid.Row="3">
@@ -78,13 +77,14 @@
                     <materialDesign:TimePicker Grid.Column="1"         
                     materialDesign:HintAssist.Hint="Pick Time"
                     Style="{StaticResource MaterialDesignFloatingHintTimePicker}"
-                    Is24Hours="True"/>
+                    Is24Hours="True"
+                                               SelectedTime="{Binding SelectedModel.Time}"/>
                 </Grid>
             </Grid>
         </Border>
         <!-- Save Control-->
         <customcontrols:SaveControl Grid.Column="0" Grid.Row="3"></customcontrols:SaveControl>
-        <!-- Template Control -->
+        <!-- Feeding -->
         <Border Grid.Column="2" Grid.Row="1" Grid.RowSpan="3" Background="#E8E8E8" CornerRadius="10" BorderThickness="5" Margin="2, 2">
             <Grid>
                 <Grid.RowDefinitions>
@@ -102,6 +102,9 @@
                     <ColumnDefinition Width="25"></ColumnDefinition>
                     <ColumnDefinition Width="0.5*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
+                <materialDesign:Snackbar Grid.Row="6" Grid.ColumnSpan="3" Panel.ZIndex="3" Style="{StaticResource SnackbarStyle}">
+                    <materialDesign:SnackbarMessage></materialDesign:SnackbarMessage>
+                </materialDesign:Snackbar>
                 <!-- Title and Icon -->
                 <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3">
                     <TextBlock FontSize="22" Margin="10, 0, 0, 0" FontFamily="Roboto" TextDecorations="Underline" VerticalAlignment="Center">FEEDING</TextBlock>
@@ -117,17 +120,18 @@
                         <RowDefinition Height="30"></RowDefinition>
                         <RowDefinition Height="1*"></RowDefinition>
                     </Grid.RowDefinitions>
+                     
                     <TextBlock Grid.Row="0" Grid.Column="1" FontFamily="Roboto" FontSize="20" VerticalAlignment="Bottom">Formula</TextBlock>
                     <materialDesign:PackIcon Kind="Corn" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.RowSpan="2"></materialDesign:PackIcon>
                     <ListBox Grid.Column="1" Grid.Row="1"
                      Style="{StaticResource MaterialDesignFilterChipPrimaryListBox}" FontSize="20" FontFamily="Roboto" VerticalAlignment="Center" Background="White">
-                        <ListBoxItem>
+                        <ListBoxItem IsSelected="{Binding RoyalCaninKitty}">
                            Royal Canin Kitty
                         </ListBoxItem>
-                        <ListBoxItem>
+                        <ListBoxItem IsSelected="{Binding RoyalCaninPuppy}">
                             Royal Canin Puppy
                         </ListBoxItem>
-                        <ListBoxItem>
+                        <ListBoxItem IsSelected="{Binding Other}">
                             Other
                         </ListBoxItem>
                     </ListBox>
@@ -143,6 +147,7 @@
                              materialDesign:HintAssist.Hint="OTHER FORMULA DETAILS"
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                              VerticalAlignment="Center"
+                             Text="{Binding SelectedModel.OtherFormulaDetails}"
                              AcceptsReturn="True"
                              VerticalScrollBarVisibility="Auto"
                              ></TextBox>
@@ -157,6 +162,7 @@
                     <TextBox Grid.Column="1"
                              materialDesign:HintAssist.Hint="VOLUME IN ML"
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                             Text="{Binding SelectedModel.Volume, Converter={StaticResource StringToNumeric}}"
                              VerticalAlignment="Center"
                              AcceptsReturn="True"
                              VerticalScrollBarVisibility="Auto"
@@ -174,7 +180,7 @@
                             <RowDefinition Height="0.5*"></RowDefinition>
                         </Grid.RowDefinitions>
                         <materialDesign:PackIcon Kind="Toilet" Width="32" Height="32" Grid.RowSpan="2" VerticalAlignment="Center"></materialDesign:PackIcon>
-                        <ComboBox Grid.Column="1" materialDesign:HintAssist.Hint="defecation">
+                        <ComboBox Grid.Column="1" materialDesign:HintAssist.Hint="defecation" SelectedIndex="{Binding DefectationIndex}">
                             <ComboBoxItem>
                                 Yes
                             </ComboBoxItem>
@@ -185,7 +191,7 @@
                                 Multiple Items
                             </ComboBoxItem>
                         </ComboBox>
-                        <TextBox Grid.Row="1" Grid.Column="1" materialDesign:HintAssist.Hint="How many times?" VerticalAlignment="Center"> 
+                        <TextBox Grid.Row="1" Grid.Column="1" materialDesign:HintAssist.Hint="How many times?" VerticalAlignment="Center" Text="{Binding DefectationCount, Converter={StaticResource StringToNumeric}}"> 
                         </TextBox>
                     </Grid>
                 </Border>
@@ -204,10 +210,17 @@
                         <TextBox
                             materialDesign:HintAssist.Hint="WEIGHT"
                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                            Text="{Binding SelectedModel.Weight, Converter={StaticResource StringToNumeric}}"
                             VerticalAlignment="Center"
                             Grid.Column="1">
                         </TextBox>
-                        <materialDesign:TimePicker Grid.Row="1" Grid.Column="1" materialDesign:HintAssist.Hint="Time of weighting" VerticalAlignment="Center" Is24Hours="True">
+                        <materialDesign:TimePicker 
+                            Grid.Row="1" 
+                            Grid.Column="1" 
+                            materialDesign:HintAssist.Hint="Time of weighting" 
+                            VerticalAlignment="Center" 
+                            Is24Hours="True"
+                            SelectedTime="{Binding SelectedModel.TimeOfWeighting}">
                         </materialDesign:TimePicker>
                     </Grid>
                 </Border>
@@ -222,6 +235,7 @@
                              materialDesign:HintAssist.Hint="GENERAL COMMENT"
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                              VerticalAlignment="Center"
+                             Text="{Binding SelectedModel.Comment}"
                              AcceptsReturn="True"
                              VerticalScrollBarVisibility="Auto"
                              ></TextBox>

@@ -50,12 +50,18 @@ namespace Pangolin_Database_App.ViewModels
             SetModelByPangolinAndDate(Date, SelectedPangolin);
         }
 
+        /// <summary>
+        /// Walking Time Start Wrapper for Pangolin
+        /// </summary>
         public DateTime WalkingStart
         {
             get { return SelectedModel.WalkingTimeStart; }
             set { SelectedModel.WalkingTimeStart = value; NotifyPropertyChanged(); NotifyPropertyChanged("TotalHoursWalked"); NotifyPropertyChanged("TotalHoursWalkedInPercent"); }
         }
 
+        /// <summary>
+        /// Walking Time Stop Wrapper for Pangolin
+        /// </summary>
         public DateTime WalkingStop
         {
             get { return SelectedModel.WalkingTimeStop; }
@@ -210,8 +216,6 @@ namespace Pangolin_Database_App.ViewModels
         {
             return (SelectedModel.WeatherObservations & (0b1 << bit)) > 0;
         }
-
-
 
     }
 }
