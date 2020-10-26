@@ -22,6 +22,7 @@ namespace Pangolin_Database_App.Database
         public DbSet<TrackingDevice> TrackingDevices { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<VeterinaryTreatment> VeterinaryTreatments { get; set; }
+        public DbSet<InterdepartmentalMovement> InterdepartmentalMovements { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

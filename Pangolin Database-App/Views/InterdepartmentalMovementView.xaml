@@ -46,10 +46,7 @@
                     </Grid.ColumnDefinitions>
                     <materialDesign:PackIcon Kind="FormatListNumberedRightToLeft" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
                     <ComboBox Grid.Row="0" Grid.Column="1"
-                    Style="{StaticResource MaterialDesignFloatingHintComboBox}"
-                    IsEditable="True"
-                    materialDesign:TextFieldAssist.HasClearButton="True"                                  
-                    materialDesign:HintAssist.Hint="REFERENCE NUMBER">
+                    Style="{StaticResource Pangolinbox}">
                     </ComboBox>
                 </Grid>
                 <!-- Date & Time Pick-->
@@ -63,7 +60,8 @@
 
                     <DatePicker Grid.Column="1"  Margin="0, 2, 2, 0"            
                     materialDesign:HintAssist.Hint="Pick Date"
-                    Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                    Style="{StaticResource MaterialDesignFloatingHintDatePicker}"
+                    SelectedDate="{Binding SelectedModel.Date}"/>
                 </Grid>
             </Grid>
         </Border>
@@ -84,6 +82,9 @@
                     <ColumnDefinition Width="25"></ColumnDefinition>
                     <ColumnDefinition Width="0.5*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
+                <materialDesign:Snackbar Grid.Row="3" Grid.ColumnSpan="3" Panel.ZIndex="3" Style="{StaticResource SnackbarStyle}">
+                    <materialDesign:SnackbarMessage></materialDesign:SnackbarMessage>
+                </materialDesign:Snackbar>
                 <!-- Title and Icon -->
                 <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3">
                     <TextBlock FontSize="22" Margin="10, 0, 0, 0" FontFamily="Roboto" TextDecorations="Underline" VerticalAlignment="Center">MOVEMENT</TextBlock>
@@ -98,6 +99,7 @@
                     <materialDesign:PackIcon Kind="City" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
                     <TextBox Grid.Column="1"
                 materialDesign:HintAssist.Hint="MOVED FROM"
+                             Text="{Binding SelectedModel.InterdepartmentalMovementFrom}"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                 VerticalAlignment="Center"/>
                 </Grid>
@@ -111,6 +113,7 @@
                     <TextBox Grid.Column="1"
                 materialDesign:HintAssist.Hint="MOVED TO"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                             Text="{Binding SelectedModel.InterdepartmentalMovementTo}"
                 VerticalAlignment="Center"/>
                 </Grid>
                 <!-- COMMENT -->
@@ -126,6 +129,7 @@
                              VerticalScrollBarVisibility="Auto"
                              TextWrapping="Wrap"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                             Text="{Binding SelectedModel.Comment}"
                 VerticalAlignment="Center"/>
                 </Grid>
             </Grid>
