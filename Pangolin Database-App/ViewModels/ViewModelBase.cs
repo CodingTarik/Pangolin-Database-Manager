@@ -139,6 +139,9 @@ namespace Pangolin_Database_App.ViewModels
         /// </summary>
         private Pangolin _selectedPangolin;
 
+        /// <summary>
+        /// Fires if pangolin changed, passes new pangolin as parameter
+        /// </summary>
         public event EventHandler<Pangolin> PangolinChanged;
 
         /// <summary>

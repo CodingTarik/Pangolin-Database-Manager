@@ -46,10 +46,7 @@
                     </Grid.ColumnDefinitions>
                     <materialDesign:PackIcon Kind="FormatListNumberedRightToLeft" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
                     <ComboBox Grid.Row="0" Grid.Column="1"
-                    Style="{StaticResource MaterialDesignFloatingHintComboBox}"
-                    IsEditable="True"
-                    materialDesign:TextFieldAssist.HasClearButton="True"                                  
-                    materialDesign:HintAssist.Hint="REFERENCE NUMBER">
+                    Style="{StaticResource Pangolinbox}">
                     </ComboBox>
                 </Grid>
                 <!-- Date & Time Pick-->
@@ -63,6 +60,7 @@
 
                     <DatePicker Grid.Column="1"  Margin="0, 2, 2, 0"            
                     materialDesign:HintAssist.Hint="Pick Date"
+                                SelectedDate="{Binding SelectedModel.Date}"
                     Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
                 </Grid>
             </Grid>
@@ -94,82 +92,103 @@
                     <TextBlock FontSize="22" Margin="10, 0, 0, 0" FontFamily="Roboto" TextDecorations="Underline" VerticalAlignment="Center">MEASUREMENTS</TextBlock>
                     <materialDesign:PackIcon Kind="Resize" Width="24" Height="24" VerticalAlignment="Center"></materialDesign:PackIcon>
                 </StackPanel>
+                <materialDesign:Snackbar Grid.Row="7" Grid.ColumnSpan="5" Panel.ZIndex="3" Style="{StaticResource SnackbarStyle}">
+                    <materialDesign:SnackbarMessage></materialDesign:SnackbarMessage>
+                </materialDesign:Snackbar>
                 <!-- Column 1-->
                 <TextBox Grid.Row="1" Grid.Column="0" materialDesign:HintAssist.Hint="BODY LENGTH (CDL) CURLED" 
                          materialDesign:HintAssist.HelperText="TIP OF NOSE TO TIP OF TAIL" 
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                         Text="{Binding SelectedModel.CDLCurled, Converter={StaticResource StringToNumeric}}"
                          VerticalAlignment="Center"></TextBox>
                 <TextBox Grid.Row="2" Grid.Column="0" materialDesign:HintAssist.Hint="LENGTH OF BODY (dorsal)" 
+                         Text="{Binding SelectedModel.Dorsal, Converter={StaticResource StringToNumeric}}"
                          materialDesign:HintAssist.HelperText="ANUS TO TIP" 
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                          VerticalAlignment="Center"></TextBox>
                 <TextBox Grid.Row="3" Grid.Column="0" materialDesign:HintAssist.Hint="FLESH PORTION OF NOS" 
+                         Text="{Binding SelectedModel.FleshPortionOfNose, Converter={StaticResource StringToNumeric}}"
                          materialDesign:HintAssist.HelperText="WITHOUT LOSS OF SCALES" 
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                          VerticalAlignment="Center"></TextBox>
                 <TextBox Grid.Row="4" Grid.Column="0" materialDesign:HintAssist.Hint="LEFT LEG - LENGTH" 
                          materialDesign:HintAssist.HelperText="" 
+                         Text="{Binding SelectedModel.LeftLegLength, Converter={StaticResource StringToNumeric}}"
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                          VerticalAlignment="Center"></TextBox>
                 <TextBox Grid.Row="5" Grid.Column="0" materialDesign:HintAssist.Hint="RIGHT LEG - LENGTH" 
                          materialDesign:HintAssist.HelperText="" 
+                         Text="{Binding SelectedModel.RightLegLength, Converter={StaticResource StringToNumeric}}"
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                          VerticalAlignment="Center"></TextBox>
                 <TextBox Grid.Row="6" Grid.Column="0" materialDesign:HintAssist.Hint="SCALE PATTERN" 
                          materialDesign:HintAssist.HelperText="DORSAL LINE HEAD TO TAIL" 
+                         Text="{Binding SelectedModel.ScalePatternDorsal, Converter={StaticResource StringToNumeric}}"
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                          VerticalAlignment="Center"></TextBox>
                 <!-- Column 2 -->
                 <TextBox Grid.Row="1" Grid.Column="2" materialDesign:HintAssist.Hint="CDL IF ANAETHETISED" 
                          materialDesign:HintAssist.HelperText="TIP OF NOSE TO TIP OF TAIL" 
+                         Text="{Binding SelectedModel.CDLAnaethetised, Converter={StaticResource StringToNumeric}}"
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                          VerticalAlignment="Center"></TextBox>
                 <TextBox Grid.Row="2" Grid.Column="2" materialDesign:HintAssist.Hint="LENGTH OF TAIL (VENTRAL)" 
                          materialDesign:HintAssist.HelperText="ANUS TO TIP" 
+                         Text="{Binding SelectedModel.Ventral, Converter={StaticResource StringToNumeric}}"
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}"  
                          VerticalAlignment="Center"></TextBox>
                 <TextBox Grid.Row="3" Grid.Column="2" materialDesign:HintAssist.Hint="FLESH PORTION OF NOSE" 
                          materialDesign:HintAssist.HelperText="WITH LOSS OF SCALES" 
+                         Text="{Binding SelectedModel.FleshPortionOfNoseWithLossOfScales, Converter={StaticResource StringToNumeric}}"
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                          VerticalAlignment="Center"></TextBox>
                 <TextBox Grid.Row="4" Grid.Column="2" materialDesign:HintAssist.Hint="LEFT FOOT - WIDTH" 
                          materialDesign:HintAssist.HelperText="" 
+                         Text="{Binding SelectedModel.LeftFootWidth, Converter={StaticResource StringToNumeric}}"
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                          VerticalAlignment="Center"></TextBox>
                 <TextBox Grid.Row="5" Grid.Column="2" materialDesign:HintAssist.Hint="RIGHT FOOT - WIDTH" 
                          materialDesign:HintAssist.HelperText="" 
+                         Text="{Binding SelectedModel.RightFootWidth, Converter={StaticResource StringToNumeric}}"
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                          VerticalAlignment="Center"></TextBox>
                 <!-- Column 3-->
                 <TextBox Grid.Row="1" Grid.Column="4" materialDesign:HintAssist.Hint="HEAD MEASUREMENT" 
                          materialDesign:HintAssist.HelperText="BETWEEN EYES" 
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                         Text="{Binding SelectedModel.HeadMeasurementEyes, Converter={StaticResource StringToNumeric}}"
                          VerticalAlignment="Center"></TextBox>
                 <TextBox Grid.Row="2" Grid.Column="4" materialDesign:HintAssist.Hint="HEAD MEASUREMENT" 
                          materialDesign:HintAssist.HelperText="FROM BASE SKULL TO TIP OF NOSE" 
+                         Text="{Binding SelectedModel.HeadMeasurementSkull, Converter={StaticResource StringToNumeric}}"
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                          VerticalAlignment="Center"></TextBox>
                 <TextBox Grid.Row="3" Grid.Column="4" materialDesign:HintAssist.Hint="GIRTH" 
                          materialDesign:HintAssist.HelperText="AT LAST SET OF RIBS" 
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                         Text="{Binding SelectedModel.GirthRibs, Converter={StaticResource StringToNumeric}}"
                          VerticalAlignment="Center"></TextBox>
                 <TextBox Grid.Row="4" Grid.Column="4" materialDesign:HintAssist.Hint="LEFT FOOT - LENGTH" 
                          materialDesign:HintAssist.HelperText="" 
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                         Text="{Binding SelectedModel.LeftFootLength, Converter={StaticResource StringToNumeric}}"
                          VerticalAlignment="Center"></TextBox>
                 <TextBox Grid.Row="5" Grid.Column="4" materialDesign:HintAssist.Hint="RIGHT FOOT - LENGTH" 
                          materialDesign:HintAssist.HelperText="" 
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                         Text="{Binding SelectedModel.RightFootLength, Converter={StaticResource StringToNumeric}}"
                          VerticalAlignment="Center"></TextBox>
                 <TextBox Grid.Row="6" Grid.Column="4" materialDesign:HintAssist.Hint="SCALE PATTERN" 
                          materialDesign:HintAssist.HelperText="VENTRAL LINE TAIL" 
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                         Text="{Binding SelectedModel.ScalePatternVentral, Converter={StaticResource StringToNumeric}}"
                          VerticalAlignment="Center"></TextBox>
                 <!-- Other Observations-->
                 <TextBox Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="5" materialDesign:HintAssist.Hint="OTHER OBSERVATIONS" 
                          materialDesign:HintAssist.HelperText="" 
                          AcceptsReturn="True"
                          TextWrapping="Wrap"
+                         Text="{Binding SelectedModel.OtherObservations, Converter={StaticResource StringToNumeric}}"
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                          VerticalAlignment="Center"></TextBox>
             </Grid>

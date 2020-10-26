@@ -85,7 +85,7 @@
                     <materialDesign:PackIcon Kind="Map" Height="24" Width="24"></materialDesign:PackIcon>
                 </StackPanel>
             </Button>
-            <Button Click="PhysicalMeasurements_Click">
+            <Button Click="PhysicalMeasurements_Click" Cursor="Hand">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock>MEASUREMENTS</TextBlock>
                     <materialDesign:PackIcon Kind="MotionSensor" Height="24" Width="24"></materialDesign:PackIcon>
