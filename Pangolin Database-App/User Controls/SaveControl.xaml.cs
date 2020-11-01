@@ -31,6 +31,7 @@ namespace Pangolin_Database_App.User_Controls
             {
                 NoClickEvent(this, EventArgs.Empty);
             }
+            ((IUpdateModel)this.DataContext).ResetSelectedModel();
         }
 
         /// <summary>
@@ -58,7 +59,18 @@ namespace Pangolin_Database_App.User_Controls
             {
                 CancelClickEvent(this, EventArgs.Empty);
             }
-            Window.GetWindow(this).DataContext = new MainMenuViewModel();
+            object windowDataContext = Window.GetWindow(this).DataContext;
+
+            // special case if cancel button is inside a dialog, then just close dialog
+            if (windowDataContext is IHasDialog && ((IHasDialog)windowDataContext).IsDialogOpen)
+            {
+                ((IHasDialog)windowDataContext).IsDialogOpen = false;
+            }
+            else
+            {
+                Window.GetWindow(this).DataContext = new MainMenuViewModel();
+            }
+            
         }
     }
 }

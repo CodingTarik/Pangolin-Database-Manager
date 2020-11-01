@@ -8,10 +8,12 @@
     <!-- Default Resources for App theme-->
     <Application.Resources>
         <ResourceDictionary>
+            <!-- Material design data-->
             <ResourceDictionary.MergedDictionaries>
                 <materialDesign:BundledTheme BaseTheme="Light" PrimaryColor="DeepPurple" SecondaryColor="Lime" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
             </ResourceDictionary.MergedDictionaries>
+            <!-- Pangolin box style-->
             <Style TargetType="ComboBox" x:Key="Pangolinbox" BasedOn="{StaticResource MaterialDesignFloatingHintComboBox}">
                 <Style.Setters>
                     <Setter Property="materialDesign:HintAssist.Hint" Value="SELECT PANGOLIN"></Setter>
@@ -20,6 +22,7 @@
                     <Setter Property="SelectedValue" Value="{Binding SelectedPangolin}"></Setter>
                 </Style.Setters>
             </Style>
+            <!-- Snackbar style-->
             <Style TargetType="materialDesign:Snackbar" x:Key="SnackbarStyle">
                 <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
                 <Setter Property="Margin" Value="5, 25, 0, 5"></Setter>
@@ -32,16 +35,10 @@
                     </Style>
                 </Style.Resources>
             </Style>
+            <!-- Value Converter-->
             <util:ValueConverter x:Key="StringToNumeric"></util:ValueConverter>
             <util:BoolToIndexConverter x:Key="BoolToIndex"></util:BoolToIndexConverter>
             <util:IntToMethodConverter x:Key="MedicineTreatmentConvert"></util:IntToMethodConverter>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
-
-<!--   <ComboBox Grid.Row="0" Grid.Column="1"
-                    Style="{StaticResource MaterialDesignFloatingHintComboBox}"
-                    IsEditable="True"
-                    materialDesign:TextFieldAssist.HasClearButton="True"                                  
-                    materialDesign:HintAssist.Hint="REFERENCE NUMBER">
-    </ComboBox> -->

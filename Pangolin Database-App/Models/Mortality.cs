@@ -17,8 +17,8 @@ namespace Pangolin_Database_App.Models
         /// <summary>
         /// the ReferenceNumber of the Pangolin
         /// </summary>
-        [Required, ForeignKey(Pangolin_Database_App.Settings.Settings.PANGOLIN_TABLENAME)]
-        public string ReferenceNumber { get; set; }
+        [Required]
+        public Pangolin ReferenceNumber { get; set; }
 
         /// <summary>
         /// the date
@@ -98,31 +98,31 @@ namespace Pangolin_Database_App.Models
         /// <summary>
         /// other Samples that were taken
         /// </summary>
-        public string other1 { get; set; }
+        public string Other1 { get; set; }
 
         /// <summary>
         /// other Samples that were taken
         /// </summary>
-        public string other2 { get; set; }
+        public string Other2 { get; set; }
 
         /// <summary>
         /// other Samples that were taken
         /// </summary>
-        public string other3 { get; set; }
+        public string Other3 { get; set; }
 
         /// <summary>
         /// other Samples that were taken
         /// </summary>
-        public string other4 { get; set; }
+        public string Other4 { get; set; }
 
         /// <summary>
         /// other Samples that were taken
         /// </summary>
-        public string other5 { get; set; }
+        public string Other5 { get; set; }
 
         /// <summary>
         /// other Samples that were taken
         /// </summary>
-        public string other6 { get; set; }
+        public string Other6 { get; set; }
     }
 }

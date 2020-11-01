@@ -7,7 +7,24 @@
              xmlns:customcontrols="clr-namespace:Pangolin_Database_App.User_Controls"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
+             xmlns:enum="clr-namespace:Pangolin_Database_App.Enums"
+             xmlns:ex="clr-namespace:Pangolin_Database_App.Extensions"
+             xmlns:viewmodels="clr-namespace:Pangolin_Database_App.ViewModels"
+             xmlns:views="clr-namespace:Pangolin_Database_App.Views"
              d:DesignHeight="500" d:DesignWidth="800">
+    <UserControl.Resources>
+        <DataTemplate DataType="{x:Type viewmodels:MicrochipViewModel}">
+                <views:MicrochipView DataContext="{Binding}"></views:MicrochipView>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:TrackingDeviceViewModel}">
+            <views:TrackingDeviceView DataContext="{Binding}"></views:TrackingDeviceView>
+        </DataTemplate>
+    </UserControl.Resources>
+    <!-- Dialog for redirect to mcirochip or transmitted -->
+    <materialDesign:DialogHost IsOpen="{Binding IsDialogOpen}" DialogMargin="0, 0, 0, 0">
+        <materialDesign:DialogHost.DialogContent>
+            <ContentControl Content="{Binding DialogContent}" Width="750" Height="450"></ContentControl>
+        </materialDesign:DialogHost.DialogContent>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.3*"></ColumnDefinition>
@@ -46,10 +63,7 @@
                     </Grid.ColumnDefinitions>
                     <materialDesign:PackIcon Kind="FormatListNumberedRightToLeft" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
                     <ComboBox Grid.Row="0" Grid.Column="1"
-                    Style="{StaticResource MaterialDesignFloatingHintComboBox}"
-                    IsEditable="True"
-                    materialDesign:TextFieldAssist.HasClearButton="True"                                  
-                    materialDesign:HintAssist.Hint="REFERENCE NUMBER">
+                    Style="{StaticResource Pangolinbox}">
                     </ComboBox>
                 </Grid>
                 <!-- Date & Time Pick-->
@@ -63,6 +77,7 @@
 
                     <DatePicker Grid.Column="1"  Margin="0, 2, 2, 0"            
                     materialDesign:HintAssist.Hint="Pick Date"
+                                SelectedDate="{Binding SelectedModel.Date}"
                     Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
                 </Grid>
             </Grid>
@@ -86,6 +101,10 @@
                     <ColumnDefinition Width="25"></ColumnDefinition>
                     <ColumnDefinition Width="0.5*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
+                <!-- Snackbar -->
+                <materialDesign:Snackbar Grid.Row="7" Grid.ColumnSpan="3" Panel.ZIndex="3" Style="{StaticResource SnackbarStyle}">
+                    <materialDesign:SnackbarMessage></materialDesign:SnackbarMessage>
+                </materialDesign:Snackbar>
                 <!-- Title and Icon -->
                 <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3">
                     <TextBlock FontSize="22" Margin="10, 0, 0, 0" FontFamily="Roboto" TextDecorations="Underline" VerticalAlignment="Center">RELEASE</TextBlock>
@@ -100,6 +119,7 @@
                     <materialDesign:PackIcon Kind="Location" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
                     <TextBox Grid.Column="1"
                 materialDesign:HintAssist.Hint="LOCATION"
+                             Text="{Binding SelectedModel.Location}"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                 VerticalAlignment="Top"/>
                 </Grid>
@@ -110,7 +130,7 @@
                         <ColumnDefinition Width="1*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <materialDesign:PackIcon Kind="TrackChanges" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
-                    <ComboBox Grid.Column="1" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="TRANSMITTED" >
+                    <ComboBox Grid.Column="1" Style="{StaticResource MaterialDesignFloatingHintComboBox}" SelectedIndex="{Binding Transmitted, Converter={StaticResource BoolToIndex}}" materialDesign:HintAssist.Hint="TRANSMITTED" >
                         <ComboBoxItem>YES</ComboBoxItem>
                         <ComboBoxItem>NO</ComboBoxItem>
                     </ComboBox>
@@ -122,7 +142,7 @@
                         <ColumnDefinition Width="1*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <materialDesign:PackIcon Kind="Marker" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
-                    <ComboBox Grid.Column="1" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="ID MARKS" >
+                    <ComboBox Grid.Column="1" Style="{StaticResource MaterialDesignFloatingHintComboBox}" SelectedIndex="{Binding SelectedModel.IDMarks, Converter={StaticResource BoolToIndex}}" materialDesign:HintAssist.Hint="ID MARKS" >
                         <ComboBoxItem>YES</ComboBoxItem>
                         <ComboBoxItem>NO</ComboBoxItem>
                     </ComboBox>
@@ -136,6 +156,7 @@
                     <materialDesign:PackIcon Kind="GpsFixed" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
                     <TextBox Grid.Column="1"
                 materialDesign:HintAssist.Hint="GPS CORDINATES"
+                             Text="{Binding SelectedModel.GPSCordinates}"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                 VerticalAlignment="Top"/>
                 </Grid>
@@ -146,7 +167,7 @@
                         <ColumnDefinition Width="1*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <materialDesign:PackIcon Kind="Chip" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
-                    <ComboBox Grid.Column="1" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="MICROCHIPPED" >
+                    <ComboBox Grid.Column="1" Style="{StaticResource MaterialDesignFloatingHintComboBox}" SelectedIndex="{Binding Microchipped, Converter={StaticResource BoolToIndex}}" materialDesign:HintAssist.Hint="MICROCHIPPED" >
                         <ComboBoxItem>YES</ComboBoxItem>
                         <ComboBoxItem>NO</ComboBoxItem>
                     </ComboBox>
@@ -158,9 +179,7 @@
                         <ColumnDefinition Width="1*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <materialDesign:PackIcon Kind="Transportation" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
-                    <ComboBox Grid.Column="1" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="TRANSPORTATION TO RELEASE SITE" >
-                        <ComboBoxItem>BY AIR</ComboBoxItem>
-                        <ComboBoxItem>BY VEHICEL</ComboBoxItem>
+                    <ComboBox Grid.Column="1" Style="{StaticResource MaterialDesignFloatingHintComboBox}" ItemsSource="{Binding Source={ex:Enumeration {x:Type enum:Transportation}}}" DisplayMemberPath="Description" SelectedValuePath="Value" SelectedValue="{Binding SelectedModel.TransportationToReleaseSite}"   materialDesign:HintAssist.Hint="TRANSPORTATION TO RELEASE SITE" >
                     </ComboBox>
                 </Grid>
                 <!-- Markings applied -->
@@ -174,6 +193,7 @@
                 materialDesign:HintAssist.Hint="DESCRRIBE MARKINGS APPLIED"
                              TextWrapping="Wrap"
                              AcceptsReturn="True"
+                             Text="{Binding SelectedModel.MarkingDescription}"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                 VerticalAlignment="Center"/>
                 </Grid>
@@ -189,6 +209,7 @@
                 materialDesign:HintAssist.Hint="ASSISTED RELEASE OR CONDUCTED BY THF? EXPLAIN."
                              TextWrapping="Wrap"
                              AcceptsReturn="True"
+                             Text="{Binding SelectedModel.ReleaseDescription}"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                 />
                 </Grid>
@@ -204,10 +225,12 @@
                 materialDesign:HintAssist.Hint="ANY OTHER OBSERVATIONS"
                              TextWrapping="Wrap"
                              AcceptsReturn="True"
+                             Text="{Binding SelectedModel.OtherObservations}"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                />
                 </Grid>
             </Grid>
         </Border>
     </Grid>
+    </materialDesign:DialogHost>
 </UserControl>

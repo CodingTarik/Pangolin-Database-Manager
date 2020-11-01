@@ -249,13 +249,17 @@ namespace Pangolin_Database_App.ViewModels
         /// <summary>
         /// Reloads the selected model
         /// </summary>
-        public void ReloadSelectedModel()
+        public void ReloadSelectedModel(bool resetIfNotInDatabase = false)
         {
             if (ReloadSelectedModelEvent != null)
             {
                 ReloadSelectedModelEvent(this, SelectedModel);
             }
-            ReloadModel(SelectedModel);
+            bool reloaded = ReloadModel(SelectedModel);
+            if(!reloaded && resetIfNotInDatabase)
+            {
+                ResetSelectedModelToDefaultValues();
+            }
             NotifyPropertyChanged("SelectedModel");
         }
 
@@ -266,7 +270,7 @@ namespace Pangolin_Database_App.ViewModels
         /// <summary>
         /// Resets the selected model to its default value
         /// </summary>
-        private void ReloadModel(T model)
+        private bool ReloadModel(T model)
         {
             // Resets all changes made to model
             if (model != null)
@@ -278,8 +282,10 @@ namespace Pangolin_Database_App.ViewModels
                     {
                         ReloadModelEvent(this, model);
                     }
+                    return true;
                 }
             }
+            return false;
         }
 
         /// <summary>
@@ -350,6 +356,29 @@ namespace Pangolin_Database_App.ViewModels
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
+        }
+
+        /// <summary>
+        /// Resets selected model
+        /// </summary>
+        public virtual void ResetSelectedModel()
+        {
+            ReloadSelectedModel(true);
+            ShowSnackbar("Discarded changes made to selected model", 6);
+        }
+
+        /// <summary>
+        /// Resets Selected Model to default values
+        /// </summary>
+        public virtual void ResetSelectedModelToDefaultValues()
+        {
+            Type type = SelectedModel.GetType();
+            PropertyInfo[] properties = type.GetProperties();
+            foreach (PropertyInfo p in properties)
+            {
+                p.SetValue(SelectedModel, null);
+            }
+            ChangePangolinReferenceForModel();
         }
     }
 }

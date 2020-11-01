@@ -9,7 +9,8 @@ namespace Pangolin_Database_App.Views
     {
         public ReleaseView()
         {
-            InitializeComponent();
+            InitializeComponent(); 
+            
         }
     }
 }

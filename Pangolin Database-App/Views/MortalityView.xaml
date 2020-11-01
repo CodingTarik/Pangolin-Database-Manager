@@ -46,10 +46,7 @@
                     </Grid.ColumnDefinitions>
                     <materialDesign:PackIcon Kind="FormatListNumberedRightToLeft" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
                     <ComboBox Grid.Row="0" Grid.Column="1"
-                    Style="{StaticResource MaterialDesignFloatingHintComboBox}"
-                    IsEditable="True"
-                    materialDesign:TextFieldAssist.HasClearButton="True"                                  
-                    materialDesign:HintAssist.Hint="REFERENCE NUMBER">
+                    Style="{StaticResource Pangolinbox}">
                     </ComboBox>
                 </Grid>
                 <!-- Date & Time Pick-->
@@ -63,7 +60,8 @@
 
                     <DatePicker Grid.Column="1"  Margin="0, 2, 2, 0"            
                     materialDesign:HintAssist.Hint="Pick Date"
-                    Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                    Style="{StaticResource MaterialDesignFloatingHintDatePicker}"
+                    SelectedDate="{Binding SelectedModel.Date}"/>
                 </Grid>
             </Grid>
         </Border>
@@ -85,6 +83,10 @@
                     <ColumnDefinition Width="25"></ColumnDefinition>
                     <ColumnDefinition Width="0.5*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
+                <!-- Snackbar -->
+                <materialDesign:Snackbar Grid.Row="5" Grid.ColumnSpan="3" Panel.ZIndex="3" Style="{StaticResource SnackbarStyle}">
+                    <materialDesign:SnackbarMessage></materialDesign:SnackbarMessage>
+                </materialDesign:Snackbar>
                 <!-- Title and Icon -->
                 <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3">
                     <TextBlock FontSize="22" Margin="10, 0, 0, 0" FontFamily="Roboto" TextDecorations="Underline" VerticalAlignment="Center">MORTALITY INFORMATIONS</TextBlock>
@@ -100,6 +102,7 @@
                     <TextBox Grid.Column="1"
                 materialDesign:HintAssist.Hint="SPECIES"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                             Text="{Binding SelectedModel.Species}"
                 VerticalAlignment="Center"/>
                 </Grid>
                 <!-- LOCALITY -->
@@ -112,6 +115,7 @@
                     <TextBox Grid.Column="1"
                 materialDesign:HintAssist.Hint="LOCALITY"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                             Text="{Binding SelectedModel.Locality}"
                 VerticalAlignment="Center"/>
                 </Grid>
                 <!-- LENGTH -->
@@ -124,6 +128,7 @@
                     <TextBox Grid.Column="1"
                 materialDesign:HintAssist.Hint="LENGTH"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                             Text="{Binding SelectedModel.Length}"
                 VerticalAlignment="Center"/>
                 </Grid>
                 <!-- MASS -->
@@ -136,6 +141,7 @@
                     <TextBox Grid.Column="1"
                 materialDesign:HintAssist.Hint="MASS"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                             Text="{Binding SelectedModel.Mass, Converter={StaticResource StringToNumeric}}"
                 VerticalAlignment="Center"/>
                 </Grid>
                 <!-- SAMPLERS -->
@@ -148,6 +154,7 @@
                     <TextBox Grid.Column="1"
                 materialDesign:HintAssist.Hint="SAMPLER(S)"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                             Text="{Binding SelectedModel.Samplers}"
                 VerticalAlignment="Center"/>
                 </Grid>
                 <!-- SAMPLERS -->
@@ -162,6 +169,7 @@
                              TextWrapping="Wrap"
                              AcceptsReturn="True"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                             Text="{Binding SelectedModel.CaseHistory}"
                 VerticalAlignment="Center"/>
                 </Grid>
                 <!-- Samples taken -->
@@ -192,7 +200,7 @@
                             <materialDesign:PackIcon Kind="Heart" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
                             <TextBlock Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Roboto" FontSize="15" TextWrapping="Wrap" TextAlignment="Center">HEART</TextBlock>
                             <CheckBox Grid.Column="2"
-                            IsChecked="True"
+                            IsChecked="{Binding SelectedModel.Heart}"
                             Style="{StaticResource MaterialDesignDarkCheckBox}"
                             VerticalAlignment="Center"  HorizontalAlignment="Center"/>
                         </Grid>
@@ -206,7 +214,7 @@
                             <materialDesign:PackIcon Kind="Lungs" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
                             <TextBlock Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Roboto" FontSize="15" TextWrapping="Wrap" TextAlignment="Center">LUNG</TextBlock>
                             <CheckBox Grid.Column="2"
-                            IsChecked="True"
+                            IsChecked="{Binding SelectedModel.Lung}"
                             Style="{StaticResource MaterialDesignDarkCheckBox}"
                             VerticalAlignment="Center"  HorizontalAlignment="Center"/>
                         </Grid>
@@ -220,7 +228,7 @@
                             <materialDesign:PackIcon Kind="Sausage" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
                             <TextBlock Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Roboto" FontSize="15" TextWrapping="Wrap" TextAlignment="Center">LIVER</TextBlock>
                             <CheckBox Grid.Column="2"
-                            IsChecked="True"
+                            IsChecked="{Binding SelectedModel.Liver}"
                             Style="{StaticResource MaterialDesignDarkCheckBox}"
                             VerticalAlignment="Center"  HorizontalAlignment="Center"/>
                         </Grid>
@@ -234,7 +242,7 @@
                             <materialDesign:PackIcon Kind="Stomach" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
                             <TextBlock Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Roboto" FontSize="15" TextWrapping="Wrap" TextAlignment="Center">SPLEEN</TextBlock>
                             <CheckBox Grid.Column="2"
-                            IsChecked="True"
+                            IsChecked="{Binding SelectedModel.Spleen}"
                             Style="{StaticResource MaterialDesignDarkCheckBox}"
                             VerticalAlignment="Center"  HorizontalAlignment="Center"/>
                         </Grid>
@@ -248,7 +256,7 @@
                             <materialDesign:PackIcon Kind="HeartHalf" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
                             <TextBlock Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Roboto" FontSize="15" TextWrapping="Wrap" TextAlignment="Center">KIDNEY</TextBlock>
                             <CheckBox Grid.Column="2"
-                            IsChecked="True"
+                            IsChecked="{Binding SelectedModel.Kidney}"
                             Style="{StaticResource MaterialDesignDarkCheckBox}"
                             VerticalAlignment="Center"  HorizontalAlignment="Center"/>
                         </Grid>
@@ -262,7 +270,7 @@
                             <materialDesign:PackIcon Kind="WeightLifter" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
                             <TextBlock Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Roboto" FontSize="15" TextWrapping="Wrap" TextAlignment="Center">MUSCLE</TextBlock>
                             <CheckBox Grid.Column="2"
-                            IsChecked="True"
+                            IsChecked="{Binding SelectedModel.Muscle}"
                             Style="{StaticResource MaterialDesignDarkCheckBox}"
                             VerticalAlignment="Center"  HorizontalAlignment="Center"/>
                         </Grid>
@@ -276,7 +284,7 @@
                             <materialDesign:PackIcon Kind="PokerSpade" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
                             <TextBlock Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Roboto" FontSize="15" TextWrapping="Wrap" TextAlignment="Center">SCALE</TextBlock>
                             <CheckBox Grid.Column="2"
-                            IsChecked="True"
+                            IsChecked="{Binding SelectedModel.Scale}"
                             Style="{StaticResource MaterialDesignDarkCheckBox}"
                             VerticalAlignment="Center"  HorizontalAlignment="Center"/>
                         </Grid>
@@ -290,7 +298,7 @@
                             <materialDesign:PackIcon Kind="Reproduction" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
                             <TextBlock Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Roboto" FontSize="15" TextWrapping="Wrap" TextAlignment="Center">REPRODUCTIVE ORGAN</TextBlock>
                             <CheckBox Grid.Column="2"
-                            IsChecked="True"
+                            IsChecked="{Binding SelectedModel.ReproductiveOrgans}"
                             Style="{StaticResource MaterialDesignDarkCheckBox}"
                             VerticalAlignment="Center"  HorizontalAlignment="Center"/>
                         </Grid>
@@ -304,6 +312,7 @@
                             <materialDesign:PackIcon Kind="NumericOneCircle" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
                             <TextBox Grid.Column="1"
                 materialDesign:HintAssist.Hint="SAMPLE TAKEN"
+                                     Text="{Binding SelectedModel.Other1}"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                 VerticalAlignment="Center"/>
                         </Grid>
@@ -316,6 +325,7 @@
                             <materialDesign:PackIcon Kind="NumericTwoCircle" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
                             <TextBox Grid.Column="1"
                 materialDesign:HintAssist.Hint="SAMPLE TAKEN"
+                                     Text="{Binding SelectedModel.Other2}"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                 VerticalAlignment="Center"/>
                         </Grid>
@@ -328,6 +338,7 @@
                             <materialDesign:PackIcon Kind="NumericThreeCircle" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
                             <TextBox Grid.Column="1"
                 materialDesign:HintAssist.Hint="SAMPLE TAKEN"
+                                     Text="{Binding SelectedModel.Other3}"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                 VerticalAlignment="Center"/>
                         </Grid>
@@ -340,6 +351,7 @@
                             <materialDesign:PackIcon Kind="NumericFourCircle" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
                             <TextBox Grid.Column="1"
                 materialDesign:HintAssist.Hint="SAMPLE TAKEN"
+                                     Text="{Binding SelectedModel.Other4}"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                 VerticalAlignment="Center"/>
                         </Grid>
@@ -352,6 +364,7 @@
                             <materialDesign:PackIcon Kind="NumericFiveCircle" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
                             <TextBox Grid.Column="1"
                 materialDesign:HintAssist.Hint="SAMPLE TAKEN"
+                                     Text="{Binding SelectedModel.Other5}"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                 VerticalAlignment="Center"/>
                         </Grid>
@@ -364,6 +377,7 @@
                             <materialDesign:PackIcon Kind="NumericSixCircle" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
                             <TextBox Grid.Column="1"
                 materialDesign:HintAssist.Hint="SAMPLE TAKEN"
+                                     Text="{Binding SelectedModel.Other6}"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                 VerticalAlignment="Center"/>
                         </Grid>

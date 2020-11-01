@@ -4,9 +4,8 @@ using System.Text;
 
 namespace Pangolin_Database_App.Util
 {
-    interface IUpdateModel
+    interface IHasDialog
     {
-        public void UpdateSelectedModel();
-        public void ResetSelectedModel();
+        public bool IsDialogOpen { get; set; }
     }
 }

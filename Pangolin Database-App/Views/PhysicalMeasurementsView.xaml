@@ -92,6 +92,7 @@
                     <TextBlock FontSize="22" Margin="10, 0, 0, 0" FontFamily="Roboto" TextDecorations="Underline" VerticalAlignment="Center">MEASUREMENTS</TextBlock>
                     <materialDesign:PackIcon Kind="Resize" Width="24" Height="24" VerticalAlignment="Center"></materialDesign:PackIcon>
                 </StackPanel>
+                <!-- Snackbar -->
                 <materialDesign:Snackbar Grid.Row="7" Grid.ColumnSpan="5" Panel.ZIndex="3" Style="{StaticResource SnackbarStyle}">
                     <materialDesign:SnackbarMessage></materialDesign:SnackbarMessage>
                 </materialDesign:Snackbar>
