@@ -46,10 +46,7 @@
                     </Grid.ColumnDefinitions>
                     <materialDesign:PackIcon Kind="FormatListNumberedRightToLeft" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
                     <ComboBox Grid.Row="0" Grid.Column="1"
-                    Style="{StaticResource MaterialDesignFloatingHintComboBox}"
-                    IsEditable="True"
-                    materialDesign:TextFieldAssist.HasClearButton="True"                                  
-                    materialDesign:HintAssist.Hint="REFERENCE NUMBER">
+                    Style="{StaticResource Pangolinbox}">
                     </ComboBox>
                 </Grid>
                 <!-- Date & Time Pick-->

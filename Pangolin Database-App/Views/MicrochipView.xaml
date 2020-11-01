@@ -46,10 +46,7 @@
                     </Grid.ColumnDefinitions>
                     <materialDesign:PackIcon Kind="FormatListNumberedRightToLeft" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
                     <ComboBox Grid.Row="0" Grid.Column="1"
-                    Style="{StaticResource MaterialDesignFloatingHintComboBox}"
-                    IsEditable="True"
-                    materialDesign:TextFieldAssist.HasClearButton="True"                                  
-                    materialDesign:HintAssist.Hint="REFERENCE NUMBER">
+                    Style="{StaticResource Pangolinbox}">
                     </ComboBox>
                 </Grid>
                 <!-- Date & Time Pick-->
@@ -63,6 +60,7 @@
 
                     <DatePicker Grid.Column="1"  Margin="0, 2, 2, 0"            
                     materialDesign:HintAssist.Hint="Pick Date"
+                                SelectedDate="{Binding SelectedModel.Date}"
                     Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
                 </Grid>
             </Grid>
@@ -102,6 +100,7 @@
                 materialDesign:HintAssist.Hint="CHIP NUMBER"
                              TextWrapping="Wrap"
                              AcceptsReturn="True"
+                             Text="{Binding SelectedModel.ChipNumber, Converter={StaticResource StringToNumeric}}"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                 />
                 </Grid>
@@ -117,6 +116,7 @@
                 materialDesign:HintAssist.Hint="MANUFACTURER"
                              TextWrapping="Wrap"
                              AcceptsReturn="True"
+                             Text="{Binding SelectedModel.Manufacturer}"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                 />
                 </Grid>
@@ -127,7 +127,7 @@
                         <ColumnDefinition Width="0.8*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <materialDesign:PackIcon Kind="Assistant" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
-                    <ComboBox Grid.Column="1" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="TESTED" >
+                    <ComboBox Grid.Column="1" Style="{StaticResource MaterialDesignFloatingHintComboBox}" SelectedIndex="{Binding Tested, Converter={StaticResource BoolToIndex}}" materialDesign:HintAssist.Hint="TESTED" >
                         <ComboBoxItem>YES</ComboBoxItem>
                         <ComboBoxItem>NO</ComboBoxItem>
                     </ComboBox>
@@ -143,9 +143,9 @@
                              VerticalAlignment="Center"
                 materialDesign:HintAssist.Hint="COMMENTS OR OBSERVATIONS"
                              TextWrapping="Wrap"
+                             Text="{Binding SelectedModel.CommentsOrObservations}"
                              AcceptsReturn="True"
-                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                />
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
                 </Grid>
             </Grid>
         </Border>
