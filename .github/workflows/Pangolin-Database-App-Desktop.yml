@@ -57,9 +57,10 @@ jobs:
 
     env:
       Solution_Name: "Pangolin Database-App\Pangolin Database-App.sln"                      # Replace with your solution name, i.e. MyWpfApp.sln.
-      Test_Project_Path: "Pangolin-Database-Unit-Tests\Pangolin-Database-Unit-Tests.csproj"                 # Replace with the path to your test project, i.e. MyWpfApp.Tests\MyWpfApp.Tests.csproj.
-      Wap_Project_Directory: "."    # Replace with the Wap project directory relative to the solution, i.e. MyWpfApp.Package.
-      Wap_Project_Path: "./Pangolin Database-App.csproj"                   # Replace with the path to your Wap project, i.e. MyWpf.App.Package\MyWpfApp.Package.wapproj.
+      Test_Project_Path: "Pangolin-Database-Unit-Tests\Pangolin-Database-Unit-Tests.csproj"
+      Wpf_Project_Path: "Pangolin Database-App\Pangolin Database-App.csproj"                                          # Replace with the path to your test project, i.e. MyWpfApp.Tests\MyWpfApp.Tests.csproj.
+      Wap_Project_Directory: "Pangolin Database-App.Package"    # Replace with the Wap project directory relative to the solution, i.e. MyWpfApp.Package.
+      Wap_Project_Path: "Pangolin Database-App.Package.wapproj"                   # Replace with the path to your Wap project, i.e. MyWpf.App.Package\MyWpfApp.Package.wapproj.
 
     steps:
     - name: Checkout
@@ -79,7 +80,7 @@ jobs:
 
     # Execute all unit tests in the solution
     - name: Execute unit tests
-      run: dotnet test
+      run: dotnet test $env:Test_Project_Path
 
     # Restore the application to populate the obj folder with RuntimeIdentifiers
     - name: Restore the application
