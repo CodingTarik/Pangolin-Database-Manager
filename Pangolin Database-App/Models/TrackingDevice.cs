@@ -17,8 +17,8 @@ namespace Pangolin_Database_App.Models
         /// <summary>
         /// The reference number of the pangolin the tracking device is attached to
         /// </summary>
-        [Required, ForeignKey(Pangolin_Database_App.Settings.Settings.PANGOLIN_TABLENAME)]
-        public string ReferenceNumber { get; set; }
+        [Required]
+        public Pangolin ReferenceNumber { get; set; }
         /// <summary>
         /// Date of update
         /// </summary>

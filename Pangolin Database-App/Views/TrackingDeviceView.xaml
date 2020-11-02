@@ -95,7 +95,7 @@
                         <ColumnDefinition Width="1*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <materialDesign:PackIcon Kind="Factory" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
-                    <TextBox Grid.Column="1" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="MANUFACTURER" VerticalAlignment="Center" >
+                    <TextBox Grid.Column="1" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="MANUFACTURER" VerticalAlignment="Center" Text="{Binding SelectedModel.Manufacturer}" >
                     </TextBox>
                 </Grid>
                 <!-- TESTED -->
@@ -105,7 +105,7 @@
                         <ColumnDefinition Width="1*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <materialDesign:PackIcon Kind="TestTube" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
-                    <ComboBox Grid.Column="1" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="TESTED" VerticalAlignment="Center" >
+                    <ComboBox Grid.Column="1" Style="{StaticResource MaterialDesignFloatingHintComboBox}" SelectedIndex="{Binding SelectedModel.Tested, Converter={StaticResource BoolToIndex}}" materialDesign:HintAssist.Hint="TESTED" VerticalAlignment="Center" >
                         <ComboBoxItem>YES</ComboBoxItem>
                         <ComboBoxItem>NO</ComboBoxItem>
                     </ComboBox>
@@ -117,7 +117,7 @@
                         <ColumnDefinition Width="1*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <materialDesign:PackIcon Kind="Wave" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
-                    <TextBox Grid.Column="1" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="FREQUENCY" VerticalAlignment="Center" >
+                    <TextBox Grid.Column="1" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="FREQUENCY" VerticalAlignment="Center" Text="{Binding SelectedModel.Frequency}" >
                     </TextBox>
                 </Grid>
                 <!-- SEDATED/ANAESTHETISED FOR FITTING -->
@@ -127,7 +127,7 @@
                         <ColumnDefinition Width="1*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <materialDesign:PackIcon Kind="Drug" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
-                    <ComboBox Grid.Column="1" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="SEDATED/ANAESTHETISED (FITTING)?" VerticalAlignment="Center" >
+                    <ComboBox Grid.Column="1" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="SEDATED/ANAESTHETISED (FITTING)?" VerticalAlignment="Center" SelectedIndex="{Binding SelectedModel.Aanaesthetised, Converter={StaticResource BoolToIndex}}">
                         <ComboBoxItem>YES</ComboBoxItem>
                         <ComboBoxItem>NO</ComboBoxItem>
                     </ComboBox>
@@ -139,7 +139,7 @@
                         <ColumnDefinition Width="1*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <materialDesign:PackIcon Kind="Comment" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
-                    <TextBox Grid.Column="1" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="REASON FOR SEDATED/ABAESTHEISIED" TextWrapping="Wrap" AcceptsReturn="True" VerticalAlignment="Center">
+                    <TextBox Grid.Column="1" Text="{Binding SelectedModel.ReasonAnaesthetised}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="REASON FOR SEDATED/ABAESTHEISIED" TextWrapping="Wrap" AcceptsReturn="True" VerticalAlignment="Center">
                     </TextBox>
                 </Grid>
                 <!-- PHOTOGRAPH TRANSMITTER IN PLACE -->
@@ -149,7 +149,7 @@
                         <ColumnDefinition Width="1*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <materialDesign:PackIcon Kind="Satellite" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
-                    <ComboBox Grid.Column="1" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="PHOTOHRAPH TRANSMITTER IN PLACE" VerticalAlignment="Center" >
+                    <ComboBox Grid.Column="1" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="PHOTOHRAPH TRANSMITTER IN PLACE" VerticalAlignment="Center" SelectedIndex="{Binding SelectedModel.PhotographTransmitterInPlace, Converter={StaticResource BoolToIndex}}" >
                         <ComboBoxItem>YES</ComboBoxItem>
                         <ComboBoxItem>NO</ComboBoxItem>
                     </ComboBox>
@@ -161,20 +161,20 @@
                         <ColumnDefinition Width="1*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <materialDesign:PackIcon Kind="SatelliteUplink" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
-                    <TextBox Grid.Column="1" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="MULTIPLE TRANSMITTERS? DESCRIBE CIRCUMSTANCES AND FREQUENCIES OF THEM." TextWrapping="Wrap" AcceptsReturn="True" VerticalAlignment="Center" >
+                    <TextBox Text="{Binding SelectedModel.MultipleTransmitterDescription}" Grid.Column="1" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="MULTIPLE TRANSMITTERS? DESCRIBE CIRCUMSTANCES AND FREQUENCIES OF THEM." TextWrapping="Wrap" AcceptsReturn="True" VerticalAlignment="Center" >
                     </TextBox>
                 </Grid>
                 <!-- Previous transmitters-->
                 <ScrollViewer HorizontalScrollBarVisibility="Auto" Grid.Row="6" Grid.ColumnSpan="3">
-                    <ListView>
+                    <ListView ItemsSource="{Binding PreviousDevices}" HorizontalContentAlignment="Center" HorizontalAlignment="Center">
                         <ListView.View>
                             <GridView>
-                                <GridViewColumn Header="DATE"></GridViewColumn>
-                                <GridViewColumn Header="FREQUENCY"></GridViewColumn>
-                                <GridViewColumn Header="TESTED"></GridViewColumn>
-                                <GridViewColumn Header="SEDATED/ANAESTHETISED"></GridViewColumn>
-                                <GridViewColumn Header="REASON"></GridViewColumn>
-                                <GridViewColumn Header="SEDATED/ANAESTHETISED"></GridViewColumn>
+                                <GridViewColumn Header="DATE" DisplayMemberBinding="{Binding Date}"></GridViewColumn>
+                                <GridViewColumn Header="FREQUENCY" DisplayMemberBinding="{Binding Frequency}"></GridViewColumn>
+                                <GridViewColumn Header="TESTED" DisplayMemberBinding="{Binding Tested}"></GridViewColumn>
+                                <GridViewColumn Header="ANAESTHETISED" DisplayMemberBinding="{Binding Aanaesthetised}"></GridViewColumn>
+                                <GridViewColumn Header="REASON" DisplayMemberBinding="{Binding ReasonAnaesthetised}"></GridViewColumn>
+                                <GridViewColumn Header="PHOTOHRAPH TRANSMITTER IN PLACE" DisplayMemberBinding="{Binding PhotographTransmitterInPlace}"></GridViewColumn>
                             </GridView>
                         </ListView.View>
                     </ListView>
