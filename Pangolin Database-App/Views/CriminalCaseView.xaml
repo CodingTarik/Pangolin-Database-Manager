@@ -46,10 +46,7 @@
                     </Grid.ColumnDefinitions>
                     <materialDesign:PackIcon Kind="FormatListNumberedRightToLeft" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
                     <ComboBox Grid.Row="0" Grid.Column="1"
-                    Style="{StaticResource MaterialDesignFloatingHintComboBox}"
-                    IsEditable="True"
-                    materialDesign:TextFieldAssist.HasClearButton="True"                                  
-                    materialDesign:HintAssist.Hint="REFERENCE NUMBER">
+                    Style="{StaticResource Pangolinbox}">
                     </ComboBox>
                 </Grid>
                 <!-- Date & Time Pick-->
@@ -63,7 +60,8 @@
 
                     <DatePicker Grid.Column="1"  Margin="0, 2, 2, 0"            
                     materialDesign:HintAssist.Hint="Pick Date"
-                    Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                    Style="{StaticResource MaterialDesignFloatingHintDatePicker}"
+                                SelectedDate="{Binding SelectedModel.Date}"/>
                 </Grid>
             </Grid>
         </Border>
@@ -102,6 +100,7 @@
                     <TextBox Grid.Column="1"
                 materialDesign:HintAssist.Hint="CRIMINAL OFFENSE"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                             Text="{Binding SelectedModel.CriminalOffense}"
                 VerticalAlignment="Center"/>
                 </Grid>
                 <!-- CRIMINAL OFFENSE -->
@@ -116,6 +115,7 @@
                              TextWrapping="Wrap"
                              AcceptsReturn="True"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                             Text="{Binding SelectedModel.AccusedPersons}"
                 VerticalAlignment="Center"/>
                 </Grid>
                 <!-- CASE BRIEF -->
@@ -130,6 +130,7 @@
                              TextWrapping="Wrap"
                              AcceptsReturn="True"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                             Text="{Binding SelectedModel.CaseBrief}"
                 VerticalAlignment="Center"/>
                 </Grid>
                 <!-- CASE BRIEF -->
@@ -144,6 +145,7 @@
                              TextWrapping="Wrap"
                              AcceptsReturn="True"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                             Text="{Binding SelectedModel.Outcome}"
                 VerticalAlignment="Center"/>
                 </Grid>
             </Grid>

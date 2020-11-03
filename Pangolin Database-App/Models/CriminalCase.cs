@@ -17,8 +17,8 @@ namespace Pangolin_Database_App.Models
         /// <summary>
         /// the ReferenceNumber of the Pangolin
         /// </summary>
-        [Required, ForeignKey(Pangolin_Database_App.Settings.Settings.PANGOLIN_TABLENAME)]
-        public string ReferenceNumber { get; set; }
+        [Required]
+        public Pangolin ReferenceNumber { get; set; }
 
         /// <summary>
         /// the date
