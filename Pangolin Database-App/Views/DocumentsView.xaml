@@ -46,10 +46,7 @@
                     </Grid.ColumnDefinitions>
                     <materialDesign:PackIcon Kind="FormatListNumberedRightToLeft" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
                     <ComboBox Grid.Row="0" Grid.Column="1"
-                    Style="{StaticResource MaterialDesignFloatingHintComboBox}"
-                    IsEditable="True"
-                    materialDesign:TextFieldAssist.HasClearButton="True"                                  
-                    materialDesign:HintAssist.Hint="REFERENCE NUMBER">
+                    Style="{StaticResource Pangolinbox}">
                     </ComboBox>
                 </Grid>
                 <!-- Date & Time Pick-->
@@ -63,7 +60,8 @@
 
                     <DatePicker Grid.Column="1"  Margin="0, 2, 2, 0"            
                     materialDesign:HintAssist.Hint="Pick Date"
-                    Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                    Style="{StaticResource MaterialDesignFloatingHintDatePicker}"
+                                SelectedDate="{Binding SelectedModel.Date}"/>
                 </Grid>
             </Grid>
         </Border>
@@ -128,7 +126,7 @@
                             <ColumnDefinition Width="0.5*"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <!-- Drag and DROP A FILE-->
-                        <Border Grid.Row="1" Grid.Column="0" Margin="5" Background="LightGray" BorderThickness="1" CornerRadius="5">
+                        <Border Grid.Row="1" Grid.Column="0" Margin="5" Background="LightGray" BorderThickness="1" CornerRadius="5" AllowDrop="True" Drop="Border_Drop">
                             <Border.BorderBrush>
                                 <VisualBrush>
                                     <VisualBrush.Visual>
@@ -138,7 +136,20 @@
                             </Border.BorderBrush>
                             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                                 <materialDesign:PackIcon Kind="FileCloud" HorizontalAlignment="Center"></materialDesign:PackIcon>
-                                <TextBlock HorizontalAlignment="Center" FontFamily="Roboto" FontSize="12">DRAG AND DROP A FILE</TextBlock>
+                                <TextBlock HorizontalAlignment="Center" FontFamily="Roboto" FontSize="12">
+                                    <TextBlock.Resources>
+                                        <Style TargetType="{x:Type TextBlock}">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding SelectedModel.FileName}" Value="{x:Null}">
+                                                    <Setter Property="Text" Value="DRAG AND DROP A FILE"></Setter>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                            <Style.Setters>
+                                                <Setter Property="Text" Value="{Binding SelectedModel.FileName}"></Setter>
+                                            </Style.Setters>
+                                        </Style>
+                                    </TextBlock.Resources>
+                                </TextBlock>
                             </StackPanel>
                         </Border>
                         <!-- Description -->
@@ -150,6 +161,7 @@
                             <materialDesign:PackIcon Kind="ImageDescription" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
                             <TextBox Grid.Column="1"
                 materialDesign:HintAssist.Hint="DESCRIPTION OF FILE"
+                                     Text="{Binding SelectedModel.FileDescription}"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                 VerticalAlignment="Top"/>
                         </Grid>

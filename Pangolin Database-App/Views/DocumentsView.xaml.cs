@@ -1,6 +1,7 @@
 ﻿using Pangolin_Database_App.ViewModels;
 using System.Windows;
 using System.Windows.Controls;
+using System.IO;
 
 namespace Pangolin_Database_App.Views
 {
@@ -16,7 +17,8 @@ namespace Pangolin_Database_App.Views
 
         private void Upload_Click(object sender, RoutedEventArgs e)
         {
-
+            DocumentsViewModel model = (DocumentsViewModel)Window.GetWindow(this).DataContext;
+            model.UploadFile(this);
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
@@ -36,6 +38,14 @@ namespace Pangolin_Database_App.Views
 
         private void OpenReport_Click(object sender, RoutedEventArgs e)
         {
+
+        }
+
+        private void Border_Drop(object sender, DragEventArgs e)
+        {
+
+            DocumentsViewModel model = (DocumentsViewModel)Window.GetWindow(this).DataContext;
+            model.File_Drop(this, e);
 
         }
     }
