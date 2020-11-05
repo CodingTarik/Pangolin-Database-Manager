@@ -12,5 +12,7 @@ namespace Pangolin_Database_App.Settings
         public const string PANGOLIN_TABLENAME = "Panngolin";
         public static readonly string USER_APPDATA = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
         public const string TempFileFolderName = "OpenTemp";
+        public const bool Debug = true;
+        public const int DebugMaxRows = 10;
     }
 }
