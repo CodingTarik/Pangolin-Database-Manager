@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Pangolin_Database_App.Logger;
 using Pangolin_Database_App.Models;
 
 namespace Pangolin_Database_App.Database
@@ -26,6 +27,7 @@ namespace Pangolin_Database_App.Database
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            LogManager.log("Configuring database", LogCategory.info, LogTopic.Database);
             optionsBuilder.UseSqlite(Pangolin_Database_App.Settings.Settings.SQLiteConnectionString);
         }
 

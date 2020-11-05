@@ -8,6 +8,7 @@ using System.IO;
 using System.Text;
 using System.Diagnostics;
 using Microsoft.Win32;
+using Pangolin_Database_App.Logger;
 
 namespace Pangolin_Database_App.Models
 {
@@ -57,9 +58,11 @@ namespace Pangolin_Database_App.Models
 
         private void OpenFile()
         {
+             
             string path = SettingsManager.GetTempFilePath() + "\\" + FileName;
             SaveFile(path);
             Debug.WriteLine(path);
+            LogManager.log("Opening file " + FileName, LogCategory.info, LogTopic.IO);
             Process.Start(new ProcessStartInfo(path) { UseShellExecute = true });
         }
 
@@ -76,11 +79,13 @@ namespace Pangolin_Database_App.Models
 
         private void SaveFile(string path)
         {
+            LogManager.log("Saving file to path " + path, LogCategory.info, LogTopic.IO);
             File.WriteAllBytes(path, FileData);
         }
 
         private void DeleteFile()
         {
+            LogManager.log("Deleting file " + FileName + " from database", LogCategory.info, LogTopic.Database);
             Database.DatabaseManager.GetDatabase().Remove(this);
             Database.DatabaseManager.GetDatabase().SaveChanges();
         }

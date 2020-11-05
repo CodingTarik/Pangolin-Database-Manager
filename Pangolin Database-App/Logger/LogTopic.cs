@@ -12,6 +12,7 @@ namespace Pangolin_Database_App.Logger
         Settings,
         Admin,
         Pangolin,
+        Util,
         Other
     }
 }

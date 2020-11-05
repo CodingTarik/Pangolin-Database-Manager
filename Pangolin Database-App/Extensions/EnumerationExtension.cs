@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pangolin_Database_App.Logger;
+using System;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows.Markup;
@@ -12,17 +13,25 @@ namespace Pangolin_Database_App.Extensions
     {
         private Type _enumType;
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="enumType">Used to define enum type</param>
         public EnumerationExtension(Type enumType)
         {
             if (enumType == null)
             {
-                throw new ArgumentNullException("enumType");
+                ArgumentNullException ex = new ArgumentNullException("Enum Type cannot be null");
+                LogManager.logError(ex, " Enumeration extsension type was null", LogTopic.Util);
+                throw ex;
             }
 
             EnumType = enumType;
         }
 
+        /// <summary>
+        /// saves enum type
+        /// </summary>
         public Type EnumType
         {
             get { return _enumType; }
@@ -37,13 +46,20 @@ namespace Pangolin_Database_App.Extensions
 
                 if (enumType.IsEnum == false)
                 {
-                    throw new ArgumentException("Type must be an Enum.");
+                    ArgumentException ex = new ArgumentException("Type must be an Enum.");
+                    LogManager.logError(ex, " Type was not an Enum", LogTopic.Util);
+                    throw ex;
                 }
 
                 _enumType = value;
             }
         }
 
+        /// <summary>
+        /// Provides enumeration member of enum
+        /// </summary>
+        /// <param name="serviceProvider"></param>
+        /// <returns></returns>
         public override object ProvideValue(IServiceProvider serviceProvider)
         {
             var enumValues = Enum.GetValues(EnumType);
@@ -57,6 +73,11 @@ namespace Pangolin_Database_App.Extensions
               }).ToArray();
         }
 
+        /// <summary>
+        /// Reads description of description attributes
+        /// </summary>
+        /// <param name="enumValue"></param>
+        /// <returns></returns>
         private string GetDescription(object enumValue)
         {
             var descriptionAttribute = EnumType
@@ -70,6 +91,9 @@ namespace Pangolin_Database_App.Extensions
               : enumValue.ToString();
         }
 
+        /// <summary>
+        /// Simple class for enumeration member
+        /// </summary>
         public class EnumerationMember
         {
             public string Description { get; set; }
