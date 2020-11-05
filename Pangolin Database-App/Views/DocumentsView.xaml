@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Pangolin_Database_App.Views"
-                 xmlns:customcontrols="clr-namespace:Pangolin_Database_App.User_Controls"
+             xmlns:customcontrols="clr-namespace:Pangolin_Database_App.User_Controls"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"     
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
@@ -174,21 +174,39 @@
                             <materialDesign:PackIcon Kind="Upload" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
                             <Button Grid.Column="1" Click="Upload_Click"
     Style="{StaticResource MaterialDesignRaisedDarkButton}"
-    ToolTip="MaterialDesignFlatDarkButton">
+    ToolTip="MaterialDesignFlatDarkButton" Cursor="Hand">
                                 UPLOAD
                             </Button>
                         </Grid>
                         <!-- Files List-->
                         <ScrollViewer VerticalScrollBarVisibility="Visible" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" HorizontalScrollBarVisibility="Auto">
-                            <ListView>
+                            <ListView x:Name="FileListView" ItemsSource="{Binding DocumentForPangolin}">
                                 <ListView.View>
                                     <GridView>
-                                        <GridViewColumn Header="Filename"></GridViewColumn>
-                                        <GridViewColumn Header="Date"></GridViewColumn>
-                                        <GridViewColumn Header="Description"></GridViewColumn>
-                                        <GridViewColumn Header="Open"></GridViewColumn>
-                                        <GridViewColumn Header="Save"></GridViewColumn>
-                                        <GridViewColumn Header="Delete"></GridViewColumn>
+                                        <GridViewColumn Header="Filename" DisplayMemberBinding="{Binding FileName}"></GridViewColumn>
+                                        <GridViewColumn Header="Date" DisplayMemberBinding="{Binding Date}"></GridViewColumn>
+                                        <GridViewColumn Header="Description" DisplayMemberBinding="{Binding Description}"></GridViewColumn>
+                                        <GridViewColumn Header="Open">
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Button Style="{StaticResource MaterialDesignFlatMidBgButton}" Command="{Binding OpenDoc}" Click="UpdateFiles_Click">Open</Button>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                        <GridViewColumn Header="Save">
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Button Style="{StaticResource MaterialDesignFlatMidBgButton}" Command="{Binding SaveDoc}" Click="UpdateFiles_Click">Save</Button>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                        <GridViewColumn Header="Delete">
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Button Style="{StaticResource MaterialDesignFlatMidBgButton}" Command="{Binding DeleteDoc}" Click="UpdateFiles_Click">Delete</Button>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
                                     </GridView>
                                 </ListView.View>
                             </ListView>

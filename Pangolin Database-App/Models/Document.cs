@@ -1,13 +1,25 @@
-﻿using System;
+﻿using Pangolin_Database_App.Settings;
+using Pangolin_Database_App.Util;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.IO;
 using System.Text;
+using System.Diagnostics;
+using Microsoft.Win32;
 
 namespace Pangolin_Database_App.Models
 {
     public class Document
     {
+
+        public Document()
+        {
+            OpenDoc = new RelayCommand(OpenFile);
+            SaveDoc = new RelayCommand(SaveFile);
+            DeleteDoc = new RelayCommand(DeleteFile);
+        }
         /// <summary>
         /// Primary Key
         /// </summary>
@@ -35,5 +47,42 @@ namespace Pangolin_Database_App.Models
         /// Data of file
         /// </summary>
         public byte[] FileData { get; set; }
+
+        [NotMapped]
+        public RelayCommand OpenDoc { get; set; }  
+        [NotMapped]
+        public RelayCommand SaveDoc { get; set; }
+        [NotMapped]
+        public RelayCommand DeleteDoc { get; set; }
+
+        private void OpenFile()
+        {
+            string path = SettingsManager.GetTempFilePath() + "\\" + FileName;
+            SaveFile(path);
+            Debug.WriteLine(path);
+            Process.Start(new ProcessStartInfo(path) { UseShellExecute = true });
+        }
+
+        private void SaveFile()
+        {
+            SaveFileDialog sv = new SaveFileDialog();
+            sv.FileName = FileName;
+            if(sv.ShowDialog() == true)
+            {
+                SaveFile(sv.FileName);
+            }
+            
+        }
+
+        private void SaveFile(string path)
+        {
+            File.WriteAllBytes(path, FileData);
+        }
+
+        private void DeleteFile()
+        {
+            Database.DatabaseManager.GetDatabase().Remove(this);
+            Database.DatabaseManager.GetDatabase().SaveChanges();
+        }
     }
 }

@@ -5,7 +5,7 @@ using System.Windows.Input;
 
 namespace Pangolin_Database_App.Util
 {
-    class RelayCommand : ICommand
+    public class RelayCommand : ICommand
     {
         public event EventHandler CanExecuteChanged;
         public event Action action;
