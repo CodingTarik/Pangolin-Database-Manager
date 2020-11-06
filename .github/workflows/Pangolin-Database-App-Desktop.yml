@@ -56,9 +56,9 @@ jobs:
                              # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
 
     env:
-      Solution_Name: "Pangolin Database-App\Pangolin Database-App.sln"                      # Replace with your solution name, i.e. MyWpfApp.sln.
-      Test_Project_Path: "Pangolin-Database-Unit-Tests\Pangolin-Database-Unit-Tests.csproj"
-      Wpf_Project_Path: "Pangolin Database-App\Pangolin Database-App.csproj"                                          # Replace with the path to your test project, i.e. MyWpfApp.Tests\MyWpfApp.Tests.csproj.
+      Solution_Name: "Pangolin Database-App\\Pangolin Database-App.sln"                      # Replace with your solution name, i.e. MyWpfApp.sln.
+      Test_Project_Path: "Pangolin-Database-Unit-Tests\\Pangolin-Database-Unit-Tests.csproj"
+      Wpf_Project_Path: "Pangolin Database-App\\Pangolin Database-App.csproj"                                          # Replace with the path to your test project, i.e. MyWpfApp.Tests\MyWpfApp.Tests.csproj.
    
     steps:
     - name: Checkout
