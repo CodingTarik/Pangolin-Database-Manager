@@ -8,12 +8,16 @@ namespace Pangolin_Database_App.ViewModels
 {
     class MainMenuViewModel 
     {
-        public string Username { get; set; }
-        public bool isAdmin { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Name { get { return FirstName + " " + LastName; } }
+        public bool IsAdmin { get; set; }
 
         public MainMenuViewModel()
         {
-
+            FirstName = Database.UserManagment.ActiveUser.FirstName;
+            LastName = Database.UserManagment.ActiveUser.LastName;
+            IsAdmin = Database.UserManagment.ActiveUser.IsAdmin;
         }
 
         public ObservableCollection<Pangolin> Pangolins { get; set; } = new ObservableCollection<Pangolin>(DatabaseManager.GetPangolins());

@@ -14,7 +14,8 @@ namespace Pangolin_Database_App
         {
             DatabaseManager.InitDatabase();
             InitializeComponent();
-            this.DataContext = new MainMenuViewModel() { Username = "Dr. Tarik Azzouzi", isAdmin = true };
+            Database.UserManagment.ActiveUser = new Models.User() { FirstName = "Tarik", LastName = "Azzouzi", IsAdmin = true };
+            this.DataContext = new MainMenuViewModel();
         }
 
 

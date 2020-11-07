@@ -8,9 +8,18 @@
              mc:Ignorable="d" 
              d:DesignHeight="500" d:DesignWidth="800">
     <Grid>
-        <TabControl
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1.2*"></RowDefinition>
+            <RowDefinition Height="0.2*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <!-- Snackbar -->
+        <materialDesign:Snackbar Grid.Row="1" Panel.ZIndex="3" Style="{StaticResource SnackbarStyle}">
+            <materialDesign:SnackbarMessage></materialDesign:SnackbarMessage>
+        </materialDesign:Snackbar>
+        <TabControl Grid.RowSpan="2"
   Style="{StaticResource MaterialDesignNavigatilRailTabControl}"
   materialDesign:ColorZoneAssist.Mode="PrimaryDark">
+         
             <!-- ADD NEW USER-->
             <TabItem
     Style="{StaticResource MaterialDesignNavigationRailTabItem}">
@@ -20,7 +29,7 @@
         Width="32"
         Height="32" />
                 </TabItem.Header>
-                <Grid>
+                <Grid Margin="15">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="50"></RowDefinition>
                         <RowDefinition Height="1*"></RowDefinition>
@@ -35,12 +44,14 @@
                     <TextBox
                         Grid.Row="1"
   materialDesign:HintAssist.Hint="USERNAME"
+                        Text="{Binding UsernameAdd}"
                         FontSize="22"
   Style="{StaticResource MaterialDesignFloatingHintTextBox}"
   VerticalAlignment="Center" />
                     <!-- FIRST NAME -->
                     <TextBox
                         Grid.Row="2"
+                        Text="{Binding FirstNameAdd}"
   materialDesign:HintAssist.Hint="FIRST NAME"
                         FontSize="22"
   Style="{StaticResource MaterialDesignFloatingHintTextBox}"
@@ -49,6 +60,7 @@
                     <TextBox
                         Grid.Row="3"
   materialDesign:HintAssist.Hint="LAST NAME"
+                        Text="{Binding LastNameAdd}"
                         FontSize="22"
   Style="{StaticResource MaterialDesignFloatingHintTextBox}"
   VerticalAlignment="Center" />
@@ -56,6 +68,7 @@
                     <TextBox
                         Grid.Row="4"
   materialDesign:HintAssist.Hint="PASSWORD"
+                        Text="{Binding PasswordAdd}"
                         FontSize="22"
   Style="{StaticResource MaterialDesignFloatingHintTextBox}"
   VerticalAlignment="Center" />
@@ -63,12 +76,14 @@
                     <TextBox
                         Grid.Row="5"
   materialDesign:HintAssist.Hint="REPEAT PASSWORD"
+                        Text="{Binding PasswordRepeatAdd}"
                         FontSize="22"
   Style="{StaticResource MaterialDesignFloatingHintTextBox}"
   VerticalAlignment="Center" />
                     <!-- ADD NEW USER BUTTON -->
                     <Button Grid.Row="6"
     Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                            Command="{Binding AddUserClick}"
                             Margin="50, 20"
     ToolTip="Resource name: MaterialDesignRaisedLightDarkButton">
                         ADD USER
@@ -84,7 +99,7 @@
         Width="32"
         Height="32" />
                 </TabItem.Header>
-                <Grid>
+                <Grid Margin="15">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="50"></RowDefinition>
                         <RowDefinition Height="1*"></RowDefinition>
@@ -140,7 +155,7 @@
         Width="32"
         Height="32" />
                 </TabItem.Header>
-                <Grid>
+                <Grid Margin="15">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="50"></RowDefinition>
                         <RowDefinition Height="1*"></RowDefinition>
@@ -177,7 +192,7 @@
         Width="32"
         Height="32" />
                 </TabItem.Header>
-                <Grid>
+                <Grid Margin="15">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="50"></RowDefinition>
                         <RowDefinition Height="1*"></RowDefinition>
@@ -214,7 +229,7 @@
         Width="32"
         Height="32" />
                 </TabItem.Header>
-                <Grid>
+                <Grid Margin="15">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="50"></RowDefinition>
                         <RowDefinition Height="2*"></RowDefinition>
@@ -222,11 +237,11 @@
                         <RowDefinition Height="1*"></RowDefinition>
                         <RowDefinition Height="1*"></RowDefinition>
                     </Grid.RowDefinitions>
-                    <TextBlock FontSize="22" VerticalAlignment="Center" FontFamily="Roboto" FontWeight="Black" Grid.Row="0">MERGE DATABASE DIFF FILES</TextBlock>
+                    <TextBlock FontSize="22" VerticalAlignment="Center" FontFamily="Roboto" FontWeight="Black" Grid.Row="0">BACKUP DATABASE</TextBlock>
                     <!-- USER DELETE BUTTON-->
                     <StackPanel Grid.Row="1">
-                        <materialDesign:PackIcon Kind="Warning" Width="64" Height="64" HorizontalAlignment="Center"></materialDesign:PackIcon>
-                        <TextBlock Grid.Row="1" FontSize="25" TextWrapping="Wrap" TextAlignment="Center">CAUTION! MAKE SURE THAT EVERYONE SYNCHRONIZED HIS DATA AND THAT NOBODY IS WORKING WITH THIS APPLICATION!</TextBlock>
+                        <materialDesign:PackIcon Kind="Backup" Width="64" Height="64" HorizontalAlignment="Center"></materialDesign:PackIcon>
+                        <TextBlock Grid.Row="1" FontSize="25" TextWrapping="Wrap" TextAlignment="Center">This will just backup your local database. Please sync if you also want to backup changed made to server.</TextBlock>
                     </StackPanel>
                      
                     <Button Grid.Row="2"
