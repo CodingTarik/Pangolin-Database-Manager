@@ -234,7 +234,7 @@
                     </Button>
                 </Grid>
             </TabItem>
-            <!-- MERGE DB DIFF FILES -->
+            <!-- Backup DB-->
             <TabItem
     Style="{StaticResource MaterialDesignNavigationRailTabItem}">
                 <TabItem.Header>
@@ -252,19 +252,19 @@
                         <RowDefinition Height="1*"></RowDefinition>
                     </Grid.RowDefinitions>
                     <TextBlock FontSize="22" VerticalAlignment="Center" FontFamily="Roboto" FontWeight="Black" Grid.Row="0">BACKUP DATABASE</TextBlock>
-                    <!-- USER DELETE BUTTON-->
+                   
                     <StackPanel Grid.Row="1">
                         <materialDesign:PackIcon Kind="Backup" Width="64" Height="64" HorizontalAlignment="Center"></materialDesign:PackIcon>
                         <TextBlock Grid.Row="1" FontSize="25" TextWrapping="Wrap" TextAlignment="Center">This will just backup your local database. Please sync if you also want to backup changed made to server.</TextBlock>
                     </StackPanel>
-                     
+                     <!-- Backup-->
                     <Button Grid.Row="2"
     Style="{StaticResource MaterialDesignRaisedDarkButton}"
                             Margin="50, 20"
                             Height="50"
                             FontSize="22"
-    ToolTip="Resource name: MaterialDesignRaisedLightDarkButton">
-                       MERGE
+    ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" Cursor="Hand">
+                       BACKUP NOW
                     </Button>
                 </Grid>
             </TabItem>

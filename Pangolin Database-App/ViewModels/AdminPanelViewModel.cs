@@ -6,6 +6,8 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using System.Linq;
+using Microsoft.Win32;
+using System.IO;
 
 namespace Pangolin_Database_App.ViewModels
 {
@@ -20,6 +22,7 @@ namespace Pangolin_Database_App.ViewModels
             UpdateUserPass = new RelayCommand(UpdatePassword);
             DeleteUserClick = new RelayCommand(DeleteSelectedUser);
             DeletePangolinClick = new RelayCommand(DeleteSelectedPangolin);
+            BackupDbClick = new RelayCommand(BackupDb);
         }
 
         // Add new User
@@ -147,6 +150,20 @@ namespace Pangolin_Database_App.ViewModels
                 Database.DatabaseManager.GetDatabase().Pangolins.Remove(SelectedPangolinDelete);
                 Database.DatabaseManager.GetDatabase().SaveChanges();
                 ShowSnackbar("Pangolin deleted successfull", 5);
+            }
+        }
+
+        // Backup DB
+        // ======================================================================================================
+        public RelayCommand BackupDbClick { get; set; }
+
+        private void BackupDb()
+        {
+            SaveFileDialog sv = new SaveFileDialog();
+            sv.FileName = Settings.Settings.DbFilename;
+            if (sv.ShowDialog() == true)
+            {
+                File.Copy(Settings.Settings.DbFilename, sv.FileName);
             }
         }
 
