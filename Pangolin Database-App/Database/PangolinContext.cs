@@ -24,7 +24,7 @@ namespace Pangolin_Database_App.Database
         public DbSet<User> Users { get; set; }
         public DbSet<VeterinaryTreatment> VeterinaryTreatments { get; set; }
         public DbSet<InterdepartmentalMovement> InterdepartmentalMovements { get; set; }
-        public DbSet<Pangolin> DeletedPangolins { get; set; }
+        //public DbSet<Pangolin> DeletedPangolins { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

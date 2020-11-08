@@ -1,13 +1,14 @@
-﻿using Pangolin_Database_App.Models;
+﻿using Microsoft.Win32;
+using Pangolin_Database_App.Models;
 using Pangolin_Database_App.Util;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.IO;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
-using System.Linq;
-using Microsoft.Win32;
-using System.IO;
 
 namespace Pangolin_Database_App.ViewModels
 {
@@ -48,6 +49,9 @@ namespace Pangolin_Database_App.ViewModels
                 bool added = Database.UserManagment.AddNewUser(FirstNameAdd, LastNameAdd, UsernameAdd, PasswordHashAdd);
                 if (added)
                 {
+                    User addedUser = Database.DatabaseManager.GetDatabase().Users.Where(n => n.Username == UsernameAdd).First();
+                    UserList.Add(addedUser);
+                    UserListDelete.Add(addedUser);
                     ShowSnackbar("User was added successfully", 6);
                     UsernameAdd = "";
                     FirstNameAdd = "";
@@ -78,7 +82,8 @@ namespace Pangolin_Database_App.ViewModels
         }
         // Reset User Password
         // ======================================================================================================
-        public List<User> UserList { get { return Database.DatabaseManager.GetDatabase().Users.ToList(); } }
+        private ObservableCollection<User> _UserList = new ObservableCollection<User>(Database.DatabaseManager.GetDatabase().Users.ToList());
+        public ObservableCollection<User> UserList { get { return _UserList; } }
         public string NewPassword { get; set; }
         public string NewPasswordRepeat { get; set; }
         public User SelectedUser { get; set; }
@@ -86,15 +91,15 @@ namespace Pangolin_Database_App.ViewModels
 
         private void UpdatePassword()
         {
-            if(SelectedUser != null)
+            if (SelectedUser != null)
             {
-                if(String.IsNullOrEmpty(NewPassword))
+                if (String.IsNullOrEmpty(NewPassword))
                 {
                     ShowSnackbar("Password cannot be null", 5);
                 }
                 else
                 {
-                    if(NewPassword.Equals(NewPasswordRepeat))
+                    if (NewPassword.Equals(NewPasswordRepeat))
                     {
                         SelectedUser.PasswordHash = Database.UserManagment.ComputeSha256Hash(NewPassword);
                         Database.DatabaseManager.GetDatabase().SaveChanges();
@@ -114,27 +119,44 @@ namespace Pangolin_Database_App.ViewModels
 
         // Delete User
         // ======================================================================================================
-        public List<User> UserListDelete { get { var users = Database.DatabaseManager.GetDatabase().Users.ToList(); users.Remove(Database.UserManagment.ActiveUser); return users; } }
+        private ObservableCollection<User> _UserListDelete;
+        public ObservableCollection<User> UserListDelete
+        {
+            get
+            {
+                if (_UserListDelete == null)
+                {
+                    var users = Database.DatabaseManager.GetDatabase().Users.ToList();
+                    users.Remove(Database.UserManagment.ActiveUser);
+                    _UserListDelete = new ObservableCollection<User>(users);
+                }
+                return _UserListDelete;
+            }
+        }
         public User SelectedUserDelete { get; set; }
         public RelayCommand DeleteUserClick { get; set; }
 
         private void DeleteSelectedUser()
         {
-            if(SelectedUserDelete == null)
+            if (SelectedUserDelete == null)
             {
                 ShowSnackbar("Please select an user", 5);
             }
             else
             {
+               
                 Database.DatabaseManager.GetDatabase().Remove(SelectedUserDelete);
                 Database.DatabaseManager.GetDatabase().SaveChanges();
+                UserList.Remove(SelectedUserDelete);
+                UserListDelete.Remove(SelectedUserDelete);
                 ShowSnackbar("User deleted successfull", 5);
             }
         }
 
         // Delete Pangolin
         // ======================================================================================================
-        public List<Pangolin> PangolinList { get { return Database.DatabaseManager.GetPangolins(); } }
+        private ObservableCollection<Pangolin> _PangolinList = new ObservableCollection<Pangolin>(Database.DatabaseManager.GetPangolins());
+        public ObservableCollection<Pangolin> PangolinList { get { return _PangolinList; } }
         public Pangolin SelectedPangolinDelete { get; set; }
         public RelayCommand DeletePangolinClick { get; set; }
 
@@ -146,8 +168,9 @@ namespace Pangolin_Database_App.ViewModels
             }
             else
             {
-                Database.DatabaseManager.GetDatabase().DeletedPangolins.Add(SelectedPangolinDelete);
+
                 Database.DatabaseManager.GetDatabase().Pangolins.Remove(SelectedPangolinDelete);
+                PangolinList.Remove(SelectedPangolinDelete);
                 Database.DatabaseManager.GetDatabase().SaveChanges();
                 ShowSnackbar("Pangolin deleted successfull", 5);
             }

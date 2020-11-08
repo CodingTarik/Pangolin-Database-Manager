@@ -120,7 +120,7 @@
                         SelectedItem="{Binding SelectedUser}"
                         DisplayMemberPath="Username"
                         Style="{StaticResource MaterialDesignFloatingHintComboBox}"
-  IsEditable="True">
+  IsEditable="False">
                     </ComboBox>
                     <!-- NEW PASSWORD -->
                     <PasswordBox x:Name="ResetPasswordPass"
@@ -182,7 +182,7 @@
                         SelectedItem="{Binding SelectedUserDelete}"
                         DisplayMemberPath="Username"
                         Style="{StaticResource MaterialDesignFloatingHintComboBox}"
-  IsEditable="True"></ComboBox>
+  IsEditable="False"></ComboBox>
                     <!-- USER DELETE BUTTON-->
                     <Button Grid.Row="2"
     Style="{StaticResource MaterialDesignRaisedDarkButton}"
@@ -223,7 +223,7 @@
                         SelectedItem="{Binding SelectedPangolinDelete}"
                         DisplayMemberPath="ReferenceNumber"
                         Style="{StaticResource MaterialDesignFloatingHintComboBox}"
-  IsEditable="True"></ComboBox>
+  IsEditable="False"></ComboBox>
                     <!-- USER DELETE BUTTON-->
                     <Button Grid.Row="2"
     Style="{StaticResource MaterialDesignRaisedDarkButton}"
@@ -261,6 +261,7 @@
                     <Button Grid.Row="2"
     Style="{StaticResource MaterialDesignRaisedDarkButton}"
                             Margin="50, 20"
+                            Command="{Binding BackupDbClick}"
                             Height="50"
                             FontSize="22"
     ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" Cursor="Hand">
