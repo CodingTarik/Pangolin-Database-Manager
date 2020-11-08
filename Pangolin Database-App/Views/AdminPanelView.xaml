@@ -178,12 +178,16 @@
   materialDesign:HintAssist.Hint="SELECT USER"
                         FontSize="22"
   materialDesign:HintAssist.HintOpacity=".26"
+                        ItemsSource="{Binding UserListDelete}"
+                        SelectedItem="{Binding SelectedUserDelete}"
+                        DisplayMemberPath="Username"
                         Style="{StaticResource MaterialDesignFloatingHintComboBox}"
   IsEditable="True"></ComboBox>
                     <!-- USER DELETE BUTTON-->
                     <Button Grid.Row="2"
     Style="{StaticResource MaterialDesignRaisedDarkButton}"
                             Margin="50, 20"
+                            Command="{Binding DeleteUserClick}"
     ToolTip="Resource name: MaterialDesignRaisedLightDarkButton">
                         DELETE USER
                     </Button>
