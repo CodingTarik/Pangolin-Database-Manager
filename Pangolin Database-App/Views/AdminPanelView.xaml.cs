@@ -23,5 +23,15 @@ namespace Pangolin_Database_App.Views
         {
             Window.GetWindow(this).DataContext = new MainMenuViewModel();
         }
+
+        private void PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            AdminPanelViewModel model = (AdminPanelViewModel)Window.GetWindow(this).DataContext;
+            model.NewPassword = this.ResetPasswordPass.Password;
+            model.NewPasswordRepeat = this.NewPasswordRepeat.Password;
+            model.PasswordAdd = this.PasswordNewUser.Password;
+            model.PasswordRepeatAdd = this.PasswordNewUserRepeat.Password;
+
+        }
     }
 }

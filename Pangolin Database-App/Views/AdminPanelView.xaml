@@ -65,20 +65,20 @@
   Style="{StaticResource MaterialDesignFloatingHintTextBox}"
   VerticalAlignment="Center" />
                     <!-- PASSWORD -->
-                    <TextBox
+                    <PasswordBox x:Name="PasswordNewUser"
                         Grid.Row="4"
   materialDesign:HintAssist.Hint="PASSWORD"
-                        Text="{Binding PasswordAdd}"
+                        PasswordChanged="PasswordChanged"
                         FontSize="22"
-  Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+  Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"
   VerticalAlignment="Center" />
                     <!-- REPEAT PASSWORD-->
-                    <TextBox
+                    <PasswordBox x:Name="PasswordNewUserRepeat"
                         Grid.Row="5"
   materialDesign:HintAssist.Hint="REPEAT PASSWORD"
-                        Text="{Binding PasswordRepeatAdd}"
+                        PasswordChanged="PasswordChanged"
                         FontSize="22"
-  Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+  Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"
   VerticalAlignment="Center" />
                     <!-- ADD NEW USER BUTTON -->
                     <Button Grid.Row="6"
@@ -116,23 +116,28 @@
   materialDesign:HintAssist.Hint="SELECT USER"
                         FontSize="22"
   materialDesign:HintAssist.HintOpacity=".26"
+                        ItemsSource="{Binding UserList}"
+                        SelectedItem="{Binding SelectedUser}"
+                        DisplayMemberPath="Username"
                         Style="{StaticResource MaterialDesignFloatingHintComboBox}"
   IsEditable="True">
                     </ComboBox>
                     <!-- NEW PASSWORD -->
-                    <PasswordBox
+                    <PasswordBox x:Name="ResetPasswordPass"
                         Grid.Row="2"
   materialDesign:HintAssist.Hint="NEW PASSWORD"
+            PasswordChanged="PasswordChanged"
   materialDesign:HintAssist.Foreground="Green"
   materialDesign:TextFieldAssist.UnderlineBrush="Green"
                         VerticalAlignment="Center"
                         FontSize="22"
-  Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
+  Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Cursor="IBeam" />
                     <!-- REPEAT NEW PASSWORD-->
-                    <PasswordBox
+                    <PasswordBox x:Name="NewPasswordRepeat"
                         Grid.Row="3"
   materialDesign:HintAssist.Hint="REPEAT NEW PASSWORD"
   materialDesign:HintAssist.Foreground="Green"
+                                 PasswordChanged="PasswordChanged"
   materialDesign:TextFieldAssist.UnderlineBrush="Green"
                         VerticalAlignment="Center"
                         FontSize="22"
@@ -141,6 +146,7 @@
                     <Button Grid.Row="4"
     Style="{StaticResource MaterialDesignRaisedDarkButton}"
                             Margin="50, 20"
+                            Command="{Binding UpdateUserPass}"
     ToolTip="Resource name: MaterialDesignRaisedLightDarkButton">
                         SAVE
                     </Button>

@@ -1,8 +1,11 @@
-﻿using Pangolin_Database_App.Util;
+﻿using Pangolin_Database_App.Models;
+using Pangolin_Database_App.Util;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace Pangolin_Database_App.ViewModels
 {
@@ -14,6 +17,7 @@ namespace Pangolin_Database_App.ViewModels
         {
             AddUserClick = new RelayCommand(AddNewUser);
             HideSnackbar = new RelayCommand(HideAppSnackbar);
+            UpdateUserPass = new RelayCommand(UpdatePassword);
         }
 
         // Add new User
@@ -40,6 +44,12 @@ namespace Pangolin_Database_App.ViewModels
                 if (added)
                 {
                     ShowSnackbar("User was added successfully", 6);
+                    UsernameAdd = "";
+                    FirstNameAdd = "";
+                    LastNameAdd = "";
+                    PasswordHashAdd = "";
+                    PasswordRepeatAdd = "";
+                    RefreshUserAdd();
                 }
                 else
                 {
@@ -52,6 +62,56 @@ namespace Pangolin_Database_App.ViewModels
             }
 
         }
+
+        private void RefreshUserAdd()
+        {
+            string[] properties = { "UsernameAdd", "FirstNameAdd", "LastNameAdd", "PasswordHashAdd", "PasswordRepeatAdd" };
+            foreach (string property in properties)
+            {
+                NotifyPropertyChanged(property);
+            }
+        }
+        // Reset User Password
+        // ======================================================================================================
+        public List<User> UserList { get { return Database.DatabaseManager.GetDatabase().Users.ToList(); } }
+        public string NewPassword { get; set; }
+        public string NewPasswordRepeat { get; set; }
+        public User SelectedUser { get; set; }
+        public RelayCommand UpdateUserPass { get; set; }
+
+        private void UpdatePassword()
+        {
+            if(SelectedUser != null)
+            {
+                if(String.IsNullOrEmpty(NewPassword))
+                {
+                    ShowSnackbar("Password cannot be null", 5);
+                }
+                else
+                {
+                    if(NewPassword.Equals(NewPasswordRepeat))
+                    {
+                        SelectedUser.PasswordHash = Database.UserManagment.ComputeSha256Hash(NewPassword);
+                        Database.DatabaseManager.GetDatabase().SaveChanges();
+                        ShowSnackbar("Password reseted successfully", 5);
+                    }
+                    else
+                    {
+                        ShowSnackbar("Password is not identical", 5);
+                    }
+                }
+            }
+            else
+            {
+                ShowSnackbar("Please Select a user", 4);
+            }
+        }
+
+        // Delete User
+        // ======================================================================================================
+
+
+
 
         // Property changes
         // ======================================================================================================
