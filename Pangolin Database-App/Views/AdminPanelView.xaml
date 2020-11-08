@@ -219,12 +219,16 @@
   materialDesign:HintAssist.Hint="SELECT PANGOLIN REFERENCE NUMBER"
                         FontSize="22"
   materialDesign:HintAssist.HintOpacity=".26"
+                        ItemsSource="{Binding PangolinList}"
+                        SelectedItem="{Binding SelectedPangolinDelete}"
+                        DisplayMemberPath="ReferenceNumber"
                         Style="{StaticResource MaterialDesignFloatingHintComboBox}"
   IsEditable="True"></ComboBox>
                     <!-- USER DELETE BUTTON-->
                     <Button Grid.Row="2"
     Style="{StaticResource MaterialDesignRaisedDarkButton}"
                             Margin="50, 20"
+                            Command="{Binding DeletePangolinClick}"
     ToolTip="Resource name: MaterialDesignRaisedLightDarkButton">
                         DELETE PANGOLIN AND DATA
                     </Button>

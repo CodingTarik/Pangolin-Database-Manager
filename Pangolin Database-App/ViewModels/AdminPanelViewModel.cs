@@ -19,6 +19,7 @@ namespace Pangolin_Database_App.ViewModels
             HideSnackbar = new RelayCommand(HideAppSnackbar);
             UpdateUserPass = new RelayCommand(UpdatePassword);
             DeleteUserClick = new RelayCommand(DeleteSelectedUser);
+            DeletePangolinClick = new RelayCommand(DeleteSelectedPangolin);
         }
 
         // Add new User
@@ -125,6 +126,27 @@ namespace Pangolin_Database_App.ViewModels
                 Database.DatabaseManager.GetDatabase().Remove(SelectedUserDelete);
                 Database.DatabaseManager.GetDatabase().SaveChanges();
                 ShowSnackbar("User deleted successfull", 5);
+            }
+        }
+
+        // Delete Pangolin
+        // ======================================================================================================
+        public List<Pangolin> PangolinList { get { return Database.DatabaseManager.GetPangolins(); } }
+        public Pangolin SelectedPangolinDelete { get; set; }
+        public RelayCommand DeletePangolinClick { get; set; }
+
+        private void DeleteSelectedPangolin()
+        {
+            if (SelectedPangolinDelete == null)
+            {
+                ShowSnackbar("Please select a pangolin", 5);
+            }
+            else
+            {
+                Database.DatabaseManager.GetDatabase().DeletedPangolins.Add(SelectedPangolinDelete);
+                Database.DatabaseManager.GetDatabase().Pangolins.Remove(SelectedPangolinDelete);
+                Database.DatabaseManager.GetDatabase().SaveChanges();
+                ShowSnackbar("Pangolin deleted successfull", 5);
             }
         }
 
