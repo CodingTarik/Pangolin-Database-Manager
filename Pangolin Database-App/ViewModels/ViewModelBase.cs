@@ -217,34 +217,40 @@ namespace Pangolin_Database_App.ViewModels
         /// </summary>
         public void UpdateSelectedModel()
         {
-            PangolinContext db = DatabaseManager.GetDatabase();
-            if (db != null && SelectedModel != null)
+            try
             {
-                if (ValidateModel())
+                PangolinContext db = DatabaseManager.GetDatabase();
+                if (db != null && SelectedModel != null)
                 {
-                    if (ModelExistInDatabase(SelectedModel))
+                    if (ValidateModel())
                     {
-                        db.Update(SelectedModel);
-                        ShowSnackbar("The model has been sucessfull updated");
+                        if (ModelExistInDatabase(SelectedModel))
+                        {
+                            db.Update(SelectedModel);
+                            ShowSnackbar("The model has been sucessfull updated");
+                        }
+                        else
+                        {
+                            db.Add(SelectedModel);
+                            ShowSnackbar("The model has been sucessfull added");
+                        }
+                        db.SaveChanges(); // save
+
+                        // fire update event
+                        if (UpdateModelEvent != null)
+                        {
+                            UpdateModelEvent(this, EventArgs.Empty);
+                        }
                     }
                     else
                     {
-                        db.Add(SelectedModel);
-                        ShowSnackbar("The model has been sucessfull added");
+                        ShowSnackbar("Model couldn not be updated, validation failed");
                     }
-                    db.SaveChanges(); // save
 
-                    // fire update event
-                    if (UpdateModelEvent != null)
-                    {
-                        UpdateModelEvent(this, EventArgs.Empty);
-                    }
                 }
-                else
-                {
-                    ShowSnackbar("Model couldn not be updated, validation failed");
-                }
-
+            } catch(Exception ex)
+            {
+                ShowSnackbar("Could not update model: " + ex.InnerException);
             }
         }
 

@@ -35,7 +35,9 @@ namespace Pangolin_Database_App.Database
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //Write Fluent API configurations here
-            //Property Configurations                       
+            //Property Configurations    
+            modelBuilder.Entity<Pangolin>().HasIndex(p => p.ReferenceNumber).IsUnique();
+            modelBuilder.Entity<User>().HasIndex(u => u.Username).IsUnique();
         }
     }
 }
