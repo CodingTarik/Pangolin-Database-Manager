@@ -106,6 +106,16 @@ namespace Pangolin_Database_App.Database
         }
 
         /// <summary>
+        /// Deletes cookie data
+        /// </summary>
+        public static void DeleteCookieData()
+        {
+            if(File.Exists("userdata.xml"))
+            {
+                File.Delete("userdata.xml");
+            }
+        }
+        /// <summary>
         /// Saves login data of current user as a xml cookie
         /// </summary>
         public static void SaveLoginData()

@@ -161,5 +161,23 @@ namespace Pangolin_Database_App.Views
                 Window.GetWindow(this).DataContext = new AddPangolinViewModel(selectedPangolin);
             }
         }
+
+        /// <summary>
+        /// Signs out user
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SignOut_Click(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            Database.UserManagment.DeleteCookieData();
+            Database.UserManagment.ActiveUser = null;
+
+            Login loginView = new Login();
+            Window currentWindow = Window.GetWindow(this);
+            currentWindow.Close();
+            App.Current.MainWindow = loginView;          
+            loginView.Show();
+        }
+ 
     }
 }

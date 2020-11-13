@@ -73,11 +73,11 @@
                         <Setter Property="Foreground" Value="Black"></Setter>
                     </Style>
                     <Style TargetType="{x:Type materialDesign:PackIcon}">
-                        
+                        <!--
                             <Setter Property="Width" Value="54"></Setter>
                         <Setter Property="Height" Value="54"></Setter>
                         <Setter Property="HorizontalAlignment" Value="Center"></Setter>
-                        <Setter Property="Foreground" Value="Black"></Setter>
+                        <Setter Property="Foreground" Value="Black"></Setter>-->
                        
                             
                     </Style>
@@ -182,7 +182,19 @@
                 </Grid.RowDefinitions>
                 <Rectangle Fill="Red"></Rectangle>
                 <StackPanel Orientation="Horizontal" Background="#161E29" Grid.Row="1">
-                    <TextBlock Text="© Tarik Azzouzi &amp; Nico Zeitz" Foreground="White" VerticalAlignment="Center" FontFamily="Roboto" Margin="10, 0, 0, 0"></TextBlock>
+                    <TextBlock Text="© Tarik Azzouzi &amp; Nico Zeitz    -- " Foreground="White" VerticalAlignment="Center" FontFamily="Roboto" Margin="10, 0, 0, 0"></TextBlock>
+                    <TextBlock Text="Sign out" VerticalAlignment="Center" FontFamily="Roboto" Margin="10, 0, 0, 0" Cursor="Hand" MouseDown="SignOut_Click">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Foreground" Value="White"></Setter>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Foreground" Value="IndianRed"></Setter>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
                 </StackPanel>
             </Grid>
         </Grid>
