@@ -4,7 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Pangolin_Database_App.Views"
-             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"       
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"   
+             xmlns:util="clr-namespace:Pangolin_Database_App.Util"
              mc:Ignorable="d" 
              d:DesignHeight="500" d:DesignWidth="800">
     <Grid>
@@ -43,11 +44,18 @@
                     <!-- USERNAME -->
                     <TextBox
                         Grid.Row="1"
-  materialDesign:HintAssist.Hint="USERNAME"
-                        Text="{Binding UsernameAdd}"
+  materialDesign:HintAssist.Hint="USERNAME"                                         
                         FontSize="22"
   Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-  VerticalAlignment="Center" />
+  VerticalAlignment="Center">
+                        <TextBox.Text>
+                            <Binding Path="UsernameAdd">
+                                <Binding.ValidationRules>
+                                    <util:NotEmptyValidationRule></util:NotEmptyValidationRule>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+</TextBox>
                     <!-- FIRST NAME -->
                     <TextBox
                         Grid.Row="2"
@@ -71,7 +79,7 @@
                         PasswordChanged="PasswordChanged"
                         FontSize="22"
   Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"
-  VerticalAlignment="Center" />
+  VerticalAlignment="Center" Cursor="IBeam" />
                     <!-- REPEAT PASSWORD-->
                     <PasswordBox x:Name="PasswordNewUserRepeat"
                         Grid.Row="5"

@@ -61,7 +61,7 @@
                     <TextBox Grid.Column="1"
                 materialDesign:HintAssist.Hint="REFERENCE NUMBER"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                Text="{Binding SelectedModel.ReferenceNumber}"
+                Text="{Binding SelectedModel.ReferenceNumber, ValidatesOnDataErrors=True}"
                 VerticalAlignment="Center" 
                 Margin="0, 2, 2, 0"/>
                 </Grid>
@@ -69,15 +69,16 @@
                 <Grid Grid.Row="3">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="40"></ColumnDefinition>
-                        <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                        <ColumnDefinition Width="27*"></ColumnDefinition>
+                        <ColumnDefinition Width="152*"/>
                     </Grid.ColumnDefinitions>
                     <materialDesign:PackIcon Kind="FileDocumentBox" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
                     <TextBox Grid.Column="1"
                 materialDesign:HintAssist.Hint="DOCUMENT REFERENCE"
-                Text="{Binding SelectedModel.OfficialDocumentReference}"
+                Text="{Binding SelectedModel.OfficialDocumentReference, ValidatesOnDataErrors=True}"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                 VerticalAlignment="Center" 
-                         Margin="0, 2, 2, 0"/>
+                         Margin="0,0,2,0" Grid.ColumnSpan="2"/>
                 </Grid>
                 <!-- Date & Time Pick-->
                 <Grid Grid.Row="4">
@@ -108,7 +109,7 @@
         <!-- Border for Pangolin Edit-->
         <Border Grid.Column="2" Grid.Row="0" Grid.RowSpan="3" Background="#E8E8E8" CornerRadius="10" BorderThickness="5" Margin="2, 2">
             <Grid>
-              
+
                 <Grid.RowDefinitions>
                     <RowDefinition Height="40"></RowDefinition>
                     <RowDefinition Height="0.3*"></RowDefinition>
@@ -128,7 +129,7 @@
                 <materialDesign:Snackbar Grid.Row="8" Grid.ColumnSpan="3" Panel.ZIndex="3" Style="{StaticResource SnackbarStyle}">
                     <materialDesign:SnackbarMessage></materialDesign:SnackbarMessage>
                 </materialDesign:Snackbar>
-                   
+
                 <!-- Title and Icon -->
                 <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3">
                     <TextBlock FontSize="22" Margin="10, 10, 0, 0" FontFamily="Roboto" TextDecorations="Underline">PANGOLIN DATA</TextBlock>
@@ -144,7 +145,8 @@
                     <TextBox Grid.Column="1"
                 materialDesign:HintAssist.Hint="NAME"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                Text="{Binding SelectedModel.Name}"
+                Text="{Binding SelectedModel.Name, ValidatesOnDataErrors=True}"
+                             
                 VerticalAlignment="Center" 
                          Margin="2, 2, 2, 0"/>
                 </Grid>

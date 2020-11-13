@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Pangolin_Database_App.Models
 {
-    public class InterdepartmentalMovement
+    public class InterdepartmentalMovement : ModelBase
     {
         /// <summary>
         /// Primary Key

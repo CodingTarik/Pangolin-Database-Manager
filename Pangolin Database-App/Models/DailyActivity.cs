@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Pangolin_Database_App.Models
 {
-    public class DailyActivity
+    public class DailyActivity : ModelBase
     {
         /// <summary>
         /// Primary Key

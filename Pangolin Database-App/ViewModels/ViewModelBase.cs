@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace Pangolin_Database_App.ViewModels
 {
-    internal abstract class ViewModelBase<T> : INotifyPropertyChanged, IUpdateModel where T : class
+    internal abstract class ViewModelBase<T> : NotEmptyValidationRule, INotifyPropertyChanged, IUpdateModel where T : ModelBase
     {
 
 
@@ -107,7 +107,7 @@ namespace Pangolin_Database_App.ViewModels
         public void ShowSnackbar(string message, int seconds)
         {
             ShowSnackbar(message);
-            Task.Delay(new TimeSpan(0, 0, seconds)).ContinueWith(o => { if (message == SnackbarMessage) HideAppSnackbar(); });
+            Task.Delay(new TimeSpan(0, 0, seconds)).ContinueWith(o => { if (message == SnackbarMessage) { HideAppSnackbar(); } });
         }
         /// <summary>
         /// Saves dbset that should be used for this view model
@@ -220,25 +220,58 @@ namespace Pangolin_Database_App.ViewModels
             PangolinContext db = DatabaseManager.GetDatabase();
             if (db != null && SelectedModel != null)
             {
-                if (ModelExistInDatabase(SelectedModel))
+                if (ValidateModel())
                 {
-                    db.Update(SelectedModel);
-                    ShowSnackbar("The model has been sucessfull updated");
+                    if (ModelExistInDatabase(SelectedModel))
+                    {
+                        db.Update(SelectedModel);
+                        ShowSnackbar("The model has been sucessfull updated");
+                    }
+                    else
+                    {
+                        db.Add(SelectedModel);
+                        ShowSnackbar("The model has been sucessfull added");
+                    }
+                    db.SaveChanges(); // save
+
+                    // fire update event
+                    if (UpdateModelEvent != null)
+                    {
+                        UpdateModelEvent(this, EventArgs.Empty);
+                    }
                 }
                 else
                 {
-                    db.Add(SelectedModel);
-                    ShowSnackbar("The model has been sucessfull added");
+                    ShowSnackbar("Model couldn not be updated, validation failed");
                 }
-                db.SaveChanges(); // save
 
-                // fire update event
-                if (UpdateModelEvent != null)
-                {
-                    UpdateModelEvent(this, EventArgs.Empty);
-                }
-                
             }
+        }
+
+        /// <summary>
+        /// Validates a model
+        /// </summary>
+        /// <returns></returns>
+        public bool ValidateModel()
+        {
+            Type type = SelectedModel.GetType();
+            PropertyInfo[] properties = type.GetProperties();
+            foreach (PropertyInfo p in properties)
+            {
+                if (p.GetCustomAttribute<CategoryAttribute>() != null && p.GetCustomAttribute<CategoryAttribute>().Category == "Validation")
+                {
+                    continue;
+                }
+
+                if(p.GetCustomAttribute<RequiredAttribute>() != null)
+                {
+                    if (!SelectedModel.Validate(p.GetValue(SelectedModel), null).IsValid)
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
         }
 
         /// <summary>
@@ -256,7 +289,7 @@ namespace Pangolin_Database_App.ViewModels
                 ReloadSelectedModelEvent(this, SelectedModel);
             }
             bool reloaded = ReloadModel(SelectedModel);
-            if(!reloaded && resetIfNotInDatabase)
+            if (!reloaded && resetIfNotInDatabase)
             {
                 ResetSelectedModelToDefaultValues();
             }
@@ -376,6 +409,11 @@ namespace Pangolin_Database_App.ViewModels
             PropertyInfo[] properties = type.GetProperties();
             foreach (PropertyInfo p in properties)
             {
+                if (p.GetCustomAttribute<CategoryAttribute>() != null && p.GetCustomAttribute<CategoryAttribute>().Category == "Validation")
+                {
+                    continue;
+                }
+
                 p.SetValue(SelectedModel, null);
             }
             ChangePangolinReferenceForModel();

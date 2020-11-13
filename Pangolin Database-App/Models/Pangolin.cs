@@ -6,10 +6,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Runtime.CompilerServices;
 using System.Text;
 using Pangolin_Database_App.Enums;
+using Pangolin_Database_App.Util;
 
 namespace Pangolin_Database_App.Models
 {
-    public class Pangolin : INotifyPropertyChanged
+    public class Pangolin : ModelBase, INotifyPropertyChanged
     {
         /// <summary>
         /// The primary key (unique id) for a pangolin
@@ -20,14 +21,17 @@ namespace Pangolin_Database_App.Models
         /// Reference Number of pangolin
         /// </summary>
         private string _referenceNumber;
+        [Required]
         public string ReferenceNumber { get { return _referenceNumber; } set { _referenceNumber = value; NotifyPropertyChanged(); } }
         /// <summary>
         /// Reference to the official document
         /// </summary>
+        [Required]
         public string OfficialDocumentReference { get; set; }
         /// <summary>
         /// Name of a pangolin
         /// </summary>
+        [Required]
         public string Name { get; set; }
         /// <summary>
         /// Gender of a pangolin

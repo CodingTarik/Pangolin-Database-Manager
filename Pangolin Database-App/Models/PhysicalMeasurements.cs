@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Pangolin_Database_App.Models
 {
-    public class PhysicalMeasurements
+    public class PhysicalMeasurements : ModelBase
     {
         /// <summary>
         /// Primary Key

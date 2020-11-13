@@ -1,15 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
 
-namespace Pangolin_Database_App.Models {
-    public class VeterinaryTreatment {
+namespace Pangolin_Database_App.Models
+{
+    public class VeterinaryTreatment : ModelBase
+    {
         /// <summary>
         /// Primary Key
         /// </summary>
-        [Key, DatabaseGenerated (DatabaseGeneratedOption.Identity)]
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int VeterinaryTreatmentID { get; set; }
 
         /// <summary>

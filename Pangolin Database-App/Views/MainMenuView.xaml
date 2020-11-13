@@ -73,13 +73,13 @@
                         <Setter Property="Foreground" Value="Black"></Setter>
                     </Style>
                     <Style TargetType="{x:Type materialDesign:PackIcon}">
-                        <!--
+                        
                             <Setter Property="Width" Value="54"></Setter>
                         <Setter Property="Height" Value="54"></Setter>
                         <Setter Property="HorizontalAlignment" Value="Center"></Setter>
-                        <Setter Property="Foreground" Value="Black"></Setter>-->
-                       
-                            
+                        <Setter Property="Foreground" Value="Black"></Setter>
+
+
                     </Style>
                 </UniformGrid.Resources>
                 <Button Click="AddNewPangolinButton_Click" Cursor="Hand">

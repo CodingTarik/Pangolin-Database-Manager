@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Pangolin_Database_App.Models
 {
-    public class Mortality
+    public class Mortality : ModelBase
     {
         /// <summary>
         /// Primary Key

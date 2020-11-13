@@ -3,7 +3,7 @@ using Pangolin_Database_App.Enums;
 using Pangolin_Database_App.Models;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
+using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
 
@@ -50,10 +50,10 @@ namespace Pangolin_Database_App.ViewModels
         /// <param name="e"></param>
         private void AddPangolinViewModel_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
-            if(e.PropertyName == "SelectedModel")
+            if (e.PropertyName == "SelectedModel")
             {
                 // Called if switching from one model to another that is not the standard model
-                if(SelectedModel != _pangolinStandardModel)
+                if (SelectedModel != _pangolinStandardModel)
                 {
                     ResetStandardModel();
                 }
@@ -70,7 +70,7 @@ namespace Pangolin_Database_App.ViewModels
             if (SelectedModel == _pangolinStandardModel)
             {
                 ResetStandardModel();
-            }             
+            }
         }
 
         /// <summary>
@@ -97,6 +97,11 @@ namespace Pangolin_Database_App.ViewModels
                 PropertyInfo[] properties = type.GetProperties();
                 foreach (PropertyInfo p in properties)
                 {
+                    if (p.GetCustomAttribute<CategoryAttribute>() != null && p.GetCustomAttribute<CategoryAttribute>().Category == "Validation")
+                    {
+                        continue;
+                    }
+
                     p.SetValue(_pangolinStandardModel, null);
                 }
                 _pangolinStandardModel.ReferenceNumber = "<NEW PANGOLIN>";
@@ -139,7 +144,7 @@ namespace Pangolin_Database_App.ViewModels
             if (_pangolinStandardModel == null || createNew)
             {
                 _pangolinStandardModel = new Pangolin();
-                ResetStandardModel();                
+                ResetStandardModel();
             }
             return _pangolinStandardModel;
         }

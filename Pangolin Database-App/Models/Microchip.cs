@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Pangolin_Database_App.Models
 {
-    public class Microchip
+    public class Microchip : ModelBase
     {
         /// <summary>
         /// Primary Key

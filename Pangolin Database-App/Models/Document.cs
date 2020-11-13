@@ -12,7 +12,7 @@ using Pangolin_Database_App.Logger;
 
 namespace Pangolin_Database_App.Models
 {
-    public class Document
+    public class Document : ModelBase
     {
 
         public Document()
