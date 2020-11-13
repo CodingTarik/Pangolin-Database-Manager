@@ -38,5 +38,10 @@ namespace Pangolin_Database_App.Models
         /// A Boolen if the User is an Administrator
         /// </summary>
         public bool IsAdmin { get; set; }
+
+        /// <summary>
+        /// Session Cookie for stay logged in
+        /// </summary>
+        public string sessionCookie { get; set; }
     }
 }

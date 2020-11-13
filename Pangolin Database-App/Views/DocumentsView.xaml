@@ -185,7 +185,7 @@
                                     <GridView>
                                         <GridViewColumn Header="Filename" DisplayMemberBinding="{Binding FileName}"></GridViewColumn>
                                         <GridViewColumn Header="Date" DisplayMemberBinding="{Binding Date}"></GridViewColumn>
-                                        <GridViewColumn Header="Description" DisplayMemberBinding="{Binding Description}"></GridViewColumn>
+                                        <GridViewColumn Header="Description" DisplayMemberBinding="{Binding FileDescription}"></GridViewColumn>
                                         <GridViewColumn Header="Open">
                                             <GridViewColumn.CellTemplate>
                                                 <DataTemplate>

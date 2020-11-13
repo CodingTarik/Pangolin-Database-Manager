@@ -25,12 +25,38 @@
                     <ColumnDefinition Width="0.05*"></ColumnDefinition>
                     <ColumnDefinition Width="0.05*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <StackPanel Grid.Column="2" VerticalAlignment="Center">
-                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="24" FontFamily="Roboto">-</TextBlock>
-                </StackPanel>
-                <StackPanel Grid.Column="3" VerticalAlignment="Center">
-                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="24" FontFamily="Roboto">x</TextBlock>
-                </StackPanel>
+                <!-- Window Minimize-->
+                <Grid Grid.Column="2" WindowChrome.IsHitTestVisibleInChrome="True" MouseDown="Minimize_Click">
+                    <materialDesign:PackIcon Kind="WindowMinimize" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
+                    <Grid.Style>
+                        <Style TargetType="Grid">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="LightGray"></Setter>
+                                </Trigger>
+                                <Trigger Property="IsMouseOver" Value="False">
+                                    <Setter Property="Background" Value="Transparent"></Setter>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Grid.Style>
+                </Grid>
+                <!-- Close Button-->
+                <Grid Grid.Column="4" WindowChrome.IsHitTestVisibleInChrome="True" MouseDown="Close_Click">
+                    <materialDesign:PackIcon Kind="WindowClose" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
+                    <Grid.Style>
+                        <Style TargetType="Grid">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="Red"></Setter>
+                                </Trigger>
+                                <Trigger Property="IsMouseOver" Value="False">
+                                    <Setter Property="Background" Value="Transparent"></Setter>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Grid.Style>
+                </Grid>
             </Grid>
         </Border>
         <Image Source="/Icons/pangolin.png" Width="52" Height="52" Margin="62,56,436,242"></Image>
@@ -38,7 +64,7 @@
         <StackPanel Margin="114,113,103,175">
             <TextBox
             Background="#E7E7E7"
-            x:Name="NameTextBox"
+            x:Name="UsernameTextbox"
                 Height="40" Width="320"
                 FontSize="22">
                 <materialDesign:HintAssist.HelperText>
@@ -76,11 +102,16 @@
                 </materialDesign:HintAssist.Hint>
             </PasswordBox>
         </StackPanel>
-        <Button
+        <CheckBox x:Name="StayLoggedIn" Margin="119,244,-5,84" Content="Stay logged in" FontSize="15"></CheckBox>
+        <Button x:Name="LoginButton"
     Style="{StaticResource MaterialDesignRaisedDarkButton}"
-    ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" Margin="114,255,103,63">
+    ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" Margin="111,275,106,43" Click="LoginButton_Click">
             LOGIN
         </Button>
+
+        <materialDesign:Snackbar Style="{StaticResource SnackbarStyle}" x:Name="Snackbar" Panel.ZIndex="3"  Height="38" Margin="136,0,0,0" RenderTransformOrigin="0.5,0.5" VerticalContentAlignment="Top" HorizontalAlignment="Left" >
+            <materialDesign:SnackbarMessage></materialDesign:SnackbarMessage>
+        </materialDesign:Snackbar>
     </Grid>
 
 </Window>
