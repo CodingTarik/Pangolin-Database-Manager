@@ -11,13 +11,15 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("Pangolin Database-App")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("Tarik Azzouzi & Nico Zeitz")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
-[assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyCopyrightAttribute("Tarik Azzouzi & Nico Zeitz")]
+[assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.1.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.1")]
 [assembly: System.Reflection.AssemblyProductAttribute("Pangolin Database-App")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Pangolin Database-App")]
-[assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
+[assembly: System.Reflection.AssemblyVersionAttribute("1.0.1.0")]
+[assembly: System.Resources.NeutralResourcesLanguageAttribute("en")]
 
 // Von der MSBuild WriteCodeFragment-Klasse generiert.
 

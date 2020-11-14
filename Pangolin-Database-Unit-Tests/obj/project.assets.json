@@ -2016,7 +2016,7 @@
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
       },
-      "Pangolin Database-App/1.0.0": {
+      "Pangolin Database-App/1.0.1": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
@@ -6758,7 +6758,7 @@
         "system.xml.xdocument.nuspec"
       ]
     },
-    "Pangolin Database-App/1.0.0": {
+    "Pangolin Database-App/1.0.1": {
       "type": "project",
       "path": "../Pangolin Database-App/Pangolin Database-App.csproj",
       "msbuildProject": "../Pangolin Database-App/Pangolin Database-App.csproj"
@@ -6769,7 +6769,7 @@
       "MSTest.TestAdapter >= 2.1.0",
       "MSTest.TestFramework >= 2.1.0",
       "Microsoft.NET.Test.Sdk >= 16.5.0",
-      "Pangolin Database-App >= 1.0.0",
+      "Pangolin Database-App >= 1.0.1",
       "coverlet.collector >= 1.2.0"
     ]
   },
