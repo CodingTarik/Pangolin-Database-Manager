@@ -2,7 +2,6 @@
 using Pangolin_Database_App.Models;
 using Pangolin_Database_App.Util;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.IO;
@@ -46,23 +45,29 @@ namespace Pangolin_Database_App.ViewModels
 
             if (PasswordAdd.Equals(PasswordRepeatAdd))
             {
-                bool added = Database.UserManagment.AddNewUser(FirstNameAdd, LastNameAdd, UsernameAdd, PasswordHashAdd);
-                if (added)
+                if (PasswordAdd.Length > 4)
                 {
-                    User addedUser = Database.DatabaseManager.GetDatabase().Users.Where(n => n.Username == UsernameAdd).First();
-                    UserList.Add(addedUser);
-                    UserListDelete.Add(addedUser);
-                    ShowSnackbar("User was added successfully", 6);
-                    UsernameAdd = "";
-                    FirstNameAdd = "";
-                    LastNameAdd = "";
-                    PasswordHashAdd = "";
-                    PasswordRepeatAdd = "";
-                    RefreshUserAdd();
-                }
-                else
+                    bool added = Database.UserManagment.AddNewUser(FirstNameAdd, LastNameAdd, UsernameAdd, PasswordHashAdd);
+                    if (added)
+                    {
+                        User addedUser = Database.DatabaseManager.GetDatabase().Users.Where(n => n.Username == UsernameAdd).First();
+                        UserList.Add(addedUser);
+                        UserListDelete.Add(addedUser);
+                        ShowSnackbar("User was added successfully", 6);
+                        UsernameAdd = "";
+                        FirstNameAdd = "";
+                        LastNameAdd = "";
+                        PasswordHashAdd = "";
+                        PasswordRepeatAdd = "";
+                        RefreshUserAdd();
+                    }
+                    else
+                    {
+                        ShowSnackbar("User could not be added, same username already exists", 6);
+                    }
+                } else
                 {
-                    ShowSnackbar("User could not be added, same username already exists");
+                    ShowSnackbar("Password must have at least 5 characters", 6);
                 }
             }
             else
@@ -99,15 +104,21 @@ namespace Pangolin_Database_App.ViewModels
                 }
                 else
                 {
-                    if (NewPassword.Equals(NewPasswordRepeat))
+                    if (NewPassword.Length > 4)
                     {
-                        SelectedUser.PasswordHash = Database.UserManagment.ComputeSha256Hash(NewPassword);
-                        Database.DatabaseManager.GetDatabase().SaveChanges();
-                        ShowSnackbar("Password reseted successfully", 5);
-                    }
-                    else
+                        if (NewPassword.Equals(NewPasswordRepeat))
+                        {
+                            SelectedUser.PasswordHash = Database.UserManagment.ComputeSha256Hash(NewPassword);
+                            Database.DatabaseManager.GetDatabase().SaveChanges();
+                            ShowSnackbar("Password reseted successfully", 5);
+                        }
+                        else
+                        {
+                            ShowSnackbar("Password is not identical", 5);
+                        }
+                    } else
                     {
-                        ShowSnackbar("Password is not identical", 5);
+                        ShowSnackbar("Password must have at least 5 characters", 6);
                     }
                 }
             }

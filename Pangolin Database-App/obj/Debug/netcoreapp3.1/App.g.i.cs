@@ -51,7 +51,7 @@ namespace Pangolin_Database_App {
         /// InitializeComponent
         /// </summary>
         [System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "4.8.1.0")]
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "5.0.0.0")]
         public void InitializeComponent() {
             if (_contentLoaded) {
                 return;
@@ -77,7 +77,7 @@ namespace Pangolin_Database_App {
         /// </summary>
         [System.STAThreadAttribute()]
         [System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "4.8.1.0")]
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "5.0.0.0")]
         public static void Main() {
             Pangolin_Database_App.App app = new Pangolin_Database_App.App();
             app.InitializeComponent();
