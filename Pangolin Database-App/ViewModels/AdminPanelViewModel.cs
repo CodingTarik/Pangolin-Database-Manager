@@ -4,6 +4,7 @@ using Pangolin_Database_App.Util;
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -11,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Pangolin_Database_App.ViewModels
 {
-    internal class AdminPanelViewModel : INotifyPropertyChanged
+    internal class AdminPanelViewModel : ModelBase, INotifyPropertyChanged
     {
         // Constructor
         // ======================================================================================================
@@ -27,6 +28,7 @@ namespace Pangolin_Database_App.ViewModels
 
         // Add new User
         // ======================================================================================================
+        [Required]
         public string UsernameAdd { get; set; }
         public string FirstNameAdd { get; set; }
         public string LastNameAdd { get; set; }

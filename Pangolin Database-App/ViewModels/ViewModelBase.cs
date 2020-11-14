@@ -101,13 +101,23 @@ namespace Pangolin_Database_App.ViewModels
         }
 
         /// <summary>
+        /// Key for hiding thread bar after certain seconds, checks if method was raised another time
+        /// </summary>
+        int sessionSnackbarKey = 0;
+
+        /// <summary>
         /// Shows snackbar with a message
         /// </summary>
         /// <param name="message"></param>
         public void ShowSnackbar(string message, int seconds)
         {
+            // Create session key
+            Random rnd = new Random();
+            int sessionKey = rnd.Next(0, int.MaxValue);
+            sessionSnackbarKey = sessionKey;
+
             ShowSnackbar(message);
-            Task.Delay(new TimeSpan(0, 0, seconds)).ContinueWith(o => { if (message == SnackbarMessage) { HideAppSnackbar(); } });
+            Task.Delay(new TimeSpan(0, 0, seconds)).ContinueWith(o => { if (message == SnackbarMessage && sessionSnackbarKey == sessionKey) { HideAppSnackbar(); } });
         }
         /// <summary>
         /// Saves dbset that should be used for this view model

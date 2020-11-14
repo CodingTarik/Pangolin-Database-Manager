@@ -46,16 +46,9 @@
                         Grid.Row="1"
   materialDesign:HintAssist.Hint="USERNAME"                                         
                         FontSize="22"
+                        Text="{Binding UsernameAdd, ValidatesOnDataErrors=True}"
   Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-  VerticalAlignment="Center">
-                        <TextBox.Text>
-                            <Binding Path="UsernameAdd">
-                                <Binding.ValidationRules>
-                                    <util:NotEmptyValidationRule></util:NotEmptyValidationRule>
-                                </Binding.ValidationRules>
-                            </Binding>
-                        </TextBox.Text>
-</TextBox>
+  VerticalAlignment="Center"></TextBox>
                     <!-- FIRST NAME -->
                     <TextBox
                         Grid.Row="2"
