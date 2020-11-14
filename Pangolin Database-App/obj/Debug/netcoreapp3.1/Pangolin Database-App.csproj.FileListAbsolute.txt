@@ -53,7 +53,6 @@ D:\Programmierprojekte\Pangolin\Pangolin Database-App\obj\Debug\netcoreapp3.1\Vi
 D:\Programmierprojekte\Pangolin\Pangolin Database-App\obj\Debug\netcoreapp3.1\Views\DocumentsView.baml
 D:\Programmierprojekte\Pangolin\Pangolin Database-App\obj\Debug\netcoreapp3.1\Views\AdminPanelView.g.cs
 D:\Programmierprojekte\Pangolin\Pangolin Database-App\obj\Debug\netcoreapp3.1\Views\AdminPanelView.baml
-D:\Programmierprojekte\Pangolin\Pangolin Database-App\bin\Debug\netcoreapp3.1\Humanizer.dll
 D:\Programmierprojekte\Pangolin\Pangolin Database-App\bin\Debug\netcoreapp3.1\Microsoft.Data.Sqlite.dll
 D:\Programmierprojekte\Pangolin\Pangolin Database-App\bin\Debug\netcoreapp3.1\Microsoft.DotNet.PlatformAbstractions.dll
 D:\Programmierprojekte\Pangolin\Pangolin Database-App\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
@@ -76,9 +75,7 @@ D:\Programmierprojekte\Pangolin\Pangolin Database-App\bin\Debug\netcoreapp3.1\SQ
 D:\Programmierprojekte\Pangolin\Pangolin Database-App\bin\Debug\netcoreapp3.1\SQLitePCLRaw.core.dll
 D:\Programmierprojekte\Pangolin\Pangolin Database-App\bin\Debug\netcoreapp3.1\SQLitePCLRaw.provider.dynamic_cdecl.dll
 D:\Programmierprojekte\Pangolin\Pangolin Database-App\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
-D:\Programmierprojekte\Pangolin\Pangolin Database-App\bin\Debug\netcoreapp3.1\System.ComponentModel.Annotations.dll
 D:\Programmierprojekte\Pangolin\Pangolin Database-App\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
-D:\Programmierprojekte\Pangolin\Pangolin Database-App\bin\Debug\netcoreapp3.1\System.Text.Encodings.Web.dll
 D:\Programmierprojekte\Pangolin\Pangolin Database-App\bin\Debug\netcoreapp3.1\System.Text.Json.dll
 D:\Programmierprojekte\Pangolin\Pangolin Database-App\bin\Debug\netcoreapp3.1\runtimes\alpine-x64\native\libe_sqlite3.so
 D:\Programmierprojekte\Pangolin\Pangolin Database-App\bin\Debug\netcoreapp3.1\runtimes\linux-arm\native\libe_sqlite3.so
@@ -95,3 +92,14 @@ D:\Programmierprojekte\Pangolin\Pangolin Database-App\bin\Debug\netcoreapp3.1\ru
 D:\Programmierprojekte\Pangolin\Pangolin Database-App\obj\Debug\netcoreapp3.1\Views\MortalityView.g.cs
 D:\Programmierprojekte\Pangolin\Pangolin Database-App\obj\Debug\netcoreapp3.1\Views\MortalityView.baml
 D:\Programmierprojekte\Pangolin\Pangolin Database-App\obj\Debug\netcoreapp3.1\Pangolin Database-App.csprojAssemblyReference.cache
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\bin\Debug\netcoreapp3.1\Dotmim.Sync.Core.dll
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\bin\Debug\netcoreapp3.1\Dotmim.Sync.MySql.dll
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\bin\Debug\netcoreapp3.1\Dotmim.Sync.Sqlite.dll
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\bin\Debug\netcoreapp3.1\MySqlConnector.dll
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\bin\Debug\netcoreapp3.1\Pomelo.EntityFrameworkCore.MySql.dll
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\bin\Debug\netcoreapp3.1\Pomelo.JsonObject.dll

@@ -44,6 +44,18 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
+            "Dotmim.Sync.Core": {
+              "target": "Package",
+              "version": "[0.5.8-beta-0460, )"
+            },
+            "Dotmim.Sync.MySql": {
+              "target": "Package",
+              "version": "[0.5.8-beta-0460, )"
+            },
+            "Dotmim.Sync.Sqlite": {
+              "target": "Package",
+              "version": "[0.5.8-beta-0460, )"
+            },
             "MaterialDesignColors": {
               "target": "Package",
               "version": "[2.0.0-ci2063, )"
@@ -54,17 +66,21 @@
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[5.0.0-rc.1.20451.13, )"
+              "version": "[3.1.10, )"
             },
             "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
-              "version": "[5.0.0-rc.1.20451.13, )"
+              "version": "[3.1.10, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[5.0.0-rc.1.20451.13, )"
+              "version": "[3.1.10, )"
+            },
+            "Pomelo.EntityFrameworkCore.MySql": {
+              "target": "Package",
+              "version": "[3.2.4, )"
             }
           },
           "imports": [

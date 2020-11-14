@@ -26,10 +26,19 @@ namespace Pangolin_Database_App.Database
         public DbSet<InterdepartmentalMovement> InterdepartmentalMovements { get; set; }
         //public DbSet<Pangolin> DeletedPangolins { get; set; }
 
+        public PangolinContext() { }
+        public PangolinContext(DbContextOptions options) : base(options)
+        {
+
+        }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            LogManager.log("Configuring database", LogCategory.info, LogTopic.Database);
-            optionsBuilder.UseSqlite(Pangolin_Database_App.Settings.Settings.SQLiteConnectionString);
+            if (!optionsBuilder.IsConfigured)
+            {
+                LogManager.log("Configuring database", LogCategory.info, LogTopic.Database);
+                optionsBuilder.UseSqlite(Pangolin_Database_App.Settings.Settings.SQLiteConnectionString);
+            }
+           
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

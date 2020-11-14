@@ -167,7 +167,7 @@
                         <TextBlock>ADMIN PANEL</TextBlock>
                     </StackPanel>
                 </Button>
-                <Button Cursor="Hand">
+                <Button Cursor="Hand" Click="Sync_Click">
                     <StackPanel>
                         <materialDesign:PackIcon Kind="Sync"></materialDesign:PackIcon>
                         <TextBlock>SYNCHRONIZE DATABASE</TextBlock>

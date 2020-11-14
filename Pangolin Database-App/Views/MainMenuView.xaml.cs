@@ -178,6 +178,10 @@ namespace Pangolin_Database_App.Views
             App.Current.MainWindow = loginView;          
             loginView.Show();
         }
- 
+
+        private void Sync_Click(object sender, RoutedEventArgs e)
+        {
+            Database.DatabaseSync.SyncAsync();
+        }
     }
 }
