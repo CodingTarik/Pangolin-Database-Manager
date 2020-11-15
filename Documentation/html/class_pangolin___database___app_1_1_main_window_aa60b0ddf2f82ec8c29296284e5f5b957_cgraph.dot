@@ -1,0 +1,16 @@
+digraph "Pangolin_Database_App.MainWindow.win_SourceInitialized"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="Pangolin_Database_App.Main\lWindow.win_SourceInitialized",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Pangolin_Database_App.Main\lWindow.WindowProc",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_pangolin___database___app_1_1_main_window.html#af99e910a16ed6db127c86d1785323e81",tooltip=" "];
+  Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="Pangolin_Database_App.Main\lWindow.WmGetMinMaxInfo",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_pangolin___database___app_1_1_main_window.html#adaafafa3ecedd649f9454e459061f3d5",tooltip=" "];
+  Node3 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="Pangolin_Database_App.Main\lWindow.GetMonitorInfo",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_pangolin___database___app_1_1_main_window.html#a13fe386fbeb9960824abbabf2beb5d3c",tooltip=" "];
+  Node3 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="Pangolin_Database_App.Main\lWindow.MonitorFromWindow",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_pangolin___database___app_1_1_main_window.html#a9c4295d044d7b631c72355d5b77fb3ad",tooltip=" "];
+}

@@ -1,0 +1,14 @@
+digraph "Graphical Class Hierarchy"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node63 [label="IValueConverter",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node63 -> Node0 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node0 [label="Pangolin_Database_App.Util.\lBoolToIndexConverter",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_pangolin___database___app_1_1_util_1_1_bool_to_index_converter.html",tooltip="Converts index to bool and back for combobox (yes, no)"];
+  Node63 -> Node65 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node65 [label="Pangolin_Database_App.Util.\lIntToMethodConverter",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_pangolin___database___app_1_1_util_1_1_int_to_method_converter.html",tooltip="Used in vet treatment to convert bit mask to vet treatment method"];
+  Node63 -> Node66 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node66 [label="Pangolin_Database_App.Util.\lValueConverter",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_pangolin___database___app_1_1_util_1_1_value_converter.html",tooltip=" "];
+}

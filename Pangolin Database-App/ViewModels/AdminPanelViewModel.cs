@@ -18,7 +18,7 @@ namespace Pangolin_Database_App.ViewModels
         // ======================================================================================================
         public AdminPanelViewModel()
         {
-            AddUserClick = new RelayCommand(AddNewUser);
+            AddUserClick = new RelayCommand(AddNewUserAsync);
             HideSnackbar = new RelayCommand(HideAppSnackbar);
             UpdateUserPass = new RelayCommand(UpdatePassword);
             DeleteUserClick = new RelayCommand(DeleteSelectedUser);
@@ -42,14 +42,14 @@ namespace Pangolin_Database_App.ViewModels
 
         public RelayCommand AddUserClick { get; set; }
 
-        private void AddNewUser()
+        private async void AddNewUserAsync()
         {
 
             if (PasswordAdd.Equals(PasswordRepeatAdd))
             {
                 if (PasswordAdd.Length > 4)
                 {
-                    bool added = Database.UserManagment.AddNewUser(FirstNameAdd, LastNameAdd, UsernameAdd, PasswordHashAdd);
+                    bool added = await Database.UserManagment.AddNewUser(FirstNameAdd, LastNameAdd, UsernameAdd, PasswordHashAdd, PasswordAdd);
                     if (added)
                     {
                         User addedUser = Database.DatabaseManager.GetDatabase().Users.Where(n => n.Username == UsernameAdd).First();

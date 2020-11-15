@@ -1,0 +1,47 @@
+digraph "Pangolin_Database_App.Database.UserManagment.AddNewUser"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="Pangolin_Database_App.Database.\lUserManagment.AddNewUser",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="This method adds a new user to database"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="Pangolin_Database_App.Database.\lUserManagment.AddDefaultAdminUser",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_pangolin___database___app_1_1_database_1_1_user_managment.html#a2530f412422d50828cc940b94239cdcc",tooltip="ads new default admin user"];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="Pangolin_Database_App.Database.\lDatabaseManager.GetDatabase",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_pangolin___database___app_1_1_database_1_1_database_manager.html#a7c515fef991e27f810556287735b6f81",tooltip="Singelton-Pattern to get database"];
+  Node3 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node3 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="Pangolin_Database_App.Database.\lDatabaseManager.InitDatabase",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_pangolin___database___app_1_1_database_1_1_database_manager.html#ab4082c7d12bd463e8a3aad6c7f065140",tooltip="Initalizes the database"];
+  Node4 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="Pangolin_Database_App.Main\lWindow.MainWindow",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_pangolin___database___app_1_1_main_window.html#a20e4da65995065b19a80d829c78b9489",tooltip=" "];
+  Node3 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node6 [label="Pangolin_Database_App.View\lModels.MortalityViewModel.Mortality\lViewModel_PangolinChanged",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_pangolin___database___app_1_1_view_models_1_1_mortality_view_model.html#aade9e79c9784d8c87c623f5d16d78a74",tooltip=" "];
+  Node6 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node7 [label="Pangolin_Database_App.View\lModels.MortalityViewModel.Mortality\lViewModel",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_pangolin___database___app_1_1_view_models_1_1_mortality_view_model.html#a99ffe936f3c1293d36d51dc3fc7ce2bd",tooltip=" "];
+  Node3 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node8 [label="Pangolin_Database_App.View\lModels.PhysicalMesaurementsView\lModel.Pangolin_Changed",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_pangolin___database___app_1_1_view_models_1_1_physical_mesaurements_view_model.html#aedfc5ac9c0f372745db36591fe853c27",tooltip="Sets model for pangolin"];
+  Node8 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node9 [label="Pangolin_Database_App.View\lModels.PhysicalMesaurementsView\lModel.PhysicalMesaurementsViewModel",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_pangolin___database___app_1_1_view_models_1_1_physical_mesaurements_view_model.html#a8de676a3e8f3de6cdec148af2e36fd46",tooltip=" "];
+  Node3 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node10 [label="Pangolin_Database_App.View\lModels.ReleaseViewModel.Pangolin\l_Changed",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_pangolin___database___app_1_1_view_models_1_1_release_view_model.html#a1994c45904a9cd60004f588654d11d06",tooltip="Sets model for pangolin"];
+  Node10 -> Node11 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node11 [label="Pangolin_Database_App.View\lModels.ReleaseViewModel.Release\lViewModel",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_pangolin___database___app_1_1_view_models_1_1_release_view_model.html#a222dd4b174566a0cc8538070fb517114",tooltip=" "];
+  Node3 -> Node12 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node12 [label="Pangolin_Database_App.Database.\lDatabaseManager.RefreshPangolinList",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_pangolin___database___app_1_1_database_1_1_database_manager.html#a05afb506259ce6e89ced0aa9d6820e5e",tooltip="Refreshes the pangolin list"];
+  Node12 -> Node13 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node13 [label="Pangolin_Database_App.Database.\lDatabaseManager.GetPangolins",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_pangolin___database___app_1_1_database_1_1_database_manager.html#a2cd131aeb20e5af1b6c329e6b24656e4",tooltip="Get all pangolins of the database"];
+  Node12 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node3 -> Node14 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node14 [label="Pangolin_Database_App.View\lModels.ViewModelBase\< Interdepartmental\lMovement \>::ReloadModel",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_pangolin___database___app_1_1_view_models_1_1_view_model_base.html#a333216f228ae94c0eab164ad29481492",tooltip="Resets the selected model to its default value"];
+  Node3 -> Node15 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node15 [label="Pangolin_Database_App.Database.\lUserManagment.SaveLoginData",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_pangolin___database___app_1_1_database_1_1_user_managment.html#a609810049de327dd95196ee5a4206cac",tooltip="Saves login data of current user as a xml cookie"];
+  Node3 -> Node16 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node16 [label="Pangolin_Database_App.View\lModels.DailyActivitySheetViewModel.\lSetModelByPangolinAndDate",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_pangolin___database___app_1_1_view_models_1_1_daily_activity_sheet_view_model.html#a0506c54f35475de016a32658e77e37ae",tooltip="Triers to get a existing model by date and pangolin or returns a new one if no found"];
+  Node16 -> Node17 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node17 [label="Pangolin_Database_App.View\lModels.DailyActivitySheetViewModel.\lDailyActivitySheetViewModel",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_pangolin___database___app_1_1_view_models_1_1_daily_activity_sheet_view_model.html#aa745fd0f851c3ecfab6d1f3dfc01b0ba",tooltip=" "];
+  Node16 -> Node18 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node18 [label="Pangolin_Database_App.View\lModels.DailyActivitySheetViewModel.\lDailyActivitySheetViewModel_PangolinChanged",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_pangolin___database___app_1_1_view_models_1_1_daily_activity_sheet_view_model.html#a224f438a1fdf4bea06e0976c56efa225",tooltip="Check if there is a existing model for this pangolin at current date or set new model"];
+  Node18 -> Node17 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node3 -> Node19 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node19 [label="Pangolin_Database_App.View\lModels.ViewModelBase\< Interdepartmental\lMovement \>::UpdateSelectedModel",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_pangolin___database___app_1_1_view_models_1_1_view_model_base.html#aa84a3b3c58bce35a5c82ff64f20d8b5c",tooltip="Checks if the selected model is already in the database, if yes the model will be updated if no the m..."];
+}

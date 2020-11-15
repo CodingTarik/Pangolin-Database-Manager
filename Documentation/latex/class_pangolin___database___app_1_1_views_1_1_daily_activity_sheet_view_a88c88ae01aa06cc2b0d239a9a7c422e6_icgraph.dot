@@ -1,0 +1,10 @@
+digraph "Pangolin_Database_App.Views.DailyActivitySheetView.InitializeComponent"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="Pangolin_Database_App.Views.\lDailyActivitySheetView.Initialize\lComponent",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="InitializeComponent"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="Pangolin_Database_App.Views.\lDailyActivitySheetView.DailyActivity\lSheetView",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_pangolin___database___app_1_1_views_1_1_daily_activity_sheet_view.html#a807d3b27df6185ec9d4d553175e4d698",tooltip=" "];
+}

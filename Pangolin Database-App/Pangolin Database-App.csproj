@@ -15,6 +15,7 @@
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <PlatformTarget>x64</PlatformTarget>
+    <DocumentationFile>D:\Programmierprojekte\Pangolin\Pangolin Database-App\Pangolin Database-App.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

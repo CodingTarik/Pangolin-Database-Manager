@@ -1,0 +1,10 @@
+digraph "Pangolin_Database_App.Models.Document.DeleteFile"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="Pangolin_Database_App.Models.\lDocument.DeleteFile",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Pangolin_Database_App.Models.\lDocument.Document",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_pangolin___database___app_1_1_models_1_1_document.html#a511d389ea8b18b5bbe35f14e32fea1ec",tooltip=" "];
+}

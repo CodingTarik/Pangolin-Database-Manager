@@ -1,0 +1,12 @@
+digraph "Pangolin_Database_App.Views.DailyActivitySheetView.UpdateProgressBar"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="Pangolin_Database_App.Views.\lDailyActivitySheetView.UpdateProgressBar",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="This method access the extension method of the progressbar to smoothly update the value"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Pangolin_Database_App.Views.\lDailyActivitySheetView.WalkingStart\l_TimeChanged",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_pangolin___database___app_1_1_views_1_1_daily_activity_sheet_view.html#a197667807e454b34f580ddaeca314520",tooltip="Update progressbar if walkingstart time changes"];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="Pangolin_Database_App.Views.\lDailyActivitySheetView.WalkingStop\l_TimeChanged",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_pangolin___database___app_1_1_views_1_1_daily_activity_sheet_view.html#aefdb3348f3c5314f0a9d705b5286c5f7",tooltip="Update progressbar if walkingstop time changes"];
+}

@@ -1,0 +1,110 @@
+\doxysection{Pangolin\+\_\+\+Database\+\_\+\+App.\+App Class Reference}
+\label{class_pangolin___database___app_1_1_app}\index{Pangolin\_Database\_App.App@{Pangolin\_Database\_App.App}}
+
+
+Interaction logic for App.\+xaml  
+
+
+
+
+Inheritance diagram for Pangolin\+\_\+\+Database\+\_\+\+App.\+App\+:
+% FIG 0
+
+
+Collaboration diagram for Pangolin\+\_\+\+Database\+\_\+\+App.\+App\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ Initialize\+Component} ()
+\begin{DoxyCompactList}\small\item\em Initialize\+Component \end{DoxyCompactList}\item 
+void \textbf{ Initialize\+Component} ()
+\begin{DoxyCompactList}\small\item\em Initialize\+Component \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \textbf{ Main} ()
+\begin{DoxyCompactList}\small\item\em Application Entry Point. \end{DoxyCompactList}\item 
+static void \textbf{ Main} ()
+\begin{DoxyCompactList}\small\item\em Application Entry Point. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interaction logic for App.\+xaml 
+
+\doxyref{App}{p.}{class_pangolin___database___app_1_1_app}
+
+Definition at line 8 of file App.\+xaml.\+cs.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{class_pangolin___database___app_1_1_app_a63070596577f259d553687e921110eb5}} 
+\index{Pangolin\_Database\_App.App@{Pangolin\_Database\_App.App}!InitializeComponent@{InitializeComponent}}
+\index{InitializeComponent@{InitializeComponent}!Pangolin\_Database\_App.App@{Pangolin\_Database\_App.App}}
+\doxysubsubsection{InitializeComponent()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Pangolin\+\_\+\+Database\+\_\+\+App.\+App.\+Initialize\+Component (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initialize\+Component 
+
+
+
+Definition at line 55 of file App.\+g.\+cs.
+
+Here is the caller graph for this function\+:
+% FIG 2
+\mbox{\label{class_pangolin___database___app_1_1_app_a63070596577f259d553687e921110eb5}} 
+\index{Pangolin\_Database\_App.App@{Pangolin\_Database\_App.App}!InitializeComponent@{InitializeComponent}}
+\index{InitializeComponent@{InitializeComponent}!Pangolin\_Database\_App.App@{Pangolin\_Database\_App.App}}
+\doxysubsubsection{InitializeComponent()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Pangolin\+\_\+\+Database\+\_\+\+App.\+App.\+Initialize\+Component (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initialize\+Component 
+
+
+
+Definition at line 55 of file App.\+g.\+i.\+cs.
+
+\mbox{\label{class_pangolin___database___app_1_1_app_af575eab97852d1cd4c5fb7f2b82fb261}} 
+\index{Pangolin\_Database\_App.App@{Pangolin\_Database\_App.App}!Main@{Main}}
+\index{Main@{Main}!Pangolin\_Database\_App.App@{Pangolin\_Database\_App.App}}
+\doxysubsubsection{Main()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static void Pangolin\+\_\+\+Database\+\_\+\+App.\+App.\+Main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Application Entry Point. 
+
+
+
+Definition at line 81 of file App.\+g.\+cs.
+
+Here is the call graph for this function\+:
+% FIG 3
+\mbox{\label{class_pangolin___database___app_1_1_app_af575eab97852d1cd4c5fb7f2b82fb261}} 
+\index{Pangolin\_Database\_App.App@{Pangolin\_Database\_App.App}!Main@{Main}}
+\index{Main@{Main}!Pangolin\_Database\_App.App@{Pangolin\_Database\_App.App}}
+\doxysubsubsection{Main()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static void Pangolin\+\_\+\+Database\+\_\+\+App.\+App.\+Main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Application Entry Point. 
+
+
+
+Definition at line 81 of file App.\+g.\+i.\+cs.
+
+Here is the call graph for this function\+:
+% FIG 4
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Pangolin Database-\/\+App/\textbf{ App.\+xaml.\+cs}\item 
+Pangolin Database-\/\+App/obj/\+Debug/netcoreapp3.\+1/\textbf{ App.\+g.\+cs}\item 
+Pangolin Database-\/\+App/obj/\+Debug/netcoreapp3.\+1/\textbf{ App.\+g.\+i.\+cs}\end{DoxyCompactItemize}

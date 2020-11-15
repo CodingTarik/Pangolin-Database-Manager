@@ -1,0 +1,24 @@
+digraph "Pangolin_Database_App.ViewModels.AddPangolinViewModel.AddPangolinViewModel"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="Pangolin_Database_App.View\lModels.AddPangolinViewModel.Add\lPangolinViewModel",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Initalized edit view with model"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Pangolin_Database_App.View\lModels.AddPangolinViewModel.Add\lPangolinViewModel_PropertyChanged",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_pangolin___database___app_1_1_view_models_1_1_add_pangolin_view_model.html#a6addf738c1575e627e49d8b5eaebd0e5",tooltip="Resets the standard model if the selected model switches to another"];
+  Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="Pangolin_Database_App.View\lModels.AddPangolinViewModel.Reset\lStandardModel",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_pangolin___database___app_1_1_view_models_1_1_add_pangolin_view_model.html#a857c84fe52b2796b033917786fb6d149",tooltip="Resets standardmodel if change of pangolin selection"];
+  Node1 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="Pangolin_Database_App.View\lModels.AddPangolinViewModel.Add\lPangolinViewModel_ReloadModelEvent",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_pangolin___database___app_1_1_view_models_1_1_add_pangolin_view_model.html#a26bebd46925826fdb5f44e3333ba8bb1",tooltip=" "];
+  Node4 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="Pangolin_Database_App.Models.\lPangolin.NotifyPropertyChanged",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_pangolin___database___app_1_1_models_1_1_pangolin.html#a4b1be5ae1fdd91ab3a69d22446a4ef6e",tooltip="Method if a property changed"];
+  Node1 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="Pangolin_Database_App.View\lModels.AddPangolinViewModel.Add\lPangolinViewModel_ReloadSelectedModelEvent",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_pangolin___database___app_1_1_view_models_1_1_add_pangolin_view_model.html#a87c54e5b76254594a7bed7c09663c82e",tooltip="Resets the standard model if save \"no\" button is clicked"];
+  Node6 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 -> Node7 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="Pangolin_Database_App.View\lModels.AddPangolinViewModel.Add\lPangolinViewModel_UpdateModelEvent",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_pangolin___database___app_1_1_view_models_1_1_add_pangolin_view_model.html#a30efd0885955ace8a16573e0395cd208",tooltip="Method that adds a new pangolin standard model if a new pangolin is added"];
+  Node7 -> Node8 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="Pangolin_Database_App.View\lModels.AddPangolinViewModel.Get\lPangolinStandardModel",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_pangolin___database___app_1_1_view_models_1_1_add_pangolin_view_model.html#a60f708bbc1b118b1107d28f807074566",tooltip="Factory to create a pangolin standard model"];
+  Node8 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+}

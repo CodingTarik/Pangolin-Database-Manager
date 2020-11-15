@@ -1,9 +1,11 @@
-﻿using Pangolin_Database_App.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using Pangolin_Database_App.Models;
 using System;
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using System.Threading.Tasks;
 using System.Xml;
 
 namespace Pangolin_Database_App.Database
@@ -43,7 +45,7 @@ namespace Pangolin_Database_App.Database
         /// <param name="username"></param>
         /// <param name="passwordhash"></param>
         /// <returns>false if there is already a user with this username, else true</returns>
-        public static bool AddNewUser(string firstname, string lastname, string username, string passwordhash, bool isAdmin = false)
+        public static async Task<bool> AddNewUser(string firstname, string lastname, string username, string passwordhash, string password, bool isAdmin = false)
         {
 
 
@@ -57,6 +59,10 @@ namespace Pangolin_Database_App.Database
             }
             else
             {
+                if (await AddUserOnMySQLAsync(username, password))
+                {
+
+                }
                 // create user model
                 User newUser = new User();
                 newUser.FirstName = firstname;
@@ -72,11 +78,36 @@ namespace Pangolin_Database_App.Database
         }
 
         /// <summary>
+        /// Adds a new user on mysql
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
+        private static async Task<bool> AddUserOnMySQLAsync(string username, string password)
+        {
+            // Build Connection
+            var optionsBuilder = new DbContextOptionsBuilder<PangolinContext>();
+            optionsBuilder.UseMySql(Settings.Settings.MYSQLConnectionString);
+            PangolinContext pr = new PangolinContext(optionsBuilder.Options);
+            // Create User
+            string sqlQuery = @"CREATE USER '" + username + @"'@'%' IDENTIFIED BY '" + password + @"';";
+            Logger.LogManager.logInfo("Running Query: '" + sqlQuery + "'", Logger.LogTopic.Database);
+            int rowsAddedUsers = await pr.Database.ExecuteSqlRawAsync(sqlQuery);
+            Logger.LogManager.log("Rows affected for user adding: " + rowsAddedUsers, Logger.LogCategory.info, Logger.LogTopic.User);
+            // Grant Privileges for Database
+            sqlQuery = @"GRANT ALL PRIVILEGES ON `" + Settings.Settings.MYSQLDatabaseName + @"`.* TO '" + username + @"'@'%';";
+            Logger.LogManager.logInfo("Running Query: '" + sqlQuery + "'", Logger.LogTopic.Database);
+            int rowsAddedPrivileges = await pr.Database.ExecuteSqlRawAsync(@"GRANT ALL PRIVILEGES ON `" + Settings.Settings.MYSQLDatabaseName+ @"`.* TO '" + username+@"'@'%';");          
+            Logger.LogManager.log("Rows affected for privileges: " + rowsAddedPrivileges, Logger.LogCategory.info, Logger.LogTopic.User);
+            // return
+            return true;
+        }
+        /// <summary>
         /// ads new default admin user
         /// </summary>
         public static void AddDefaultAdminUser()
         {
-            AddNewUser("Admin", "", "Admin", ComputeSha256Hash("admin"), true);
+            AddNewUser("Admin", "", "Admin", ComputeSha256Hash("admin"), "admin", true);
         }
 
         /// <summary>

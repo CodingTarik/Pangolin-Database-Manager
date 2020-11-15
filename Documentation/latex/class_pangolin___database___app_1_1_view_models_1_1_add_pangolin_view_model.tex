@@ -1,0 +1,276 @@
+\doxysection{Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Add\+Pangolin\+View\+Model Class Reference}
+\label{class_pangolin___database___app_1_1_view_models_1_1_add_pangolin_view_model}\index{Pangolin\_Database\_App.ViewModels.AddPangolinViewModel@{Pangolin\_Database\_App.ViewModels.AddPangolinViewModel}}
+
+
+Inheritance diagram for Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Add\+Pangolin\+View\+Model\+:
+% FIG 0
+
+
+Collaboration diagram for Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Add\+Pangolin\+View\+Model\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Add\+Pangolin\+View\+Model} ()
+\begin{DoxyCompactList}\small\item\em Initalizes add view with standard model \end{DoxyCompactList}\item 
+\textbf{ Add\+Pangolin\+View\+Model} (\textbf{ Pangolin} model\+To\+Edit)
+\begin{DoxyCompactList}\small\item\em Initalized edit view with model \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+I\+Enumerable$<$ \textbf{ Sex} $>$ \textbf{ Genders}\hspace{0.3cm}{\ttfamily  [get]}
+\begin{DoxyCompactList}\small\item\em Returns all genders as I\+Enumerable \end{DoxyCompactList}\item 
+I\+Enumerable$<$ \textbf{ Health\+Status} $>$ \textbf{ Health\+States}\hspace{0.3cm}{\ttfamily  [get]}
+\begin{DoxyCompactList}\small\item\em Returns all health states as I\+Enumerable \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ Add\+Pangolin\+View\+Model\+\_\+\+Property\+Changed} (object sender, System.\+Component\+Model.\+Property\+Changed\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Resets the standard model if the selected model switches to another \end{DoxyCompactList}\item 
+void \textbf{ Add\+Pangolin\+View\+Model\+\_\+\+Reload\+Model\+Event} (object sender, \textbf{ Pangolin} e)
+\item 
+void \textbf{ Add\+Pangolin\+View\+Model\+\_\+\+Reload\+Selected\+Model\+Event} (object sender, \textbf{ Pangolin} model)
+\begin{DoxyCompactList}\small\item\em Resets the standard model if save \char`\"{}no\char`\"{} button is clicked \end{DoxyCompactList}\item 
+void \textbf{ Add\+Pangolin\+View\+Model\+\_\+\+Update\+Model\+Event} (object sender, Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Method that adds a new pangolin standard model if a new pangolin is added \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \textbf{ Pangolin} \textbf{ Get\+Pangolin\+Standard\+Model} (bool create\+New=false)
+\begin{DoxyCompactList}\small\item\em Factory to create a pangolin standard model \end{DoxyCompactList}\item 
+static void \textbf{ Reset\+Standard\+Model} ()
+\begin{DoxyCompactList}\small\item\em Resets standardmodel if change of pangolin selection \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \textbf{ Pangolin} \textbf{ \+\_\+pangolin\+Standard\+Model}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 12 of file Add\+Pangolin\+View\+Model.\+cs.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_add_pangolin_view_model_a4448aafacf102387e5b8dadbb766d813}} 
+\index{Pangolin\_Database\_App.ViewModels.AddPangolinViewModel@{Pangolin\_Database\_App.ViewModels.AddPangolinViewModel}!AddPangolinViewModel@{AddPangolinViewModel}}
+\index{AddPangolinViewModel@{AddPangolinViewModel}!Pangolin\_Database\_App.ViewModels.AddPangolinViewModel@{Pangolin\_Database\_App.ViewModels.AddPangolinViewModel}}
+\doxysubsubsection{AddPangolinViewModel()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Add\+Pangolin\+View\+Model.\+Add\+Pangolin\+View\+Model (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initalizes add view with standard model 
+
+
+
+Definition at line 17 of file Add\+Pangolin\+View\+Model.\+cs.
+
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_add_pangolin_view_model_a9e5a4f8a162a704f8251271f92379e54}} 
+\index{Pangolin\_Database\_App.ViewModels.AddPangolinViewModel@{Pangolin\_Database\_App.ViewModels.AddPangolinViewModel}!AddPangolinViewModel@{AddPangolinViewModel}}
+\index{AddPangolinViewModel@{AddPangolinViewModel}!Pangolin\_Database\_App.ViewModels.AddPangolinViewModel@{Pangolin\_Database\_App.ViewModels.AddPangolinViewModel}}
+\doxysubsubsection{AddPangolinViewModel()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Add\+Pangolin\+View\+Model.\+Add\+Pangolin\+View\+Model (\begin{DoxyParamCaption}\item[{\textbf{ Pangolin}}]{model\+To\+Edit }\end{DoxyParamCaption})}
+
+
+
+Initalized edit view with model 
+
+
+\begin{DoxyParams}{Parameters}
+{\em model\+To\+Edit} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 24 of file Add\+Pangolin\+View\+Model.\+cs.
+
+Here is the call graph for this function\+:
+% FIG 2
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_add_pangolin_view_model_a6addf738c1575e627e49d8b5eaebd0e5}} 
+\index{Pangolin\_Database\_App.ViewModels.AddPangolinViewModel@{Pangolin\_Database\_App.ViewModels.AddPangolinViewModel}!AddPangolinViewModel\_PropertyChanged@{AddPangolinViewModel\_PropertyChanged}}
+\index{AddPangolinViewModel\_PropertyChanged@{AddPangolinViewModel\_PropertyChanged}!Pangolin\_Database\_App.ViewModels.AddPangolinViewModel@{Pangolin\_Database\_App.ViewModels.AddPangolinViewModel}}
+\doxysubsubsection{AddPangolinViewModel\_PropertyChanged()}
+{\footnotesize\ttfamily void Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Add\+Pangolin\+View\+Model.\+Add\+Pangolin\+View\+Model\+\_\+\+Property\+Changed (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{System.\+Component\+Model.\+Property\+Changed\+Event\+Args}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Resets the standard model if the selected model switches to another 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sender} & \\
+\hline
+{\em e} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 51 of file Add\+Pangolin\+View\+Model.\+cs.
+
+Here is the call graph for this function\+:
+% FIG 3
+Here is the caller graph for this function\+:
+% FIG 4
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_add_pangolin_view_model_a26bebd46925826fdb5f44e3333ba8bb1}} 
+\index{Pangolin\_Database\_App.ViewModels.AddPangolinViewModel@{Pangolin\_Database\_App.ViewModels.AddPangolinViewModel}!AddPangolinViewModel\_ReloadModelEvent@{AddPangolinViewModel\_ReloadModelEvent}}
+\index{AddPangolinViewModel\_ReloadModelEvent@{AddPangolinViewModel\_ReloadModelEvent}!Pangolin\_Database\_App.ViewModels.AddPangolinViewModel@{Pangolin\_Database\_App.ViewModels.AddPangolinViewModel}}
+\doxysubsubsection{AddPangolinViewModel\_ReloadModelEvent()}
+{\footnotesize\ttfamily void Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Add\+Pangolin\+View\+Model.\+Add\+Pangolin\+View\+Model\+\_\+\+Reload\+Model\+Event (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{\textbf{ Pangolin}}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 41 of file Add\+Pangolin\+View\+Model.\+cs.
+
+Here is the call graph for this function\+:
+% FIG 5
+Here is the caller graph for this function\+:
+% FIG 6
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_add_pangolin_view_model_a87c54e5b76254594a7bed7c09663c82e}} 
+\index{Pangolin\_Database\_App.ViewModels.AddPangolinViewModel@{Pangolin\_Database\_App.ViewModels.AddPangolinViewModel}!AddPangolinViewModel\_ReloadSelectedModelEvent@{AddPangolinViewModel\_ReloadSelectedModelEvent}}
+\index{AddPangolinViewModel\_ReloadSelectedModelEvent@{AddPangolinViewModel\_ReloadSelectedModelEvent}!Pangolin\_Database\_App.ViewModels.AddPangolinViewModel@{Pangolin\_Database\_App.ViewModels.AddPangolinViewModel}}
+\doxysubsubsection{AddPangolinViewModel\_ReloadSelectedModelEvent()}
+{\footnotesize\ttfamily void Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Add\+Pangolin\+View\+Model.\+Add\+Pangolin\+View\+Model\+\_\+\+Reload\+Selected\+Model\+Event (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{\textbf{ Pangolin}}]{model }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Resets the standard model if save \char`\"{}no\char`\"{} button is clicked 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sender} & \\
+\hline
+{\em e} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 68 of file Add\+Pangolin\+View\+Model.\+cs.
+
+Here is the call graph for this function\+:
+% FIG 7
+Here is the caller graph for this function\+:
+% FIG 8
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_add_pangolin_view_model_a30efd0885955ace8a16573e0395cd208}} 
+\index{Pangolin\_Database\_App.ViewModels.AddPangolinViewModel@{Pangolin\_Database\_App.ViewModels.AddPangolinViewModel}!AddPangolinViewModel\_UpdateModelEvent@{AddPangolinViewModel\_UpdateModelEvent}}
+\index{AddPangolinViewModel\_UpdateModelEvent@{AddPangolinViewModel\_UpdateModelEvent}!Pangolin\_Database\_App.ViewModels.AddPangolinViewModel@{Pangolin\_Database\_App.ViewModels.AddPangolinViewModel}}
+\doxysubsubsection{AddPangolinViewModel\_UpdateModelEvent()}
+{\footnotesize\ttfamily void Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Add\+Pangolin\+View\+Model.\+Add\+Pangolin\+View\+Model\+\_\+\+Update\+Model\+Event (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{Event\+Args}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Method that adds a new pangolin standard model if a new pangolin is added 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sender} & \\
+\hline
+{\em e} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 81 of file Add\+Pangolin\+View\+Model.\+cs.
+
+Here is the call graph for this function\+:
+% FIG 9
+Here is the caller graph for this function\+:
+% FIG 10
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_add_pangolin_view_model_a60f708bbc1b118b1107d28f807074566}} 
+\index{Pangolin\_Database\_App.ViewModels.AddPangolinViewModel@{Pangolin\_Database\_App.ViewModels.AddPangolinViewModel}!GetPangolinStandardModel@{GetPangolinStandardModel}}
+\index{GetPangolinStandardModel@{GetPangolinStandardModel}!Pangolin\_Database\_App.ViewModels.AddPangolinViewModel@{Pangolin\_Database\_App.ViewModels.AddPangolinViewModel}}
+\doxysubsubsection{GetPangolinStandardModel()}
+{\footnotesize\ttfamily static \textbf{ Pangolin} Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Add\+Pangolin\+View\+Model.\+Get\+Pangolin\+Standard\+Model (\begin{DoxyParamCaption}\item[{bool}]{create\+New = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Factory to create a pangolin standard model 
+
+
+\begin{DoxyParams}{Parameters}
+{\em create\+New} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 142 of file Add\+Pangolin\+View\+Model.\+cs.
+
+Here is the call graph for this function\+:
+% FIG 11
+Here is the caller graph for this function\+:
+% FIG 12
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_add_pangolin_view_model_a857c84fe52b2796b033917786fb6d149}} 
+\index{Pangolin\_Database\_App.ViewModels.AddPangolinViewModel@{Pangolin\_Database\_App.ViewModels.AddPangolinViewModel}!ResetStandardModel@{ResetStandardModel}}
+\index{ResetStandardModel@{ResetStandardModel}!Pangolin\_Database\_App.ViewModels.AddPangolinViewModel@{Pangolin\_Database\_App.ViewModels.AddPangolinViewModel}}
+\doxysubsubsection{ResetStandardModel()}
+{\footnotesize\ttfamily static void Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Add\+Pangolin\+View\+Model.\+Reset\+Standard\+Model (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Resets standardmodel if change of pangolin selection 
+
+
+
+Definition at line 92 of file Add\+Pangolin\+View\+Model.\+cs.
+
+Here is the caller graph for this function\+:
+% FIG 13
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_add_pangolin_view_model_a757865d0bbe72a00d0336d723df8f510}} 
+\index{Pangolin\_Database\_App.ViewModels.AddPangolinViewModel@{Pangolin\_Database\_App.ViewModels.AddPangolinViewModel}!\_pangolinStandardModel@{\_pangolinStandardModel}}
+\index{\_pangolinStandardModel@{\_pangolinStandardModel}!Pangolin\_Database\_App.ViewModels.AddPangolinViewModel@{Pangolin\_Database\_App.ViewModels.AddPangolinViewModel}}
+\doxysubsubsection{\_pangolinStandardModel}
+{\footnotesize\ttfamily \textbf{ Pangolin} Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Add\+Pangolin\+View\+Model.\+\_\+pangolin\+Standard\+Model\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Definition at line 135 of file Add\+Pangolin\+View\+Model.\+cs.
+
+
+
+\doxysubsection{Property Documentation}
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_add_pangolin_view_model_ac91d05490df4288b2fe2c543ef643336}} 
+\index{Pangolin\_Database\_App.ViewModels.AddPangolinViewModel@{Pangolin\_Database\_App.ViewModels.AddPangolinViewModel}!Genders@{Genders}}
+\index{Genders@{Genders}!Pangolin\_Database\_App.ViewModels.AddPangolinViewModel@{Pangolin\_Database\_App.ViewModels.AddPangolinViewModel}}
+\doxysubsubsection{Genders}
+{\footnotesize\ttfamily I\+Enumerable$<$\textbf{ Sex}$>$ Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Add\+Pangolin\+View\+Model.\+Genders\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Returns all genders as I\+Enumerable 
+
+
+
+Definition at line 114 of file Add\+Pangolin\+View\+Model.\+cs.
+
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_add_pangolin_view_model_ac40ab1caad08b9af44cc71646c805556}} 
+\index{Pangolin\_Database\_App.ViewModels.AddPangolinViewModel@{Pangolin\_Database\_App.ViewModels.AddPangolinViewModel}!HealthStates@{HealthStates}}
+\index{HealthStates@{HealthStates}!Pangolin\_Database\_App.ViewModels.AddPangolinViewModel@{Pangolin\_Database\_App.ViewModels.AddPangolinViewModel}}
+\doxysubsubsection{HealthStates}
+{\footnotesize\ttfamily I\+Enumerable$<$\textbf{ Health\+Status}$>$ Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Add\+Pangolin\+View\+Model.\+Health\+States\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Returns all health states as I\+Enumerable 
+
+
+
+Definition at line 126 of file Add\+Pangolin\+View\+Model.\+cs.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Pangolin Database-\/\+App/\+View\+Models/\textbf{ Add\+Pangolin\+View\+Model.\+cs}\end{DoxyCompactItemize}

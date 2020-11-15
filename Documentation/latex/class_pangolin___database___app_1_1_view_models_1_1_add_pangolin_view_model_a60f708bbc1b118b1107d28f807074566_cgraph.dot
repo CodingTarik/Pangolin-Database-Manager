@@ -1,0 +1,10 @@
+digraph "Pangolin_Database_App.ViewModels.AddPangolinViewModel.GetPangolinStandardModel"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="Pangolin_Database_App.View\lModels.AddPangolinViewModel.Get\lPangolinStandardModel",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Factory to create a pangolin standard model"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="Pangolin_Database_App.View\lModels.AddPangolinViewModel.Reset\lStandardModel",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_pangolin___database___app_1_1_view_models_1_1_add_pangolin_view_model.html#a857c84fe52b2796b033917786fb6d149",tooltip="Resets standardmodel if change of pangolin selection"];
+}

@@ -1,0 +1,79 @@
+\doxysection{Pangolin\+\_\+\+Database\+\_\+\+App.\+Util.\+Moon\+Calculator Class Reference}
+\label{class_pangolin___database___app_1_1_util_1_1_moon_calculator}\index{Pangolin\_Database\_App.Util.MoonCalculator@{Pangolin\_Database\_App.Util.MoonCalculator}}
+
+
+Calculates the approximate moonphase  
+
+
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \textbf{ Moon\+Phases} \textbf{ calculate} (Date\+Time date)
+\begin{DoxyCompactList}\small\item\em Calculates the approximate moonphase \end{DoxyCompactList}\item 
+static string \textbf{ Moon\+Phase\+To\+String} (\textbf{ Moon\+Phases} moonphase)
+\begin{DoxyCompactList}\small\item\em Converts Moonphase to String \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Calculates the approximate moonphase 
+
+
+
+Definition at line 22 of file Moonphase.\+cs.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{class_pangolin___database___app_1_1_util_1_1_moon_calculator_ae3fe91939c7e7106b7062d513a7e0762}} 
+\index{Pangolin\_Database\_App.Util.MoonCalculator@{Pangolin\_Database\_App.Util.MoonCalculator}!calculate@{calculate}}
+\index{calculate@{calculate}!Pangolin\_Database\_App.Util.MoonCalculator@{Pangolin\_Database\_App.Util.MoonCalculator}}
+\doxysubsubsection{calculate()}
+{\footnotesize\ttfamily static \textbf{ Moon\+Phases} Pangolin\+\_\+\+Database\+\_\+\+App.\+Util.\+Moon\+Calculator.\+calculate (\begin{DoxyParamCaption}\item[{Date\+Time}]{date }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Calculates the approximate moonphase 
+
+(Dont ask how. \+:D)
+
+The algorithm for moon phase calculation is taken from the book\+: Astronomical Algorithms by Jean Meeus. Publisher Johann Ambrosius Barth, Leipzig, Berlin, Heidelberg 2nd edition 1994. I\+S\+BN 3-\/335-\/00400-\/0
+
+
+\begin{DoxyParams}{Parameters}
+{\em date} & Date time (Please use U\+T\+C-\/\+Time)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Approximate Moonphase for a date
+\end{DoxyReturn}
+
+
+Definition at line 37 of file Moonphase.\+cs.
+
+\mbox{\label{class_pangolin___database___app_1_1_util_1_1_moon_calculator_a15b39e43de4e66be0e91be0e16de9813}} 
+\index{Pangolin\_Database\_App.Util.MoonCalculator@{Pangolin\_Database\_App.Util.MoonCalculator}!MoonPhaseToString@{MoonPhaseToString}}
+\index{MoonPhaseToString@{MoonPhaseToString}!Pangolin\_Database\_App.Util.MoonCalculator@{Pangolin\_Database\_App.Util.MoonCalculator}}
+\doxysubsubsection{MoonPhaseToString()}
+{\footnotesize\ttfamily static string Pangolin\+\_\+\+Database\+\_\+\+App.\+Util.\+Moon\+Calculator.\+Moon\+Phase\+To\+String (\begin{DoxyParamCaption}\item[{\textbf{ Moon\+Phases}}]{moonphase }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Converts Moonphase to String 
+
+
+\begin{DoxyParams}{Parameters}
+{\em moonphase} & Moonphase\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string with name of moon phase
+\end{DoxyReturn}
+
+
+Definition at line 112 of file Moonphase.\+cs.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Pangolin Database-\/\+App/\+Util/\textbf{ Moonphase.\+cs}\end{DoxyCompactItemize}

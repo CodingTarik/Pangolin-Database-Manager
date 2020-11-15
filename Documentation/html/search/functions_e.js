@@ -1,0 +1,14 @@
+var searchData=
+[
+  ['pangolin_5fchanged_979',['Pangolin_Changed',['../class_pangolin___database___app_1_1_view_models_1_1_physical_mesaurements_view_model.html#aedfc5ac9c0f372745db36591fe853c27',1,'Pangolin_Database_App.ViewModels.PhysicalMesaurementsViewModel.Pangolin_Changed()'],['../class_pangolin___database___app_1_1_view_models_1_1_release_view_model.html#a1994c45904a9cd60004f588654d11d06',1,'Pangolin_Database_App.ViewModels.ReleaseViewModel.Pangolin_Changed()']]],
+  ['pangolincontext_980',['PangolinContext',['../class_pangolin___database___app_1_1_database_1_1_pangolin_context.html#a370ab38f39c01effcfa2b88045a499a5',1,'Pangolin_Database_App.Database.PangolinContext.PangolinContext()'],['../class_pangolin___database___app_1_1_database_1_1_pangolin_context.html#a63bc44cc30c53830c63e59564a00d115',1,'Pangolin_Database_App.Database.PangolinContext.PangolinContext(DbContextOptions options)']]],
+  ['passwordchanged_981',['PasswordChanged',['../class_pangolin___database___app_1_1_views_1_1_admin_panel_view.html#a0cb6fd1c01d3368cbb0a974c551e5dfa',1,'Pangolin_Database_App::Views::AdminPanelView']]],
+  ['physicalmeasurements_5fclick_982',['PhysicalMeasurements_Click',['../class_pangolin___database___app_1_1_views_1_1_main_menu_view.html#ac55b82ad47ada3a9f67632468f67bed9',1,'Pangolin_Database_App::Views::MainMenuView']]],
+  ['physicalmeasurementsview_983',['PhysicalMeasurementsView',['../class_pangolin___database___app_1_1_views_1_1_physical_measurements_view.html#adf10929dc85484af80752ab1de34e119',1,'Pangolin_Database_App::Views::PhysicalMeasurementsView']]],
+  ['physicalmesaurementsviewmodel_984',['PhysicalMesaurementsViewModel',['../class_pangolin___database___app_1_1_view_models_1_1_physical_mesaurements_view_model.html#a8de676a3e8f3de6cdec148af2e36fd46',1,'Pangolin_Database_App::ViewModels::PhysicalMesaurementsViewModel']]],
+  ['point_985',['POINT',['../struct_pangolin___database___app_1_1_main_window_1_1_p_o_i_n_t.html#a9f120b1ede77e06affbc9a65b500956e',1,'Pangolin_Database_App::MainWindow::POINT']]],
+  ['primarykeyexist_986',['PrimaryKeyExist',['../class_pangolin___database___app_1_1_view_models_1_1_view_model_base.html#ad96056720cde258549930f7faad342cf',1,'Pangolin_Database_App::ViewModels::ViewModelBase']]],
+  ['print_987',['Print',['../class_pangolin___database___app_1_1_logger_1_1_log_manager.html#a493bbc327526f1b16d6be830e09c51d9',1,'Pangolin_Database_App::Logger::LogManager']]],
+  ['printreport_5fclick_988',['PrintReport_Click',['../class_pangolin___database___app_1_1_views_1_1_documents_view.html#a73332a06b823446ed6d3a4afa652db98',1,'Pangolin_Database_App::Views::DocumentsView']]],
+  ['providevalue_989',['ProvideValue',['../class_pangolin___database___app_1_1_extensions_1_1_enumeration_extension.html#a7026467154a1c36e7fbbdb36b597038b',1,'Pangolin_Database_App::Extensions::EnumerationExtension']]]
+];

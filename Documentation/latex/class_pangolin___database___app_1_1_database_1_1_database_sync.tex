@@ -1,0 +1,107 @@
+\doxysection{Pangolin\+\_\+\+Database\+\_\+\+App.\+Database.\+Database\+Sync Class Reference}
+\label{class_pangolin___database___app_1_1_database_1_1_database_sync}\index{Pangolin\_Database\_App.Database.DatabaseSync@{Pangolin\_Database\_App.Database.DatabaseSync}}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static async Task \textbf{ Create\+Database\+On\+Server} ()
+\begin{DoxyCompactList}\small\item\em Used for Init \end{DoxyCompactList}\item 
+static async void \textbf{ Sync\+Async} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static Sqlite\+Sync\+Provider \textbf{ client\+Provider} = new Sqlite\+Sync\+Provider(\textbf{ Settings.\+Settings.\+Db\+Filename})
+\item 
+static My\+Sql\+Sync\+Provider \textbf{ server\+Provider} = new My\+Sql\+Sync\+Provider(\textbf{ Settings.\+Settings.\+M\+Y\+S\+Q\+L\+Connection\+String})
+\item 
+static readonly string[$\,$] \textbf{ tables}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 9 of file Database\+Sync.\+cs.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{class_pangolin___database___app_1_1_database_1_1_database_sync_a00a845661a39f84a19d72445b309ba70}} 
+\index{Pangolin\_Database\_App.Database.DatabaseSync@{Pangolin\_Database\_App.Database.DatabaseSync}!CreateDatabaseOnServer@{CreateDatabaseOnServer}}
+\index{CreateDatabaseOnServer@{CreateDatabaseOnServer}!Pangolin\_Database\_App.Database.DatabaseSync@{Pangolin\_Database\_App.Database.DatabaseSync}}
+\doxysubsubsection{CreateDatabaseOnServer()}
+{\footnotesize\ttfamily static async Task Pangolin\+\_\+\+Database\+\_\+\+App.\+Database.\+Database\+Sync.\+Create\+Database\+On\+Server (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Used for Init 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 37 of file Database\+Sync.\+cs.
+
+Here is the caller graph for this function\+:
+% FIG 0
+\mbox{\label{class_pangolin___database___app_1_1_database_1_1_database_sync_a35c98de633cf6b2f0ef236a6cacb17a8}} 
+\index{Pangolin\_Database\_App.Database.DatabaseSync@{Pangolin\_Database\_App.Database.DatabaseSync}!SyncAsync@{SyncAsync}}
+\index{SyncAsync@{SyncAsync}!Pangolin\_Database\_App.Database.DatabaseSync@{Pangolin\_Database\_App.Database.DatabaseSync}}
+\doxysubsubsection{SyncAsync()}
+{\footnotesize\ttfamily static async void Pangolin\+\_\+\+Database\+\_\+\+App.\+Database.\+Database\+Sync.\+Sync\+Async (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 22 of file Database\+Sync.\+cs.
+
+Here is the call graph for this function\+:
+% FIG 1
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\label{class_pangolin___database___app_1_1_database_1_1_database_sync_a740e6dc49d2aedb3aac1ec7f86dd0da2}} 
+\index{Pangolin\_Database\_App.Database.DatabaseSync@{Pangolin\_Database\_App.Database.DatabaseSync}!clientProvider@{clientProvider}}
+\index{clientProvider@{clientProvider}!Pangolin\_Database\_App.Database.DatabaseSync@{Pangolin\_Database\_App.Database.DatabaseSync}}
+\doxysubsubsection{clientProvider}
+{\footnotesize\ttfamily Sqlite\+Sync\+Provider Pangolin\+\_\+\+Database\+\_\+\+App.\+Database.\+Database\+Sync.\+client\+Provider = new Sqlite\+Sync\+Provider(\textbf{ Settings.\+Settings.\+Db\+Filename})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 13 of file Database\+Sync.\+cs.
+
+\mbox{\label{class_pangolin___database___app_1_1_database_1_1_database_sync_acf25581068712f79e0866b1f96737397}} 
+\index{Pangolin\_Database\_App.Database.DatabaseSync@{Pangolin\_Database\_App.Database.DatabaseSync}!serverProvider@{serverProvider}}
+\index{serverProvider@{serverProvider}!Pangolin\_Database\_App.Database.DatabaseSync@{Pangolin\_Database\_App.Database.DatabaseSync}}
+\doxysubsubsection{serverProvider}
+{\footnotesize\ttfamily My\+Sql\+Sync\+Provider Pangolin\+\_\+\+Database\+\_\+\+App.\+Database.\+Database\+Sync.\+server\+Provider = new My\+Sql\+Sync\+Provider(\textbf{ Settings.\+Settings.\+M\+Y\+S\+Q\+L\+Connection\+String})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 14 of file Database\+Sync.\+cs.
+
+\mbox{\label{class_pangolin___database___app_1_1_database_1_1_database_sync_adcfe1933039b4d4fbea2823ae5be08d9}} 
+\index{Pangolin\_Database\_App.Database.DatabaseSync@{Pangolin\_Database\_App.Database.DatabaseSync}!tables@{tables}}
+\index{tables@{tables}!Pangolin\_Database\_App.Database.DatabaseSync@{Pangolin\_Database\_App.Database.DatabaseSync}}
+\doxysubsubsection{tables}
+{\footnotesize\ttfamily readonly string [$\,$] Pangolin\+\_\+\+Database\+\_\+\+App.\+Database.\+Database\+Sync.\+tables\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{            \textcolor{stringliteral}{"{}CriminalCases"{}}, \textcolor{stringliteral}{"{}DailyActivities"{}}, \textcolor{stringliteral}{"{}Documents"{}},}
+\DoxyCodeLine{            \textcolor{stringliteral}{"{}InfantFeedings"{}}, \textcolor{stringliteral}{"{}InterdepartmentalMovements"{}}, }
+\DoxyCodeLine{            \textcolor{stringliteral}{"{}Microchips"{}}, \textcolor{stringliteral}{"{}Mortalities"{}}, \textcolor{stringliteral}{"{}Pangolins"{}}, }
+\DoxyCodeLine{            \textcolor{stringliteral}{"{}PhysicalMeasurements"{}}, \textcolor{stringliteral}{"{}Releases"{}}, \textcolor{stringliteral}{"{}TrackingDevices"{}}, }
+\DoxyCodeLine{            \textcolor{stringliteral}{"{}Users"{}}, \textcolor{stringliteral}{"{}VeterinaryTreatments"{}} \}}
+
+\end{DoxyCode}
+
+
+Definition at line 15 of file Database\+Sync.\+cs.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Pangolin Database-\/\+App/\+Database/\textbf{ Database\+Sync.\+cs}\end{DoxyCompactItemize}

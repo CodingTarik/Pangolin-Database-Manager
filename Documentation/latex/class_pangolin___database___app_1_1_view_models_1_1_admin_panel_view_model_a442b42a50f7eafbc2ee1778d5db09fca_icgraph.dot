@@ -1,0 +1,12 @@
+digraph "Pangolin_Database_App.ViewModels.AdminPanelViewModel.RefreshUserAdd"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="Pangolin_Database_App.View\lModels.AdminPanelViewModel.Refresh\lUserAdd",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="Pangolin_Database_App.View\lModels.AdminPanelViewModel.Add\lNewUser",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_pangolin___database___app_1_1_view_models_1_1_admin_panel_view_model.html#a9c3d90443483f340290cc29385ac1a1f",tooltip=" "];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="Pangolin_Database_App.View\lModels.AdminPanelViewModel.Admin\lPanelViewModel",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_pangolin___database___app_1_1_view_models_1_1_admin_panel_view_model.html#a4d093ff9eac7c93cd8585ebebf565213",tooltip=" "];
+}

@@ -1,0 +1,30 @@
+digraph "Pangolin_Database_App.Models.Document.Document"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="Pangolin_Database_App.Models.\lDocument.Document",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Pangolin_Database_App.Models.\lDocument.DeleteFile",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_pangolin___database___app_1_1_models_1_1_document.html#a9697c64b896991b85be1318b2480ca7a",tooltip=" "];
+  Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="Pangolin_Database_App.Logger.\lLogManager.log",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_pangolin___database___app_1_1_logger_1_1_log_manager.html#ae37d387011ee14f1a945d8fce0372688",tooltip="Logs for debug"];
+  Node3 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="Pangolin_Database_App.Logger.\lLogManager.logError",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_pangolin___database___app_1_1_logger_1_1_log_manager.html#af4d3065a50208ec03341c3694c84e118",tooltip="Error log"];
+  Node4 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="Pangolin_Database_App.Logger.\lLogManager.Print",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_pangolin___database___app_1_1_logger_1_1_log_manager.html#a493bbc327526f1b16d6be830e09c51d9",tooltip="Prints debug output"];
+  Node3 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="Pangolin_Database_App.Logger.\lLogManager.logInfo",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_pangolin___database___app_1_1_logger_1_1_log_manager.html#a4e09d4e1cb5f216e9db5d73d01447ec1",tooltip="Info log"];
+  Node6 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 -> Node7 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="Pangolin_Database_App.Logger.\lLogManager.logWarning",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_pangolin___database___app_1_1_logger_1_1_log_manager.html#aef33753249f2f7e61ee2acd392f798fa",tooltip="Warning log"];
+  Node7 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 -> Node8 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="Pangolin_Database_App.Models.\lDocument.OpenFile",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_pangolin___database___app_1_1_models_1_1_document.html#ab4d7c5caeff9eff4db263283d13a765a",tooltip=" "];
+  Node8 -> Node9 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="Pangolin_Database_App.Settings.\lSettingsManager.GetTempFilePath",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_pangolin___database___app_1_1_settings_1_1_settings_manager.html#a70168b4692e8a1c4284b9f493d938216",tooltip=" "];
+  Node8 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 -> Node10 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 [label="Pangolin_Database_App.Models.\lDocument.SaveFile",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_pangolin___database___app_1_1_models_1_1_document.html#a1fced99fd8624ea4cd5810beadee7f41",tooltip=" "];
+  Node1 -> Node10 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+}

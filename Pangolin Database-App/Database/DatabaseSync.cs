@@ -19,11 +19,14 @@ namespace Pangolin_Database_App.Database
             "PhysicalMeasurements", "Releases", "TrackingDevices", 
             "Users", "VeterinaryTreatments" };
 
+        /// <summary>
+        /// Syncs local database
+        /// </summary>
         public async static void SyncAsync()
         {
-            // DEBUG TEST
+            // DEBUG --> Reset Context
             #if DEBUG
-            await CreateDatabaseOnServer();
+            await CreateDatabaseOnServerAsync();
             #endif
             SyncAgent agent = new SyncAgent(clientProvider, serverProvider, tables);
             SyncResult result = await agent.SynchronizeAsync();
@@ -31,16 +34,16 @@ namespace Pangolin_Database_App.Database
         }
 
         /// <summary>
-        /// Used for Init
+        /// Initalizes Database on Server Side, resets database if already exists
         /// </summary>
         /// <returns></returns>
-        public static async Task CreateDatabaseOnServer()
+        public static async Task CreateDatabaseOnServerAsync()
         {
             var optionsBuilder = new DbContextOptionsBuilder<PangolinContext>();
             optionsBuilder.UseMySql(Settings.Settings.MYSQLConnectionString);
-            PangolinContext pr = new PangolinContext(optionsBuilder.Options);
-            pr.Database.EnsureDeleted();
-            pr.Database.EnsureCreated();
+            PangolinContext pr = new PangolinContext(optionsBuilder.Options);             
+            await pr.Database.EnsureDeletedAsync();
+            await pr.Database.EnsureCreatedAsync();             
             pr.Dispose();
         }
     }

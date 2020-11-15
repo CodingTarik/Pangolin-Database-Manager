@@ -1,0 +1,10 @@
+digraph "Pangolin_Database_App.Database.UserManagment.GetUserByUsernameAndPassword"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="Pangolin_Database_App.Database.\lUserManagment.GetUserByUsernameAnd\lPassword",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="returns user by username and password"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Pangolin_Database_App.Database.\lUserManagment.ComputeSha256Hash",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_pangolin___database___app_1_1_database_1_1_user_managment.html#a5e3271e7094c808a9569d0835f3c1130",tooltip="Used for hashing user passwords"];
+}

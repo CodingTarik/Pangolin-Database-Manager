@@ -7,6 +7,9 @@ namespace Pangolin_Database_App.Logger
     enum LogTopic
     {
         Database,
+        User,
+        Setup,
+        Login,
         IO,
         UI,
         Settings,

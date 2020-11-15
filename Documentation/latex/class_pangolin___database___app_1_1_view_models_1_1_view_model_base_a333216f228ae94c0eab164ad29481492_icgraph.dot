@@ -1,0 +1,10 @@
+digraph "Pangolin_Database_App.ViewModels.ViewModelBase.ReloadModel"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="Pangolin_Database_App.View\lModels.ViewModelBase.ReloadModel",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Resets the selected model to its default value"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="Pangolin_Database_App.View\lModels.ViewModelBase\< Interdepartmental\lMovement \>::ReloadSelectedModel",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_pangolin___database___app_1_1_view_models_1_1_view_model_base.html#ad79cfea8ac201f5b386e237c0f5ff8f7",tooltip="Reloads the selected model"];
+}

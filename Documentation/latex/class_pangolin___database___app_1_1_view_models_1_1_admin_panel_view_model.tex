@@ -1,0 +1,635 @@
+\doxysection{Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Admin\+Panel\+View\+Model Class Reference}
+\label{class_pangolin___database___app_1_1_view_models_1_1_admin_panel_view_model}\index{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}}
+
+
+Inheritance diagram for Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Admin\+Panel\+View\+Model\+:
+% FIG 0
+
+
+Collaboration diagram for Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Admin\+Panel\+View\+Model\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Admin\+Panel\+View\+Model} ()
+\item 
+void \textbf{ Hide\+App\+Snackbar} ()
+\begin{DoxyCompactList}\small\item\em Hides snackbar \end{DoxyCompactList}\item 
+void \textbf{ Notify\+Property\+Changed} ([Caller\+Member\+Name] string property\+Name=\char`\"{}\char`\"{})
+\begin{DoxyCompactList}\small\item\em Method if a property changed \end{DoxyCompactList}\item 
+void \textbf{ Show\+Snackbar} (string message)
+\begin{DoxyCompactList}\small\item\em Shows snackbar with a message \end{DoxyCompactList}\item 
+void \textbf{ Show\+Snackbar} (string message, int seconds)
+\begin{DoxyCompactList}\small\item\em Shows snackbar with a message \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Relay\+Command} \textbf{ Add\+User\+Click}\hspace{0.3cm}{\ttfamily  [get, set]}
+\item 
+\textbf{ Relay\+Command} \textbf{ Backup\+Db\+Click}\hspace{0.3cm}{\ttfamily  [get, set]}
+\item 
+\textbf{ Relay\+Command} \textbf{ Delete\+Pangolin\+Click}\hspace{0.3cm}{\ttfamily  [get, set]}
+\item 
+\textbf{ Relay\+Command} \textbf{ Delete\+User\+Click}\hspace{0.3cm}{\ttfamily  [get, set]}
+\item 
+string \textbf{ First\+Name\+Add}\hspace{0.3cm}{\ttfamily  [get, set]}
+\item 
+\textbf{ Relay\+Command} \textbf{ Hide\+Snackbar}\hspace{0.3cm}{\ttfamily  [get, set]}
+\begin{DoxyCompactList}\small\item\em Relay command for hide snackbar \end{DoxyCompactList}\item 
+string \textbf{ Last\+Name\+Add}\hspace{0.3cm}{\ttfamily  [get, set]}
+\item 
+string \textbf{ New\+Password}\hspace{0.3cm}{\ttfamily  [get, set]}
+\item 
+string \textbf{ New\+Password\+Repeat}\hspace{0.3cm}{\ttfamily  [get, set]}
+\item 
+Observable\+Collection$<$ \textbf{ Pangolin} $>$ \textbf{ Pangolin\+List}\hspace{0.3cm}{\ttfamily  [get]}
+\item 
+string \textbf{ Password\+Add}\hspace{0.3cm}{\ttfamily  [get, set]}
+\item 
+string \textbf{ Password\+Hash\+Add}\hspace{0.3cm}{\ttfamily  [get, set]}
+\item 
+string \textbf{ Password\+Repeat\+Add}\hspace{0.3cm}{\ttfamily  [get, set]}
+\item 
+\textbf{ Pangolin} \textbf{ Selected\+Pangolin\+Delete}\hspace{0.3cm}{\ttfamily  [get, set]}
+\item 
+\textbf{ User} \textbf{ Selected\+User}\hspace{0.3cm}{\ttfamily  [get, set]}
+\item 
+\textbf{ User} \textbf{ Selected\+User\+Delete}\hspace{0.3cm}{\ttfamily  [get, set]}
+\item 
+bool \textbf{ Snackbar\+Active}\hspace{0.3cm}{\ttfamily  [get, set]}
+\begin{DoxyCompactList}\small\item\em Property for snackbar \end{DoxyCompactList}\item 
+string \textbf{ Snackbar\+Message}\hspace{0.3cm}{\ttfamily  [get, set]}
+\begin{DoxyCompactList}\small\item\em Property for snackbar \end{DoxyCompactList}\item 
+\textbf{ Relay\+Command} \textbf{ Update\+User\+Pass}\hspace{0.3cm}{\ttfamily  [get, set]}
+\item 
+Observable\+Collection$<$ \textbf{ User} $>$ \textbf{ User\+List}\hspace{0.3cm}{\ttfamily  [get]}
+\item 
+Observable\+Collection$<$ \textbf{ User} $>$ \textbf{ User\+List\+Delete}\hspace{0.3cm}{\ttfamily  [get]}
+\item 
+string \textbf{ Username\+Add}\hspace{0.3cm}{\ttfamily  [get, set]}
+\end{DoxyCompactItemize}
+\doxysubsection*{Events}
+\begin{DoxyCompactItemize}
+\item 
+Property\+Changed\+Event\+Handler \textbf{ Property\+Changed}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ Add\+New\+User} ()
+\item 
+void \textbf{ Backup\+Db} ()
+\item 
+void \textbf{ Delete\+Selected\+Pangolin} ()
+\item 
+void \textbf{ Delete\+Selected\+User} ()
+\item 
+void \textbf{ Refresh\+User\+Add} ()
+\item 
+void \textbf{ Update\+Password} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Relay\+Command} \textbf{ \+\_\+hide\+Snackbar}
+\begin{DoxyCompactList}\small\item\em Saves relaycommand for hide snackbar \end{DoxyCompactList}\item 
+Observable\+Collection$<$ \textbf{ Pangolin} $>$ \textbf{ \+\_\+\+Pangolin\+List} = new Observable\+Collection$<$\textbf{ Pangolin}$>$(\textbf{ Database.\+Database\+Manager.\+Get\+Pangolins}())
+\item 
+string \textbf{ \+\_\+\+Password}
+\item 
+string \textbf{ \+\_\+\+Password\+Hash\+Add} = \char`\"{}\char`\"{}
+\item 
+bool \textbf{ \+\_\+snackbar\+Active}
+\item 
+string \textbf{ \+\_\+snackbar\+Message}
+\item 
+Observable\+Collection$<$ \textbf{ User} $>$ \textbf{ \+\_\+\+User\+List} = new Observable\+Collection$<$\textbf{ User}$>$(\textbf{ Database.\+Database\+Manager.\+Get\+Database}().Users.\+To\+List())
+\item 
+Observable\+Collection$<$ \textbf{ User} $>$ \textbf{ \+\_\+\+User\+List\+Delete}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 15 of file Admin\+Panel\+View\+Model.\+cs.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_admin_panel_view_model_a4d093ff9eac7c93cd8585ebebf565213}} 
+\index{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}!AdminPanelViewModel@{AdminPanelViewModel}}
+\index{AdminPanelViewModel@{AdminPanelViewModel}!Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}}
+\doxysubsubsection{AdminPanelViewModel()}
+{\footnotesize\ttfamily Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Admin\+Panel\+View\+Model.\+Admin\+Panel\+View\+Model (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 19 of file Admin\+Panel\+View\+Model.\+cs.
+
+Here is the call graph for this function\+:
+% FIG 2
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_admin_panel_view_model_a9c3d90443483f340290cc29385ac1a1f}} 
+\index{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}!AddNewUser@{AddNewUser}}
+\index{AddNewUser@{AddNewUser}!Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}}
+\doxysubsubsection{AddNewUser()}
+{\footnotesize\ttfamily void Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Admin\+Panel\+View\+Model.\+Add\+New\+User (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 45 of file Admin\+Panel\+View\+Model.\+cs.
+
+Here is the call graph for this function\+:
+% FIG 3
+Here is the caller graph for this function\+:
+% FIG 4
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_admin_panel_view_model_a5d076c09c977048775a970d83bc0994b}} 
+\index{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}!BackupDb@{BackupDb}}
+\index{BackupDb@{BackupDb}!Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}}
+\doxysubsubsection{BackupDb()}
+{\footnotesize\ttfamily void Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Admin\+Panel\+View\+Model.\+Backup\+Db (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 196 of file Admin\+Panel\+View\+Model.\+cs.
+
+Here is the caller graph for this function\+:
+% FIG 5
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_admin_panel_view_model_aff3c19c10e612937875bba54ac8bd211}} 
+\index{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}!DeleteSelectedPangolin@{DeleteSelectedPangolin}}
+\index{DeleteSelectedPangolin@{DeleteSelectedPangolin}!Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}}
+\doxysubsubsection{DeleteSelectedPangolin()}
+{\footnotesize\ttfamily void Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Admin\+Panel\+View\+Model.\+Delete\+Selected\+Pangolin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 176 of file Admin\+Panel\+View\+Model.\+cs.
+
+Here is the call graph for this function\+:
+% FIG 6
+Here is the caller graph for this function\+:
+% FIG 7
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_admin_panel_view_model_aeafd40666d73dd7e73620360639f29d0}} 
+\index{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}!DeleteSelectedUser@{DeleteSelectedUser}}
+\index{DeleteSelectedUser@{DeleteSelectedUser}!Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}}
+\doxysubsubsection{DeleteSelectedUser()}
+{\footnotesize\ttfamily void Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Admin\+Panel\+View\+Model.\+Delete\+Selected\+User (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 152 of file Admin\+Panel\+View\+Model.\+cs.
+
+Here is the call graph for this function\+:
+% FIG 8
+Here is the caller graph for this function\+:
+% FIG 9
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_admin_panel_view_model_a334cebe4998bfe16e2cac46c77458c63}} 
+\index{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}!HideAppSnackbar@{HideAppSnackbar}}
+\index{HideAppSnackbar@{HideAppSnackbar}!Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}}
+\doxysubsubsection{HideAppSnackbar()}
+{\footnotesize\ttfamily void Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Admin\+Panel\+View\+Model.\+Hide\+App\+Snackbar (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Hides snackbar 
+
+
+
+Definition at line 248 of file Admin\+Panel\+View\+Model.\+cs.
+
+Here is the caller graph for this function\+:
+% FIG 10
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_admin_panel_view_model_a2055e5d7ad9b6d2b7836363046a62f78}} 
+\index{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}!NotifyPropertyChanged@{NotifyPropertyChanged}}
+\index{NotifyPropertyChanged@{NotifyPropertyChanged}!Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}}
+\doxysubsubsection{NotifyPropertyChanged()}
+{\footnotesize\ttfamily void Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Admin\+Panel\+View\+Model.\+Notify\+Property\+Changed (\begin{DoxyParamCaption}\item[{[\+Caller\+Member\+Name] string}]{property\+Name = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})}
+
+
+
+Method if a property changed 
+
+
+\begin{DoxyParams}{Parameters}
+{\em property\+Name} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 213 of file Admin\+Panel\+View\+Model.\+cs.
+
+Here is the caller graph for this function\+:
+% FIG 11
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_admin_panel_view_model_a442b42a50f7eafbc2ee1778d5db09fca}} 
+\index{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}!RefreshUserAdd@{RefreshUserAdd}}
+\index{RefreshUserAdd@{RefreshUserAdd}!Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}}
+\doxysubsubsection{RefreshUserAdd()}
+{\footnotesize\ttfamily void Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Admin\+Panel\+View\+Model.\+Refresh\+User\+Add (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 82 of file Admin\+Panel\+View\+Model.\+cs.
+
+Here is the call graph for this function\+:
+% FIG 12
+Here is the caller graph for this function\+:
+% FIG 13
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_admin_panel_view_model_a866e7694369610ff71051921e531aeb5}} 
+\index{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}!ShowSnackbar@{ShowSnackbar}}
+\index{ShowSnackbar@{ShowSnackbar}!Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}}
+\doxysubsubsection{ShowSnackbar()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Admin\+Panel\+View\+Model.\+Show\+Snackbar (\begin{DoxyParamCaption}\item[{string}]{message }\end{DoxyParamCaption})}
+
+
+
+Shows snackbar with a message 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 238 of file Admin\+Panel\+View\+Model.\+cs.
+
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_admin_panel_view_model_a1b901e38bf3be3b0ae1f646211cb1239}} 
+\index{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}!ShowSnackbar@{ShowSnackbar}}
+\index{ShowSnackbar@{ShowSnackbar}!Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}}
+\doxysubsubsection{ShowSnackbar()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Admin\+Panel\+View\+Model.\+Show\+Snackbar (\begin{DoxyParamCaption}\item[{string}]{message,  }\item[{int}]{seconds }\end{DoxyParamCaption})}
+
+
+
+Shows snackbar with a message 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 227 of file Admin\+Panel\+View\+Model.\+cs.
+
+Here is the call graph for this function\+:
+% FIG 14
+Here is the caller graph for this function\+:
+% FIG 15
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_admin_panel_view_model_a7aa1f787248599dc8504fb2ea815f483}} 
+\index{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}!UpdatePassword@{UpdatePassword}}
+\index{UpdatePassword@{UpdatePassword}!Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}}
+\doxysubsubsection{UpdatePassword()}
+{\footnotesize\ttfamily void Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Admin\+Panel\+View\+Model.\+Update\+Password (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 99 of file Admin\+Panel\+View\+Model.\+cs.
+
+Here is the call graph for this function\+:
+% FIG 16
+Here is the caller graph for this function\+:
+% FIG 17
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_admin_panel_view_model_a1d92268130dcad2010f826a234e21c06}} 
+\index{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}!\_hideSnackbar@{\_hideSnackbar}}
+\index{\_hideSnackbar@{\_hideSnackbar}!Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}}
+\doxysubsubsection{\_hideSnackbar}
+{\footnotesize\ttfamily \textbf{ Relay\+Command} Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Admin\+Panel\+View\+Model.\+\_\+hide\+Snackbar\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Saves relaycommand for hide snackbar 
+
+
+
+Definition at line 278 of file Admin\+Panel\+View\+Model.\+cs.
+
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_admin_panel_view_model_aefe0b3aa1922c6d5310bca7d76def03f}} 
+\index{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}!\_PangolinList@{\_PangolinList}}
+\index{\_PangolinList@{\_PangolinList}!Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}}
+\doxysubsubsection{\_PangolinList}
+{\footnotesize\ttfamily Observable\+Collection$<$\textbf{ Pangolin}$>$ Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Admin\+Panel\+View\+Model.\+\_\+\+Pangolin\+List = new Observable\+Collection$<$\textbf{ Pangolin}$>$(\textbf{ Database.\+Database\+Manager.\+Get\+Pangolins}())\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 171 of file Admin\+Panel\+View\+Model.\+cs.
+
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_admin_panel_view_model_a11b7b8af071db526391ed1a12ad82f9b}} 
+\index{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}!\_Password@{\_Password}}
+\index{\_Password@{\_Password}!Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}}
+\doxysubsubsection{\_Password}
+{\footnotesize\ttfamily string Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Admin\+Panel\+View\+Model.\+\_\+\+Password\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 37 of file Admin\+Panel\+View\+Model.\+cs.
+
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_admin_panel_view_model_a3b401b5020e4f785f4d72a68d68bbcfb}} 
+\index{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}!\_PasswordHashAdd@{\_PasswordHashAdd}}
+\index{\_PasswordHashAdd@{\_PasswordHashAdd}!Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}}
+\doxysubsubsection{\_PasswordHashAdd}
+{\footnotesize\ttfamily string Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Admin\+Panel\+View\+Model.\+\_\+\+Password\+Hash\+Add = \char`\"{}\char`\"{}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 36 of file Admin\+Panel\+View\+Model.\+cs.
+
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_admin_panel_view_model_a49a4e8b2b85da34d0be9cb4efc7a85de}} 
+\index{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}!\_snackbarActive@{\_snackbarActive}}
+\index{\_snackbarActive@{\_snackbarActive}!Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}}
+\doxysubsubsection{\_snackbarActive}
+{\footnotesize\ttfamily bool Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Admin\+Panel\+View\+Model.\+\_\+snackbar\+Active\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 253 of file Admin\+Panel\+View\+Model.\+cs.
+
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_admin_panel_view_model_a23cebf8c56fd1b69a5cc4385479e1408}} 
+\index{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}!\_snackbarMessage@{\_snackbarMessage}}
+\index{\_snackbarMessage@{\_snackbarMessage}!Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}}
+\doxysubsubsection{\_snackbarMessage}
+{\footnotesize\ttfamily string Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Admin\+Panel\+View\+Model.\+\_\+snackbar\+Message\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 264 of file Admin\+Panel\+View\+Model.\+cs.
+
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_admin_panel_view_model_a1e713212addf719f535653633994a071}} 
+\index{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}!\_UserList@{\_UserList}}
+\index{\_UserList@{\_UserList}!Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}}
+\doxysubsubsection{\_UserList}
+{\footnotesize\ttfamily Observable\+Collection$<$\textbf{ User}$>$ Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Admin\+Panel\+View\+Model.\+\_\+\+User\+List = new Observable\+Collection$<$\textbf{ User}$>$(\textbf{ Database.\+Database\+Manager.\+Get\+Database}().Users.\+To\+List())\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 92 of file Admin\+Panel\+View\+Model.\+cs.
+
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_admin_panel_view_model_a9456fc30da268cebe3e4390b0ea15350}} 
+\index{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}!\_UserListDelete@{\_UserListDelete}}
+\index{\_UserListDelete@{\_UserListDelete}!Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}}
+\doxysubsubsection{\_UserListDelete}
+{\footnotesize\ttfamily Observable\+Collection$<$\textbf{ User}$>$ Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Admin\+Panel\+View\+Model.\+\_\+\+User\+List\+Delete\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 135 of file Admin\+Panel\+View\+Model.\+cs.
+
+
+
+\doxysubsection{Property Documentation}
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_admin_panel_view_model_a58c902cc870f55243c9b9077cb5321ac}} 
+\index{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}!AddUserClick@{AddUserClick}}
+\index{AddUserClick@{AddUserClick}!Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}}
+\doxysubsubsection{AddUserClick}
+{\footnotesize\ttfamily \textbf{ Relay\+Command} Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Admin\+Panel\+View\+Model.\+Add\+User\+Click\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definition at line 43 of file Admin\+Panel\+View\+Model.\+cs.
+
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_admin_panel_view_model_a3c0225bb7f08791ac93b4fd4917c7e8e}} 
+\index{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}!BackupDbClick@{BackupDbClick}}
+\index{BackupDbClick@{BackupDbClick}!Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}}
+\doxysubsubsection{BackupDbClick}
+{\footnotesize\ttfamily \textbf{ Relay\+Command} Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Admin\+Panel\+View\+Model.\+Backup\+Db\+Click\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definition at line 194 of file Admin\+Panel\+View\+Model.\+cs.
+
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_admin_panel_view_model_ac5b19c0adffeee8256efb51765a49db6}} 
+\index{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}!DeletePangolinClick@{DeletePangolinClick}}
+\index{DeletePangolinClick@{DeletePangolinClick}!Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}}
+\doxysubsubsection{DeletePangolinClick}
+{\footnotesize\ttfamily \textbf{ Relay\+Command} Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Admin\+Panel\+View\+Model.\+Delete\+Pangolin\+Click\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definition at line 174 of file Admin\+Panel\+View\+Model.\+cs.
+
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_admin_panel_view_model_a9edb7bcb3e0342b49fac31e4dedb4e3c}} 
+\index{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}!DeleteUserClick@{DeleteUserClick}}
+\index{DeleteUserClick@{DeleteUserClick}!Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}}
+\doxysubsubsection{DeleteUserClick}
+{\footnotesize\ttfamily \textbf{ Relay\+Command} Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Admin\+Panel\+View\+Model.\+Delete\+User\+Click\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definition at line 150 of file Admin\+Panel\+View\+Model.\+cs.
+
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_admin_panel_view_model_a6cff8d6c188c70b28640ae7dcc1a8721}} 
+\index{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}!FirstNameAdd@{FirstNameAdd}}
+\index{FirstNameAdd@{FirstNameAdd}!Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}}
+\doxysubsubsection{FirstNameAdd}
+{\footnotesize\ttfamily string Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Admin\+Panel\+View\+Model.\+First\+Name\+Add\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definition at line 33 of file Admin\+Panel\+View\+Model.\+cs.
+
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_admin_panel_view_model_a4a487a90fc9e78771b9d1a8806ef1de2}} 
+\index{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}!HideSnackbar@{HideSnackbar}}
+\index{HideSnackbar@{HideSnackbar}!Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}}
+\doxysubsubsection{HideSnackbar}
+{\footnotesize\ttfamily \textbf{ Relay\+Command} Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Admin\+Panel\+View\+Model.\+Hide\+Snackbar\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Relay command for hide snackbar 
+
+
+
+Definition at line 283 of file Admin\+Panel\+View\+Model.\+cs.
+
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_admin_panel_view_model_a8d88966587ea163f2a62006d8e5f693b}} 
+\index{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}!LastNameAdd@{LastNameAdd}}
+\index{LastNameAdd@{LastNameAdd}!Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}}
+\doxysubsubsection{LastNameAdd}
+{\footnotesize\ttfamily string Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Admin\+Panel\+View\+Model.\+Last\+Name\+Add\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definition at line 34 of file Admin\+Panel\+View\+Model.\+cs.
+
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_admin_panel_view_model_abb28b09a9df3df0aca3f803caf98d6b8}} 
+\index{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}!NewPassword@{NewPassword}}
+\index{NewPassword@{NewPassword}!Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}}
+\doxysubsubsection{NewPassword}
+{\footnotesize\ttfamily string Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Admin\+Panel\+View\+Model.\+New\+Password\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definition at line 94 of file Admin\+Panel\+View\+Model.\+cs.
+
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_admin_panel_view_model_a63521063ada4b474ceee0d78e04e9315}} 
+\index{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}!NewPasswordRepeat@{NewPasswordRepeat}}
+\index{NewPasswordRepeat@{NewPasswordRepeat}!Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}}
+\doxysubsubsection{NewPasswordRepeat}
+{\footnotesize\ttfamily string Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Admin\+Panel\+View\+Model.\+New\+Password\+Repeat\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definition at line 95 of file Admin\+Panel\+View\+Model.\+cs.
+
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_admin_panel_view_model_a342652e50829a7f025c8f5bc495bcc32}} 
+\index{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}!PangolinList@{PangolinList}}
+\index{PangolinList@{PangolinList}!Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}}
+\doxysubsubsection{PangolinList}
+{\footnotesize\ttfamily Observable\+Collection$<$\textbf{ Pangolin}$>$ Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Admin\+Panel\+View\+Model.\+Pangolin\+List\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Definition at line 172 of file Admin\+Panel\+View\+Model.\+cs.
+
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_admin_panel_view_model_a83abe53c7a13f2855f2a687f19d8a340}} 
+\index{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}!PasswordAdd@{PasswordAdd}}
+\index{PasswordAdd@{PasswordAdd}!Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}}
+\doxysubsubsection{PasswordAdd}
+{\footnotesize\ttfamily string Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Admin\+Panel\+View\+Model.\+Password\+Add\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definition at line 40 of file Admin\+Panel\+View\+Model.\+cs.
+
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_admin_panel_view_model_a9a9fa23ea3b9c0c348d889c2ce7df4f8}} 
+\index{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}!PasswordHashAdd@{PasswordHashAdd}}
+\index{PasswordHashAdd@{PasswordHashAdd}!Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}}
+\doxysubsubsection{PasswordHashAdd}
+{\footnotesize\ttfamily string Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Admin\+Panel\+View\+Model.\+Password\+Hash\+Add\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definition at line 39 of file Admin\+Panel\+View\+Model.\+cs.
+
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_admin_panel_view_model_a856ec78aa9fbe51d452b0eaf1299c1da}} 
+\index{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}!PasswordRepeatAdd@{PasswordRepeatAdd}}
+\index{PasswordRepeatAdd@{PasswordRepeatAdd}!Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}}
+\doxysubsubsection{PasswordRepeatAdd}
+{\footnotesize\ttfamily string Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Admin\+Panel\+View\+Model.\+Password\+Repeat\+Add\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definition at line 41 of file Admin\+Panel\+View\+Model.\+cs.
+
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_admin_panel_view_model_a211a1ea46985bbf80559bc0085e0fec8}} 
+\index{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}!SelectedPangolinDelete@{SelectedPangolinDelete}}
+\index{SelectedPangolinDelete@{SelectedPangolinDelete}!Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}}
+\doxysubsubsection{SelectedPangolinDelete}
+{\footnotesize\ttfamily \textbf{ Pangolin} Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Admin\+Panel\+View\+Model.\+Selected\+Pangolin\+Delete\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definition at line 173 of file Admin\+Panel\+View\+Model.\+cs.
+
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_admin_panel_view_model_aaa7743bcb7071d3e62998e8aa464df63}} 
+\index{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}!SelectedUser@{SelectedUser}}
+\index{SelectedUser@{SelectedUser}!Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}}
+\doxysubsubsection{SelectedUser}
+{\footnotesize\ttfamily \textbf{ User} Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Admin\+Panel\+View\+Model.\+Selected\+User\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definition at line 96 of file Admin\+Panel\+View\+Model.\+cs.
+
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_admin_panel_view_model_a9abff3df52c0ac4747f98dd580e9aa33}} 
+\index{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}!SelectedUserDelete@{SelectedUserDelete}}
+\index{SelectedUserDelete@{SelectedUserDelete}!Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}}
+\doxysubsubsection{SelectedUserDelete}
+{\footnotesize\ttfamily \textbf{ User} Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Admin\+Panel\+View\+Model.\+Selected\+User\+Delete\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definition at line 149 of file Admin\+Panel\+View\+Model.\+cs.
+
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_admin_panel_view_model_a75e958881d4a9fea685f7ab5072f2535}} 
+\index{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}!SnackbarActive@{SnackbarActive}}
+\index{SnackbarActive@{SnackbarActive}!Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}}
+\doxysubsubsection{SnackbarActive}
+{\footnotesize\ttfamily bool Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Admin\+Panel\+View\+Model.\+Snackbar\+Active\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Property for snackbar 
+
+
+
+Definition at line 258 of file Admin\+Panel\+View\+Model.\+cs.
+
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_admin_panel_view_model_a61ff57b28376ba96e4fc9ba885ec5002}} 
+\index{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}!SnackbarMessage@{SnackbarMessage}}
+\index{SnackbarMessage@{SnackbarMessage}!Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}}
+\doxysubsubsection{SnackbarMessage}
+{\footnotesize\ttfamily string Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Admin\+Panel\+View\+Model.\+Snackbar\+Message\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Property for snackbar 
+
+
+
+Definition at line 269 of file Admin\+Panel\+View\+Model.\+cs.
+
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_admin_panel_view_model_ab73d4848c867c9698640f27c666f0214}} 
+\index{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}!UpdateUserPass@{UpdateUserPass}}
+\index{UpdateUserPass@{UpdateUserPass}!Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}}
+\doxysubsubsection{UpdateUserPass}
+{\footnotesize\ttfamily \textbf{ Relay\+Command} Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Admin\+Panel\+View\+Model.\+Update\+User\+Pass\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definition at line 97 of file Admin\+Panel\+View\+Model.\+cs.
+
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_admin_panel_view_model_a9e66199249447d07a41e466d49817ca0}} 
+\index{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}!UserList@{UserList}}
+\index{UserList@{UserList}!Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}}
+\doxysubsubsection{UserList}
+{\footnotesize\ttfamily Observable\+Collection$<$\textbf{ User}$>$ Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Admin\+Panel\+View\+Model.\+User\+List\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Definition at line 93 of file Admin\+Panel\+View\+Model.\+cs.
+
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_admin_panel_view_model_abd5e4abb269b3fb08ed78b6b0354efb5}} 
+\index{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}!UserListDelete@{UserListDelete}}
+\index{UserListDelete@{UserListDelete}!Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}}
+\doxysubsubsection{UserListDelete}
+{\footnotesize\ttfamily Observable\+Collection$<$\textbf{ User}$>$ Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Admin\+Panel\+View\+Model.\+User\+List\+Delete\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Definition at line 136 of file Admin\+Panel\+View\+Model.\+cs.
+
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_admin_panel_view_model_a4c19374fe064174b52403a2cd1570694}} 
+\index{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}!UsernameAdd@{UsernameAdd}}
+\index{UsernameAdd@{UsernameAdd}!Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}}
+\doxysubsubsection{UsernameAdd}
+{\footnotesize\ttfamily string Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Admin\+Panel\+View\+Model.\+Username\+Add\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definition at line 32 of file Admin\+Panel\+View\+Model.\+cs.
+
+
+
+\doxysubsection{Event Documentation}
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_admin_panel_view_model_ab1c3c4908371d17d99548f47ed5963c6}} 
+\index{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}!PropertyChanged@{PropertyChanged}}
+\index{PropertyChanged@{PropertyChanged}!Pangolin\_Database\_App.ViewModels.AdminPanelViewModel@{Pangolin\_Database\_App.ViewModels.AdminPanelViewModel}}
+\doxysubsubsection{PropertyChanged}
+{\footnotesize\ttfamily Property\+Changed\+Event\+Handler Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Admin\+Panel\+View\+Model.\+Property\+Changed}
+
+
+
+Definition at line 208 of file Admin\+Panel\+View\+Model.\+cs.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Pangolin Database-\/\+App/\+View\+Models/\textbf{ Admin\+Panel\+View\+Model.\+cs}\end{DoxyCompactItemize}

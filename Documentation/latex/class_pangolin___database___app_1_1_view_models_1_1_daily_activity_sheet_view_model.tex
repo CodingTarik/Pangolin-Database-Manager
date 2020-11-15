@@ -1,0 +1,357 @@
+\doxysection{Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Daily\+Activity\+Sheet\+View\+Model Class Reference}
+\label{class_pangolin___database___app_1_1_view_models_1_1_daily_activity_sheet_view_model}\index{Pangolin\_Database\_App.ViewModels.DailyActivitySheetViewModel@{Pangolin\_Database\_App.ViewModels.DailyActivitySheetViewModel}}
+
+
+Inheritance diagram for Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Daily\+Activity\+Sheet\+View\+Model\+:
+% FIG 0
+
+
+Collaboration diagram for Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Daily\+Activity\+Sheet\+View\+Model\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Daily\+Activity\+Sheet\+View\+Model} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+Date\+Time \textbf{ Date}\hspace{0.3cm}{\ttfamily  [get, set]}
+\item 
+bool \textbf{ Full\+Cloud}\hspace{0.3cm}{\ttfamily  [get, set]}
+\begin{DoxyCompactList}\small\item\em Sunny has number 1 in bitmask \end{DoxyCompactList}\item 
+bool \textbf{ Hot}\hspace{0.3cm}{\ttfamily  [get, set]}
+\begin{DoxyCompactList}\small\item\em Hot has number 4 in bitmask \end{DoxyCompactList}\item 
+bool \textbf{ Part\+Cloud}\hspace{0.3cm}{\ttfamily  [get, set]}
+\begin{DoxyCompactList}\small\item\em Sunny has number 2 in bitmask \end{DoxyCompactList}\item 
+bool \textbf{ Rain}\hspace{0.3cm}{\ttfamily  [get, set]}
+\begin{DoxyCompactList}\small\item\em Sunny has number 0 in bitmask \end{DoxyCompactList}\item 
+bool \textbf{ Sunny}\hspace{0.3cm}{\ttfamily  [get, set]}
+\begin{DoxyCompactList}\small\item\em Sunny has number 3 in bitmask \end{DoxyCompactList}\item 
+double \textbf{ Total\+Hours\+Walked}\hspace{0.3cm}{\ttfamily  [get, private set]}
+\begin{DoxyCompactList}\small\item\em Calculates total hours walked \end{DoxyCompactList}\item 
+double \textbf{ Total\+Hours\+Walked\+In\+Percent}\hspace{0.3cm}{\ttfamily  [get]}
+\begin{DoxyCompactList}\small\item\em Calculates total hours in percent from 24h \end{DoxyCompactList}\item 
+Date\+Time \textbf{ Walking\+Start}\hspace{0.3cm}{\ttfamily  [get, set]}
+\begin{DoxyCompactList}\small\item\em Walking Time Start Wrapper for Pangolin \end{DoxyCompactList}\item 
+Date\+Time \textbf{ Walking\+Stop}\hspace{0.3cm}{\ttfamily  [get, set]}
+\begin{DoxyCompactList}\small\item\em Walking Time Stop Wrapper for Pangolin \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ Daily\+Activity\+Sheet\+View\+Model\+\_\+\+Pangolin\+Changed} (object sender, \textbf{ Pangolin} e)
+\begin{DoxyCompactList}\small\item\em Check if there is a existing model for this pangolin at current date or set new model \end{DoxyCompactList}\item 
+bool \textbf{ Read\+Weather\+Bit} (int bit)
+\begin{DoxyCompactList}\small\item\em Reads a weather bit \end{DoxyCompactList}\item 
+void \textbf{ Set\+Model\+By\+Pangolin\+And\+Date} (Date\+Time date, \textbf{ Pangolin} p)
+\begin{DoxyCompactList}\small\item\em Triers to get a existing model by date and pangolin or returns a new one if no found \end{DoxyCompactList}\item 
+void \textbf{ Set\+Weather\+Bit} (int bit, bool value)
+\begin{DoxyCompactList}\small\item\em Sets a weather bit \end{DoxyCompactList}\item 
+void \textbf{ Update\+All\+Properties} ()
+\begin{DoxyCompactList}\small\item\em Update all properties \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 9 of file Daily\+Activity\+Sheet\+View\+Model.\+cs.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_daily_activity_sheet_view_model_aa745fd0f851c3ecfab6d1f3dfc01b0ba}} 
+\index{Pangolin\_Database\_App.ViewModels.DailyActivitySheetViewModel@{Pangolin\_Database\_App.ViewModels.DailyActivitySheetViewModel}!DailyActivitySheetViewModel@{DailyActivitySheetViewModel}}
+\index{DailyActivitySheetViewModel@{DailyActivitySheetViewModel}!Pangolin\_Database\_App.ViewModels.DailyActivitySheetViewModel@{Pangolin\_Database\_App.ViewModels.DailyActivitySheetViewModel}}
+\doxysubsubsection{DailyActivitySheetViewModel()}
+{\footnotesize\ttfamily Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Daily\+Activity\+Sheet\+View\+Model.\+Daily\+Activity\+Sheet\+View\+Model (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 37 of file Daily\+Activity\+Sheet\+View\+Model.\+cs.
+
+Here is the call graph for this function\+:
+% FIG 2
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_daily_activity_sheet_view_model_a224f438a1fdf4bea06e0976c56efa225}} 
+\index{Pangolin\_Database\_App.ViewModels.DailyActivitySheetViewModel@{Pangolin\_Database\_App.ViewModels.DailyActivitySheetViewModel}!DailyActivitySheetViewModel\_PangolinChanged@{DailyActivitySheetViewModel\_PangolinChanged}}
+\index{DailyActivitySheetViewModel\_PangolinChanged@{DailyActivitySheetViewModel\_PangolinChanged}!Pangolin\_Database\_App.ViewModels.DailyActivitySheetViewModel@{Pangolin\_Database\_App.ViewModels.DailyActivitySheetViewModel}}
+\doxysubsubsection{DailyActivitySheetViewModel\_PangolinChanged()}
+{\footnotesize\ttfamily void Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Daily\+Activity\+Sheet\+View\+Model.\+Daily\+Activity\+Sheet\+View\+Model\+\_\+\+Pangolin\+Changed (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{\textbf{ Pangolin}}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Check if there is a existing model for this pangolin at current date or set new model 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sender} & \\
+\hline
+{\em e} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 48 of file Daily\+Activity\+Sheet\+View\+Model.\+cs.
+
+Here is the call graph for this function\+:
+% FIG 3
+Here is the caller graph for this function\+:
+% FIG 4
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_daily_activity_sheet_view_model_a8f2fc2f5f584bddfa6b106cc1a68bce5}} 
+\index{Pangolin\_Database\_App.ViewModels.DailyActivitySheetViewModel@{Pangolin\_Database\_App.ViewModels.DailyActivitySheetViewModel}!ReadWeatherBit@{ReadWeatherBit}}
+\index{ReadWeatherBit@{ReadWeatherBit}!Pangolin\_Database\_App.ViewModels.DailyActivitySheetViewModel@{Pangolin\_Database\_App.ViewModels.DailyActivitySheetViewModel}}
+\doxysubsubsection{ReadWeatherBit()}
+{\footnotesize\ttfamily bool Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Daily\+Activity\+Sheet\+View\+Model.\+Read\+Weather\+Bit (\begin{DoxyParamCaption}\item[{int}]{bit }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Reads a weather bit 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bit} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 215 of file Daily\+Activity\+Sheet\+View\+Model.\+cs.
+
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_daily_activity_sheet_view_model_a0506c54f35475de016a32658e77e37ae}} 
+\index{Pangolin\_Database\_App.ViewModels.DailyActivitySheetViewModel@{Pangolin\_Database\_App.ViewModels.DailyActivitySheetViewModel}!SetModelByPangolinAndDate@{SetModelByPangolinAndDate}}
+\index{SetModelByPangolinAndDate@{SetModelByPangolinAndDate}!Pangolin\_Database\_App.ViewModels.DailyActivitySheetViewModel@{Pangolin\_Database\_App.ViewModels.DailyActivitySheetViewModel}}
+\doxysubsubsection{SetModelByPangolinAndDate()}
+{\footnotesize\ttfamily void Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Daily\+Activity\+Sheet\+View\+Model.\+Set\+Model\+By\+Pangolin\+And\+Date (\begin{DoxyParamCaption}\item[{Date\+Time}]{date,  }\item[{\textbf{ Pangolin}}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Triers to get a existing model by date and pangolin or returns a new one if no found 
+
+
+\begin{DoxyParams}{Parameters}
+{\em date} & \\
+\hline
+{\em p} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 17 of file Daily\+Activity\+Sheet\+View\+Model.\+cs.
+
+Here is the call graph for this function\+:
+% FIG 5
+Here is the caller graph for this function\+:
+% FIG 6
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_daily_activity_sheet_view_model_aedddc80441fd3cbfea0ea341ccee1800}} 
+\index{Pangolin\_Database\_App.ViewModels.DailyActivitySheetViewModel@{Pangolin\_Database\_App.ViewModels.DailyActivitySheetViewModel}!SetWeatherBit@{SetWeatherBit}}
+\index{SetWeatherBit@{SetWeatherBit}!Pangolin\_Database\_App.ViewModels.DailyActivitySheetViewModel@{Pangolin\_Database\_App.ViewModels.DailyActivitySheetViewModel}}
+\doxysubsubsection{SetWeatherBit()}
+{\footnotesize\ttfamily void Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Daily\+Activity\+Sheet\+View\+Model.\+Set\+Weather\+Bit (\begin{DoxyParamCaption}\item[{int}]{bit,  }\item[{bool}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Sets a weather bit 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bit} & \\
+\hline
+{\em value} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 198 of file Daily\+Activity\+Sheet\+View\+Model.\+cs.
+
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_daily_activity_sheet_view_model_a8796aafa5325abb3e1cacddc7c3e9d88}} 
+\index{Pangolin\_Database\_App.ViewModels.DailyActivitySheetViewModel@{Pangolin\_Database\_App.ViewModels.DailyActivitySheetViewModel}!UpdateAllProperties@{UpdateAllProperties}}
+\index{UpdateAllProperties@{UpdateAllProperties}!Pangolin\_Database\_App.ViewModels.DailyActivitySheetViewModel@{Pangolin\_Database\_App.ViewModels.DailyActivitySheetViewModel}}
+\doxysubsubsection{UpdateAllProperties()}
+{\footnotesize\ttfamily void Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Daily\+Activity\+Sheet\+View\+Model.\+Update\+All\+Properties (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Update all properties 
+
+
+
+Definition at line 185 of file Daily\+Activity\+Sheet\+View\+Model.\+cs.
+
+Here is the call graph for this function\+:
+% FIG 7
+Here is the caller graph for this function\+:
+% FIG 8
+
+
+\doxysubsection{Property Documentation}
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_daily_activity_sheet_view_model_af1b1ed21c812d74e189a1cf2153285ef}} 
+\index{Pangolin\_Database\_App.ViewModels.DailyActivitySheetViewModel@{Pangolin\_Database\_App.ViewModels.DailyActivitySheetViewModel}!Date@{Date}}
+\index{Date@{Date}!Pangolin\_Database\_App.ViewModels.DailyActivitySheetViewModel@{Pangolin\_Database\_App.ViewModels.DailyActivitySheetViewModel}}
+\doxysubsubsection{Date}
+{\footnotesize\ttfamily Date\+Time Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Daily\+Activity\+Sheet\+View\+Model.\+Date\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definition at line 171 of file Daily\+Activity\+Sheet\+View\+Model.\+cs.
+
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_daily_activity_sheet_view_model_a55069a111f93930fdf592f76b9981373}} 
+\index{Pangolin\_Database\_App.ViewModels.DailyActivitySheetViewModel@{Pangolin\_Database\_App.ViewModels.DailyActivitySheetViewModel}!FullCloud@{FullCloud}}
+\index{FullCloud@{FullCloud}!Pangolin\_Database\_App.ViewModels.DailyActivitySheetViewModel@{Pangolin\_Database\_App.ViewModels.DailyActivitySheetViewModel}}
+\doxysubsubsection{FullCloud}
+{\footnotesize\ttfamily bool Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Daily\+Activity\+Sheet\+View\+Model.\+Full\+Cloud\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Sunny has number 1 in bitmask 
+
+\begin{DoxySeeAlso}{See also}
+Daily\+Activity
+
+
+\end{DoxySeeAlso}
+
+
+Definition at line 147 of file Daily\+Activity\+Sheet\+View\+Model.\+cs.
+
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_daily_activity_sheet_view_model_a639d742280b2bedef3aa0052403a3c36}} 
+\index{Pangolin\_Database\_App.ViewModels.DailyActivitySheetViewModel@{Pangolin\_Database\_App.ViewModels.DailyActivitySheetViewModel}!Hot@{Hot}}
+\index{Hot@{Hot}!Pangolin\_Database\_App.ViewModels.DailyActivitySheetViewModel@{Pangolin\_Database\_App.ViewModels.DailyActivitySheetViewModel}}
+\doxysubsubsection{Hot}
+{\footnotesize\ttfamily bool Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Daily\+Activity\+Sheet\+View\+Model.\+Hot\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Hot has number 4 in bitmask 
+
+\begin{DoxySeeAlso}{See also}
+Daily\+Activity
+
+
+\end{DoxySeeAlso}
+
+
+Definition at line 105 of file Daily\+Activity\+Sheet\+View\+Model.\+cs.
+
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_daily_activity_sheet_view_model_a322b905b411c22c4b1956ffbf873a1d2}} 
+\index{Pangolin\_Database\_App.ViewModels.DailyActivitySheetViewModel@{Pangolin\_Database\_App.ViewModels.DailyActivitySheetViewModel}!PartCloud@{PartCloud}}
+\index{PartCloud@{PartCloud}!Pangolin\_Database\_App.ViewModels.DailyActivitySheetViewModel@{Pangolin\_Database\_App.ViewModels.DailyActivitySheetViewModel}}
+\doxysubsubsection{PartCloud}
+{\footnotesize\ttfamily bool Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Daily\+Activity\+Sheet\+View\+Model.\+Part\+Cloud\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Sunny has number 2 in bitmask 
+
+\begin{DoxySeeAlso}{See also}
+Daily\+Activity
+
+
+\end{DoxySeeAlso}
+
+
+Definition at line 133 of file Daily\+Activity\+Sheet\+View\+Model.\+cs.
+
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_daily_activity_sheet_view_model_a552d6eea70ff831068e24b2810a5029a}} 
+\index{Pangolin\_Database\_App.ViewModels.DailyActivitySheetViewModel@{Pangolin\_Database\_App.ViewModels.DailyActivitySheetViewModel}!Rain@{Rain}}
+\index{Rain@{Rain}!Pangolin\_Database\_App.ViewModels.DailyActivitySheetViewModel@{Pangolin\_Database\_App.ViewModels.DailyActivitySheetViewModel}}
+\doxysubsubsection{Rain}
+{\footnotesize\ttfamily bool Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Daily\+Activity\+Sheet\+View\+Model.\+Rain\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Sunny has number 0 in bitmask 
+
+\begin{DoxySeeAlso}{See also}
+Daily\+Activity
+
+
+\end{DoxySeeAlso}
+
+
+Definition at line 161 of file Daily\+Activity\+Sheet\+View\+Model.\+cs.
+
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_daily_activity_sheet_view_model_a7096da13e0bde3b992c4f76c8c7c196a}} 
+\index{Pangolin\_Database\_App.ViewModels.DailyActivitySheetViewModel@{Pangolin\_Database\_App.ViewModels.DailyActivitySheetViewModel}!Sunny@{Sunny}}
+\index{Sunny@{Sunny}!Pangolin\_Database\_App.ViewModels.DailyActivitySheetViewModel@{Pangolin\_Database\_App.ViewModels.DailyActivitySheetViewModel}}
+\doxysubsubsection{Sunny}
+{\footnotesize\ttfamily bool Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Daily\+Activity\+Sheet\+View\+Model.\+Sunny\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Sunny has number 3 in bitmask 
+
+\begin{DoxySeeAlso}{See also}
+Daily\+Activity
+
+
+\end{DoxySeeAlso}
+
+
+Definition at line 119 of file Daily\+Activity\+Sheet\+View\+Model.\+cs.
+
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_daily_activity_sheet_view_model_a000a0073e75c89f953ec7eedf80830a8}} 
+\index{Pangolin\_Database\_App.ViewModels.DailyActivitySheetViewModel@{Pangolin\_Database\_App.ViewModels.DailyActivitySheetViewModel}!TotalHoursWalked@{TotalHoursWalked}}
+\index{TotalHoursWalked@{TotalHoursWalked}!Pangolin\_Database\_App.ViewModels.DailyActivitySheetViewModel@{Pangolin\_Database\_App.ViewModels.DailyActivitySheetViewModel}}
+\doxysubsubsection{TotalHoursWalked}
+{\footnotesize\ttfamily double Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Daily\+Activity\+Sheet\+View\+Model.\+Total\+Hours\+Walked\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+
+
+Calculates total hours walked 
+
+
+
+Definition at line 74 of file Daily\+Activity\+Sheet\+View\+Model.\+cs.
+
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_daily_activity_sheet_view_model_a2f16ad0bdb45a8890222b0e38a2598d2}} 
+\index{Pangolin\_Database\_App.ViewModels.DailyActivitySheetViewModel@{Pangolin\_Database\_App.ViewModels.DailyActivitySheetViewModel}!TotalHoursWalkedInPercent@{TotalHoursWalkedInPercent}}
+\index{TotalHoursWalkedInPercent@{TotalHoursWalkedInPercent}!Pangolin\_Database\_App.ViewModels.DailyActivitySheetViewModel@{Pangolin\_Database\_App.ViewModels.DailyActivitySheetViewModel}}
+\doxysubsubsection{TotalHoursWalkedInPercent}
+{\footnotesize\ttfamily double Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Daily\+Activity\+Sheet\+View\+Model.\+Total\+Hours\+Walked\+In\+Percent\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Calculates total hours in percent from 24h 
+
+
+
+Definition at line 93 of file Daily\+Activity\+Sheet\+View\+Model.\+cs.
+
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_daily_activity_sheet_view_model_a7b5083d4af5468cde7e522d2f54f593f}} 
+\index{Pangolin\_Database\_App.ViewModels.DailyActivitySheetViewModel@{Pangolin\_Database\_App.ViewModels.DailyActivitySheetViewModel}!WalkingStart@{WalkingStart}}
+\index{WalkingStart@{WalkingStart}!Pangolin\_Database\_App.ViewModels.DailyActivitySheetViewModel@{Pangolin\_Database\_App.ViewModels.DailyActivitySheetViewModel}}
+\doxysubsubsection{WalkingStart}
+{\footnotesize\ttfamily Date\+Time Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Daily\+Activity\+Sheet\+View\+Model.\+Walking\+Start\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Walking Time Start Wrapper for Pangolin 
+
+
+
+Definition at line 56 of file Daily\+Activity\+Sheet\+View\+Model.\+cs.
+
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_daily_activity_sheet_view_model_a0e556272665e92dc33b7962c4228d23c}} 
+\index{Pangolin\_Database\_App.ViewModels.DailyActivitySheetViewModel@{Pangolin\_Database\_App.ViewModels.DailyActivitySheetViewModel}!WalkingStop@{WalkingStop}}
+\index{WalkingStop@{WalkingStop}!Pangolin\_Database\_App.ViewModels.DailyActivitySheetViewModel@{Pangolin\_Database\_App.ViewModels.DailyActivitySheetViewModel}}
+\doxysubsubsection{WalkingStop}
+{\footnotesize\ttfamily Date\+Time Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+Daily\+Activity\+Sheet\+View\+Model.\+Walking\+Stop\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Walking Time Stop Wrapper for Pangolin 
+
+
+
+Definition at line 65 of file Daily\+Activity\+Sheet\+View\+Model.\+cs.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Pangolin Database-\/\+App/\+View\+Models/\textbf{ Daily\+Activity\+Sheet\+View\+Model.\+cs}\end{DoxyCompactItemize}

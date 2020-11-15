@@ -1,0 +1,179 @@
+\doxysection{Pangolin\+\_\+\+Database\+\_\+\+App.\+Logger.\+Log\+Manager Class Reference}
+\label{class_pangolin___database___app_1_1_logger_1_1_log_manager}\index{Pangolin\_Database\_App.Logger.LogManager@{Pangolin\_Database\_App.Logger.LogManager}}
+
+
+This class handels all logging for debug  
+
+
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \textbf{ log} (string message, \textbf{ Log\+Category} category=Log\+Category.\+info, \textbf{ Log\+Topic} topic=\textbf{ Log\+Topic.\+Other}, Exception ex=null, [Caller\+Member\+Name] string caller=\char`\"{}\char`\"{}, [Caller\+File\+Path] string path=\char`\"{}\char`\"{}, [Caller\+Line\+Number] int line=0)
+\begin{DoxyCompactList}\small\item\em Logs for debug \end{DoxyCompactList}\item 
+static void \textbf{ log\+Error} (Exception ex, string message=\char`\"{}\char`\"{}, \textbf{ Log\+Topic} topic=\textbf{ Log\+Topic.\+Other}, [Caller\+Member\+Name] string caller=\char`\"{}\char`\"{}, [Caller\+File\+Path] string path=\char`\"{}\char`\"{}, [Caller\+Line\+Number] int line=0)
+\begin{DoxyCompactList}\small\item\em Error log \end{DoxyCompactList}\item 
+static void \textbf{ log\+Info} (string message=\char`\"{}\char`\"{}, \textbf{ Log\+Topic} topic=\textbf{ Log\+Topic.\+Other}, [Caller\+Member\+Name] string caller=\char`\"{}\char`\"{})
+\begin{DoxyCompactList}\small\item\em Info log \end{DoxyCompactList}\item 
+static void \textbf{ log\+Warning} (string message=\char`\"{}\char`\"{}, \textbf{ Log\+Topic} topic=\textbf{ Log\+Topic.\+Other}, [Caller\+Member\+Name] string caller=\char`\"{}\char`\"{}, [Caller\+File\+Path] string path=\char`\"{}\char`\"{}, [Caller\+Line\+Number] int line=0)
+\begin{DoxyCompactList}\small\item\em Warning log \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \textbf{ Print} (string message)
+\begin{DoxyCompactList}\small\item\em Prints debug output \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class handels all logging for debug 
+
+
+
+Definition at line 12 of file Log\+Manager.\+cs.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{class_pangolin___database___app_1_1_logger_1_1_log_manager_ae37d387011ee14f1a945d8fce0372688}} 
+\index{Pangolin\_Database\_App.Logger.LogManager@{Pangolin\_Database\_App.Logger.LogManager}!log@{log}}
+\index{log@{log}!Pangolin\_Database\_App.Logger.LogManager@{Pangolin\_Database\_App.Logger.LogManager}}
+\doxysubsubsection{log()}
+{\footnotesize\ttfamily static void Pangolin\+\_\+\+Database\+\_\+\+App.\+Logger.\+Log\+Manager.\+log (\begin{DoxyParamCaption}\item[{string}]{message,  }\item[{\textbf{ Log\+Category}}]{category = {\ttfamily LogCategory.info},  }\item[{\textbf{ Log\+Topic}}]{topic = {\ttfamily \textbf{ Log\+Topic.\+Other}},  }\item[{Exception}]{ex = {\ttfamily null},  }\item[{[\+Caller\+Member\+Name] string}]{caller = {\ttfamily \char`\"{}\char`\"{}},  }\item[{[\+Caller\+File\+Path] string}]{path = {\ttfamily \char`\"{}\char`\"{}},  }\item[{[\+Caller\+Line\+Number] int}]{line = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Logs for debug 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & \\
+\hline
+{\em category} & \\
+\hline
+{\em topic} & \\
+\hline
+{\em ex} & \\
+\hline
+{\em caller} & \\
+\hline
+{\em path} & \\
+\hline
+{\em line} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 24 of file Log\+Manager.\+cs.
+
+Here is the call graph for this function\+:
+% FIG 0
+Here is the caller graph for this function\+:
+% FIG 1
+\mbox{\label{class_pangolin___database___app_1_1_logger_1_1_log_manager_af4d3065a50208ec03341c3694c84e118}} 
+\index{Pangolin\_Database\_App.Logger.LogManager@{Pangolin\_Database\_App.Logger.LogManager}!logError@{logError}}
+\index{logError@{logError}!Pangolin\_Database\_App.Logger.LogManager@{Pangolin\_Database\_App.Logger.LogManager}}
+\doxysubsubsection{logError()}
+{\footnotesize\ttfamily static void Pangolin\+\_\+\+Database\+\_\+\+App.\+Logger.\+Log\+Manager.\+log\+Error (\begin{DoxyParamCaption}\item[{Exception}]{ex,  }\item[{string}]{message = {\ttfamily \char`\"{}\char`\"{}},  }\item[{\textbf{ Log\+Topic}}]{topic = {\ttfamily \textbf{ Log\+Topic.\+Other}},  }\item[{[\+Caller\+Member\+Name] string}]{caller = {\ttfamily \char`\"{}\char`\"{}},  }\item[{[\+Caller\+File\+Path] string}]{path = {\ttfamily \char`\"{}\char`\"{}},  }\item[{[\+Caller\+Line\+Number] int}]{line = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Error log 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ex} & \\
+\hline
+{\em message} & \\
+\hline
+{\em topic} & \\
+\hline
+{\em caller} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 58 of file Log\+Manager.\+cs.
+
+Here is the call graph for this function\+:
+% FIG 2
+Here is the caller graph for this function\+:
+% FIG 3
+\mbox{\label{class_pangolin___database___app_1_1_logger_1_1_log_manager_a4e09d4e1cb5f216e9db5d73d01447ec1}} 
+\index{Pangolin\_Database\_App.Logger.LogManager@{Pangolin\_Database\_App.Logger.LogManager}!logInfo@{logInfo}}
+\index{logInfo@{logInfo}!Pangolin\_Database\_App.Logger.LogManager@{Pangolin\_Database\_App.Logger.LogManager}}
+\doxysubsubsection{logInfo()}
+{\footnotesize\ttfamily static void Pangolin\+\_\+\+Database\+\_\+\+App.\+Logger.\+Log\+Manager.\+log\+Info (\begin{DoxyParamCaption}\item[{string}]{message = {\ttfamily \char`\"{}\char`\"{}},  }\item[{\textbf{ Log\+Topic}}]{topic = {\ttfamily \textbf{ Log\+Topic.\+Other}},  }\item[{[\+Caller\+Member\+Name] string}]{caller = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Info log 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & \\
+\hline
+{\em topic} & \\
+\hline
+{\em caller} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 71 of file Log\+Manager.\+cs.
+
+Here is the call graph for this function\+:
+% FIG 4
+Here is the caller graph for this function\+:
+% FIG 5
+\mbox{\label{class_pangolin___database___app_1_1_logger_1_1_log_manager_aef33753249f2f7e61ee2acd392f798fa}} 
+\index{Pangolin\_Database\_App.Logger.LogManager@{Pangolin\_Database\_App.Logger.LogManager}!logWarning@{logWarning}}
+\index{logWarning@{logWarning}!Pangolin\_Database\_App.Logger.LogManager@{Pangolin\_Database\_App.Logger.LogManager}}
+\doxysubsubsection{logWarning()}
+{\footnotesize\ttfamily static void Pangolin\+\_\+\+Database\+\_\+\+App.\+Logger.\+Log\+Manager.\+log\+Warning (\begin{DoxyParamCaption}\item[{string}]{message = {\ttfamily \char`\"{}\char`\"{}},  }\item[{\textbf{ Log\+Topic}}]{topic = {\ttfamily \textbf{ Log\+Topic.\+Other}},  }\item[{[\+Caller\+Member\+Name] string}]{caller = {\ttfamily \char`\"{}\char`\"{}},  }\item[{[\+Caller\+File\+Path] string}]{path = {\ttfamily \char`\"{}\char`\"{}},  }\item[{[\+Caller\+Line\+Number] int}]{line = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Warning log 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & \\
+\hline
+{\em topic} & \\
+\hline
+{\em caller} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 46 of file Log\+Manager.\+cs.
+
+Here is the call graph for this function\+:
+% FIG 6
+Here is the caller graph for this function\+:
+% FIG 7
+\mbox{\label{class_pangolin___database___app_1_1_logger_1_1_log_manager_a493bbc327526f1b16d6be830e09c51d9}} 
+\index{Pangolin\_Database\_App.Logger.LogManager@{Pangolin\_Database\_App.Logger.LogManager}!Print@{Print}}
+\index{Print@{Print}!Pangolin\_Database\_App.Logger.LogManager@{Pangolin\_Database\_App.Logger.LogManager}}
+\doxysubsubsection{Print()}
+{\footnotesize\ttfamily static void Pangolin\+\_\+\+Database\+\_\+\+App.\+Logger.\+Log\+Manager.\+Print (\begin{DoxyParamCaption}\item[{string}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Prints debug output 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 80 of file Log\+Manager.\+cs.
+
+Here is the caller graph for this function\+:
+% FIG 8
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Pangolin Database-\/\+App/\+Logger/\textbf{ Log\+Manager.\+cs}\end{DoxyCompactItemize}

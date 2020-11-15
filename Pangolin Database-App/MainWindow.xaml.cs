@@ -9,16 +9,21 @@ using System;
 
 namespace Pangolin_Database_App
 {
+    
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
+        private static double minX = 0;
+        private static double minY = 0;
         public MainWindow()
         {
             DatabaseManager.InitDatabase();
             InitializeComponent();
             this.DataContext = new MainMenuViewModel();
+            minX = this.MinWidth;
+            minY = this.MinHeight;
             this.SourceInitialized += win_SourceInitialized;
             
         }
@@ -97,6 +102,8 @@ namespace Pangolin_Database_App
                 mmi.ptMaxPosition.y = Math.Abs(rcWorkArea.top - rcMonitorArea.top);
                 mmi.ptMaxSize.x = Math.Abs(rcWorkArea.right - rcWorkArea.left);
                 mmi.ptMaxSize.y = Math.Abs(rcWorkArea.bottom - rcWorkArea.top);
+                mmi.ptMinTrackSize.x = (int)minX;
+                mmi.ptMinTrackSize.y = (int)minY;
             }
 
             Marshal.StructureToPtr(mmi, lParam, true);

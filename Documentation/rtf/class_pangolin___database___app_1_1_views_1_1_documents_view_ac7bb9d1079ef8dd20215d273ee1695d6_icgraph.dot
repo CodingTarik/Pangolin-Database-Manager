@@ -1,0 +1,12 @@
+digraph "Pangolin_Database_App.Views.DocumentsView.Refresh_List"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="Pangolin_Database_App.Views.\lDocumentsView.Refresh_List",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Pangolin_Database_App.Views.\lDocumentsView.UpdateFiles_Click",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_pangolin___database___app_1_1_views_1_1_documents_view.html#a4e723c5db016eb9a0ac4cd74b4169ada",tooltip=" "];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="Pangolin_Database_App.Views.\lDocumentsView.Upload_Click",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_pangolin___database___app_1_1_views_1_1_documents_view.html#aa2ac67400d4a6699cab40f9731446074",tooltip=" "];
+}

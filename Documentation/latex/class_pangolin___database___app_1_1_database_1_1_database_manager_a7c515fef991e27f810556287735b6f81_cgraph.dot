@@ -1,0 +1,27 @@
+digraph "Pangolin_Database_App.Database.DatabaseManager.GetDatabase"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="Pangolin_Database_App.Database.\lDatabaseManager.GetDatabase",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Singelton-Pattern to get database"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="Pangolin_Database_App.Database.\lUserManagment.AddDefaultAdminUser",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_pangolin___database___app_1_1_database_1_1_user_managment.html#a2530f412422d50828cc940b94239cdcc",tooltip="ads new default admin user"];
+  Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="Pangolin_Database_App.Database.\lUserManagment.AddNewUser",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_pangolin___database___app_1_1_database_1_1_user_managment.html#a0dd3e54ff7217a1cd4b43720e3f6ac0a",tooltip="This method adds a new user to database"];
+  Node3 -> Node1 [color="midnightblue",fontsize="10",style="solid"];
+  Node2 -> Node4 [color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="Pangolin_Database_App.Database.\lUserManagment.ComputeSha256Hash",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_pangolin___database___app_1_1_database_1_1_user_managment.html#a5e3271e7094c808a9569d0835f3c1130",tooltip="Used for hashing user passwords"];
+  Node1 -> Node5 [color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="Pangolin_Database_App.Logger.\lLogManager.log",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_pangolin___database___app_1_1_logger_1_1_log_manager.html#ae37d387011ee14f1a945d8fce0372688",tooltip="Logs for debug"];
+  Node5 -> Node6 [color="midnightblue",fontsize="10",style="solid"];
+  Node6 [label="Pangolin_Database_App.Logger.\lLogManager.logError",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_pangolin___database___app_1_1_logger_1_1_log_manager.html#af4d3065a50208ec03341c3694c84e118",tooltip="Error log"];
+  Node6 -> Node7 [color="midnightblue",fontsize="10",style="solid"];
+  Node7 [label="Pangolin_Database_App.Logger.\lLogManager.Print",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_pangolin___database___app_1_1_logger_1_1_log_manager.html#a493bbc327526f1b16d6be830e09c51d9",tooltip="Prints debug output"];
+  Node5 -> Node8 [color="midnightblue",fontsize="10",style="solid"];
+  Node8 [label="Pangolin_Database_App.Logger.\lLogManager.logInfo",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_pangolin___database___app_1_1_logger_1_1_log_manager.html#a4e09d4e1cb5f216e9db5d73d01447ec1",tooltip="Info log"];
+  Node8 -> Node7 [color="midnightblue",fontsize="10",style="solid"];
+  Node5 -> Node9 [color="midnightblue",fontsize="10",style="solid"];
+  Node9 [label="Pangolin_Database_App.Logger.\lLogManager.logWarning",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_pangolin___database___app_1_1_logger_1_1_log_manager.html#aef33753249f2f7e61ee2acd392f798fa",tooltip="Warning log"];
+  Node9 -> Node7 [color="midnightblue",fontsize="10",style="solid"];
+}

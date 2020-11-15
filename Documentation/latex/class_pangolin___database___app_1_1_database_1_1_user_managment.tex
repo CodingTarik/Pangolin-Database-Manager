@@ -1,0 +1,229 @@
+\doxysection{Pangolin\+\_\+\+Database\+\_\+\+App.\+Database.\+User\+Managment Class Reference}
+\label{class_pangolin___database___app_1_1_database_1_1_user_managment}\index{Pangolin\_Database\_App.Database.UserManagment@{Pangolin\_Database\_App.Database.UserManagment}}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \textbf{ Add\+Default\+Admin\+User} ()
+\begin{DoxyCompactList}\small\item\em ads new default admin user \end{DoxyCompactList}\item 
+static bool \textbf{ Add\+New\+User} (string firstname, string lastname, string username, string passwordhash, bool is\+Admin=false)
+\begin{DoxyCompactList}\small\item\em This method adds a new user to database \end{DoxyCompactList}\item 
+static string \textbf{ Compute\+Sha256\+Hash} (string raw\+Data)
+\begin{DoxyCompactList}\small\item\em Used for hashing user passwords \end{DoxyCompactList}\item 
+static void \textbf{ Delete\+Cookie\+Data} ()
+\begin{DoxyCompactList}\small\item\em Deletes cookie data \end{DoxyCompactList}\item 
+static \textbf{ User} \textbf{ Get\+User\+By\+Username\+And\+Cookie} (string username, string cookie)
+\begin{DoxyCompactList}\small\item\em returns user by username and cookie \end{DoxyCompactList}\item 
+static \textbf{ User} \textbf{ Get\+User\+By\+Username\+And\+Password} (string username, string password)
+\begin{DoxyCompactList}\small\item\em returns user by username and password \end{DoxyCompactList}\item 
+static \textbf{ User} \textbf{ Load\+User\+By\+Cookie} ()
+\begin{DoxyCompactList}\small\item\em Checks if cookie data exists and tries to get the user \end{DoxyCompactList}\item 
+static void \textbf{ Save\+Login\+Data} ()
+\begin{DoxyCompactList}\small\item\em Saves login data of current user as a xml cookie \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+static \textbf{ User} \textbf{ Active\+User}\hspace{0.3cm}{\ttfamily  [get, set]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 11 of file User\+Managment.\+cs.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{class_pangolin___database___app_1_1_database_1_1_user_managment_a2530f412422d50828cc940b94239cdcc}} 
+\index{Pangolin\_Database\_App.Database.UserManagment@{Pangolin\_Database\_App.Database.UserManagment}!AddDefaultAdminUser@{AddDefaultAdminUser}}
+\index{AddDefaultAdminUser@{AddDefaultAdminUser}!Pangolin\_Database\_App.Database.UserManagment@{Pangolin\_Database\_App.Database.UserManagment}}
+\doxysubsubsection{AddDefaultAdminUser()}
+{\footnotesize\ttfamily static void Pangolin\+\_\+\+Database\+\_\+\+App.\+Database.\+User\+Managment.\+Add\+Default\+Admin\+User (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+ads new default admin user 
+
+
+
+Definition at line 77 of file User\+Managment.\+cs.
+
+Here is the call graph for this function\+:
+% FIG 0
+Here is the caller graph for this function\+:
+% FIG 1
+\mbox{\label{class_pangolin___database___app_1_1_database_1_1_user_managment_a0dd3e54ff7217a1cd4b43720e3f6ac0a}} 
+\index{Pangolin\_Database\_App.Database.UserManagment@{Pangolin\_Database\_App.Database.UserManagment}!AddNewUser@{AddNewUser}}
+\index{AddNewUser@{AddNewUser}!Pangolin\_Database\_App.Database.UserManagment@{Pangolin\_Database\_App.Database.UserManagment}}
+\doxysubsubsection{AddNewUser()}
+{\footnotesize\ttfamily static bool Pangolin\+\_\+\+Database\+\_\+\+App.\+Database.\+User\+Managment.\+Add\+New\+User (\begin{DoxyParamCaption}\item[{string}]{firstname,  }\item[{string}]{lastname,  }\item[{string}]{username,  }\item[{string}]{passwordhash,  }\item[{bool}]{is\+Admin = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+This method adds a new user to database 
+
+
+\begin{DoxyParams}{Parameters}
+{\em firstname} & \\
+\hline
+{\em lastname} & \\
+\hline
+{\em username} & \\
+\hline
+{\em passwordhash} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+false if there is already a user with this username, else true
+\end{DoxyReturn}
+
+
+Definition at line 46 of file User\+Managment.\+cs.
+
+Here is the call graph for this function\+:
+% FIG 2
+Here is the caller graph for this function\+:
+% FIG 3
+\mbox{\label{class_pangolin___database___app_1_1_database_1_1_user_managment_a5e3271e7094c808a9569d0835f3c1130}} 
+\index{Pangolin\_Database\_App.Database.UserManagment@{Pangolin\_Database\_App.Database.UserManagment}!ComputeSha256Hash@{ComputeSha256Hash}}
+\index{ComputeSha256Hash@{ComputeSha256Hash}!Pangolin\_Database\_App.Database.UserManagment@{Pangolin\_Database\_App.Database.UserManagment}}
+\doxysubsubsection{ComputeSha256Hash()}
+{\footnotesize\ttfamily static string Pangolin\+\_\+\+Database\+\_\+\+App.\+Database.\+User\+Managment.\+Compute\+Sha256\+Hash (\begin{DoxyParamCaption}\item[{string}]{raw\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Used for hashing user passwords 
+
+
+\begin{DoxyParams}{Parameters}
+{\em raw\+Data} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+hashed sha256 string
+\end{DoxyReturn}
+
+
+Definition at line 21 of file User\+Managment.\+cs.
+
+Here is the caller graph for this function\+:
+% FIG 4
+\mbox{\label{class_pangolin___database___app_1_1_database_1_1_user_managment_ad867f1c300942e486d44e71f5a3fd0cf}} 
+\index{Pangolin\_Database\_App.Database.UserManagment@{Pangolin\_Database\_App.Database.UserManagment}!DeleteCookieData@{DeleteCookieData}}
+\index{DeleteCookieData@{DeleteCookieData}!Pangolin\_Database\_App.Database.UserManagment@{Pangolin\_Database\_App.Database.UserManagment}}
+\doxysubsubsection{DeleteCookieData()}
+{\footnotesize\ttfamily static void Pangolin\+\_\+\+Database\+\_\+\+App.\+Database.\+User\+Managment.\+Delete\+Cookie\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Deletes cookie data 
+
+
+
+Definition at line 111 of file User\+Managment.\+cs.
+
+\mbox{\label{class_pangolin___database___app_1_1_database_1_1_user_managment_afd56f9bd32f8db5a5a58fafb92b5a8f0}} 
+\index{Pangolin\_Database\_App.Database.UserManagment@{Pangolin\_Database\_App.Database.UserManagment}!GetUserByUsernameAndCookie@{GetUserByUsernameAndCookie}}
+\index{GetUserByUsernameAndCookie@{GetUserByUsernameAndCookie}!Pangolin\_Database\_App.Database.UserManagment@{Pangolin\_Database\_App.Database.UserManagment}}
+\doxysubsubsection{GetUserByUsernameAndCookie()}
+{\footnotesize\ttfamily static \textbf{ User} Pangolin\+\_\+\+Database\+\_\+\+App.\+Database.\+User\+Managment.\+Get\+User\+By\+Username\+And\+Cookie (\begin{DoxyParamCaption}\item[{string}]{username,  }\item[{string}]{cookie }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+returns user by username and cookie 
+
+
+\begin{DoxyParams}{Parameters}
+{\em username} & \\
+\hline
+{\em cookie} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 101 of file User\+Managment.\+cs.
+
+Here is the caller graph for this function\+:
+% FIG 5
+\mbox{\label{class_pangolin___database___app_1_1_database_1_1_user_managment_a1b27d73c71fe95f2ea41fc8f2542ff2e}} 
+\index{Pangolin\_Database\_App.Database.UserManagment@{Pangolin\_Database\_App.Database.UserManagment}!GetUserByUsernameAndPassword@{GetUserByUsernameAndPassword}}
+\index{GetUserByUsernameAndPassword@{GetUserByUsernameAndPassword}!Pangolin\_Database\_App.Database.UserManagment@{Pangolin\_Database\_App.Database.UserManagment}}
+\doxysubsubsection{GetUserByUsernameAndPassword()}
+{\footnotesize\ttfamily static \textbf{ User} Pangolin\+\_\+\+Database\+\_\+\+App.\+Database.\+User\+Managment.\+Get\+User\+By\+Username\+And\+Password (\begin{DoxyParamCaption}\item[{string}]{username,  }\item[{string}]{password }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+returns user by username and password 
+
+
+\begin{DoxyParams}{Parameters}
+{\em username} & \\
+\hline
+{\em password} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 88 of file User\+Managment.\+cs.
+
+Here is the call graph for this function\+:
+% FIG 6
+\mbox{\label{class_pangolin___database___app_1_1_database_1_1_user_managment_a787204f8e184e94a7275b9ff6f360bb8}} 
+\index{Pangolin\_Database\_App.Database.UserManagment@{Pangolin\_Database\_App.Database.UserManagment}!LoadUserByCookie@{LoadUserByCookie}}
+\index{LoadUserByCookie@{LoadUserByCookie}!Pangolin\_Database\_App.Database.UserManagment@{Pangolin\_Database\_App.Database.UserManagment}}
+\doxysubsubsection{LoadUserByCookie()}
+{\footnotesize\ttfamily static \textbf{ User} Pangolin\+\_\+\+Database\+\_\+\+App.\+Database.\+User\+Managment.\+Load\+User\+By\+Cookie (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Checks if cookie data exists and tries to get the user 
+
+\begin{DoxyReturn}{Returns}
+if there are valid cookie datas then return of the user else null
+\end{DoxyReturn}
+
+
+Definition at line 151 of file User\+Managment.\+cs.
+
+Here is the call graph for this function\+:
+% FIG 7
+\mbox{\label{class_pangolin___database___app_1_1_database_1_1_user_managment_a609810049de327dd95196ee5a4206cac}} 
+\index{Pangolin\_Database\_App.Database.UserManagment@{Pangolin\_Database\_App.Database.UserManagment}!SaveLoginData@{SaveLoginData}}
+\index{SaveLoginData@{SaveLoginData}!Pangolin\_Database\_App.Database.UserManagment@{Pangolin\_Database\_App.Database.UserManagment}}
+\doxysubsubsection{SaveLoginData()}
+{\footnotesize\ttfamily static void Pangolin\+\_\+\+Database\+\_\+\+App.\+Database.\+User\+Managment.\+Save\+Login\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Saves login data of current user as a xml cookie 
+
+
+
+Definition at line 121 of file User\+Managment.\+cs.
+
+Here is the call graph for this function\+:
+% FIG 8
+
+
+\doxysubsection{Property Documentation}
+\mbox{\label{class_pangolin___database___app_1_1_database_1_1_user_managment_a46ae5cc092917d88447573df2cce963e}} 
+\index{Pangolin\_Database\_App.Database.UserManagment@{Pangolin\_Database\_App.Database.UserManagment}!ActiveUser@{ActiveUser}}
+\index{ActiveUser@{ActiveUser}!Pangolin\_Database\_App.Database.UserManagment@{Pangolin\_Database\_App.Database.UserManagment}}
+\doxysubsubsection{ActiveUser}
+{\footnotesize\ttfamily \textbf{ User} Pangolin\+\_\+\+Database\+\_\+\+App.\+Database.\+User\+Managment.\+Active\+User\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definition at line 14 of file User\+Managment.\+cs.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Pangolin Database-\/\+App/\+Database/\textbf{ User\+Managment.\+cs}\end{DoxyCompactItemize}

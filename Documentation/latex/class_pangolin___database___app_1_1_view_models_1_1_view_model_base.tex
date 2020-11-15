@@ -1,0 +1,708 @@
+\doxysection{Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+View\+Model\+Base$<$ T $>$ Class Template Reference}
+\label{class_pangolin___database___app_1_1_view_models_1_1_view_model_base}\index{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}}
+
+
+Inheritance diagram for Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+View\+Model\+Base$<$ T $>$\+:
+% FIG 0
+
+
+Collaboration diagram for Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+View\+Model\+Base$<$ T $>$\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ Hide\+App\+Snackbar} ()
+\begin{DoxyCompactList}\small\item\em Hides snackbar \end{DoxyCompactList}\item 
+delegate void \textbf{ Int\+Value} (int count)
+\item 
+void \textbf{ Notify\+Property\+Changed} ([Caller\+Member\+Name] string property\+Name=\char`\"{}\char`\"{})
+\begin{DoxyCompactList}\small\item\em Method if a property changed \end{DoxyCompactList}\item 
+bool \textbf{ Read\+Bit} (int property, int bit)
+\begin{DoxyCompactList}\small\item\em Reads bit in bitmask \end{DoxyCompactList}\item 
+void \textbf{ Reload\+Selected\+Model} (bool reset\+If\+Not\+In\+Database=false)
+\begin{DoxyCompactList}\small\item\em Reloads the selected model \end{DoxyCompactList}\item 
+virtual void \textbf{ Reset\+Selected\+Model} ()
+\begin{DoxyCompactList}\small\item\em Resets selected model \end{DoxyCompactList}\item 
+virtual void \textbf{ Reset\+Selected\+Model\+To\+Default\+Values} ()
+\begin{DoxyCompactList}\small\item\em Resets Selected Model to default values \end{DoxyCompactList}\item 
+void \textbf{ Set\+Bit} (int property, int bit, bool value, \textbf{ Int\+Value} i=null)
+\begin{DoxyCompactList}\small\item\em Sets bit in bitmask \end{DoxyCompactList}\item 
+void \textbf{ Show\+Snackbar} (string message)
+\begin{DoxyCompactList}\small\item\em Shows snackbar with a message \end{DoxyCompactList}\item 
+void \textbf{ Show\+Snackbar} (string message, int seconds)
+\begin{DoxyCompactList}\small\item\em Shows snackbar with a message \end{DoxyCompactList}\item 
+void \textbf{ Update\+Selected\+Model} ()
+\begin{DoxyCompactList}\small\item\em Checks if the selected model is already in the database, if yes the model will be updated if no the model will be added \end{DoxyCompactList}\item 
+bool \textbf{ Validate\+Model} ()
+\begin{DoxyCompactList}\small\item\em Validates a model \end{DoxyCompactList}\item 
+\textbf{ View\+Model\+Base} (Db\+Set$<$ T $>$ \textbf{ dbset})
+\begin{DoxyCompactList}\small\item\em Applies dbset and relay command for hidesnackbar \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Relay\+Command} \textbf{ Hide\+Snackbar}\hspace{0.3cm}{\ttfamily  [get, set]}
+\begin{DoxyCompactList}\small\item\em Relay command for hide snackbar \end{DoxyCompactList}\item 
+Observable\+Collection$<$ \textbf{ Pangolin} $>$ \textbf{ Pangolins}\hspace{0.3cm}{\ttfamily  [get, private set]}
+\begin{DoxyCompactList}\small\item\em Collection for all pangolins \end{DoxyCompactList}\item 
+T \textbf{ Selected\+Model}\hspace{0.3cm}{\ttfamily  [get, set]}
+\begin{DoxyCompactList}\small\item\em Property for curent selected model \end{DoxyCompactList}\item 
+\textbf{ Pangolin} \textbf{ Selected\+Pangolin}\hspace{0.3cm}{\ttfamily  [get, set]}
+\begin{DoxyCompactList}\small\item\em Selected Pangolin for reference \end{DoxyCompactList}\item 
+bool \textbf{ Snackbar\+Active}\hspace{0.3cm}{\ttfamily  [get, set]}
+\begin{DoxyCompactList}\small\item\em Property for snackbar \end{DoxyCompactList}\item 
+string \textbf{ Snackbar\+Message}\hspace{0.3cm}{\ttfamily  [get, set]}
+\begin{DoxyCompactList}\small\item\em Property for snackbar \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Events}
+\begin{DoxyCompactItemize}
+\item 
+Event\+Handler$<$ \textbf{ Pangolin} $>$ \textbf{ Pangolin\+Changed}
+\begin{DoxyCompactList}\small\item\em Fires if pangolin changed, passes new pangolin as parameter \end{DoxyCompactList}\item 
+Property\+Changed\+Event\+Handler \textbf{ Property\+Changed}
+\item 
+Event\+Handler$<$ T $>$ \textbf{ Reload\+Model\+Event}
+\begin{DoxyCompactList}\small\item\em Event for handeling a model reload, will be called after model reload \end{DoxyCompactList}\item 
+Event\+Handler$<$ T $>$ \textbf{ Reload\+Selected\+Model\+Event}
+\begin{DoxyCompactList}\small\item\em Event for handeling selected model reload, will be called before model reload (use) reloadmodelevent if you want to catch after \end{DoxyCompactList}\item 
+Event\+Handler \textbf{ Update\+Model\+Event}
+\begin{DoxyCompactList}\small\item\em Event for handeling updates \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ Change\+Pangolin\+Reference\+For\+Model} ()
+\begin{DoxyCompactList}\small\item\em Searches for Pangolin references in model and sets it to selectedpangolin \end{DoxyCompactList}\item 
+object \textbf{ Get\+Primary\+Key\+For\+Model} (T model)
+\begin{DoxyCompactList}\small\item\em Obtains the primary key of the selected model through reflection this methods searches for a property with they key attribute if no property is found, Key\+Not\+Found\+Exception will be thrown \end{DoxyCompactList}\item 
+bool \textbf{ Model\+Exist\+In\+Database} (T model)
+\begin{DoxyCompactList}\small\item\em Checks if the selected model exist in database \end{DoxyCompactList}\item 
+bool \textbf{ Primary\+Key\+Exist} (Db\+Set$<$ T $>$ db, object[$\,$] primary\+Keys)
+\begin{DoxyCompactList}\small\item\em searches in the dbset if the primary key exists \end{DoxyCompactList}\item 
+bool \textbf{ Reload\+Model} (T model)
+\begin{DoxyCompactList}\small\item\em Resets the selected model to its default value \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Relay\+Command} \textbf{ \+\_\+hide\+Snackbar}
+\begin{DoxyCompactList}\small\item\em Saves relaycommand for hide snackbar \end{DoxyCompactList}\item 
+Observable\+Collection$<$ \textbf{ Pangolin} $>$ \textbf{ \+\_\+pangolins} = new Observable\+Collection$<$\textbf{ Pangolin}$>$(Database\+Manager.\+Get\+Pangolins())
+\begin{DoxyCompactList}\small\item\em Saves all pangolins \end{DoxyCompactList}\item 
+T \textbf{ \+\_\+selected\+Model}
+\item 
+\textbf{ Pangolin} \textbf{ \+\_\+selected\+Pangolin}
+\begin{DoxyCompactList}\small\item\em Saves selected pangolin \end{DoxyCompactList}\item 
+bool \textbf{ \+\_\+snackbar\+Active}
+\item 
+string \textbf{ \+\_\+snackbar\+Message}
+\item 
+Db\+Set$<$ T $>$ \textbf{ dbset}
+\begin{DoxyCompactList}\small\item\em Saves dbset that should be used for this view model \end{DoxyCompactList}\item 
+int \textbf{ session\+Snackbar\+Key} = 0
+\begin{DoxyCompactList}\small\item\em Key for hiding thread bar after certain seconds, checks if method was raised another time \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{Desc}
+\item[Type Constraints]\begin{description}
+\item[{\em T} : {\em Model\+Base}]\end{description}
+\end{Desc}
+
+
+Definition at line 16 of file View\+Model\+Base.\+cs.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_view_model_base_a3be6ac20ffe3dda7a567b3e244cad2d5}} 
+\index{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}!ViewModelBase@{ViewModelBase}}
+\index{ViewModelBase@{ViewModelBase}!Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}}
+\doxysubsubsection{ViewModelBase()}
+{\footnotesize\ttfamily \textbf{ Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+View\+Model\+Base}$<$ T $>$.\textbf{ View\+Model\+Base} (\begin{DoxyParamCaption}\item[{Db\+Set$<$ T $>$}]{dbset }\end{DoxyParamCaption})}
+
+
+
+Applies dbset and relay command for hidesnackbar 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dbset} & dbset the view model base should access\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 131 of file View\+Model\+Base.\+cs.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_view_model_base_a296aa58b36f1884ee93481fc8ebe4a54}} 
+\index{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}!ChangePangolinReferenceForModel@{ChangePangolinReferenceForModel}}
+\index{ChangePangolinReferenceForModel@{ChangePangolinReferenceForModel}!Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}}
+\doxysubsubsection{ChangePangolinReferenceForModel()}
+{\footnotesize\ttfamily void \textbf{ Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+View\+Model\+Base}$<$ T $>$.Change\+Pangolin\+Reference\+For\+Model (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Searches for Pangolin references in model and sets it to selectedpangolin 
+
+
+
+Definition at line 182 of file View\+Model\+Base.\+cs.
+
+Here is the caller graph for this function\+:
+% FIG 2
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_view_model_base_a7aa36254ce1dd0ac33d6a7abab359039}} 
+\index{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}!GetPrimaryKeyForModel@{GetPrimaryKeyForModel}}
+\index{GetPrimaryKeyForModel@{GetPrimaryKeyForModel}!Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}}
+\doxysubsubsection{GetPrimaryKeyForModel()}
+{\footnotesize\ttfamily object \textbf{ Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+View\+Model\+Base}$<$ T $>$.Get\+Primary\+Key\+For\+Model (\begin{DoxyParamCaption}\item[{T}]{model }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Obtains the primary key of the selected model through reflection this methods searches for a property with they key attribute if no property is found, Key\+Not\+Found\+Exception will be thrown 
+
+\begin{DoxyReturn}{Returns}
+Value of the primary key
+\end{DoxyReturn}
+
+
+Definition at line 359 of file View\+Model\+Base.\+cs.
+
+Here is the caller graph for this function\+:
+% FIG 3
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_view_model_base_aa56019707bf353a12d19f33492211d8b}} 
+\index{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}!HideAppSnackbar@{HideAppSnackbar}}
+\index{HideAppSnackbar@{HideAppSnackbar}!Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}}
+\doxysubsubsection{HideAppSnackbar()}
+{\footnotesize\ttfamily void \textbf{ Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+View\+Model\+Base}$<$ T $>$.Hide\+App\+Snackbar (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Hides snackbar 
+
+
+
+Definition at line 87 of file View\+Model\+Base.\+cs.
+
+Here is the caller graph for this function\+:
+% FIG 4
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_view_model_base_a7a804f1dcb8fee6a9e8b58412cafb404}} 
+\index{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}!IntValue@{IntValue}}
+\index{IntValue@{IntValue}!Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}}
+\doxysubsubsection{IntValue()}
+{\footnotesize\ttfamily delegate void \textbf{ Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+View\+Model\+Base}$<$ T $>$.Int\+Value (\begin{DoxyParamCaption}\item[{int}]{count }\end{DoxyParamCaption})}
+
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_view_model_base_aaedc1c94293f3f6ec676aea7a7b2cde9}} 
+\index{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}!ModelExistInDatabase@{ModelExistInDatabase}}
+\index{ModelExistInDatabase@{ModelExistInDatabase}!Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}}
+\doxysubsubsection{ModelExistInDatabase()}
+{\footnotesize\ttfamily bool \textbf{ Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+View\+Model\+Base}$<$ T $>$.Model\+Exist\+In\+Database (\begin{DoxyParamCaption}\item[{T}]{model }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Checks if the selected model exist in database 
+
+\begin{DoxyReturn}{Returns}
+true if it exists false if the model does not exist in the database 
+\end{DoxyReturn}
+
+
+Definition at line 347 of file View\+Model\+Base.\+cs.
+
+Here is the caller graph for this function\+:
+% FIG 5
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_view_model_base_aec8e7d1e2646af4d9e9878755667b2ca}} 
+\index{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}!NotifyPropertyChanged@{NotifyPropertyChanged}}
+\index{NotifyPropertyChanged@{NotifyPropertyChanged}!Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}}
+\doxysubsubsection{NotifyPropertyChanged()}
+{\footnotesize\ttfamily void \textbf{ Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+View\+Model\+Base}$<$ T $>$.Notify\+Property\+Changed (\begin{DoxyParamCaption}\item[{[\+Caller\+Member\+Name] string}]{property\+Name = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})}
+
+
+
+Method if a property changed 
+
+
+\begin{DoxyParams}{Parameters}
+{\em property\+Name} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 402 of file View\+Model\+Base.\+cs.
+
+Here is the caller graph for this function\+:
+% FIG 6
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_view_model_base_ad96056720cde258549930f7faad342cf}} 
+\index{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}!PrimaryKeyExist@{PrimaryKeyExist}}
+\index{PrimaryKeyExist@{PrimaryKeyExist}!Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}}
+\doxysubsubsection{PrimaryKeyExist()}
+{\footnotesize\ttfamily bool \textbf{ Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+View\+Model\+Base}$<$ T $>$.Primary\+Key\+Exist (\begin{DoxyParamCaption}\item[{Db\+Set$<$ T $>$}]{db,  }\item[{object[$\,$]}]{primary\+Keys }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+searches in the dbset if the primary key exists 
+
+
+\begin{DoxyParams}{Parameters}
+{\em db} & \\
+\hline
+{\em primary\+Keys} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 384 of file View\+Model\+Base.\+cs.
+
+Here is the caller graph for this function\+:
+% FIG 7
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_view_model_base_ae3f701fcbc57a5e9be8ae4fd275be8af}} 
+\index{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}!ReadBit@{ReadBit}}
+\index{ReadBit@{ReadBit}!Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}}
+\doxysubsubsection{ReadBit()}
+{\footnotesize\ttfamily bool \textbf{ Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+View\+Model\+Base}$<$ T $>$.Read\+Bit (\begin{DoxyParamCaption}\item[{int}]{property,  }\item[{int}]{bit }\end{DoxyParamCaption})}
+
+
+
+Reads bit in bitmask 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bit} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 49 of file View\+Model\+Base.\+cs.
+
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_view_model_base_a333216f228ae94c0eab164ad29481492}} 
+\index{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}!ReloadModel@{ReloadModel}}
+\index{ReloadModel@{ReloadModel}!Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}}
+\doxysubsubsection{ReloadModel()}
+{\footnotesize\ttfamily bool \textbf{ Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+View\+Model\+Base}$<$ T $>$.Reload\+Model (\begin{DoxyParamCaption}\item[{T}]{model }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Resets the selected model to its default value 
+
+
+
+Definition at line 322 of file View\+Model\+Base.\+cs.
+
+Here is the caller graph for this function\+:
+% FIG 8
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_view_model_base_ad79cfea8ac201f5b386e237c0f5ff8f7}} 
+\index{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}!ReloadSelectedModel@{ReloadSelectedModel}}
+\index{ReloadSelectedModel@{ReloadSelectedModel}!Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}}
+\doxysubsubsection{ReloadSelectedModel()}
+{\footnotesize\ttfamily void \textbf{ Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+View\+Model\+Base}$<$ T $>$.Reload\+Selected\+Model (\begin{DoxyParamCaption}\item[{bool}]{reset\+If\+Not\+In\+Database = {\ttfamily false} }\end{DoxyParamCaption})}
+
+
+
+Reloads the selected model 
+
+
+
+Definition at line 301 of file View\+Model\+Base.\+cs.
+
+Here is the caller graph for this function\+:
+% FIG 9
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_view_model_base_ab4102fa22398188cf6d2447791ef5429}} 
+\index{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}!ResetSelectedModel@{ResetSelectedModel}}
+\index{ResetSelectedModel@{ResetSelectedModel}!Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}}
+\doxysubsubsection{ResetSelectedModel()}
+{\footnotesize\ttfamily virtual void \textbf{ Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+View\+Model\+Base}$<$ T $>$.Reset\+Selected\+Model (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Resets selected model 
+
+
+
+Implements \textbf{ Pangolin\+\_\+\+Database\+\_\+\+App.\+Util.\+I\+Update\+Model} \doxyref{}{p.}{interface_pangolin___database___app_1_1_util_1_1_i_update_model_ae51ea984f04fb15aa044ccf85671a8df}.
+
+
+
+Definition at line 413 of file View\+Model\+Base.\+cs.
+
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_view_model_base_a66e93060c31f4048acfb9f9408ef33eb}} 
+\index{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}!ResetSelectedModelToDefaultValues@{ResetSelectedModelToDefaultValues}}
+\index{ResetSelectedModelToDefaultValues@{ResetSelectedModelToDefaultValues}!Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}}
+\doxysubsubsection{ResetSelectedModelToDefaultValues()}
+{\footnotesize\ttfamily virtual void \textbf{ Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+View\+Model\+Base}$<$ T $>$.Reset\+Selected\+Model\+To\+Default\+Values (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Resets Selected Model to default values 
+
+
+
+Definition at line 422 of file View\+Model\+Base.\+cs.
+
+Here is the caller graph for this function\+:
+% FIG 10
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_view_model_base_a255180fd5de7bd4dee3f532328559843}} 
+\index{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}!SetBit@{SetBit}}
+\index{SetBit@{SetBit}!Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}}
+\doxysubsubsection{SetBit()}
+{\footnotesize\ttfamily void \textbf{ Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+View\+Model\+Base}$<$ T $>$.Set\+Bit (\begin{DoxyParamCaption}\item[{int}]{property,  }\item[{int}]{bit,  }\item[{bool}]{value,  }\item[{\textbf{ Int\+Value}}]{i = {\ttfamily null} }\end{DoxyParamCaption})}
+
+
+
+Sets bit in bitmask 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bit} & \\
+\hline
+{\em value} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 28 of file View\+Model\+Base.\+cs.
+
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_view_model_base_a6d87a9a8af52fb8f2dc3287a6ce314f6}} 
+\index{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}!ShowSnackbar@{ShowSnackbar}}
+\index{ShowSnackbar@{ShowSnackbar}!Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}}
+\doxysubsubsection{ShowSnackbar()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void \textbf{ Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+View\+Model\+Base}$<$ T $>$.Show\+Snackbar (\begin{DoxyParamCaption}\item[{string}]{message }\end{DoxyParamCaption})}
+
+
+
+Shows snackbar with a message 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 96 of file View\+Model\+Base.\+cs.
+
+Here is the caller graph for this function\+:
+% FIG 11
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_view_model_base_a6246200570f042fb539328e2b6da60af}} 
+\index{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}!ShowSnackbar@{ShowSnackbar}}
+\index{ShowSnackbar@{ShowSnackbar}!Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}}
+\doxysubsubsection{ShowSnackbar()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void \textbf{ Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+View\+Model\+Base}$<$ T $>$.Show\+Snackbar (\begin{DoxyParamCaption}\item[{string}]{message,  }\item[{int}]{seconds }\end{DoxyParamCaption})}
+
+
+
+Shows snackbar with a message 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 112 of file View\+Model\+Base.\+cs.
+
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_view_model_base_aa84a3b3c58bce35a5c82ff64f20d8b5c}} 
+\index{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}!UpdateSelectedModel@{UpdateSelectedModel}}
+\index{UpdateSelectedModel@{UpdateSelectedModel}!Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}}
+\doxysubsubsection{UpdateSelectedModel()}
+{\footnotesize\ttfamily void \textbf{ Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+View\+Model\+Base}$<$ T $>$.Update\+Selected\+Model (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Checks if the selected model is already in the database, if yes the model will be updated if no the model will be added 
+
+
+
+Implements \textbf{ Pangolin\+\_\+\+Database\+\_\+\+App.\+Util.\+I\+Update\+Model} \doxyref{}{p.}{interface_pangolin___database___app_1_1_util_1_1_i_update_model_a818cf389fb9a3c0b94d98a3ca7687899}.
+
+
+
+Definition at line 228 of file View\+Model\+Base.\+cs.
+
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_view_model_base_a124c0eea94f16d8980e19892c7438c0f}} 
+\index{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}!ValidateModel@{ValidateModel}}
+\index{ValidateModel@{ValidateModel}!Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}}
+\doxysubsubsection{ValidateModel()}
+{\footnotesize\ttfamily bool \textbf{ Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+View\+Model\+Base}$<$ T $>$.Validate\+Model (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Validates a model 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 271 of file View\+Model\+Base.\+cs.
+
+Here is the caller graph for this function\+:
+% FIG 12
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_view_model_base_ae1c5934c7a926a28b01417f639e41e1e}} 
+\index{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}!\_hideSnackbar@{\_hideSnackbar}}
+\index{\_hideSnackbar@{\_hideSnackbar}!Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}}
+\doxysubsubsection{\_hideSnackbar}
+{\footnotesize\ttfamily \textbf{ Relay\+Command} \textbf{ Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+View\+Model\+Base}$<$ T $>$.\+\_\+hide\+Snackbar\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Saves relaycommand for hide snackbar 
+
+
+
+Definition at line 77 of file View\+Model\+Base.\+cs.
+
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_view_model_base_ad98bd088890622899777b96e11c07d0c}} 
+\index{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}!\_pangolins@{\_pangolins}}
+\index{\_pangolins@{\_pangolins}!Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}}
+\doxysubsubsection{\_pangolins}
+{\footnotesize\ttfamily Observable\+Collection$<$\textbf{ Pangolin}$>$ \textbf{ Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+View\+Model\+Base}$<$ T $>$.\+\_\+pangolins = new Observable\+Collection$<$\textbf{ Pangolin}$>$(Database\+Manager.\+Get\+Pangolins())\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Saves all pangolins 
+
+
+
+Definition at line 140 of file View\+Model\+Base.\+cs.
+
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_view_model_base_a1e387da06d42af571543d576d857f638}} 
+\index{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}!\_selectedModel@{\_selectedModel}}
+\index{\_selectedModel@{\_selectedModel}!Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}}
+\doxysubsubsection{\_selectedModel}
+{\footnotesize\ttfamily T \textbf{ Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+View\+Model\+Base}$<$ T $>$.\+\_\+selected\+Model\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 198 of file View\+Model\+Base.\+cs.
+
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_view_model_base_a77883b71802adc32fe3cc3a75c1ad0de}} 
+\index{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}!\_selectedPangolin@{\_selectedPangolin}}
+\index{\_selectedPangolin@{\_selectedPangolin}!Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}}
+\doxysubsubsection{\_selectedPangolin}
+{\footnotesize\ttfamily \textbf{ Pangolin} \textbf{ Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+View\+Model\+Base}$<$ T $>$.\+\_\+selected\+Pangolin\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Saves selected pangolin 
+
+
+
+Definition at line 150 of file View\+Model\+Base.\+cs.
+
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_view_model_base_ad9573730529a447ea8c629b932290ca2}} 
+\index{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}!\_snackbarActive@{\_snackbarActive}}
+\index{\_snackbarActive@{\_snackbarActive}!Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}}
+\doxysubsubsection{\_snackbarActive}
+{\footnotesize\ttfamily bool \textbf{ Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+View\+Model\+Base}$<$ T $>$.\+\_\+snackbar\+Active\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 20 of file View\+Model\+Base.\+cs.
+
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_view_model_base_a3028d68c3b83c06c5079cca75aac713e}} 
+\index{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}!\_snackbarMessage@{\_snackbarMessage}}
+\index{\_snackbarMessage@{\_snackbarMessage}!Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}}
+\doxysubsubsection{\_snackbarMessage}
+{\footnotesize\ttfamily string \textbf{ Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+View\+Model\+Base}$<$ T $>$.\+\_\+snackbar\+Message\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 63 of file View\+Model\+Base.\+cs.
+
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_view_model_base_aeb15f7e84a8af7a0987ca75170e5dc88}} 
+\index{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}!dbset@{dbset}}
+\index{dbset@{dbset}!Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}}
+\doxysubsubsection{dbset}
+{\footnotesize\ttfamily Db\+Set$<$T$>$ \textbf{ Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+View\+Model\+Base}$<$ T $>$.dbset\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Saves dbset that should be used for this view model 
+
+
+
+Definition at line 125 of file View\+Model\+Base.\+cs.
+
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_view_model_base_ac917f071eddb5f47625caf2340d78f8f}} 
+\index{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}!sessionSnackbarKey@{sessionSnackbarKey}}
+\index{sessionSnackbarKey@{sessionSnackbarKey}!Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}}
+\doxysubsubsection{sessionSnackbarKey}
+{\footnotesize\ttfamily int \textbf{ Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+View\+Model\+Base}$<$ T $>$.session\+Snackbar\+Key = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Key for hiding thread bar after certain seconds, checks if method was raised another time 
+
+
+
+Definition at line 106 of file View\+Model\+Base.\+cs.
+
+
+
+\doxysubsection{Property Documentation}
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_view_model_base_a8e4ec0820a83b68d600cd091a8d92df1}} 
+\index{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}!HideSnackbar@{HideSnackbar}}
+\index{HideSnackbar@{HideSnackbar}!Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}}
+\doxysubsubsection{HideSnackbar}
+{\footnotesize\ttfamily \textbf{ Relay\+Command} \textbf{ Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+View\+Model\+Base}$<$ T $>$.Hide\+Snackbar\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Relay command for hide snackbar 
+
+
+
+Definition at line 82 of file View\+Model\+Base.\+cs.
+
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_view_model_base_a1a28d8c31ac6c709903a297b0973b239}} 
+\index{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}!Pangolins@{Pangolins}}
+\index{Pangolins@{Pangolins}!Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}}
+\doxysubsubsection{Pangolins}
+{\footnotesize\ttfamily Observable\+Collection$<$\textbf{ Pangolin}$>$ \textbf{ Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+View\+Model\+Base}$<$ T $>$.Pangolins\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+
+
+Collection for all pangolins 
+
+
+
+Definition at line 145 of file View\+Model\+Base.\+cs.
+
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_view_model_base_ac1147cdd9b97d6fe91495d83e5b04c30}} 
+\index{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}!SelectedModel@{SelectedModel}}
+\index{SelectedModel@{SelectedModel}!Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}}
+\doxysubsubsection{SelectedModel}
+{\footnotesize\ttfamily T \textbf{ Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+View\+Model\+Base}$<$ T $>$.Selected\+Model\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Property for curent selected model 
+
+
+
+Definition at line 203 of file View\+Model\+Base.\+cs.
+
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_view_model_base_ae62c76809640cb34c129e6b1707b6fcc}} 
+\index{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}!SelectedPangolin@{SelectedPangolin}}
+\index{SelectedPangolin@{SelectedPangolin}!Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}}
+\doxysubsubsection{SelectedPangolin}
+{\footnotesize\ttfamily \textbf{ Pangolin} \textbf{ Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+View\+Model\+Base}$<$ T $>$.Selected\+Pangolin\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Selected Pangolin for reference 
+
+
+
+Definition at line 160 of file View\+Model\+Base.\+cs.
+
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_view_model_base_a8953d0f8992368cc429b134216961750}} 
+\index{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}!SnackbarActive@{SnackbarActive}}
+\index{SnackbarActive@{SnackbarActive}!Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}}
+\doxysubsubsection{SnackbarActive}
+{\footnotesize\ttfamily bool \textbf{ Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+View\+Model\+Base}$<$ T $>$.Snackbar\+Active\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Property for snackbar 
+
+
+
+Definition at line 57 of file View\+Model\+Base.\+cs.
+
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_view_model_base_a3e0f0a4c12cc0966f24ab006f21cb9ea}} 
+\index{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}!SnackbarMessage@{SnackbarMessage}}
+\index{SnackbarMessage@{SnackbarMessage}!Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}}
+\doxysubsubsection{SnackbarMessage}
+{\footnotesize\ttfamily string \textbf{ Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+View\+Model\+Base}$<$ T $>$.Snackbar\+Message\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Property for snackbar 
+
+
+
+Definition at line 68 of file View\+Model\+Base.\+cs.
+
+
+
+\doxysubsection{Event Documentation}
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_view_model_base_aea2a4cb5ef48cfa1f26609e3ec84c538}} 
+\index{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}!PangolinChanged@{PangolinChanged}}
+\index{PangolinChanged@{PangolinChanged}!Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}}
+\doxysubsubsection{PangolinChanged}
+{\footnotesize\ttfamily Event\+Handler$<$\textbf{ Pangolin}$>$ \textbf{ Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+View\+Model\+Base}$<$ T $>$.Pangolin\+Changed}
+
+
+
+Fires if pangolin changed, passes new pangolin as parameter 
+
+
+
+Definition at line 155 of file View\+Model\+Base.\+cs.
+
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_view_model_base_a5f9c0bd216c57cf1f437af7116c593cc}} 
+\index{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}!PropertyChanged@{PropertyChanged}}
+\index{PropertyChanged@{PropertyChanged}!Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}}
+\doxysubsubsection{PropertyChanged}
+{\footnotesize\ttfamily Property\+Changed\+Event\+Handler \textbf{ Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+View\+Model\+Base}$<$ T $>$.Property\+Changed}
+
+
+
+Definition at line 396 of file View\+Model\+Base.\+cs.
+
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_view_model_base_a1bc1d9198360f882484820fa603cbf19}} 
+\index{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}!ReloadModelEvent@{ReloadModelEvent}}
+\index{ReloadModelEvent@{ReloadModelEvent}!Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}}
+\doxysubsubsection{ReloadModelEvent}
+{\footnotesize\ttfamily Event\+Handler$<$T$>$ \textbf{ Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+View\+Model\+Base}$<$ T $>$.Reload\+Model\+Event}
+
+
+
+Event for handeling a model reload, will be called after model reload 
+
+
+
+Definition at line 318 of file View\+Model\+Base.\+cs.
+
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_view_model_base_ad16b6004f46fb2924b4dde4d3bd56b6f}} 
+\index{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}!ReloadSelectedModelEvent@{ReloadSelectedModelEvent}}
+\index{ReloadSelectedModelEvent@{ReloadSelectedModelEvent}!Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}}
+\doxysubsubsection{ReloadSelectedModelEvent}
+{\footnotesize\ttfamily Event\+Handler$<$T$>$ \textbf{ Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+View\+Model\+Base}$<$ T $>$.Reload\+Selected\+Model\+Event}
+
+
+
+Event for handeling selected model reload, will be called before model reload (use) reloadmodelevent if you want to catch after 
+
+
+
+Definition at line 296 of file View\+Model\+Base.\+cs.
+
+\mbox{\label{class_pangolin___database___app_1_1_view_models_1_1_view_model_base_a078c081829cbcfc5c142b858bb4c9fa0}} 
+\index{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}!UpdateModelEvent@{UpdateModelEvent}}
+\index{UpdateModelEvent@{UpdateModelEvent}!Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$@{Pangolin\_Database\_App.ViewModels.ViewModelBase$<$ T $>$}}
+\doxysubsubsection{UpdateModelEvent}
+{\footnotesize\ttfamily Event\+Handler \textbf{ Pangolin\+\_\+\+Database\+\_\+\+App.\+View\+Models.\+View\+Model\+Base}$<$ T $>$.Update\+Model\+Event}
+
+
+
+Event for handeling updates 
+
+
+
+Definition at line 221 of file View\+Model\+Base.\+cs.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Pangolin Database-\/\+App/\+View\+Models/\textbf{ View\+Model\+Base.\+cs}\end{DoxyCompactItemize}

@@ -1,0 +1,10 @@
+digraph "Pangolin_Database_App.ViewModels.PhysicalMesaurementsViewModel.Pangolin_Changed"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="Pangolin_Database_App.View\lModels.PhysicalMesaurementsView\lModel.Pangolin_Changed",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Sets model for pangolin"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Pangolin_Database_App.View\lModels.PhysicalMesaurementsView\lModel.PhysicalMesaurementsViewModel",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_pangolin___database___app_1_1_view_models_1_1_physical_mesaurements_view_model.html#a8de676a3e8f3de6cdec148af2e36fd46",tooltip=" "];
+}

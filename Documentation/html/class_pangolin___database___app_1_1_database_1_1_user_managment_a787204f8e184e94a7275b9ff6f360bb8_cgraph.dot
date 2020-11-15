@@ -1,0 +1,10 @@
+digraph "Pangolin_Database_App.Database.UserManagment.LoadUserByCookie"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="Pangolin_Database_App.Database.\lUserManagment.LoadUserByCookie",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Checks if cookie data exists and tries to get the user"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Pangolin_Database_App.Database.\lUserManagment.GetUserByUsernameAndCookie",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_pangolin___database___app_1_1_database_1_1_user_managment.html#afd56f9bd32f8db5a5a58fafb92b5a8f0",tooltip="returns user by username and cookie"];
+}

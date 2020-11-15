@@ -1,0 +1,14 @@
+var searchData=
+[
+  ['name_351',['Name',['../class_pangolin___database___app_1_1_models_1_1_pangolin.html#acc9244c53b8e4293dfa714221e992795',1,'Pangolin_Database_App.Models.Pangolin.Name()'],['../class_pangolin___database___app_1_1_view_models_1_1_main_menu_view_model.html#a57791ccf8639e53d1380168e6cfd9129',1,'Pangolin_Database_App.ViewModels.MainMenuViewModel.Name()']]],
+  ['nametextbox_352',['NameTextBox',['../class_pangolin___database___app_1_1_views_1_1_login.html#a219711f456772640adae22fe16b1380e',1,'Pangolin_Database_App::Views::Login']]],
+  ['navtomainmenu_5fclick_353',['NavToMainMenu_Click',['../class_pangolin___database___app_1_1_views_1_1_admin_panel_view.html#a3b299a25138af738f7d2ea6bfccffb21',1,'Pangolin_Database_App::Views::AdminPanelView']]],
+  ['newmoon_354',['newmoon',['../namespace_pangolin___database___app_1_1_util.html#af17ed994455cba01d889a50d7c7a5589af1c4d991edac8063e81b61e8b18378cd',1,'Pangolin_Database_App::Util']]],
+  ['newpassword_355',['NewPassword',['../class_pangolin___database___app_1_1_view_models_1_1_admin_panel_view_model.html#abb28b09a9df3df0aca3f803caf98d6b8',1,'Pangolin_Database_App::ViewModels::AdminPanelViewModel']]],
+  ['newpasswordrepeat_356',['NewPasswordRepeat',['../class_pangolin___database___app_1_1_views_1_1_admin_panel_view.html#a6da666d43873b0568d4afbb072e10de2',1,'Pangolin_Database_App.Views.AdminPanelView.NewPasswordRepeat()'],['../class_pangolin___database___app_1_1_view_models_1_1_admin_panel_view_model.html#a63521063ada4b474ceee0d78e04e9315',1,'Pangolin_Database_App.ViewModels.AdminPanelViewModel.NewPasswordRepeat()']]],
+  ['noclick_357',['NoClick',['../class_pangolin___database___app_1_1_user___controls_1_1_save_control.html#af397144d52bfe17bfc4fdf26779f0629',1,'Pangolin_Database_App::User_Controls::SaveControl']]],
+  ['noclickevent_358',['NoClickEvent',['../class_pangolin___database___app_1_1_user___controls_1_1_save_control.html#aa77c28b4ada9041cbc4a8c139f672fb4',1,'Pangolin_Database_App::User_Controls::SaveControl']]],
+  ['notemptyvalidationrule_359',['NotEmptyValidationRule',['../class_pangolin___database___app_1_1_util_1_1_not_empty_validation_rule.html',1,'Pangolin_Database_App::Util']]],
+  ['notemptyvalidationrule_2ecs_360',['NotEmptyValidationRule.cs',['../_not_empty_validation_rule_8cs.html',1,'']]],
+  ['notifypropertychanged_361',['NotifyPropertyChanged',['../class_pangolin___database___app_1_1_models_1_1_pangolin.html#a4b1be5ae1fdd91ab3a69d22446a4ef6e',1,'Pangolin_Database_App.Models.Pangolin.NotifyPropertyChanged()'],['../class_pangolin___database___app_1_1_view_models_1_1_admin_panel_view_model.html#a2055e5d7ad9b6d2b7836363046a62f78',1,'Pangolin_Database_App.ViewModels.AdminPanelViewModel.NotifyPropertyChanged()'],['../class_pangolin___database___app_1_1_view_models_1_1_view_model_base.html#aec8e7d1e2646af4d9e9878755667b2ca',1,'Pangolin_Database_App.ViewModels.ViewModelBase.NotifyPropertyChanged()']]]
+];

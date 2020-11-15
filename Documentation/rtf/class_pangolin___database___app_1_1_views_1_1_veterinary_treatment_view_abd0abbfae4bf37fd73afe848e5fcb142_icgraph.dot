@@ -1,0 +1,10 @@
+digraph "Pangolin_Database_App.Views.VeterinaryTreatmentView.InitializeComponent"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="Pangolin_Database_App.Views.\lVeterinaryTreatmentView.Initialize\lComponent",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="InitializeComponent"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Pangolin_Database_App.Views.\lVeterinaryTreatmentView.Veterinary\lTreatmentView",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_pangolin___database___app_1_1_views_1_1_veterinary_treatment_view.html#aa12eefbe3538f99b6799d6c4fc296ad8",tooltip=" "];
+}

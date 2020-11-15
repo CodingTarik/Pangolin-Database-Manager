@@ -1,0 +1,18 @@
+digraph "Pangolin_Database_App.Logger.LogManager.log"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="Pangolin_Database_App.Logger.\lLogManager.log",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Logs for debug"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Pangolin_Database_App.Logger.\lLogManager.logError",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_pangolin___database___app_1_1_logger_1_1_log_manager.html#af4d3065a50208ec03341c3694c84e118",tooltip="Error log"];
+  Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="Pangolin_Database_App.Logger.\lLogManager.Print",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_pangolin___database___app_1_1_logger_1_1_log_manager.html#a493bbc327526f1b16d6be830e09c51d9",tooltip="Prints debug output"];
+  Node1 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="Pangolin_Database_App.Logger.\lLogManager.logInfo",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_pangolin___database___app_1_1_logger_1_1_log_manager.html#a4e09d4e1cb5f216e9db5d73d01447ec1",tooltip="Info log"];
+  Node4 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="Pangolin_Database_App.Logger.\lLogManager.logWarning",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_pangolin___database___app_1_1_logger_1_1_log_manager.html#aef33753249f2f7e61ee2acd392f798fa",tooltip="Warning log"];
+  Node5 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+}
