@@ -44,38 +44,46 @@ namespace Pangolin_Database_App.ViewModels
 
         private async void AddNewUserAsync()
         {
-
-            if (PasswordAdd.Equals(PasswordRepeatAdd))
+            try
             {
-                if (PasswordAdd.Length > 4)
+
+                if (PasswordAdd.Equals(PasswordRepeatAdd))
                 {
-                    bool added = await Database.UserManagment.AddNewUser(FirstNameAdd, LastNameAdd, UsernameAdd, PasswordHashAdd, PasswordAdd);
-                    if (added)
+                    if (PasswordAdd.Length > 4)
                     {
-                        User addedUser = Database.DatabaseManager.GetDatabase().Users.Where(n => n.Username == UsernameAdd).First();
-                        UserList.Add(addedUser);
-                        UserListDelete.Add(addedUser);
-                        ShowSnackbar("User was added successfully", 6);
-                        UsernameAdd = "";
-                        FirstNameAdd = "";
-                        LastNameAdd = "";
-                        PasswordHashAdd = "";
-                        PasswordRepeatAdd = "";
-                        RefreshUserAdd();
+
+                        bool added = await Database.UserManagment.AddNewUser(FirstNameAdd, LastNameAdd, UsernameAdd, PasswordHashAdd, PasswordAdd);
+                        if (added)
+                        {
+                            User addedUser = Database.DatabaseManager.GetDatabase().Users.Where(n => n.Username == UsernameAdd).First();
+                            UserList.Add(addedUser);
+                            UserListDelete.Add(addedUser);
+                            ShowSnackbar("User was added successfully", 6);
+                            UsernameAdd = "";
+                            FirstNameAdd = "";
+                            LastNameAdd = "";
+                            PasswordHashAdd = "";
+                            PasswordRepeatAdd = "";
+                            RefreshUserAdd();
+                        }
+                        else
+                        {
+                            ShowSnackbar("User could not be added, same username already exists", 6);
+                        }
                     }
                     else
                     {
-                        ShowSnackbar("User could not be added, same username already exists", 6);
+                        ShowSnackbar("Password must have at least 5 characters", 6);
                     }
                 }
                 else
                 {
-                    ShowSnackbar("Password must have at least 5 characters", 6);
+                    ShowSnackbar("User could not be added, password not equal");
                 }
-            }
-            else
+            } catch(Exception ex)
             {
-                ShowSnackbar("User could not be added, password not equal");
+                ShowSnackbar("Error: " + ex.Message);
+                Logger.LogManager.logError(ex, "Error adding user", Logger.LogTopic.Database);
             }
 
         }
@@ -97,7 +105,7 @@ namespace Pangolin_Database_App.ViewModels
         public User SelectedUser { get; set; }
         public RelayCommand UpdateUserPass { get; set; }
 
-        private void UpdatePassword()
+        private async void UpdatePassword()
         {
             if (SelectedUser != null)
             {
@@ -111,6 +119,15 @@ namespace Pangolin_Database_App.ViewModels
                     {
                         if (NewPassword.Equals(NewPasswordRepeat))
                         {
+                            try
+                            {
+                                await Database.UserManagment.UpdateUserPassOnMySQLAsync(SelectedUser.Username, NewPassword);
+                            }
+                            catch (Exception ex)
+                            {
+                                ShowSnackbar("Error reseting user password: " + ex.Message, 10);
+                                return;
+                            }
                             SelectedUser.PasswordHash = Database.UserManagment.ComputeSha256Hash(NewPassword);
                             Database.DatabaseManager.GetDatabase().SaveChanges();
                             ShowSnackbar("Password reseted successfully", 5);
@@ -151,7 +168,7 @@ namespace Pangolin_Database_App.ViewModels
         public User SelectedUserDelete { get; set; }
         public RelayCommand DeleteUserClick { get; set; }
 
-        private void DeleteSelectedUser()
+        private async void DeleteSelectedUser()
         {
             if (SelectedUserDelete == null)
             {
@@ -159,7 +176,14 @@ namespace Pangolin_Database_App.ViewModels
             }
             else
             {
-
+                try
+                {
+                    await Database.UserManagment.DeleteUserOnMySQLAsync(SelectedUserDelete.Username);
+                }
+                catch (Exception ex)
+                {
+                    ShowSnackbar("Error deleting user: " + ex.Message, 10);
+                }
                 Database.DatabaseManager.GetDatabase().Remove(SelectedUserDelete);
                 Database.DatabaseManager.GetDatabase().SaveChanges();
                 UserList.Remove(SelectedUserDelete);

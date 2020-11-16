@@ -91,6 +91,21 @@
             <param name="password"></param>
             <returns></returns>
         </member>
+        <member name="M:Pangolin_Database_App.Database.UserManagment.UpdateUserPassOnMySQLAsync(System.String,System.String)">
+            <summary>
+            Updates user password on mysql
+            </summary>
+            <param name="username"></param>
+            <param name="password"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Pangolin_Database_App.Database.UserManagment.DeleteUserOnMySQLAsync(System.String)">
+            <summary>
+            Deletes a User on mysql
+            </summary>
+            <param name="username"></param>
+            <returns></returns>
+        </member>
         <member name="M:Pangolin_Database_App.Database.UserManagment.AddDefaultAdminUser">
             <summary>
             ads new default admin user
