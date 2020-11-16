@@ -104,3 +104,5 @@ D:\Programmierprojekte\Pangolin\Pangolin Database-App\bin\Debug\netcoreapp3.1\Mi
 D:\Programmierprojekte\Pangolin\Pangolin Database-App\bin\Debug\netcoreapp3.1\Pomelo.EntityFrameworkCore.MySql.dll
 D:\Programmierprojekte\Pangolin\Pangolin Database-App\bin\Debug\netcoreapp3.1\Pomelo.JsonObject.dll
 D:\Programmierprojekte\Pangolin\Pangolin Database-App\bin\Debug\netcoreapp3.1\Pangolin Database-App.xml
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\obj\Debug\netcoreapp3.1\Views\SyncView.g.cs
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\obj\Debug\netcoreapp3.1\Views\SyncView.baml

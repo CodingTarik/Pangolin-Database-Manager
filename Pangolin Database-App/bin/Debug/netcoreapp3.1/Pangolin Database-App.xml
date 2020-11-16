@@ -49,7 +49,7 @@
             Refreshes the pangolin list
             </summary>
         </member>
-        <member name="M:Pangolin_Database_App.Database.DatabaseSync.SyncAsync">
+        <member name="M:Pangolin_Database_App.Database.DatabaseSync.SyncAsync(System.IProgress{Dotmim.Sync.ProgressArgs})">
             <summary>
             Syncs local database
             </summary>
@@ -1460,6 +1460,32 @@
             Saves view model for extended dialog
             </summary>
         </member>
+        <member name="P:Pangolin_Database_App.ViewModels.SynchronizeViewModel.StatusText">
+            <summary>
+            Current status text
+            </summary>
+        </member>
+        <member name="P:Pangolin_Database_App.ViewModels.SynchronizeViewModel.LoadingAnimation">
+            <summary>
+            Property if animation is on
+            </summary>
+        </member>
+        <member name="P:Pangolin_Database_App.ViewModels.SynchronizeViewModel.progressbar">
+            <summary>
+            Progressbar to update
+            </summary>
+        </member>
+        <member name="M:Pangolin_Database_App.ViewModels.SynchronizeViewModel.SyncCommandAsync">
+            <summary>
+            Sync command
+            </summary>
+        </member>
+        <member name="M:Pangolin_Database_App.ViewModels.SynchronizeViewModel.Report(Dotmim.Sync.ProgressArgs)">
+            <summary>
+            Report for status change in sync
+            </summary>
+            <param name="value"></param>
+        </member>
         <member name="M:Pangolin_Database_App.ViewModels.ViewModelBase`1.SetBit(System.Int32,System.Int32,System.Boolean,Pangolin_Database_App.ViewModels.ViewModelBase{`0}.IntValue)">
             <summary>
             Sets bit in bitmask
@@ -1965,6 +1991,19 @@
             </summary>
         </member>
         <member name="M:Pangolin_Database_App.Views.ReleaseView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Pangolin_Database_App.Views.SyncView">
+            <summary>
+            Interaktionslogik für SyncView.xaml
+            </summary>
+            <summary>
+            SyncView
+            </summary>
+        </member>
+        <member name="M:Pangolin_Database_App.Views.SyncView.InitializeComponent">
             <summary>
             InitializeComponent
             </summary>

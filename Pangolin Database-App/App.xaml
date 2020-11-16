@@ -19,7 +19,7 @@
                     <Setter Property="materialDesign:HintAssist.Hint" Value="SELECT PANGOLIN"></Setter>
                     <Setter Property="ItemsSource" Value="{Binding Path=Pangolins, UpdateSourceTrigger=PropertyChanged}"></Setter>
                     <Setter Property="DisplayMemberPath" Value="ReferenceNumber"></Setter>
-                    <Setter Property="SelectedValue" Value="{Binding SelectedPangolin}"></Setter>
+                    <Setter Property="SelectedValue" Value="{Binding SelectedPangolin, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"></Setter>
                 </Style.Setters>
             </Style>
             <!-- Snackbar style-->

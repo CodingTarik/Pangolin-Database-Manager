@@ -2,6 +2,7 @@
 using Dotmim.Sync.MySql;
 using Dotmim.Sync.Sqlite;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Threading.Tasks;
 
 namespace Pangolin_Database_App.Database
@@ -22,15 +23,16 @@ namespace Pangolin_Database_App.Database
         /// <summary>
         /// Syncs local database
         /// </summary>
-        public async static void SyncAsync()
+        public async static Task<string> SyncAsync(IProgress<ProgressArgs> progress)
         {
             // DEBUG --> Reset Context
             #if DEBUG
             await CreateDatabaseOnServerAsync();
             #endif
             SyncAgent agent = new SyncAgent(clientProvider, serverProvider, tables);
-            SyncResult result = await agent.SynchronizeAsync();
+            SyncResult result = await agent.SynchronizeAsync(progress);
             Logger.LogManager.log("Sync-Result: " + result.ToString());
+            return result.ToString();
         }
 
         /// <summary>

@@ -43,7 +43,7 @@ namespace Pangolin_Database_App.User_Controls
         {
             if (YesClickEvent != null)
             {
-                YesClickEvent(this, EventArgs.Empty);                
+                YesClickEvent(this, EventArgs.Empty);
             }
             ((IUpdateModel)this.DataContext).UpdateSelectedModel();
         }
@@ -70,7 +70,7 @@ namespace Pangolin_Database_App.User_Controls
             {
                 Window.GetWindow(this).DataContext = new MainMenuViewModel();
             }
-            
+
         }
     }
 }

@@ -181,7 +181,7 @@ namespace Pangolin_Database_App.Views
 
         private void Sync_Click(object sender, RoutedEventArgs e)
         {
-            Database.DatabaseSync.SyncAsync();
+            Window.GetWindow(this).DataContext = new SynchronizeViewModel();
         }
     }
 }

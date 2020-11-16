@@ -13,6 +13,11 @@ using System.Threading.Tasks;
 
 namespace Pangolin_Database_App.ViewModels
 {
+    public struct ValidationResult
+    {
+        public bool valid;
+        public string propertyNameNotValid;
+    }
     internal abstract class ViewModelBase<T> : NotEmptyValidationRule, INotifyPropertyChanged, IUpdateModel where T : ModelBase
     {
 
@@ -232,7 +237,8 @@ namespace Pangolin_Database_App.ViewModels
                 PangolinContext db = DatabaseManager.GetDatabase();
                 if (db != null && SelectedModel != null)
                 {
-                    if (ValidateModel())
+                    ValidationResult result = ValidateModel();
+                    if (result.valid)
                     {
                         if (ModelExistInDatabase(SelectedModel))
                         {
@@ -254,7 +260,7 @@ namespace Pangolin_Database_App.ViewModels
                     }
                     else
                     {
-                        ShowSnackbar("Model couldn not be updated, validation failed");
+                        ShowSnackbar("Model could not be updated, validation failed for property --> " + result.propertyNameNotValid);
                     }
 
                 }
@@ -268,7 +274,7 @@ namespace Pangolin_Database_App.ViewModels
         /// Validates a model
         /// </summary>
         /// <returns></returns>
-        public bool ValidateModel()
+        public ValidationResult ValidateModel()
         {
             Type type = SelectedModel.GetType();
             PropertyInfo[] properties = type.GetProperties();
@@ -283,11 +289,11 @@ namespace Pangolin_Database_App.ViewModels
                 {
                     if (!SelectedModel.Validate(p.GetValue(SelectedModel), null).IsValid)
                     {
-                        return false;
+                        return new ValidationResult() { valid = false, propertyNameNotValid = p.Name };
                     }
                 }
             }
-            return true;
+            return new ValidationResult { valid = true };
         }
 
         /// <summary>

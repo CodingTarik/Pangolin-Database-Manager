@@ -59,6 +59,9 @@
         <DataTemplate DataType="{x:Type viewmodels:MortalityViewModel}">
             <views:MortalityView DataContext="{Binding}"></views:MortalityView>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:SynchronizeViewModel}">
+            <views:SyncView DataContext="{Binding}"></views:SyncView>
+        </DataTemplate>
     </Window.Resources>
     
     <Grid>

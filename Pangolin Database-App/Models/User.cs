@@ -17,6 +17,7 @@ namespace Pangolin_Database_App.Models
         /// <summary>
         /// The Username
         /// </summary>
+        [Required]
         public string Username { get; set; }
 
         /// <summary>
@@ -32,6 +33,7 @@ namespace Pangolin_Database_App.Models
         /// <summary>
         /// SHA256-Hash of the Password of the User
         /// </summary>
+        [Required]
         public string PasswordHash { get; set; }
 
         /// <summary>
