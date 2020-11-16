@@ -1,5 +1,4 @@
-﻿using System;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Globalization;
 using System.Reflection;
@@ -27,7 +26,7 @@ namespace Pangolin_Database_App.Util
                     ValidationResult result = Validate(p.GetValue(this), null);
                     if (result.IsValid)
                     {
-                        return String.Empty;
+                        return string.Empty;
                     }
                     else
                     {
@@ -44,9 +43,10 @@ namespace Pangolin_Database_App.Util
 
         [NotMapped]
         [Category("validation")]
-        public string Error { 
-            get { return null; } 
-            set { } 
+        public string Error
+        {
+            get => null;
+            set { }
         }
 
 
@@ -61,7 +61,7 @@ namespace Pangolin_Database_App.Util
             if (value != null)
             {
                 string strValue = value.ToString();
-                if (String.IsNullOrEmpty(strValue))
+                if (string.IsNullOrEmpty(strValue))
                 {
                     return new ValidationResult(false, "Value can't be null");
                 }

@@ -1,19 +1,19 @@
 ﻿using Pangolin_Database_App.Models;
 using System;
-using System.IO;
-using System.Windows;
-using System.Linq;
 using System.Collections.ObjectModel;
+using System.IO;
+using System.Linq;
+using System.Windows;
 
 namespace Pangolin_Database_App.ViewModels
 {
-    class DocumentsViewModel : ViewModelBase<Document>
+    internal class DocumentsViewModel : ViewModelBase<Document>
     {
         public DocumentsViewModel() : base(Database.DatabaseManager.GetDatabase().Documents)
         {
-            this.SelectedModel = new Document() { Date = DateTime.Now };
+            SelectedModel = new Document() { Date = DateTime.Now };
             UpdateModelEvent += DocumentsViewModel_UpdateModelEvent;
-            this.PangolinChanged += DocumentsViewModel_PangolinChanged;
+            PangolinChanged += DocumentsViewModel_PangolinChanged;
         }
 
         private void DocumentsViewModel_PangolinChanged(object sender, Pangolin e)
@@ -24,7 +24,7 @@ namespace Pangolin_Database_App.ViewModels
         private void DocumentsViewModel_UpdateModelEvent(object sender, EventArgs e)
         {
             ShowSnackbar("File upload of file " + SelectedModel.FileName + " successfull", 10);
-            this.SelectedModel = new Document() { Date = DateTime.Now };          
+            SelectedModel = new Document() { Date = DateTime.Now };
         }
 
         public void File_Drop(object sender, DragEventArgs e)
@@ -42,15 +42,16 @@ namespace Pangolin_Database_App.ViewModels
 
         public void UploadFile(object sender)
         {
-            if(SelectedModel.FileName != null)
+            if (SelectedModel.FileName != null)
             {
-                this.UpdateSelectedModel();
+                UpdateSelectedModel();
                 System.Diagnostics.Debug.WriteLine("Uploading file");
             }
         }
 
-        public ObservableCollection<Document> DocumentForPangolin {
-            get { return new ObservableCollection<Document>(Database.DatabaseManager.GetDatabase().Documents.Where(n => n.ReferenceNumber == SelectedPangolin).ToList()); } 
+        public ObservableCollection<Document> DocumentForPangolin
+        {
+            get => new ObservableCollection<Document>(Database.DatabaseManager.GetDatabase().Documents.Where(n => n.ReferenceNumber == SelectedPangolin).ToList());
             set { }
         }
     }

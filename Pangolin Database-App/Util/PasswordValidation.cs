@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Text;
+﻿using System.Globalization;
 using System.Windows.Controls;
 
 namespace Pangolin_Database_App.Util
 {
-    class PasswordValidation : ValidationRule
+    internal class PasswordValidation : ValidationRule
     {
         private const int minPasswordLength = 5;
 
@@ -14,7 +11,7 @@ namespace Pangolin_Database_App.Util
         {
             string password = (string)value;
 
-            if(password.Length < minPasswordLength)
+            if (password.Length < minPasswordLength)
             {
                 return new ValidationResult(false, "You need at least " + minPasswordLength + " characters");
             }

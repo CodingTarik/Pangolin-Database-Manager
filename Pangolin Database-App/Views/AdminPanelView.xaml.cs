@@ -27,10 +27,10 @@ namespace Pangolin_Database_App.Views
         private void PasswordChanged(object sender, RoutedEventArgs e)
         {
             AdminPanelViewModel model = (AdminPanelViewModel)Window.GetWindow(this).DataContext;
-            model.NewPassword = this.ResetPasswordPass.Password;
-            model.NewPasswordRepeat = this.NewPasswordRepeat.Password;
-            model.PasswordAdd = this.PasswordNewUser.Password;
-            model.PasswordRepeatAdd = this.PasswordNewUserRepeat.Password;
+            model.NewPassword = ResetPasswordPass.Password;
+            model.NewPasswordRepeat = NewPasswordRepeat.Password;
+            model.PasswordAdd = PasswordNewUser.Password;
+            model.PasswordRepeatAdd = PasswordNewUserRepeat.Password;
 
         }
     }

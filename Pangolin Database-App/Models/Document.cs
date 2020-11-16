@@ -1,14 +1,12 @@
-﻿using Pangolin_Database_App.Settings;
+﻿using Microsoft.Win32;
+using Pangolin_Database_App.Logger;
+using Pangolin_Database_App.Settings;
 using Pangolin_Database_App.Util;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.IO;
-using System.Text;
 using System.Diagnostics;
-using Microsoft.Win32;
-using Pangolin_Database_App.Logger;
+using System.IO;
 
 namespace Pangolin_Database_App.Models
 {
@@ -50,7 +48,7 @@ namespace Pangolin_Database_App.Models
         public byte[] FileData { get; set; }
 
         [NotMapped]
-        public RelayCommand OpenDoc { get; set; }  
+        public RelayCommand OpenDoc { get; set; }
         [NotMapped]
         public RelayCommand SaveDoc { get; set; }
         [NotMapped]
@@ -58,7 +56,7 @@ namespace Pangolin_Database_App.Models
 
         private void OpenFile()
         {
-             
+
             string path = SettingsManager.GetTempFilePath() + "\\" + FileName;
             SaveFile(path);
             Debug.WriteLine(path);
@@ -70,11 +68,11 @@ namespace Pangolin_Database_App.Models
         {
             SaveFileDialog sv = new SaveFileDialog();
             sv.FileName = FileName;
-            if(sv.ShowDialog() == true)
+            if (sv.ShowDialog() == true)
             {
                 SaveFile(sv.FileName);
             }
-            
+
         }
 
         private void SaveFile(string path)

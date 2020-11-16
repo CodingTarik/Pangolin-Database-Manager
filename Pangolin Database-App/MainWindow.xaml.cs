@@ -1,15 +1,14 @@
 ﻿using Pangolin_Database_App.Database;
 using Pangolin_Database_App.ViewModels;
+using System;
+using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Input;
-using WinInterop = System.Windows.Interop;
-using System.Runtime.InteropServices;
 using System.Windows.Interop;
-using System;
 
 namespace Pangolin_Database_App
 {
-    
+
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
@@ -21,13 +20,13 @@ namespace Pangolin_Database_App
         {
             DatabaseManager.InitDatabase();
             InitializeComponent();
-            this.DataContext = new MainMenuViewModel();
-            minX = this.MinWidth;
-            minY = this.MinHeight;
-            this.SourceInitialized += win_SourceInitialized;
-            
+            DataContext = new MainMenuViewModel();
+            minX = MinWidth;
+            minY = MinHeight;
+            SourceInitialized += win_SourceInitialized;
+
         }
-      
+
         /// <summary>
         /// Minimizes window
         /// </summary>
@@ -35,7 +34,7 @@ namespace Pangolin_Database_App
         /// <param name="e"></param>
         private void MinimizeWindow_Click(object sender, MouseButtonEventArgs e)
         {
-            this.WindowState = WindowState.Minimized;
+            WindowState = WindowState.Minimized;
         }
 
         /// <summary>
@@ -60,12 +59,15 @@ namespace Pangolin_Database_App
 
         // Maximize Window Code
         // ================================================================
-        void win_SourceInitialized(object sender, System.EventArgs e)
+        private void win_SourceInitialized(object sender, System.EventArgs e)
         {
             var handle = (new WindowInteropHelper(this)).Handle;
             var handleSource = HwndSource.FromHwnd(handle);
             if (handleSource == null)
+            {
                 return;
+            }
+
             handleSource.AddHook(WindowProc);
         }
 
@@ -177,15 +179,9 @@ namespace Pangolin_Database_App
             public static readonly RECT Empty = new RECT();
 
             /// <summary> Win32 </summary>
-            public int Width
-            {
-                get { return Math.Abs(right - left); }  // Abs needed for BIDI OS
-            }
+            public int Width => Math.Abs(right - left);
             /// <summary> Win32 </summary>
-            public int Height
-            {
-                get { return bottom - top; }
-            }
+            public int Height => bottom - top;
 
             /// <summary> Win32 </summary>
             public RECT(int left, int top, int right, int bottom)
@@ -200,21 +196,16 @@ namespace Pangolin_Database_App
             /// <summary> Win32 </summary>
             public RECT(RECT rcSrc)
             {
-                this.left = rcSrc.left;
-                this.top = rcSrc.top;
-                this.right = rcSrc.right;
-                this.bottom = rcSrc.bottom;
+                left = rcSrc.left;
+                top = rcSrc.top;
+                right = rcSrc.right;
+                bottom = rcSrc.bottom;
             }
 
             /// <summary> Win32 </summary>
-            public bool IsEmpty
-            {
-                get
-                {
+            public bool IsEmpty =>
                     // BUGBUG : On Bidi OS (hebrew arabic) left > right
-                    return left >= right || top >= bottom;
-                }
-            }
+                    left >= right || top >= bottom;
             /// <summary> Return a user friendly representation of this struct </summary>
             public override string ToString()
             {
@@ -253,7 +244,7 @@ namespace Pangolin_Database_App
         internal static extern bool GetMonitorInfo(IntPtr hMonitor, MONITORINFO lpmi);
 
         [DllImport("user32")]
-        static extern bool GetCursorPos(ref Point lpPoint);
+        private static extern bool GetCursorPos(ref Point lpPoint);
 
         [DllImport("User32")]
         internal static extern IntPtr MonitorFromWindow(IntPtr handle, int flags);

@@ -31,7 +31,7 @@ namespace Pangolin_Database_App.User_Controls
             {
                 NoClickEvent(this, EventArgs.Empty);
             }
-            ((IUpdateModel)this.DataContext).ResetSelectedModel();
+            ((IUpdateModel)DataContext).ResetSelectedModel();
         }
 
         /// <summary>
@@ -45,7 +45,7 @@ namespace Pangolin_Database_App.User_Controls
             {
                 YesClickEvent(this, EventArgs.Empty);
             }
-            ((IUpdateModel)this.DataContext).UpdateSelectedModel();
+            ((IUpdateModel)DataContext).UpdateSelectedModel();
         }
 
         /// <summary>

@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
+﻿using System.IO;
 
 namespace Pangolin_Database_App.Settings
 {
-    class SettingsManager
+    internal class SettingsManager
     {
 
         public static string GetTempFilePath()

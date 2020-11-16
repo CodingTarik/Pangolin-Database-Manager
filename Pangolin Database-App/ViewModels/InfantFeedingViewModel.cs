@@ -22,7 +22,7 @@ namespace Pangolin_Database_App.ViewModels
         /// </summary>
         public bool RoyalCaninKitty
         {
-            get { return ReadBit(SelectedModel.Formula, 2); }
+            get => ReadBit(SelectedModel.Formula, 2);
             set { SetBit(SelectedModel.Formula, 2, value, (i) => SelectedModel.Formula = i); NotifyPropertyChanged(); }
         }
 
@@ -31,7 +31,7 @@ namespace Pangolin_Database_App.ViewModels
         /// </summary>
         public bool RoyalCaninPuppy
         {
-            get { return ReadBit(SelectedModel.Formula, 1); }
+            get => ReadBit(SelectedModel.Formula, 1);
             set { SetBit(SelectedModel.Formula, 1, value, (i) => SelectedModel.Formula = i); NotifyPropertyChanged(); }
         }
 
@@ -40,7 +40,7 @@ namespace Pangolin_Database_App.ViewModels
         /// </summary>
         public bool Other
         {
-            get { return ReadBit(SelectedModel.Formula, 0); }
+            get => ReadBit(SelectedModel.Formula, 0);
             set { SetBit(SelectedModel.Formula, 0, value, (i) => SelectedModel.Formula = i); NotifyPropertyChanged(); }
         }
 
@@ -52,8 +52,22 @@ namespace Pangolin_Database_App.ViewModels
         /// </summary>
         public int DefectationIndex
         {
-            get { if (SelectedModel.DefectationCount == 0) return 1; else if (SelectedModel.DefectationCount == 1) return 0; else return 2; }
-            set { if(value == 0) { SelectedModel.DefectationCount = 1; SelectedModel.Defectation = true; } else if(value == 1) { SelectedModel.DefectationCount = 0; SelectedModel.Defectation = false; } else { SelectedModel.DefectationCount = 2; SelectedModel.Defectation = true; } NotifyPropertyChanged(); }
+            get
+            {
+                if (SelectedModel.DefectationCount == 0)
+                {
+                    return 1;
+                }
+                else if (SelectedModel.DefectationCount == 1)
+                {
+                    return 0;
+                }
+                else
+                {
+                    return 2;
+                }
+            }
+            set { if (value == 0) { SelectedModel.DefectationCount = 1; SelectedModel.Defectation = true; } else if (value == 1) { SelectedModel.DefectationCount = 0; SelectedModel.Defectation = false; } else { SelectedModel.DefectationCount = 2; SelectedModel.Defectation = true; } NotifyPropertyChanged(); }
         }
 
         /// <summary>
@@ -61,8 +75,8 @@ namespace Pangolin_Database_App.ViewModels
         /// </summary>
         public int DefectationCount
         {
-            get { return SelectedModel.DefectationCount; }
-            set { SelectedModel.DefectationCount = value; NotifyPropertyChanged(); NotifyPropertyChanged("DefectationIndex");}
+            get => SelectedModel.DefectationCount;
+            set { SelectedModel.DefectationCount = value; NotifyPropertyChanged(); NotifyPropertyChanged("DefectationIndex"); }
         }
     }
 }

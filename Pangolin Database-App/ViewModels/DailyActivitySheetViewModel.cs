@@ -55,7 +55,7 @@ namespace Pangolin_Database_App.ViewModels
         /// </summary>
         public DateTime WalkingStart
         {
-            get { return SelectedModel.WalkingTimeStart; }
+            get => SelectedModel.WalkingTimeStart;
             set { SelectedModel.WalkingTimeStart = value; NotifyPropertyChanged(); NotifyPropertyChanged("TotalHoursWalked"); NotifyPropertyChanged("TotalHoursWalkedInPercent"); }
         }
 
@@ -64,7 +64,7 @@ namespace Pangolin_Database_App.ViewModels
         /// </summary>
         public DateTime WalkingStop
         {
-            get { return SelectedModel.WalkingTimeStop; }
+            get => SelectedModel.WalkingTimeStop;
             set { SelectedModel.WalkingTimeStop = value; NotifyPropertyChanged(); NotifyPropertyChanged("TotalHoursWalked"); NotifyPropertyChanged("TotalHoursWalkedInPercent"); }
         }
 
@@ -90,13 +90,7 @@ namespace Pangolin_Database_App.ViewModels
         /// <summary>
         /// Calculates total hours in percent from 24h
         /// </summary>
-        public double TotalHoursWalkedInPercent
-        {
-            get
-            {
-                return (TotalHoursWalked / 24d) * 100d;
-            }
-        }
+        public double TotalHoursWalkedInPercent => (TotalHoursWalked / 24d) * 100d;
 
         /// <summary>
         /// Hot has number 4 in bitmask 
@@ -104,7 +98,7 @@ namespace Pangolin_Database_App.ViewModels
         /// <seealso cref="DailyActivity"/>
         public bool Hot
         {
-            get { return ReadWeatherBit(4); }
+            get => ReadWeatherBit(4);
             set
             {
                 SetWeatherBit(4, value);
@@ -118,7 +112,7 @@ namespace Pangolin_Database_App.ViewModels
         /// <seealso cref="DailyActivity"/>
         public bool Sunny
         {
-            get { return ReadWeatherBit(3); }
+            get => ReadWeatherBit(3);
             set
             {
                 SetWeatherBit(3, value);
@@ -132,7 +126,7 @@ namespace Pangolin_Database_App.ViewModels
         /// <seealso cref="DailyActivity"/>
         public bool PartCloud
         {
-            get { return ReadWeatherBit(2); }
+            get => ReadWeatherBit(2);
             set
             {
                 SetWeatherBit(2, value);
@@ -146,7 +140,7 @@ namespace Pangolin_Database_App.ViewModels
         /// <seealso cref="DailyActivity"/>
         public bool FullCloud
         {
-            get { return ReadWeatherBit(1); }
+            get => ReadWeatherBit(1);
             set
             {
                 SetWeatherBit(1, value);
@@ -160,7 +154,7 @@ namespace Pangolin_Database_App.ViewModels
         /// <seealso cref="DailyActivity"/>
         public bool Rain
         {
-            get { return ReadWeatherBit(0); }
+            get => ReadWeatherBit(0);
             set
             {
                 SetWeatherBit(0, value);
@@ -170,7 +164,7 @@ namespace Pangolin_Database_App.ViewModels
 
         public DateTime Date
         {
-            get { return SelectedModel.Date; }
+            get => SelectedModel.Date;
             set
             {
                 SelectedModel.Date = value;

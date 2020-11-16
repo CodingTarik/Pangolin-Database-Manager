@@ -36,8 +36,8 @@ namespace Pangolin_Database_App.ViewModels
         private string _PasswordHashAdd = "";
         private string _Password;
 
-        public string PasswordHashAdd { get { return _PasswordHashAdd; } set { _PasswordHashAdd = Database.UserManagment.ComputeSha256Hash(value); } }
-        public string PasswordAdd { get { return _Password; } set { _Password = value; PasswordHashAdd = value; } }
+        public string PasswordHashAdd { get => _PasswordHashAdd; set => _PasswordHashAdd = Database.UserManagment.ComputeSha256Hash(value); }
+        public string PasswordAdd { get => _Password; set { _Password = value; PasswordHashAdd = value; } }
         public string PasswordRepeatAdd { get; set; }
 
         public RelayCommand AddUserClick { get; set; }
@@ -67,7 +67,8 @@ namespace Pangolin_Database_App.ViewModels
                     {
                         ShowSnackbar("User could not be added, same username already exists", 6);
                     }
-                } else
+                }
+                else
                 {
                     ShowSnackbar("Password must have at least 5 characters", 6);
                 }
@@ -89,8 +90,8 @@ namespace Pangolin_Database_App.ViewModels
         }
         // Reset User Password
         // ======================================================================================================
-        private ObservableCollection<User> _UserList = new ObservableCollection<User>(Database.DatabaseManager.GetDatabase().Users.ToList());
-        public ObservableCollection<User> UserList { get { return _UserList; } }
+        private readonly ObservableCollection<User> _UserList = new ObservableCollection<User>(Database.DatabaseManager.GetDatabase().Users.ToList());
+        public ObservableCollection<User> UserList => _UserList;
         public string NewPassword { get; set; }
         public string NewPasswordRepeat { get; set; }
         public User SelectedUser { get; set; }
@@ -100,7 +101,7 @@ namespace Pangolin_Database_App.ViewModels
         {
             if (SelectedUser != null)
             {
-                if (String.IsNullOrEmpty(NewPassword))
+                if (string.IsNullOrEmpty(NewPassword))
                 {
                     ShowSnackbar("Password cannot be null", 5);
                 }
@@ -118,7 +119,8 @@ namespace Pangolin_Database_App.ViewModels
                         {
                             ShowSnackbar("Password is not identical", 5);
                         }
-                    } else
+                    }
+                    else
                     {
                         ShowSnackbar("Password must have at least 5 characters", 6);
                     }
@@ -157,7 +159,7 @@ namespace Pangolin_Database_App.ViewModels
             }
             else
             {
-               
+
                 Database.DatabaseManager.GetDatabase().Remove(SelectedUserDelete);
                 Database.DatabaseManager.GetDatabase().SaveChanges();
                 UserList.Remove(SelectedUserDelete);
@@ -168,8 +170,8 @@ namespace Pangolin_Database_App.ViewModels
 
         // Delete Pangolin
         // ======================================================================================================
-        private ObservableCollection<Pangolin> _PangolinList = new ObservableCollection<Pangolin>(Database.DatabaseManager.GetPangolins());
-        public ObservableCollection<Pangolin> PangolinList { get { return _PangolinList; } }
+        private readonly ObservableCollection<Pangolin> _PangolinList = new ObservableCollection<Pangolin>(Database.DatabaseManager.GetPangolins());
+        public ObservableCollection<Pangolin> PangolinList => _PangolinList;
         public Pangolin SelectedPangolinDelete { get; set; }
         public RelayCommand DeletePangolinClick { get; set; }
 
@@ -212,7 +214,7 @@ namespace Pangolin_Database_App.ViewModels
         /// <param name="propertyName"></param>
         public void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
         {
-            if (!String.IsNullOrEmpty(propertyName) && PropertyChanged != null)
+            if (!string.IsNullOrEmpty(propertyName) && PropertyChanged != null)
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
@@ -257,7 +259,7 @@ namespace Pangolin_Database_App.ViewModels
         /// </summary>
         public bool SnackbarActive
         {
-            get { return _snackbarActive; }
+            get => _snackbarActive;
             set { _snackbarActive = value; NotifyPropertyChanged(); }
         }
 
@@ -268,7 +270,7 @@ namespace Pangolin_Database_App.ViewModels
         /// </summary>
         public string SnackbarMessage
         {
-            get { return _snackbarMessage; }
+            get => _snackbarMessage;
             set { _snackbarMessage = value; NotifyPropertyChanged(); }
         }
 
@@ -280,6 +282,6 @@ namespace Pangolin_Database_App.ViewModels
         /// <summary>
         /// Relay command for hide snackbar
         /// </summary>
-        public RelayCommand HideSnackbar { get { return _hideSnackbar; } set { _hideSnackbar = value; NotifyPropertyChanged(); } }
+        public RelayCommand HideSnackbar { get => _hideSnackbar; set { _hideSnackbar = value; NotifyPropertyChanged(); } }
     }
 }

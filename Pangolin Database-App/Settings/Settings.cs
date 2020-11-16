@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Pangolin_Database_App.Settings
 {
-    class Settings
+    internal class Settings
     {
         public const string DbFilename = "Pangolin-Database.db";
         public const string SQLiteConnectionString = "Filename=Pangolin-Database.db";

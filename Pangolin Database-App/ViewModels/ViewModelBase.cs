@@ -61,7 +61,7 @@ namespace Pangolin_Database_App.ViewModels
         /// </summary>
         public bool SnackbarActive
         {
-            get { return _snackbarActive; }
+            get => _snackbarActive;
             set { _snackbarActive = value; NotifyPropertyChanged(); }
         }
 
@@ -72,7 +72,7 @@ namespace Pangolin_Database_App.ViewModels
         /// </summary>
         public string SnackbarMessage
         {
-            get { return _snackbarMessage; }
+            get => _snackbarMessage;
             set { _snackbarMessage = value; NotifyPropertyChanged(); }
         }
 
@@ -84,7 +84,7 @@ namespace Pangolin_Database_App.ViewModels
         /// <summary>
         /// Relay command for hide snackbar
         /// </summary>
-        public RelayCommand HideSnackbar { get { return _hideSnackbar; } set { _hideSnackbar = value; NotifyPropertyChanged(); } }
+        public RelayCommand HideSnackbar { get => _hideSnackbar; set { _hideSnackbar = value; NotifyPropertyChanged(); } }
 
         /// <summary>
         /// Hides snackbar
@@ -108,7 +108,7 @@ namespace Pangolin_Database_App.ViewModels
         /// <summary>
         /// Key for hiding thread bar after certain seconds, checks if method was raised another time
         /// </summary>
-        int sessionSnackbarKey = 0;
+        private int sessionSnackbarKey = 0;
 
         /// <summary>
         /// Shows snackbar with a message
@@ -127,7 +127,7 @@ namespace Pangolin_Database_App.ViewModels
         /// <summary>
         /// Saves dbset that should be used for this view model
         /// </summary>
-        private DbSet<T> dbset;
+        private readonly DbSet<T> dbset;
 
         /// <summary>
         /// Applies dbset and relay command for hidesnackbar
@@ -147,7 +147,7 @@ namespace Pangolin_Database_App.ViewModels
         /// <summary>
         /// Collection for all pangolins
         /// </summary>
-        public ObservableCollection<Pangolin> Pangolins { get { return _pangolins; } private set { _pangolins = value; NotifyPropertyChanged(); } }
+        public ObservableCollection<Pangolin> Pangolins { get => _pangolins; private set { _pangolins = value; NotifyPropertyChanged(); } }
 
         /// <summary>
         /// Saves selected pangolin
@@ -164,7 +164,7 @@ namespace Pangolin_Database_App.ViewModels
         /// </summary>
         public Pangolin SelectedPangolin
         {
-            get { return _selectedPangolin; }
+            get => _selectedPangolin;
             set
             {
                 if (value != _selectedPangolin)
@@ -207,7 +207,7 @@ namespace Pangolin_Database_App.ViewModels
         /// </summary>
         public T SelectedModel
         {
-            get { return _selectedModel; }
+            get => _selectedModel;
             set
             {
                 if (_selectedModel != value)
@@ -264,7 +264,8 @@ namespace Pangolin_Database_App.ViewModels
                     }
 
                 }
-            } catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 ShowSnackbar("Could not update model: " + ex.InnerException);
             }
@@ -285,7 +286,7 @@ namespace Pangolin_Database_App.ViewModels
                     continue;
                 }
 
-                if(p.GetCustomAttribute<RequiredAttribute>() != null)
+                if (p.GetCustomAttribute<RequiredAttribute>() != null)
                 {
                     if (!SelectedModel.Validate(p.GetValue(SelectedModel), null).IsValid)
                     {
@@ -407,7 +408,7 @@ namespace Pangolin_Database_App.ViewModels
         /// <param name="propertyName"></param>
         public void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
         {
-            if (!String.IsNullOrEmpty(propertyName) && PropertyChanged != null)
+            if (!string.IsNullOrEmpty(propertyName) && PropertyChanged != null)
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }

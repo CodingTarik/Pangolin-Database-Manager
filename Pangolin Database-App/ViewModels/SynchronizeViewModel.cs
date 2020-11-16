@@ -3,7 +3,6 @@ using Pangolin_Database_App.Models;
 using Pangolin_Database_App.Util;
 using System;
 using System.Threading.Tasks;
-using System.Windows.Controls;
 
 namespace Pangolin_Database_App.ViewModels
 {
@@ -23,7 +22,7 @@ namespace Pangolin_Database_App.ViewModels
         /// </summary>
         public string StatusText
         {
-            get { return statusText; }
+            get => statusText;
             set { statusText = value; NotifyPropertyChanged(); }
         }
 
@@ -35,15 +34,12 @@ namespace Pangolin_Database_App.ViewModels
         /// </summary>
         public bool LoadingAnimation
         {
-            get
-            {
-                return loadingAnimation;
-            }
+            get => loadingAnimation;
             set
             {
                 loadingAnimation = value;
                 NotifyPropertyChanged();
-               
+
             }
         }
 

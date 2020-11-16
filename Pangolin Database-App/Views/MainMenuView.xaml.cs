@@ -147,7 +147,7 @@ namespace Pangolin_Database_App.Views
             Window.GetWindow(this).DataContext = new MortalityViewModel();
         }
 
-      
+
         /// <summary>
         /// Edit button in pangolin selection clicked
         /// </summary>
@@ -156,7 +156,7 @@ namespace Pangolin_Database_App.Views
         private void EditButton_Click(object sender, RoutedEventArgs e)
         {
             Pangolin selectedPangolin = ((MainMenuViewModel)(Window.GetWindow(this).DataContext)).SelectedPangolin;
-            if(selectedPangolin != null)
+            if (selectedPangolin != null)
             {
                 Window.GetWindow(this).DataContext = new AddPangolinViewModel(selectedPangolin);
             }
@@ -175,7 +175,7 @@ namespace Pangolin_Database_App.Views
             Login loginView = new Login();
             Window currentWindow = Window.GetWindow(this);
             currentWindow.Close();
-            App.Current.MainWindow = loginView;          
+            App.Current.MainWindow = loginView;
             loginView.Show();
         }
 

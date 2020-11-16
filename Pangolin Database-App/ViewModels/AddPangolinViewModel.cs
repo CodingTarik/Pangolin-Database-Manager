@@ -111,26 +111,14 @@ namespace Pangolin_Database_App.ViewModels
         /// <summary>
         /// Returns all genders as IEnumerable
         /// </summary>
-        public IEnumerable<Sex> Genders
-        {
-            get
-            {
-                return Enum.GetValues(typeof(Sex))
+        public IEnumerable<Sex> Genders => Enum.GetValues(typeof(Sex))
                     .Cast<Sex>();
-            }
-        }
 
         /// <summary>
         /// Returns all health states as IEnumerable
         /// </summary>
-        public IEnumerable<HealthStatus> HealthStates
-        {
-            get
-            {
-                return Enum.GetValues(typeof(HealthStatus))
+        public IEnumerable<HealthStatus> HealthStates => Enum.GetValues(typeof(HealthStatus))
                     .Cast<HealthStatus>();
-            }
-        }
 
         private static Pangolin _pangolinStandardModel;
 

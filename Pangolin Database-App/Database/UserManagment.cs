@@ -97,7 +97,7 @@ namespace Pangolin_Database_App.Database
             // Grant Privileges for Database
             sqlQuery = @"GRANT ALL PRIVILEGES ON `" + Settings.Settings.MYSQLDatabaseName + @"`.* TO '" + username + @"'@'%';";
             Logger.LogManager.logInfo("Running Query: '" + sqlQuery + "'", Logger.LogTopic.Database);
-            int rowsAddedPrivileges = await pr.Database.ExecuteSqlRawAsync(@"GRANT ALL PRIVILEGES ON `" + Settings.Settings.MYSQLDatabaseName+ @"`.* TO '" + username+@"'@'%';");          
+            int rowsAddedPrivileges = await pr.Database.ExecuteSqlRawAsync(@"GRANT ALL PRIVILEGES ON `" + Settings.Settings.MYSQLDatabaseName + @"`.* TO '" + username + @"'@'%';");
             Logger.LogManager.log("Rows affected for privileges: " + rowsAddedPrivileges, Logger.LogCategory.info, Logger.LogTopic.User);
             // return
             return true;
@@ -116,7 +116,7 @@ namespace Pangolin_Database_App.Database
             optionsBuilder.UseMySql(Settings.Settings.MYSQLConnectionString);
             PangolinContext pr = new PangolinContext(optionsBuilder.Options);
             // Create User
-            string sqlQuery = @"ALTER USER '"+username+@"'@'%' IDENTIFIED BY '"+password+@"';";
+            string sqlQuery = @"ALTER USER '" + username + @"'@'%' IDENTIFIED BY '" + password + @"';";
             Logger.LogManager.logInfo("Running Query: '" + sqlQuery + "'", Logger.LogTopic.Database);
             int rowsAddedUsers = await pr.Database.ExecuteSqlRawAsync(sqlQuery);
             Logger.LogManager.log("Rows affected for user adding: " + rowsAddedUsers, Logger.LogCategory.info, Logger.LogTopic.User);
@@ -181,7 +181,7 @@ namespace Pangolin_Database_App.Database
         /// </summary>
         public static void DeleteCookieData()
         {
-            if(File.Exists("userdata.xml"))
+            if (File.Exists("userdata.xml"))
             {
                 File.Delete("userdata.xml");
             }

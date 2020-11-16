@@ -5,12 +5,12 @@ using System.Linq;
 
 namespace Pangolin_Database_App.ViewModels
 {
-    class PhysicalMesaurementsViewModel : ViewModelBase<PhysicalMeasurements>
+    internal class PhysicalMesaurementsViewModel : ViewModelBase<PhysicalMeasurements>
     {
         public PhysicalMesaurementsViewModel() : base(DatabaseManager.GetDatabase().PhysicalMeasurements)
         {
-            this.SelectedModel = new PhysicalMeasurements();
-            this.PangolinChanged += Pangolin_Changed;
+            SelectedModel = new PhysicalMeasurements();
+            PangolinChanged += Pangolin_Changed;
 
         }
 
@@ -26,15 +26,15 @@ namespace Pangolin_Database_App.ViewModels
                                       where measurement.ReferenceNumber == e
                                       select measurement).FirstOrDefault();
 
-            if(p == null)
+            if (p == null)
             {
-                this.SelectedModel = new PhysicalMeasurements() { ReferenceNumber = SelectedPangolin, Date = DateTime.UtcNow };
+                SelectedModel = new PhysicalMeasurements() { ReferenceNumber = SelectedPangolin, Date = DateTime.UtcNow };
             }
             else
             {
                 SelectedModel = p;
             }
-                                    
+
         }
     }
 }

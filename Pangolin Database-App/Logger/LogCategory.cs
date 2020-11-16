@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Pangolin_Database_App.Logger
+﻿namespace Pangolin_Database_App.Logger
 {
-    enum LogCategory
+    internal enum LogCategory
     {
         warning,
         info,

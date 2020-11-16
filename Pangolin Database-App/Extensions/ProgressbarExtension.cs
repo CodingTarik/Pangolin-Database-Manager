@@ -9,7 +9,7 @@ namespace Pangolin_Database_App.Extensions
     /// </summary>
     internal static class ProgressbarExtension
     {
-        private static TimeSpan duration = TimeSpan.FromSeconds(2);
+        private static readonly TimeSpan duration = TimeSpan.FromSeconds(2);
 
         /// <summary>
         /// Sets the percentage of a progressbar with a smooth animation loading

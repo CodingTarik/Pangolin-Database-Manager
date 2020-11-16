@@ -32,7 +32,7 @@ namespace Pangolin_Database_App.Views
         /// </summary>
         private void UpdateProgressBar()
         {
-            walkedProgressbar.SetPercent(((DailyActivitySheetViewModel)this.DataContext).TotalHoursWalkedInPercent);
+            walkedProgressbar.SetPercent(((DailyActivitySheetViewModel)DataContext).TotalHoursWalkedInPercent);
         }
 
         /// <summary>

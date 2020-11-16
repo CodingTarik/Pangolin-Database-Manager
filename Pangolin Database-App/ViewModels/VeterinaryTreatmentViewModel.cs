@@ -1,6 +1,5 @@
 ﻿using Pangolin_Database_App.Database;
 using Pangolin_Database_App.Models;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 
@@ -30,35 +29,29 @@ namespace Pangolin_Database_App.ViewModels
             NotifyPropertyChanged("PreviousTreatments");
         }
 
-        public ObservableCollection<VeterinaryTreatment> PreviousTreatments
-        {
-            get
-            {
-                return new ObservableCollection<VeterinaryTreatment>(DatabaseManager.GetDatabase().VeterinaryTreatments.Where(n => n.ReferenceNumber == SelectedPangolin).ToList());
-            }
-        }
+        public ObservableCollection<VeterinaryTreatment> PreviousTreatments => new ObservableCollection<VeterinaryTreatment>(DatabaseManager.GetDatabase().VeterinaryTreatments.Where(n => n.ReferenceNumber == SelectedPangolin).ToList());
 
         public bool Subcut
         {
-            get { return ReadBit(SelectedModel.Method, 3); }
+            get => ReadBit(SelectedModel.Method, 3);
             set { SetBit(SelectedModel.Method, 3, value, n => SelectedModel.Method = n); NotifyPropertyChanged(); }
         }
 
         public bool IM
         {
-            get { return ReadBit(SelectedModel.Method, 2); }
+            get => ReadBit(SelectedModel.Method, 2);
             set { SetBit(SelectedModel.Method, 2, value, n => SelectedModel.Method = n); NotifyPropertyChanged(); }
         }
 
         public bool IS
         {
-            get { return ReadBit(SelectedModel.Method, 1); }
+            get => ReadBit(SelectedModel.Method, 1);
             set { SetBit(SelectedModel.Method, 1, value, n => SelectedModel.Method = n); NotifyPropertyChanged(); }
         }
 
         public bool Oral
         {
-            get { return ReadBit(SelectedModel.Method, 0); }
+            get => ReadBit(SelectedModel.Method, 0);
             set { SetBit(SelectedModel.Method, 0, value, n => SelectedModel.Method = n); NotifyPropertyChanged(); }
         }
     }

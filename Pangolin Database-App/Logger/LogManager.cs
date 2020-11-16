@@ -1,15 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using System.Text;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 
 namespace Pangolin_Database_App.Logger
 {
     /// <summary>
     /// This class handels all logging for debug 
     /// </summary>
-    class LogManager
+    internal class LogManager
     {
         /// <summary>
         /// Logs for debug
@@ -21,9 +19,9 @@ namespace Pangolin_Database_App.Logger
         /// <param name="caller"></param>
         /// <param name="path"></param>
         /// <param name="line"></param>
-        public static void log(string message,  LogCategory category = LogCategory.info, LogTopic topic = LogTopic.Other, Exception ex = null, [CallerMemberName] string caller = "", [CallerFilePath] string path = "", [CallerLineNumber] int line = 0)
+        public static void log(string message, LogCategory category = LogCategory.info, LogTopic topic = LogTopic.Other, Exception ex = null, [CallerMemberName] string caller = "", [CallerFilePath] string path = "", [CallerLineNumber] int line = 0)
         {
-            switch(category)
+            switch (category)
             {
                 case LogCategory.error:
                     logError(ex, message, topic, caller);

@@ -10,7 +10,7 @@ namespace Pangolin_Database_App.Views
     /// </summary>
     public partial class Login : Window
     {
-        private LoginViewModel model;
+        private readonly LoginViewModel model;
         public Login()
         {
             model = new LoginViewModel();
@@ -18,7 +18,7 @@ namespace Pangolin_Database_App.Views
 
             // check for cookie data
             User savedUser = Database.UserManagment.LoadUserByCookie();
-            if(savedUser != null)
+            if (savedUser != null)
             {
                 Database.UserManagment.ActiveUser = savedUser;
                 ShowMainMenu();
@@ -35,7 +35,7 @@ namespace Pangolin_Database_App.Views
         {
             MainWindow main = new MainWindow();
             App.Current.MainWindow = main;
-            this.Close();
+            Close();
             main.Show();
         }
 
@@ -52,8 +52,8 @@ namespace Pangolin_Database_App.Views
             ).FirstOrDefault();
             if (user != null)
             {
-                Database.UserManagment.ActiveUser = user;                
-                if((bool)StayLoggedIn.IsChecked)
+                Database.UserManagment.ActiveUser = user;
+                if ((bool)StayLoggedIn.IsChecked)
                 {
                     Database.UserManagment.SaveLoginData();
                 }
@@ -82,7 +82,7 @@ namespace Pangolin_Database_App.Views
         /// <param name="e"></param>
         private void Minimize_Click(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            this.WindowState = WindowState.Minimized;
+            WindowState = WindowState.Minimized;
         }
     }
 }

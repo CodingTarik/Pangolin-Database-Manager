@@ -38,7 +38,7 @@ namespace Pangolin_Database_App.Database
                 LogManager.log("Configuring database", LogCategory.info, LogTopic.Database);
                 optionsBuilder.UseSqlite(Pangolin_Database_App.Settings.Settings.SQLiteConnectionString);
             }
-           
+
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

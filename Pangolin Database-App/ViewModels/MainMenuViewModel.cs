@@ -1,16 +1,14 @@
 ﻿using Pangolin_Database_App.Database;
 using Pangolin_Database_App.Models;
-using Pangolin_Database_App.Util;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 
 namespace Pangolin_Database_App.ViewModels
 {
-    class MainMenuViewModel 
+    internal class MainMenuViewModel
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string Name { get { return FirstName + " " + LastName; } }
+        public string Name => FirstName + " " + LastName;
         public bool IsAdmin { get; set; }
 
         public MainMenuViewModel()

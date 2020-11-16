@@ -1,18 +1,17 @@
 ﻿using Pangolin_Database_App.Database;
 using Pangolin_Database_App.Models;
+using Pangolin_Database_App.Util;
 using System;
 using System.Linq;
-using MaterialDesignThemes;
-using Pangolin_Database_App.Util;
 
 namespace Pangolin_Database_App.ViewModels
 {
-    class ReleaseViewModel : ViewModelBase<Release>, IHasDialog
+    internal class ReleaseViewModel : ViewModelBase<Release>, IHasDialog
     {
         public ReleaseViewModel() : base(DatabaseManager.GetDatabase().Releases)
         {
-            this.SelectedModel = new Release();
-            this.PangolinChanged += Pangolin_Changed;
+            SelectedModel = new Release();
+            PangolinChanged += Pangolin_Changed;
         }
 
         /// <summary>
@@ -24,12 +23,12 @@ namespace Pangolin_Database_App.ViewModels
         {
             // Check if there is already a existing one
             Release p = (from release in DatabaseManager.GetDatabase().Releases
-                                      where release.ReferenceNumber == e
-                                      select release).FirstOrDefault();
+                         where release.ReferenceNumber == e
+                         select release).FirstOrDefault();
 
             if (p == null)
             {
-                this.SelectedModel = new Release() { ReferenceNumber = SelectedPangolin, Date = DateTime.UtcNow };
+                SelectedModel = new Release() { ReferenceNumber = SelectedPangolin, Date = DateTime.UtcNow };
             }
             else
             {
@@ -44,7 +43,7 @@ namespace Pangolin_Database_App.ViewModels
         /// </summary>
         public bool IsDialogOpen
         {
-            get { return isDialogOpen; }
+            get => isDialogOpen;
             set { isDialogOpen = value; NotifyPropertyChanged(); }
         }
 
@@ -55,29 +54,31 @@ namespace Pangolin_Database_App.ViewModels
         /// </summary>
         public object DialogContent
         {
-            get { return dialogContent; }
+            get => dialogContent;
             set { dialogContent = value; NotifyPropertyChanged(); }
         }
 
         // Microchipped
-        public bool Microchipped { 
-            get { return SelectedModel.Microchipped; } 
-            set { 
-                SelectedModel.Microchipped = value; NotifyPropertyChanged(); 
-                if(value == true)
+        public bool Microchipped
+        {
+            get => SelectedModel.Microchipped;
+            set
+            {
+                SelectedModel.Microchipped = value; NotifyPropertyChanged();
+                if (value == true)
                 {
                     DialogContent = new MicrochipViewModel(SelectedPangolin);
                     IsDialogOpen = true;
                 }
-                    
-            } 
+
+            }
         }
-      
+
 
         // Transmitted
         public bool Transmitted
         {
-            get { return SelectedModel.Transmitted; }
+            get => SelectedModel.Transmitted;
             set
             {
                 SelectedModel.Transmitted = value; NotifyPropertyChanged();

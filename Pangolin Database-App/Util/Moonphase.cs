@@ -46,20 +46,20 @@ namespace Pangolin_Database_App.Util
             int day = date.Day;
 
             // Julian Date Converts
-            int YY = year - (Int32)((12 - month) / 10);
+            int YY = year - (12 - month) / 10;
             int MM = month + 9;
             if (MM >= 12) { MM = MM - 12; }
 
             // K-Factors
-            int K1 = (Int32)(365.25d * (YY + 4712d));
-            int K2 = (Int32)(30.6d * MM + .5);
-            int K3 = (Int32)((Int32)((YY / 100) + 49) * .75d) - 38;
+            int K1 = (int)(365.25d * (YY + 4712d));
+            int K2 = (int)(30.6d * MM + .5);
+            int K3 = (int)(((YY / 100) + 49) * .75d) - 38;
 
             // J, V Factors
             int J = K1 + K2 + day + 59;
             if (J > 2299160) { J = J - K3; }
             double V = (J - 2451550.1) / 29.530588853;
-            V = V - (Int32)(V);
+            V = V - (int)(V);
             if (V < 0) { V = V + 1; }
 
             // Calculate average moon phase

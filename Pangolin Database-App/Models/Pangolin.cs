@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Pangolin_Database_App.Enums;
+using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Runtime.CompilerServices;
-using System.Text;
-using Pangolin_Database_App.Enums;
-using Pangolin_Database_App.Util;
 
 namespace Pangolin_Database_App.Models
 {
@@ -22,7 +19,7 @@ namespace Pangolin_Database_App.Models
         /// </summary>
         private string _referenceNumber;
         [Required]
-        public string ReferenceNumber { get { return _referenceNumber; } set { _referenceNumber = value; NotifyPropertyChanged(); } }
+        public string ReferenceNumber { get => _referenceNumber; set { _referenceNumber = value; NotifyPropertyChanged(); } }
         /// <summary>
         /// Reference to the official document
         /// </summary>
@@ -99,7 +96,7 @@ namespace Pangolin_Database_App.Models
         /// <param name="propertyName"></param>
         public void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
         {
-            if (!String.IsNullOrEmpty(propertyName) && PropertyChanged != null)
+            if (!string.IsNullOrEmpty(propertyName) && PropertyChanged != null)
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }

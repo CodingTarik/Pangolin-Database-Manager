@@ -1,8 +1,7 @@
 ﻿using Pangolin_Database_App.ViewModels;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.IO;
-using System.Threading.Tasks;
 
 namespace Pangolin_Database_App.Views
 {
@@ -53,7 +52,7 @@ namespace Pangolin_Database_App.Views
 
         private async void UpdateFiles_Click(object sender, RoutedEventArgs e)
         {
-            await Task.Delay(200);     
+            await Task.Delay(200);
             Refresh_List(this, e);
         }
 

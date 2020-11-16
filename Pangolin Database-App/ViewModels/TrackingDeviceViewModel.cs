@@ -33,17 +33,11 @@ namespace Pangolin_Database_App.ViewModels
             NotifyPropertyChanged("PreviousDevices");
         }
 
-        public ObservableCollection<TrackingDevice> PreviousDevices
-        {
-            get
-            {
-                return new
+        public ObservableCollection<TrackingDevice> PreviousDevices => new
                     ObservableCollection<TrackingDevice>(
                     (from TrackingDevice in Database.DatabaseManager.GetDatabase().TrackingDevices
                      where TrackingDevice.ReferenceNumber == SelectedPangolin
                      select TrackingDevice).ToList()
                     );
-            }
-        }
     }
 }
