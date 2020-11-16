@@ -1470,11 +1470,6 @@
             Property if animation is on
             </summary>
         </member>
-        <member name="P:Pangolin_Database_App.ViewModels.SynchronizeViewModel.progressbar">
-            <summary>
-            Progressbar to update
-            </summary>
-        </member>
         <member name="M:Pangolin_Database_App.ViewModels.SynchronizeViewModel.SyncCommandAsync">
             <summary>
             Sync command

@@ -102,6 +102,46 @@ namespace Pangolin_Database_App.Database
             // return
             return true;
         }
+
+        /// <summary>
+        /// Updates user password on mysql
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
+        public static async Task<bool> UpdateUserPassOnMySQLAsync(string username, string password)
+        {
+            // Build Connection
+            var optionsBuilder = new DbContextOptionsBuilder<PangolinContext>();
+            optionsBuilder.UseMySql(Settings.Settings.MYSQLConnectionString);
+            PangolinContext pr = new PangolinContext(optionsBuilder.Options);
+            // Create User
+            string sqlQuery = @"ALTER USER '"+username+@"'@'%' IDENTIFIED BY '"+password+@"';";
+            Logger.LogManager.logInfo("Running Query: '" + sqlQuery + "'", Logger.LogTopic.Database);
+            int rowsAddedUsers = await pr.Database.ExecuteSqlRawAsync(sqlQuery);
+            Logger.LogManager.log("Rows affected for user adding: " + rowsAddedUsers, Logger.LogCategory.info, Logger.LogTopic.User);
+            return true;
+        }
+
+        /// <summary>
+        /// Deletes a User on mysql
+        /// </summary>
+        /// <param name="username"></param>
+        /// <returns></returns>
+        public static async Task<bool> DeleteUserOnMySQLAsync(string username)
+        {
+            // Build Connection
+            var optionsBuilder = new DbContextOptionsBuilder<PangolinContext>();
+            optionsBuilder.UseMySql(Settings.Settings.MYSQLConnectionString);
+            PangolinContext pr = new PangolinContext(optionsBuilder.Options);
+            // Create User
+            string sqlQuery = @"DROP USER '" + username + @"'@'%';";
+            Logger.LogManager.logInfo("Running Query: '" + sqlQuery + "'", Logger.LogTopic.Database);
+            int rowsAddedUsers = await pr.Database.ExecuteSqlRawAsync(sqlQuery);
+            Logger.LogManager.log("Rows affected for user adding: " + rowsAddedUsers, Logger.LogCategory.info, Logger.LogTopic.User);
+            return true;
+        }
+
         /// <summary>
         /// ads new default admin user
         /// </summary>
