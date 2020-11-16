@@ -10,7 +10,7 @@ namespace Pangolin_Database_App.ViewModels
     {
         public ReleaseViewModel() : base(DatabaseManager.GetDatabase().Releases)
         {
-            SelectedModel = new Release();
+            SelectedModel = new Release() { Date = DateTime.Now };
             PangolinChanged += Pangolin_Changed;
         }
 

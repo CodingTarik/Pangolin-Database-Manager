@@ -207,7 +207,7 @@
                                 <ColumnDefinition Width="0.8*"></ColumnDefinition>
                             </Grid.ColumnDefinitions>
                             <materialDesign:PackIcon Kind="MotionSensor" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
-                            <ComboBox Grid.Column="1" VerticalAlignment="Center"
+                            <ComboBox Grid.Column="1" VerticalAlignment="Center" Style="{StaticResource MaterialDesignFloatingHintComboBox}"
                             materialDesign:HintAssist.Hint="ANESTHESIA" SelectedIndex="{Binding Anesthesia, Converter={StaticResource BoolToIndex}}">
                                 <ComboBoxItem>
                                     YES

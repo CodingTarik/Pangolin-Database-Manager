@@ -102,9 +102,16 @@ namespace Pangolin_Database_App.ViewModels
                         continue;
                     }
 
-                    p.SetValue(_pangolinStandardModel, null);
+                    if (p.SetMethod != null)
+                    {
+                        p.SetValue(_pangolinStandardModel, null);
+                    }
                 }
+                // INIT with default values
                 _pangolinStandardModel.ReferenceNumber = "<NEW PANGOLIN>";
+                _pangolinStandardModel.Date = DateTime.Now;
+                _pangolinStandardModel.Time = DateTime.Now;
+                _pangolinStandardModel.CriminalCase = false;
             }
         }
 

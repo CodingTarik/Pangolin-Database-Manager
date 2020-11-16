@@ -9,7 +9,7 @@ namespace Pangolin_Database_App.ViewModels
     {
         public PhysicalMesaurementsViewModel() : base(DatabaseManager.GetDatabase().PhysicalMeasurements)
         {
-            SelectedModel = new PhysicalMeasurements();
+            SelectedModel = new PhysicalMeasurements() { Date = DateTime.Now };
             PangolinChanged += Pangolin_Changed;
 
         }

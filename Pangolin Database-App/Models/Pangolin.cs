@@ -43,6 +43,11 @@ namespace Pangolin_Database_App.Models
         /// </summary>
         public bool ParasitesPresent { get; set; }
         /// <summary>
+        /// No parasites presents
+        /// </summary>
+        [NotMapped]
+        public bool ParasitesNotPresent { get { return !ParasitesPresent; } set { } }
+        /// <summary>
         /// Aproximated age of pangolin
         /// </summary>
         public string ApproxAge { get; set; }
@@ -78,6 +83,11 @@ namespace Pangolin_Database_App.Models
         /// true = criminal case, false = hand in
         /// </summary>
         public bool CriminalCase { get; set; }
+        /// <summary>
+        /// No criminal case
+        /// </summary>
+        [NotMapped]
+        public bool NoCriminalCase { get { return !CriminalCase; } set { } }
         /// <summary>
         /// The date
         /// </summary>

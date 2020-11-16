@@ -763,6 +763,11 @@
             Parasites are present at the pangolin
             </summary>
         </member>
+        <member name="P:Pangolin_Database_App.Models.Pangolin.ParasitesNotPresent">
+            <summary>
+            No parasites presents
+            </summary>
+        </member>
         <member name="P:Pangolin_Database_App.Models.Pangolin.ApproxAge">
             <summary>
             Aproximated age of pangolin
@@ -806,6 +811,11 @@
         <member name="P:Pangolin_Database_App.Models.Pangolin.CriminalCase">
             <summary>
             true = criminal case, false = hand in
+            </summary>
+        </member>
+        <member name="P:Pangolin_Database_App.Models.Pangolin.NoCriminalCase">
+            <summary>
+            No criminal case
             </summary>
         </member>
         <member name="P:Pangolin_Database_App.Models.Pangolin.Date">

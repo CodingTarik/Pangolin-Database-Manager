@@ -1,5 +1,6 @@
 ﻿using Pangolin_Database_App.Database;
 using Pangolin_Database_App.Models;
+using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 
@@ -9,14 +10,14 @@ namespace Pangolin_Database_App.ViewModels
     {
         public VeterinaryTreatmentViewModel() : base(DatabaseManager.GetDatabase().VeterinaryTreatments)
         {
-            SelectedModel = new VeterinaryTreatment();
+            SelectedModel = new VeterinaryTreatment() { Date = DateTime.Now, Time = DateTime.Now };
             PangolinChanged += VeterinaryTreatmentViewModel_PangolinChanged;
             UpdateModelEvent += VeterinaryTreatmentViewModel_UpdateModelEvent;
         }
 
         private void VeterinaryTreatmentViewModel_UpdateModelEvent(object sender, System.EventArgs e)
         {
-            SelectedModel = new VeterinaryTreatment() { ReferenceNumber = SelectedPangolin };
+            SelectedModel = new VeterinaryTreatment() { ReferenceNumber = SelectedPangolin, Date = DateTime.Now, Time = DateTime.Now };
             NotifyPropertyChanged("Subcut");
             NotifyPropertyChanged("IM");
             NotifyPropertyChanged("IS");

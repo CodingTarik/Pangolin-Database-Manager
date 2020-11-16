@@ -168,6 +168,7 @@
                     </Grid.ColumnDefinitions>
                     <materialDesign:PackIcon Kind="Toilet" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
                     <ComboBox Grid.Column="1" VerticalAlignment="Center"
+                              Style="{StaticResource MaterialDesignFloatingHintComboBox}"
   materialDesign:HintAssist.Hint="DEFECTATION" SelectedIndex="{Binding SelectedModel.Defectation, Converter={StaticResource BoolToIndex}}">
                         <ComboBoxItem>
                             YES
@@ -185,6 +186,7 @@
                     </Grid.ColumnDefinitions>
                     <materialDesign:PackIcon Kind="Water" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
                     <ComboBox Grid.Column="1" VerticalAlignment="Center"
+                              Style="{StaticResource MaterialDesignFloatingHintComboBox}"
   materialDesign:HintAssist.Hint="PANGOLIN DRANK WATER TODAY?" SelectedIndex="{Binding SelectedModel.DrankWater, Converter={StaticResource BoolToIndex}}">
                         <ComboBoxItem>
                             YES
@@ -275,7 +277,9 @@
                         <ColumnDefinition Width="0.3*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <materialDesign:PackIcon Kind="Comment" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.RowSpan="2"></materialDesign:PackIcon>
-                    <TextBox Grid.Column="1"   VerticalScrollBarVisibility="Auto" materialDesign:HintAssist.Hint="COMMENTS OR OBSERVATIONS"  AcceptsReturn="True" TextWrapping="Wrap" VerticalAlignment="Center" Text="{Binding SelectedModel.Comment}"></TextBox>
+                    <TextBox
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                        Grid.Column="1"   VerticalScrollBarVisibility="Auto" materialDesign:HintAssist.Hint="COMMENTS OR OBSERVATIONS"  AcceptsReturn="True" TextWrapping="Wrap" VerticalAlignment="Center" Text="{Binding SelectedModel.Comment}"></TextBox>
                 </Grid>
             </Grid>
         </Border>

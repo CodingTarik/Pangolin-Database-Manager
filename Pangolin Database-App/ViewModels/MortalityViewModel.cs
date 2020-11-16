@@ -9,7 +9,7 @@ namespace Pangolin_Database_App.ViewModels
     {
         public MortalityViewModel() : base(DatabaseManager.GetDatabase().Mortalities)
         {
-            SelectedModel = new Mortality();
+            SelectedModel = new Mortality() { Date = DateTime.Now };
             PangolinChanged += MortalityViewModel_PangolinChanged;
         }
 

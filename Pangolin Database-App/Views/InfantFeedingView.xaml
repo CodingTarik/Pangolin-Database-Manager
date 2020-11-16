@@ -180,7 +180,7 @@
                             <RowDefinition Height="0.5*"></RowDefinition>
                         </Grid.RowDefinitions>
                         <materialDesign:PackIcon Kind="Toilet" Width="32" Height="32" Grid.RowSpan="2" VerticalAlignment="Center"></materialDesign:PackIcon>
-                        <ComboBox Grid.Column="1" materialDesign:HintAssist.Hint="defecation" SelectedIndex="{Binding DefectationIndex}">
+                        <ComboBox Grid.Column="1" materialDesign:HintAssist.Hint="defecation" SelectedIndex="{Binding DefectationIndex}" Style="{StaticResource MaterialDesignFloatingHintComboBox}">
                             <ComboBoxItem>
                                 Yes
                             </ComboBoxItem>
@@ -191,7 +191,8 @@
                                 Multiple Items
                             </ComboBoxItem>
                         </ComboBox>
-                        <TextBox Grid.Row="1" Grid.Column="1" materialDesign:HintAssist.Hint="How many times?" VerticalAlignment="Center" Text="{Binding DefectationCount, Converter={StaticResource StringToNumeric}}"> 
+                        <TextBox Grid.Row="1" Grid.Column="1" materialDesign:HintAssist.Hint="How many times?" VerticalAlignment="Center" Text="{Binding DefectationCount, Converter={StaticResource StringToNumeric}}" 
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"> 
                         </TextBox>
                     </Grid>
                 </Border>
@@ -220,7 +221,8 @@
                             materialDesign:HintAssist.Hint="Time of weighting" 
                             VerticalAlignment="Center" 
                             Is24Hours="True"
-                            SelectedTime="{Binding SelectedModel.TimeOfWeighting}">
+                            SelectedTime="{Binding SelectedModel.TimeOfWeighting}"
+                            Style="{StaticResource MaterialDesignFloatingHintTimePicker}">
                         </materialDesign:TimePicker>
                     </Grid>
                 </Border>

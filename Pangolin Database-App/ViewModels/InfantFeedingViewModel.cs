@@ -1,5 +1,6 @@
 ﻿using Pangolin_Database_App.Database;
 using Pangolin_Database_App.Models;
+using System;
 
 namespace Pangolin_Database_App.ViewModels
 {
@@ -7,13 +8,13 @@ namespace Pangolin_Database_App.ViewModels
     {
         public InfantFeedingViewModel() : base(DatabaseManager.GetDatabase().InfantFeedings)
         {
-            SelectedModel = new InfantFeeding();
+            SelectedModel = new InfantFeeding() { Date = DateTime.Now, Time = DateTime.Now };
             UpdateModelEvent += InfantFeedingViewModel_UpdateModelEvent;
         }
 
         private void InfantFeedingViewModel_UpdateModelEvent(object sender, System.EventArgs e)
         {
-            SelectedModel = new InfantFeeding() { ReferenceNumber = SelectedPangolin };
+            SelectedModel = new InfantFeeding() { ReferenceNumber = SelectedPangolin, Date = DateTime.Now, Time = DateTime.Now };
             ShowSnackbar("Feeding added successfully to local database", 4);
         }
 
