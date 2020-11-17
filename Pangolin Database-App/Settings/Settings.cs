@@ -13,7 +13,9 @@ namespace Pangolin_Database_App.Settings
         public const string TempFileFolderName = "OpenTemp";
         public const bool Debug = true;
         public const int DebugMaxRows = 10;
-        public const string MYSQLConnectionString = "Server=localhost;Port=3306;Database=database;Uid=hallo;Pwd=abc;";
+        public static string MYSQLConnectionString { get; set; }
         public const string MYSQLDatabaseName = "database";
+        public static string DatabaseHostAddress { get { return SettingsManager.ReadSetting("DatabaseHostAddress"); } }
+        public static int DatabasePort { get { return int.Parse(SettingsManager.ReadSetting("DatabasePort") ?? "3306"); } }
     }
 }

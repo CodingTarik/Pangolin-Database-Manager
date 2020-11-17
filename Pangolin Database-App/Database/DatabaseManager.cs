@@ -35,11 +35,6 @@ namespace Pangolin_Database_App.Database
 
                 LogManager.log("ensuring database was created", LogCategory.info, LogTopic.Database);
                 database.Database.EnsureCreated(); // SYNC AT THIS POINT (IF INTERNET)
-
-                if (database.Users.Where(user => user.Username == "Admin").FirstOrDefault() == null)
-                {
-                    UserManagment.AddDefaultAdminUser();
-                }
             }
             return database;
         }

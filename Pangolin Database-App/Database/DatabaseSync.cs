@@ -3,6 +3,7 @@ using Dotmim.Sync.MySql;
 using Dotmim.Sync.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.IO;
 using System.Threading.Tasks;
 
 namespace Pangolin_Database_App.Database
@@ -12,7 +13,6 @@ namespace Pangolin_Database_App.Database
 
 
         public static SqliteSyncProvider clientProvider = new SqliteSyncProvider(Settings.Settings.DbFilename);
-        public static MySqlSyncProvider serverProvider = new MySqlSyncProvider(Settings.Settings.MYSQLConnectionString);
         public static readonly string[] tables = {
             "CriminalCases", "DailyActivities", "Documents",
             "InfantFeedings", "InterdepartmentalMovements",
@@ -25,12 +25,18 @@ namespace Pangolin_Database_App.Database
         /// </summary>
         public static async Task<string> SyncAsync(IProgress<ProgressArgs> progress)
         {
-            // DEBUG --> Reset Context
-#if DEBUG
-            await CreateDatabaseOnServerAsync();
-#endif
+            MySqlSyncProvider serverProvider = new MySqlSyncProvider(Settings.Settings.MYSQLConnectionString);
             SyncAgent agent = new SyncAgent(clientProvider, serverProvider, tables);
-            SyncResult result = await agent.SynchronizeAsync(progress);
+            SyncResult result = null;
+            if (progress != null)
+            {
+                result = await agent.SynchronizeAsync(progress);
+            }
+            else
+            {
+                result = await agent.SynchronizeAsync();
+            }
+
             Logger.LogManager.log("Sync-Result: " + result.ToString());
             return result.ToString();
         }
@@ -39,13 +45,21 @@ namespace Pangolin_Database_App.Database
         /// Initalizes Database on Server Side, resets database if already exists
         /// </summary>
         /// <returns></returns>
-        public static async Task CreateDatabaseOnServerAsync()
+        public static async Task CreateDatabaseOnServerAsync(string username, string password)
         {
+            /*if (File.Exists(Settings.Settings.DbFilename))
+            {
+                File.Delete(Settings.Settings.DbFilename);
+            }*/
+
             var optionsBuilder = new DbContextOptionsBuilder<PangolinContext>();
-            optionsBuilder.UseMySql(Settings.Settings.MYSQLConnectionString);
+            string mysqlConString = "Server=" + Settings.Settings.DatabaseHostAddress + ";Port=" + Settings.Settings.DatabasePort + ";Database=database;Uid=" + username + ";Pwd=" + password + ";";
+            Logger.LogManager.logInfo("Initalizing database with connection string: '" + mysqlConString + "'", Logger.LogTopic.Database);
+            optionsBuilder.UseMySql(mysqlConString);
             PangolinContext pr = new PangolinContext(optionsBuilder.Options);
             await pr.Database.EnsureDeletedAsync();
-            await pr.Database.EnsureCreatedAsync();
+            await pr.Database.EnsureCreatedAsync();           
+            await UserManagment.AddDefaultAdminUser(mysqlConString, pr);
             pr.Dispose();
         }
     }

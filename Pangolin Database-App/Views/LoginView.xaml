@@ -4,12 +4,24 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:views="clr-namespace:Pangolin_Database_App.Views"
     xmlns:local="clr-namespace:Pangolin_Database_App.Views"
-        mc:Ignorable="d"
-        Title="Pangolin Database - Login" Height="350" Width="550" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowState="Normal" WindowStyle="None">
+    xmlns:setup="clr-namespace:Pangolin_Database_App.User_Controls.Login"
+    xmlns:viewmodels="clr-namespace:Pangolin_Database_App.ViewModels"
+    mc:Ignorable="d"
+    Title="Pangolin Database - Login" Height="350" Width="550" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowState="Normal" WindowStyle="None">
     <WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="32"/>
     </WindowChrome.WindowChrome>
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type viewmodels:CredentialsViewModel}">
+            <setup:PasswordView DataContext="{Binding}"></setup:PasswordView>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewmodels:SetupViewModel}">
+            <setup:SetupView DataContext="{Binding}"></setup:SetupView>
+        </DataTemplate>
+    </Window.Resources>
     <Grid>
         <Border Height="32" Margin="0,0,0,318">
             <Border.Background>
@@ -59,59 +71,7 @@
                 </Grid>
             </Grid>
         </Border>
-        <Image Source="/Icons/pangolin.png" Width="52" Height="52" Margin="62,56,436,242"></Image>
-        <TextBlock FontSize="40" Margin="119,58,103,242" FontWeight="Bold" FontFamily="Roboto" FontStyle="Normal">DATABASE LOGIN</TextBlock>
-        <StackPanel Margin="114,113,103,175">
-            <TextBox
-            Background="#E7E7E7"
-            x:Name="UsernameTextbox"
-                Height="40" Width="320"
-                FontSize="22">
-                <materialDesign:HintAssist.HelperText>
-                    Enter your username here
-                </materialDesign:HintAssist.HelperText>
-                <materialDesign:HintAssist.Hint>
-                    <StackPanel Orientation="Horizontal">
-                        <materialDesign:PackIcon Kind="Person" Width="26" Height="26" VerticalAlignment="Center"></materialDesign:PackIcon>
-                        <TextBlock Margin="10 0">Username</TextBlock>
-                    </StackPanel>
-                </materialDesign:HintAssist.Hint>
-                <TextBox.Text>
-                    <Binding
-                    Path="Name"
-                    UpdateSourceTrigger="PropertyChanged"></Binding>
-                </TextBox.Text>
-            </TextBox>
-        </StackPanel>
-        <StackPanel Margin="108,183,103,73">
-            <PasswordBox           
-  x:Name="PasswordBox"          
-  Background="#E7E7E7"  
-  materialDesign:HintAssist.Foreground="Black"
-  materialDesign:TextFieldAssist.HasClearButton="True"
-            Height="40" Width="320"
-  FontSize="22" Cursor="IBeam">
-                <materialDesign:HintAssist.HelperText>
-                    Enter your password here
-                </materialDesign:HintAssist.HelperText>
-                <materialDesign:HintAssist.Hint>
-                    <StackPanel Orientation="Horizontal">
-                        <materialDesign:PackIcon Kind="PasswordReset" Width="26" Height="26" VerticalAlignment="Center"></materialDesign:PackIcon>
-                        <TextBlock Margin="10 0">Password</TextBlock>
-                    </StackPanel>
-                </materialDesign:HintAssist.Hint>
-            </PasswordBox>
-        </StackPanel>
-        <CheckBox x:Name="StayLoggedIn" Margin="119,244,-5,84" Content="Stay logged in" FontSize="15"></CheckBox>
-        <Button x:Name="LoginButton"
-    Style="{StaticResource MaterialDesignRaisedDarkButton}"
-    ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" Margin="111,275,106,43" Click="LoginButton_Click">
-            LOGIN
-        </Button>
-
-        <materialDesign:Snackbar Style="{StaticResource SnackbarStyle}" x:Name="Snackbar" Panel.ZIndex="3"  Height="38" Margin="136,0,0,0" RenderTransformOrigin="0.5,0.5" VerticalContentAlignment="Top" HorizontalAlignment="Left" >
-            <materialDesign:SnackbarMessage></materialDesign:SnackbarMessage>
-        </materialDesign:Snackbar>
+        <ContentControl Content="{Binding ModelContent}" Margin="0,0,0,0"></ContentControl>
     </Grid>
 
 </Window>

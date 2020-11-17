@@ -54,7 +54,7 @@
             Syncs local database
             </summary>
         </member>
-        <member name="M:Pangolin_Database_App.Database.DatabaseSync.CreateDatabaseOnServerAsync">
+        <member name="M:Pangolin_Database_App.Database.DatabaseSync.CreateDatabaseOnServerAsync(System.String,System.String)">
             <summary>
             Initalizes Database on Server Side, resets database if already exists
             </summary>
@@ -73,7 +73,7 @@
             <param name="rawData"></param>
             <returns>hashed sha256 string</returns>
         </member>
-        <member name="M:Pangolin_Database_App.Database.UserManagment.AddNewUser(System.String,System.String,System.String,System.String,System.String,System.Boolean)">
+        <member name="M:Pangolin_Database_App.Database.UserManagment.AddNewUser(System.String,System.String,System.String,System.String,System.String,System.Boolean,System.String,Pangolin_Database_App.Database.PangolinContext)">
             <summary>
             This method adds a new user to database
             </summary>
@@ -83,7 +83,7 @@
             <param name="passwordhash"></param>
             <returns>false if there is already a user with this username, else true</returns>
         </member>
-        <member name="M:Pangolin_Database_App.Database.UserManagment.AddUserOnMySQLAsync(System.String,System.String)">
+        <member name="M:Pangolin_Database_App.Database.UserManagment.AddUserOnMySQLAsync(System.String,System.String,System.Boolean,System.String)">
             <summary>
             Adds a new user on mysql
             </summary>
@@ -106,7 +106,7 @@
             <param name="username"></param>
             <returns></returns>
         </member>
-        <member name="M:Pangolin_Database_App.Database.UserManagment.AddDefaultAdminUser">
+        <member name="M:Pangolin_Database_App.Database.UserManagment.AddDefaultAdminUser(System.String,Pangolin_Database_App.Database.PangolinContext)">
             <summary>
             ads new default admin user
             </summary>
@@ -1163,6 +1163,67 @@
             Fourth bit = Subcut
             </summary>
         </member>
+        <member name="M:Pangolin_Database_App.Settings.SettingsManager.GetTempFilePath">
+            <summary>
+            Creates a temp folder in appdata (if no one exists) for temporary storage of data, returns path of folder
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pangolin_Database_App.Settings.SettingsManager.UpdateDbHostAndPort(System.String,System.Int32)">
+            <summary>
+            Updates the settings file to new host and port
+            </summary>
+            <param name="host"></param>
+            <param name="port"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Pangolin_Database_App.Settings.SettingsManager.ReadSetting(System.String)">
+            <summary>
+            Reads a setting by its key
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Pangolin_Database_App.Settings.SettingsManager.AddUpdateAppSettings(System.String,System.String)">
+            <summary>
+            Adds or updates a settings key
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+        </member>
+        <member name="T:Pangolin_Database_App.User_Controls.Login.PasswordView">
+            <summary>
+            Interaktionslogik für CredentialsView.xaml
+            </summary>
+            <summary>
+            PasswordView
+            </summary>
+        </member>
+        <member name="M:Pangolin_Database_App.User_Controls.Login.PasswordView.LoginButton_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Login function
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Pangolin_Database_App.User_Controls.Login.PasswordView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Pangolin_Database_App.User_Controls.Login.SetupView">
+            <summary>
+            Interaktionslogik für SetupView.xaml
+            </summary>
+            <summary>
+            SetupView
+            </summary>
+        </member>
+        <member name="M:Pangolin_Database_App.User_Controls.Login.SetupView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
         <member name="T:Pangolin_Database_App.User_Controls.SaveControl">
             <summary>
             Interaktionslogik für SaveControl.xaml
@@ -1816,13 +1877,6 @@
             <summary>
             Closes this view and shows main view
             </summary>
-        </member>
-        <member name="M:Pangolin_Database_App.Views.Login.LoginButton_Click(System.Object,System.Windows.RoutedEventArgs)">
-            <summary>
-            Login function
-            </summary>
-            <param name="sender"></param>
-            <param name="e"></param>
         </member>
         <member name="M:Pangolin_Database_App.Views.Login.Close_Click(System.Object,System.Windows.Input.MouseButtonEventArgs)">
             <summary>

@@ -49,7 +49,7 @@
             Refreshes the pangolin list
             </summary>
         </member>
-        <member name="M:Pangolin_Database_App.Database.DatabaseSync.SyncAsync">
+        <member name="M:Pangolin_Database_App.Database.DatabaseSync.SyncAsync(System.IProgress{Dotmim.Sync.ProgressArgs})">
             <summary>
             Syncs local database
             </summary>
@@ -89,6 +89,21 @@
             </summary>
             <param name="username"></param>
             <param name="password"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Pangolin_Database_App.Database.UserManagment.UpdateUserPassOnMySQLAsync(System.String,System.String)">
+            <summary>
+            Updates user password on mysql
+            </summary>
+            <param name="username"></param>
+            <param name="password"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Pangolin_Database_App.Database.UserManagment.DeleteUserOnMySQLAsync(System.String)">
+            <summary>
+            Deletes a User on mysql
+            </summary>
+            <param name="username"></param>
             <returns></returns>
         </member>
         <member name="M:Pangolin_Database_App.Database.UserManagment.AddDefaultAdminUser">
@@ -748,6 +763,11 @@
             Parasites are present at the pangolin
             </summary>
         </member>
+        <member name="P:Pangolin_Database_App.Models.Pangolin.ParasitesNotPresent">
+            <summary>
+            No parasites presents
+            </summary>
+        </member>
         <member name="P:Pangolin_Database_App.Models.Pangolin.ApproxAge">
             <summary>
             Aproximated age of pangolin
@@ -791,6 +811,11 @@
         <member name="P:Pangolin_Database_App.Models.Pangolin.CriminalCase">
             <summary>
             true = criminal case, false = hand in
+            </summary>
+        </member>
+        <member name="P:Pangolin_Database_App.Models.Pangolin.NoCriminalCase">
+            <summary>
+            No criminal case
             </summary>
         </member>
         <member name="P:Pangolin_Database_App.Models.Pangolin.Date">
@@ -1138,6 +1163,67 @@
             Fourth bit = Subcut
             </summary>
         </member>
+        <member name="M:Pangolin_Database_App.Settings.SettingsManager.GetTempFilePath">
+            <summary>
+            Creates a temp folder in appdata (if no one exists) for temporary storage of data, returns path of folder
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pangolin_Database_App.Settings.SettingsManager.UpdateDbHostAndPort(System.String,System.Int32)">
+            <summary>
+            Updates the settings file to new host and port
+            </summary>
+            <param name="host"></param>
+            <param name="port"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Pangolin_Database_App.Settings.SettingsManager.ReadSetting(System.String)">
+            <summary>
+            Reads a setting by its key
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Pangolin_Database_App.Settings.SettingsManager.AddUpdateAppSettings(System.String,System.String)">
+            <summary>
+            Adds or updates a settings key
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+        </member>
+        <member name="T:Pangolin_Database_App.User_Controls.Login.PasswordView">
+            <summary>
+            Interaktionslogik für CredentialsView.xaml
+            </summary>
+            <summary>
+            PasswordView
+            </summary>
+        </member>
+        <member name="M:Pangolin_Database_App.User_Controls.Login.PasswordView.LoginButton_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Login function
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Pangolin_Database_App.User_Controls.Login.PasswordView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Pangolin_Database_App.User_Controls.Login.SetupView">
+            <summary>
+            Interaktionslogik für SetupView.xaml
+            </summary>
+            <summary>
+            SetupView
+            </summary>
+        </member>
+        <member name="M:Pangolin_Database_App.User_Controls.Login.SetupView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
         <member name="T:Pangolin_Database_App.User_Controls.SaveControl">
             <summary>
             Interaktionslogik für SaveControl.xaml
@@ -1460,6 +1546,27 @@
             Saves view model for extended dialog
             </summary>
         </member>
+        <member name="P:Pangolin_Database_App.ViewModels.SynchronizeViewModel.StatusText">
+            <summary>
+            Current status text
+            </summary>
+        </member>
+        <member name="P:Pangolin_Database_App.ViewModels.SynchronizeViewModel.LoadingAnimation">
+            <summary>
+            Property if animation is on
+            </summary>
+        </member>
+        <member name="M:Pangolin_Database_App.ViewModels.SynchronizeViewModel.SyncCommandAsync">
+            <summary>
+            Sync command
+            </summary>
+        </member>
+        <member name="M:Pangolin_Database_App.ViewModels.SynchronizeViewModel.Report(Dotmim.Sync.ProgressArgs)">
+            <summary>
+            Report for status change in sync
+            </summary>
+            <param name="value"></param>
+        </member>
         <member name="M:Pangolin_Database_App.ViewModels.ViewModelBase`1.SetBit(System.Int32,System.Int32,System.Boolean,Pangolin_Database_App.ViewModels.ViewModelBase{`0}.IntValue)">
             <summary>
             Sets bit in bitmask
@@ -1771,13 +1878,6 @@
             Closes this view and shows main view
             </summary>
         </member>
-        <member name="M:Pangolin_Database_App.Views.Login.LoginButton_Click(System.Object,System.Windows.RoutedEventArgs)">
-            <summary>
-            Login function
-            </summary>
-            <param name="sender"></param>
-            <param name="e"></param>
-        </member>
         <member name="M:Pangolin_Database_App.Views.Login.Close_Click(System.Object,System.Windows.Input.MouseButtonEventArgs)">
             <summary>
             close
@@ -1965,6 +2065,19 @@
             </summary>
         </member>
         <member name="M:Pangolin_Database_App.Views.ReleaseView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Pangolin_Database_App.Views.SyncView">
+            <summary>
+            Interaktionslogik für SyncView.xaml
+            </summary>
+            <summary>
+            SyncView
+            </summary>
+        </member>
+        <member name="M:Pangolin_Database_App.Views.SyncView.InitializeComponent">
             <summary>
             InitializeComponent
             </summary>

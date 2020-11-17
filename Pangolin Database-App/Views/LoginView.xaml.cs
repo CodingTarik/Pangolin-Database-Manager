@@ -13,7 +13,7 @@ namespace Pangolin_Database_App.Views
         private readonly LoginViewModel model;
         public Login()
         {
-            model = new LoginViewModel();
+            model = new LoginViewModel(new Util.RelayCommand(ShowMainMenu));
             DataContext = model;
 
             // check for cookie data
@@ -39,31 +39,7 @@ namespace Pangolin_Database_App.Views
             main.Show();
         }
 
-        /// <summary>
-        /// Login function
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void LoginButton_Click(object sender, RoutedEventArgs e)
-        {
-            User user = Database.DatabaseManager.GetDatabase().Users.Where(u =>
-            u.Username.Equals(UsernameTextbox.Text) &&
-            u.PasswordHash.Equals(Database.UserManagment.ComputeSha256Hash(PasswordBox.Password))
-            ).FirstOrDefault();
-            if (user != null)
-            {
-                Database.UserManagment.ActiveUser = user;
-                if ((bool)StayLoggedIn.IsChecked)
-                {
-                    Database.UserManagment.SaveLoginData();
-                }
-                ShowMainMenu();
-            }
-            else
-            {
-                model.ShowSnackbar("Username or password incorrect", 6);
-            }
-        }
+   
 
         /// <summary>
         /// close

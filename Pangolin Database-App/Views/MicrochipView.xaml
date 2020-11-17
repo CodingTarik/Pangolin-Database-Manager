@@ -131,7 +131,7 @@
                         <ColumnDefinition Width="0.8*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <materialDesign:PackIcon Kind="Assistant" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
-                    <ComboBox Grid.Column="1" Style="{StaticResource MaterialDesignFloatingHintComboBox}" SelectedIndex="{Binding Tested, Converter={StaticResource BoolToIndex}}" materialDesign:HintAssist.Hint="TESTED" >
+                    <ComboBox Grid.Column="1" Style="{StaticResource MaterialDesignFloatingHintComboBox}" SelectedIndex="{Binding SelectedModel.Tested, Converter={StaticResource BoolToIndex}}" materialDesign:HintAssist.Hint="TESTED" >
                         <ComboBoxItem>YES</ComboBoxItem>
                         <ComboBoxItem>NO</ComboBoxItem>
                     </ComboBox>

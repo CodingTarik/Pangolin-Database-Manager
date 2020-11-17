@@ -45,12 +45,15 @@ namespace Pangolin_Database_App.Database
         /// <param name="username"></param>
         /// <param name="passwordhash"></param>
         /// <returns>false if there is already a user with this username, else true</returns>
-        public static async Task<bool> AddNewUser(string firstname, string lastname, string username, string passwordhash, string password, bool isAdmin = false)
+        public static async Task<bool> AddNewUser(string firstname, string lastname, string username, string passwordhash, string password, bool isAdmin = false, string mysql = null, PangolinContext overrideContext = null)
         {
 
 
             PangolinContext db = DatabaseManager.GetDatabase();
-
+            if (overrideContext != null)
+            {
+                db = overrideContext;
+            }
             // check for same username
             if (db.Users.Any(user => user.Username == username))
             {
@@ -59,9 +62,10 @@ namespace Pangolin_Database_App.Database
             }
             else
             {
-                if (await AddUserOnMySQLAsync(username, password))
+                if (!(await AddUserOnMySQLAsync(username, password, isAdmin, mysql)))
                 {
-
+                    Logger.LogManager.logWarning("returning, could not add user to mysql database");
+                    return false;
                 }
                 // create user model
                 User newUser = new User();
@@ -83,19 +87,42 @@ namespace Pangolin_Database_App.Database
         /// <param name="username"></param>
         /// <param name="password"></param>
         /// <returns></returns>
-        private static async Task<bool> AddUserOnMySQLAsync(string username, string password)
+        private static async Task<bool> AddUserOnMySQLAsync(string username, string password, bool isAdmin = false, string mysqlConn = null)
         {
             // Build Connection
             var optionsBuilder = new DbContextOptionsBuilder<PangolinContext>();
-            optionsBuilder.UseMySql(Settings.Settings.MYSQLConnectionString);
+            if (mysqlConn == null)
+            {
+                optionsBuilder.UseMySql(Settings.Settings.MYSQLConnectionString);
+            }
+            else
+            {
+                optionsBuilder.UseMySql(mysqlConn);
+            }
+
             PangolinContext pr = new PangolinContext(optionsBuilder.Options);
             // Create User
             string sqlQuery = @"CREATE USER '" + username + @"'@'%' IDENTIFIED BY '" + password + @"';";
-            Logger.LogManager.logInfo("Running Query: '" + sqlQuery + "'", Logger.LogTopic.Database);
-            int rowsAddedUsers = await pr.Database.ExecuteSqlRawAsync(sqlQuery);
-            Logger.LogManager.log("Rows affected for user adding: " + rowsAddedUsers, Logger.LogCategory.info, Logger.LogTopic.User);
+            try
+            {
+                Logger.LogManager.logInfo("Running Query: '" + sqlQuery + "'", Logger.LogTopic.Database);
+                int rowsAddedUsers = await pr.Database.ExecuteSqlRawAsync(sqlQuery);
+                Logger.LogManager.log("Rows affected for user adding: " + rowsAddedUsers, Logger.LogCategory.info, Logger.LogTopic.User);
+            }
+            catch (Exception ex)
+            {
+                Logger.LogManager.logError(ex, "Error creating user " + ex.Message);
+            }
             // Grant Privileges for Database
-            sqlQuery = @"GRANT ALL PRIVILEGES ON `" + Settings.Settings.MYSQLDatabaseName + @"`.* TO '" + username + @"'@'%';";
+            if (isAdmin)
+            {
+                sqlQuery = @"GRANT ALL PRIVILEGES ON *.* TO '" + username + @"'@'%';";
+            }
+            else
+            {
+                sqlQuery = @"GRANT ALL PRIVILEGES ON `" + Settings.Settings.MYSQLDatabaseName + @"`.* TO '" + username + @"'@'%';";
+            }
+
             Logger.LogManager.logInfo("Running Query: '" + sqlQuery + "'", Logger.LogTopic.Database);
             int rowsAddedPrivileges = await pr.Database.ExecuteSqlRawAsync(@"GRANT ALL PRIVILEGES ON `" + Settings.Settings.MYSQLDatabaseName + @"`.* TO '" + username + @"'@'%';");
             Logger.LogManager.log("Rows affected for privileges: " + rowsAddedPrivileges, Logger.LogCategory.info, Logger.LogTopic.User);
@@ -145,9 +172,16 @@ namespace Pangolin_Database_App.Database
         /// <summary>
         /// ads new default admin user
         /// </summary>
-        public static void AddDefaultAdminUser()
+        public static async Task AddDefaultAdminUser(string mysqlConnection = null, PangolinContext pr = null)
         {
-            AddNewUser("Admin", "", "Admin", ComputeSha256Hash("admin"), "admin", true);
+            if (mysqlConnection == null)
+            {
+                await AddNewUser("Admin", "", "Admin", ComputeSha256Hash("admin"), "admin", true);
+            }
+            else
+            {
+                await AddNewUser("Admin", "", "Admin", ComputeSha256Hash("admin"), "admin", true, mysqlConnection, pr);
+            }
         }
 
         /// <summary>

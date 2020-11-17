@@ -7,6 +7,12 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="User Controls\Login\PasswordView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="User Controls\Login\SetupView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="User Controls\SaveControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -64,6 +70,12 @@
   </ItemGroup>
   <ItemGroup>
     <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="User Controls\Login\PasswordView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="User Controls\Login\SetupView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="User Controls\SaveControl.xaml">
