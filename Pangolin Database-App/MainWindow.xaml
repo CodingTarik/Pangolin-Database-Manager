@@ -1,129 +1,153 @@
-﻿<Window x:Class="Pangolin_Database_App.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        xmlns:viewmodels="clr-namespace:Pangolin_Database_App.ViewModels"
-        xmlns:views="clr-namespace:Pangolin_Database_App.Views"
-        xmlns:local="clr-namespace:Pangolin_Database_App"
-        mc:Ignorable="d"
-        Title="Pangolin - Database" MinHeight="600" MinWidth="900" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="CanResizeWithGrip">
-    
-    <!-- Definition of Caption Heights-->
+﻿<Window
+    x:Class="Pangolin_Database_App.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Pangolin_Database_App"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewmodels="clr-namespace:Pangolin_Database_App.ViewModels"
+    xmlns:views="clr-namespace:Pangolin_Database_App.Views"
+    Title="Pangolin - Database"
+    MinWidth="900"
+    MinHeight="600"
+    ResizeMode="CanResizeWithGrip"
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="None"
+    mc:Ignorable="d">
+
+    <!--  Definition of Caption Heights  -->
     <WindowChrome.WindowChrome>
-        <WindowChrome CaptionHeight="32"></WindowChrome>
+        <WindowChrome CaptionHeight="32" />
     </WindowChrome.WindowChrome>
-    
-    <!-- Window Resources & DataTemplates-->
+
+    <!--  Window Resources & DataTemplates  -->
     <Window.Resources>
         <DataTemplate DataType="{x:Type viewmodels:MainMenuViewModel}">
-            <views:MainMenuView DataContext="{Binding}"></views:MainMenuView>
+            <views:MainMenuView DataContext="{Binding}" />
         </DataTemplate>
         <DataTemplate DataType="{x:Type viewmodels:AddPangolinViewModel}">
-            <views:AddPangolinView DataContext="{Binding}"></views:AddPangolinView>
+            <views:AddPangolinView DataContext="{Binding}" />
         </DataTemplate>
         <DataTemplate DataType="{x:Type viewmodels:DailyActivitySheetViewModel}">
-            <views:DailyActivitySheetView DataContext="{Binding}"></views:DailyActivitySheetView>
+            <views:DailyActivitySheetView DataContext="{Binding}" />
         </DataTemplate>
         <DataTemplate DataType="{x:Type viewmodels:InfantFeedingViewModel}">
-            <views:InfantFeedingView DataContext="{Binding}"></views:InfantFeedingView>
+            <views:InfantFeedingView DataContext="{Binding}" />
         </DataTemplate>
         <DataTemplate DataType="{x:Type viewmodels:VeterinaryTreatmentViewModel}">
-            <views:VeterinaryTreatmentView DataContext="{Binding}"></views:VeterinaryTreatmentView>
+            <views:VeterinaryTreatmentView DataContext="{Binding}" />
         </DataTemplate>
         <DataTemplate DataType="{x:Type viewmodels:InterdepartmentalMovementViewModel}">
-            <views:InterdepartmentalMovementView DataContext="{Binding}"></views:InterdepartmentalMovementView>
+            <views:InterdepartmentalMovementView DataContext="{Binding}" />
         </DataTemplate>
         <DataTemplate DataType="{x:Type viewmodels:PhysicalMesaurementsViewModel}">
-            <views:PhysicalMeasurementsView DataContext="{Binding}"></views:PhysicalMeasurementsView>
+            <views:PhysicalMeasurementsView DataContext="{Binding}" />
         </DataTemplate>
         <DataTemplate DataType="{x:Type viewmodels:ReleaseViewModel}">
-            <views:ReleaseView DataContext="{Binding}"></views:ReleaseView>
+            <views:ReleaseView DataContext="{Binding}" />
         </DataTemplate>
         <DataTemplate DataType="{x:Type viewmodels:MicrochipViewModel}">
-            <views:MicrochipView DataContext="{Binding}"></views:MicrochipView>
+            <views:MicrochipView DataContext="{Binding}" />
         </DataTemplate>
         <DataTemplate DataType="{x:Type viewmodels:TrackingDeviceViewModel}">
-            <views:TrackingDeviceView DataContext="{Binding}"></views:TrackingDeviceView>
+            <views:TrackingDeviceView DataContext="{Binding}" />
         </DataTemplate>
         <DataTemplate DataType="{x:Type viewmodels:CriminalCaseViewModel}">
-            <views:CriminalCaseView DataContext="{Binding}"></views:CriminalCaseView>
+            <views:CriminalCaseView DataContext="{Binding}" />
         </DataTemplate>
         <DataTemplate DataType="{x:Type viewmodels:DocumentsViewModel}">
-            <views:DocumentsView DataContext="{Binding}"></views:DocumentsView>
+            <views:DocumentsView DataContext="{Binding}" />
         </DataTemplate>
         <DataTemplate DataType="{x:Type viewmodels:AdminPanelViewModel}">
-            <views:AdminPanelView DataContext="{Binding}"></views:AdminPanelView>
+            <views:AdminPanelView DataContext="{Binding}" />
         </DataTemplate>
         <DataTemplate DataType="{x:Type viewmodels:MortalityViewModel}">
-            <views:MortalityView DataContext="{Binding}"></views:MortalityView>
+            <views:MortalityView DataContext="{Binding}" />
         </DataTemplate>
         <DataTemplate DataType="{x:Type viewmodels:SynchronizeViewModel}">
-            <views:SyncView DataContext="{Binding}"></views:SyncView>
+            <views:SyncView DataContext="{Binding}" />
         </DataTemplate>
     </Window.Resources>
-    
+
     <Grid>
-        <!-- Caption Border-->
+        <!--  Caption Border  -->
         <Border Height="32" VerticalAlignment="Top">
             <Border.Background>
                 <LinearGradientBrush>
-                    <GradientStop Color="Red" Offset="0.0"></GradientStop>
-                    <GradientStop Color="#FC1E8A" Offset="0.93"></GradientStop>
+                    <GradientStop Offset="0.0" Color="Red" />
+                    <GradientStop Offset="0.93" Color="#FC1E8A" />
                 </LinearGradientBrush>
             </Border.Background>
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="0.1*"></ColumnDefinition>
-                    <ColumnDefinition Width="0.95*"></ColumnDefinition>
-                    <ColumnDefinition Width="35"></ColumnDefinition>
-                    <ColumnDefinition Width="35"></ColumnDefinition>
-                    <ColumnDefinition Width="35"></ColumnDefinition>
+                    <ColumnDefinition Width="0.1*" />
+                    <ColumnDefinition Width="0.95*" />
+                    <ColumnDefinition Width="35" />
+                    <ColumnDefinition Width="35" />
+                    <ColumnDefinition Width="35" />
                 </Grid.ColumnDefinitions>
-                <!-- Window Minimize-->
-                <Grid Grid.Column="2" WindowChrome.IsHitTestVisibleInChrome="True" MouseDown="MinimizeWindow_Click">
-                    <materialDesign:PackIcon Kind="WindowMinimize" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
+                <!--  Window Minimize  -->
+                <Grid
+                    Grid.Column="2"
+                    MouseDown="MinimizeWindow_Click"
+                    WindowChrome.IsHitTestVisibleInChrome="True">
+                    <materialDesign:PackIcon
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Kind="WindowMinimize" />
                     <Grid.Style>
                         <Style TargetType="Grid">
                             <Style.Triggers>
                                 <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Background" Value="LightGray"></Setter>
+                                    <Setter Property="Background" Value="LightGray" />
                                 </Trigger>
                                 <Trigger Property="IsMouseOver" Value="False">
-                                    <Setter Property="Background" Value="Transparent"></Setter>
+                                    <Setter Property="Background" Value="Transparent" />
                                 </Trigger>
                             </Style.Triggers>
                         </Style>
                     </Grid.Style>
                 </Grid>
-                <!-- Window Maximize-->
-                <Grid Grid.Column="3" WindowChrome.IsHitTestVisibleInChrome="True" MouseDown="WindowMaximize_Click">
-                    <materialDesign:PackIcon Kind="WindowMaximize" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
+                <!--  Window Maximize  -->
+                <Grid
+                    Grid.Column="3"
+                    MouseDown="WindowMaximize_Click"
+                    WindowChrome.IsHitTestVisibleInChrome="True">
+                    <materialDesign:PackIcon
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Kind="WindowMaximize" />
                     <Grid.Style>
                         <Style TargetType="Grid">
                             <Style.Triggers>
                                 <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Background" Value="LightGray"></Setter>
+                                    <Setter Property="Background" Value="LightGray" />
                                 </Trigger>
                                 <Trigger Property="IsMouseOver" Value="False">
-                                    <Setter Property="Background" Value="Transparent"></Setter>
+                                    <Setter Property="Background" Value="Transparent" />
                                 </Trigger>
                             </Style.Triggers>
                         </Style>
                     </Grid.Style>
                 </Grid>
-                <!-- Close Button-->
-                <Grid Grid.Column="4" WindowChrome.IsHitTestVisibleInChrome="True" MouseDown="WindowClose_Click">
-                    <materialDesign:PackIcon Kind="WindowClose" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
+                <!--  Close Button  -->
+                <Grid
+                    Grid.Column="4"
+                    MouseDown="WindowClose_Click"
+                    WindowChrome.IsHitTestVisibleInChrome="True">
+                    <materialDesign:PackIcon
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Kind="WindowClose" />
                     <Grid.Style>
                         <Style TargetType="Grid">
                             <Style.Triggers>
                                 <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Background" Value="Red"></Setter>
+                                    <Setter Property="Background" Value="Red" />
                                 </Trigger>
                                 <Trigger Property="IsMouseOver" Value="False">
-                                    <Setter Property="Background" Value="Transparent"></Setter>
+                                    <Setter Property="Background" Value="Transparent" />
                                 </Trigger>
                             </Style.Triggers>
                         </Style>
@@ -131,8 +155,8 @@
                 </Grid>
             </Grid>
         </Border>
-        
-        <!-- Content-->
-        <ContentControl Content="{Binding}" Margin="0,32,0,0"/>
+
+        <!--  Content  -->
+        <ContentControl Margin="0,32,0,0" Content="{Binding}" />
     </Grid>
 </Window>

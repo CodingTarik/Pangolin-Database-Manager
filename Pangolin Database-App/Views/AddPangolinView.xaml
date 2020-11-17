@@ -1,307 +1,452 @@
-﻿<UserControl x:Class="Pangolin_Database_App.Views.AddPangolinView"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Pangolin_Database_App.Views"
-             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             xmlns:customcontrols="clr-namespace:Pangolin_Database_App.User_Controls"
-             mc:Ignorable="d" 
-             xmlns:enums="clr-namespace:Pangolin_Database_App.Enums"
-             xmlns:extension="clr-namespace:Pangolin_Database_App.Extensions"
-             d:DesignHeight="450" d:DesignWidth="800">
+﻿<UserControl
+    x:Class="Pangolin_Database_App.Views.AddPangolinView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:customcontrols="clr-namespace:Pangolin_Database_App.User_Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:enums="clr-namespace:Pangolin_Database_App.Enums"
+    xmlns:extension="clr-namespace:Pangolin_Database_App.Extensions"
+    xmlns:local="clr-namespace:Pangolin_Database_App.Views"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
     <Grid>
-        <!-- Main Grid Definitions-->
+        <!--  Main Grid Definitions  -->
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.3*"></ColumnDefinition>
-            <ColumnDefinition Width="25"></ColumnDefinition>
-            <ColumnDefinition Width="0.7*"></ColumnDefinition>
+            <ColumnDefinition Width="0.3*" />
+            <ColumnDefinition Width="25" />
+            <ColumnDefinition Width="0.7*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.7*"></RowDefinition>
-            <RowDefinition Height="20"></RowDefinition>
-            <RowDefinition Height="0.5*"></RowDefinition>
+            <RowDefinition Height="0.7*" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="0.5*" />
         </Grid.RowDefinitions>
-        <!-- Border for Formals -->
-        <Border Grid.Column="0" Grid.Row="0" Background="#E8E8E8" CornerRadius="10" BorderThickness="5" Margin="2, 2">
+        <!--  Border for Formals  -->
+        <Border
+            Grid.Row="0"
+            Grid.Column="0"
+            Margin="2,2"
+            Background="#E8E8E8"
+            BorderThickness="5"
+            CornerRadius="10">
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="40"></RowDefinition>
-                    <RowDefinition Height="0.3*"></RowDefinition>
-                    <RowDefinition Height="0.3*"></RowDefinition>
-                    <RowDefinition Height="0.3*"></RowDefinition>
-                    <RowDefinition Height="0.3*"></RowDefinition>
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="0.3*" />
+                    <RowDefinition Height="0.3*" />
+                    <RowDefinition Height="0.3*" />
+                    <RowDefinition Height="0.3*" />
                 </Grid.RowDefinitions>
-                <!-- Title and Icon-->
-                <StackPanel Orientation="Horizontal" Grid.Row="0">
-                    <TextBlock FontSize="22" Margin="10, 10, 0, 0" FontFamily="Roboto" TextDecorations="Underline">FORMAL</TextBlock>
-                    <materialDesign:PackIcon Kind="Paper" Width="24" Height="24" VerticalAlignment="Center" Margin="2, 5, 0, 0"></materialDesign:PackIcon>
+                <!--  Title and Icon  -->
+                <StackPanel Grid.Row="0" Orientation="Horizontal">
+                    <TextBlock
+                        Margin="10,10,0,0"
+                        FontFamily="Roboto"
+                        FontSize="22"
+                        TextDecorations="Underline">
+                        FORMAL
+                    </TextBlock>
+                    <materialDesign:PackIcon
+                        Width="24"
+                        Height="24"
+                        Margin="2,5,0,0"
+                        VerticalAlignment="Center"
+                        Kind="Paper" />
                 </StackPanel>
-                <!-- Selected Pangolin -->
+                <!--  Selected Pangolin  -->
                 <Grid Grid.Row="1">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="40"></ColumnDefinition>
-                        <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                        <ColumnDefinition Width="40" />
+                        <ColumnDefinition Width="0.8*" />
                     </Grid.ColumnDefinitions>
-                    <materialDesign:PackIcon Kind="ListStatus" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
-                    <ComboBox Grid.Column="1"
-                Style="{StaticResource Pangolinbox}"
-                SelectedValue="{Binding SelectedModel}"
-                VerticalAlignment="Center" 
-                Margin="0, 2, 2, 0"/>
+                    <materialDesign:PackIcon
+                        Width="24"
+                        Height="24"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Kind="ListStatus" />
+                    <ComboBox
+                        Grid.Column="1"
+                        Margin="0,2,2,0"
+                        VerticalAlignment="Center"
+                        SelectedValue="{Binding SelectedModel}"
+                        Style="{StaticResource Pangolinbox}" />
                 </Grid>
-                <!-- Document Reference-->
-                <!-- Reference Number-->
+                <!--  Document Reference  -->
+                <!--  Reference Number  -->
                 <Grid Grid.Row="2">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="40"></ColumnDefinition>
-                        <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                        <ColumnDefinition Width="40" />
+                        <ColumnDefinition Width="0.8*" />
                     </Grid.ColumnDefinitions>
-                    <materialDesign:PackIcon Kind="FormatListNumberedRightToLeft" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
-                    <TextBox Grid.Column="1"
-                materialDesign:HintAssist.Hint="REFERENCE NUMBER"
-                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                Text="{Binding SelectedModel.ReferenceNumber, ValidatesOnDataErrors=True}"
-                VerticalAlignment="Center" 
-                Margin="0, 2, 2, 0"/>
+                    <materialDesign:PackIcon
+                        Width="24"
+                        Height="24"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Kind="FormatListNumberedRightToLeft" />
+                    <TextBox
+                        Grid.Column="1"
+                        Margin="0,2,2,0"
+                        VerticalAlignment="Center"
+                        materialDesign:HintAssist.Hint="REFERENCE NUMBER"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                        Text="{Binding SelectedModel.ReferenceNumber, ValidatesOnDataErrors=True}" />
                 </Grid>
-                <!-- Document Reference-->
+                <!--  Document Reference  -->
                 <Grid Grid.Row="3">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="40"></ColumnDefinition>
-                        <ColumnDefinition Width="27*"></ColumnDefinition>
-                        <ColumnDefinition Width="152*"/>
+                        <ColumnDefinition Width="40" />
+                        <ColumnDefinition Width="27*" />
+                        <ColumnDefinition Width="152*" />
                     </Grid.ColumnDefinitions>
-                    <materialDesign:PackIcon Kind="FileDocumentBox" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
-                    <TextBox Grid.Column="1"
-                materialDesign:HintAssist.Hint="DOCUMENT REFERENCE"
-                Text="{Binding SelectedModel.OfficialDocumentReference, ValidatesOnDataErrors=True}"
-                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                VerticalAlignment="Center" 
-                         Margin="0,0,2,0" Grid.ColumnSpan="2"/>
+                    <materialDesign:PackIcon
+                        Width="24"
+                        Height="24"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Kind="FileDocumentBox" />
+                    <TextBox
+                        Grid.Column="1"
+                        Grid.ColumnSpan="2"
+                        Margin="0,0,2,0"
+                        VerticalAlignment="Center"
+                        materialDesign:HintAssist.Hint="DOCUMENT REFERENCE"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                        Text="{Binding SelectedModel.OfficialDocumentReference, ValidatesOnDataErrors=True}" />
                 </Grid>
-                <!-- Date & Time Pick-->
+                <!--  Date & Time Pick  -->
                 <Grid Grid.Row="4">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="40"></ColumnDefinition>
-                        <ColumnDefinition Width="0.5*"></ColumnDefinition>
-                        <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                        <ColumnDefinition Width="40" />
+                        <ColumnDefinition Width="0.5*" />
+                        <ColumnDefinition Width="0.5*" />
                     </Grid.ColumnDefinitions>
-                    <materialDesign:PackIcon Kind="Calendar" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
+                    <materialDesign:PackIcon
+                        Width="24"
+                        Height="24"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Kind="Calendar" />
 
-                    <DatePicker Grid.Column="1"  Margin="0, 2, 2, 0"            
-                    materialDesign:HintAssist.Hint="Pick Date"
-                    Style="{StaticResource MaterialDesignFloatingHintDatePicker}"
-                                SelectedDate="{Binding SelectedModel.Date}"/>
+                    <DatePicker
+                        Grid.Column="1"
+                        Margin="0,2,2,0"
+                        materialDesign:HintAssist.Hint="Pick Date"
+                        SelectedDate="{Binding SelectedModel.Date}"
+                        Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
 
-                    <materialDesign:TimePicker Grid.Column="2"  Margin="0, 8, 2, 0"
-                    Style="{StaticResource MaterialDesignFloatingHintTimePicker}"
-                    Is24Hours="True"
-                    materialDesign:HintAssist.Hint="Pick Time" 
-                    x:Name="PresetTimePicker"
-                    SelectedTime="{Binding SelectedModel.Time}"
-                   />
+                    <materialDesign:TimePicker
+                        x:Name="PresetTimePicker"
+                        Grid.Column="2"
+                        Margin="0,8,2,0"
+                        materialDesign:HintAssist.Hint="Pick Time"
+                        Is24Hours="True"
+                        SelectedTime="{Binding SelectedModel.Time}"
+                        Style="{StaticResource MaterialDesignFloatingHintTimePicker}" />
                 </Grid>
             </Grid>
         </Border>
-        <!-- Border for Save -->
-        <customcontrols:SaveControl Grid.Column="0" Grid.Row="2" YesClickEvent="SaveControl_YesClickEvent"></customcontrols:SaveControl>
-        <!-- Border for Pangolin Edit-->
-        <Border Grid.Column="2" Grid.Row="0" Grid.RowSpan="3" Background="#E8E8E8" CornerRadius="10" BorderThickness="5" Margin="2, 2">
+        <!--  Border for Save  -->
+        <customcontrols:SaveControl
+            Grid.Row="2"
+            Grid.Column="0"
+            YesClickEvent="SaveControl_YesClickEvent" />
+        <!--  Border for Pangolin Edit  -->
+        <Border
+            Grid.Row="0"
+            Grid.RowSpan="3"
+            Grid.Column="2"
+            Margin="2,2"
+            Background="#E8E8E8"
+            BorderThickness="5"
+            CornerRadius="10">
             <Grid>
 
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="40"></RowDefinition>
-                    <RowDefinition Height="0.3*"></RowDefinition>
-                    <RowDefinition Height="0.3*"></RowDefinition>
-                    <RowDefinition Height="0.3*"></RowDefinition>
-                    <RowDefinition Height="0.3*"></RowDefinition>
-                    <RowDefinition Height="0.3*"></RowDefinition>
-                    <RowDefinition Height="0.3*"></RowDefinition>
-                    <RowDefinition Height="0.5*"></RowDefinition>
-                    <RowDefinition Height="0.5*"></RowDefinition>
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="0.3*" />
+                    <RowDefinition Height="0.3*" />
+                    <RowDefinition Height="0.3*" />
+                    <RowDefinition Height="0.3*" />
+                    <RowDefinition Height="0.3*" />
+                    <RowDefinition Height="0.3*" />
+                    <RowDefinition Height="0.5*" />
+                    <RowDefinition Height="0.5*" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="0.5*"></ColumnDefinition>
-                    <ColumnDefinition Width="25"></ColumnDefinition>
-                    <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                    <ColumnDefinition Width="0.5*" />
+                    <ColumnDefinition Width="25" />
+                    <ColumnDefinition Width="0.5*" />
                 </Grid.ColumnDefinitions>
-                <materialDesign:Snackbar Grid.Row="8" Grid.ColumnSpan="3" Panel.ZIndex="3" Style="{StaticResource SnackbarStyle}">
-                    <materialDesign:SnackbarMessage></materialDesign:SnackbarMessage>
+                <materialDesign:Snackbar
+                    Grid.Row="8"
+                    Grid.ColumnSpan="3"
+                    Panel.ZIndex="3"
+                    Style="{StaticResource SnackbarStyle}">
+                    <materialDesign:SnackbarMessage />
                 </materialDesign:Snackbar>
 
-                <!-- Title and Icon -->
-                <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3">
-                    <TextBlock FontSize="22" Margin="10, 10, 0, 0" FontFamily="Roboto" TextDecorations="Underline">PANGOLIN DATA</TextBlock>
-                    <Image Width="24" Height="24" VerticalAlignment="Center" Margin="2, 5, 0, 0" Source="/Icons/Pangolin.png"></Image>
+                <!--  Title and Icon  -->
+                <StackPanel
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="3"
+                    Orientation="Horizontal">
+                    <TextBlock
+                        Margin="10,10,0,0"
+                        FontFamily="Roboto"
+                        FontSize="22"
+                        TextDecorations="Underline">
+                        PANGOLIN DATA
+                    </TextBlock>
+                    <Image
+                        Width="24"
+                        Height="24"
+                        Margin="2,5,0,0"
+                        VerticalAlignment="Center"
+                        Source="/Icons/Pangolin.png" />
                 </StackPanel>
-                <!-- NAME -->
+                <!--  NAME  -->
                 <Grid Grid.Row="1" Grid.Column="0">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="40"></ColumnDefinition>
-                        <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                        <ColumnDefinition Width="40" />
+                        <ColumnDefinition Width="0.8*" />
                     </Grid.ColumnDefinitions>
-                    <materialDesign:PackIcon Kind="Rename" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
-                    <TextBox Grid.Column="1"
-                materialDesign:HintAssist.Hint="NAME"
-                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                Text="{Binding SelectedModel.Name, ValidatesOnDataErrors=True}"
-                             
-                VerticalAlignment="Center" 
-                         Margin="2, 2, 2, 0"/>
+                    <materialDesign:PackIcon
+                        Width="24"
+                        Height="24"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Kind="Rename" />
+                    <TextBox
+                        Grid.Column="1"
+                        Margin="2,2,2,0"
+                        VerticalAlignment="Center"
+                        materialDesign:HintAssist.Hint="NAME"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                        Text="{Binding SelectedModel.Name, ValidatesOnDataErrors=True}" />
                 </Grid>
-                <!-- Gender -->
+                <!--  Gender  -->
                 <Grid Grid.Row="2" Grid.Column="0">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="40"></ColumnDefinition>
-                        <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                        <ColumnDefinition Width="40" />
+                        <ColumnDefinition Width="0.8*" />
                     </Grid.ColumnDefinitions>
-                    <materialDesign:PackIcon Kind="GenderMaleFemale" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
-                    <ComboBox Grid.Column="1"
-                              materialDesign:HintAssist.Hint="GENDER"
-                              Margin="2, 2, 2, 0"
-                              ItemsSource="{Binding Genders}"
-                              SelectedItem="{Binding SelectedModel.Gender}"
-                              VerticalAlignment="Center"
-                              Text="{Binding SelectedModel.Gender}">
-                    </ComboBox>
+                    <materialDesign:PackIcon
+                        Width="24"
+                        Height="24"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Kind="GenderMaleFemale" />
+                    <ComboBox
+                        Grid.Column="1"
+                        Margin="2,2,2,0"
+                        VerticalAlignment="Center"
+                        materialDesign:HintAssist.Hint="GENDER"
+                        ItemsSource="{Binding Genders}"
+                        SelectedItem="{Binding SelectedModel.Gender}"
+                        Text="{Binding SelectedModel.Gender}" />
                 </Grid>
-                <!-- Weight-->
+                <!--  Weight  -->
                 <Grid Grid.Row="3" Grid.Column="0">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="40"></ColumnDefinition>
-                        <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                        <ColumnDefinition Width="40" />
+                        <ColumnDefinition Width="0.8*" />
                     </Grid.ColumnDefinitions>
-                    <materialDesign:PackIcon Kind="Weight" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
-                    <TextBox Grid.Column="1"
-                materialDesign:HintAssist.Hint="WEIGHT"
-                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                Text="{Binding SelectedModel.Weight, Converter={StaticResource StringToNumeric}}"
-                VerticalAlignment="Center" 
-                         Margin="2, 2, 2, 0"/>
+                    <materialDesign:PackIcon
+                        Width="24"
+                        Height="24"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Kind="Weight" />
+                    <TextBox
+                        Grid.Column="1"
+                        Margin="2,2,2,0"
+                        VerticalAlignment="Center"
+                        materialDesign:HintAssist.Hint="WEIGHT"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                        Text="{Binding SelectedModel.Weight, Converter={StaticResource StringToNumeric}}" />
                 </Grid>
-                <!-- Parasites -->
-                <Grid Grid.Row="4" Grid.Column="0" Margin="0, 3">
+                <!--  Parasites  -->
+                <Grid
+                    Grid.Row="4"
+                    Grid.Column="0"
+                    Margin="0,3">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="40"></ColumnDefinition>
-                        <ColumnDefinition Width="0.4*"></ColumnDefinition>
+                        <ColumnDefinition Width="40" />
+                        <ColumnDefinition Width="0.4*" />
 
                     </Grid.ColumnDefinitions>
-                    <materialDesign:PackIcon Kind="Insect" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
-                    <materialDesign:ColorZone Grid.Column="1" VerticalAlignment="Center"
-                    Mode="Light">
+                    <materialDesign:PackIcon
+                        Width="24"
+                        Height="24"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Kind="Insect" />
+                    <materialDesign:ColorZone
+                        Grid.Column="1"
+                        VerticalAlignment="Center"
+                        Mode="Light">
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="75"></ColumnDefinition>
-                                <ColumnDefinition Width="0.5*"></ColumnDefinition>
-                                <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                                <ColumnDefinition Width="75" />
+                                <ColumnDefinition Width="0.5*" />
+                                <ColumnDefinition Width="0.5*" />
                             </Grid.ColumnDefinitions>
-                            <TextBlock VerticalAlignment="Center" FontSize="18" Grid.Column="0" HorizontalAlignment="Center"> 
+                            <TextBlock
+                                Grid.Column="0"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                FontSize="18">
                                 Parasites
                             </TextBlock>
-                            <RadioButton Grid.Column="1"
-                              Style="{StaticResource MaterialDesignDarkRadioButton}"
-                            IsChecked="{Binding SelectedModel.ParasitesPresent}"
-                            Content="YES"
-                                         FontSize="16"
-                                         HorizontalContentAlignment="Center"
-                                         HorizontalAlignment="Center"
-                                         VerticalAlignment="Center"
-                                />
-                            <RadioButton Grid.Column="2"
-        Style="{StaticResource MaterialDesignDarkRadioButton}"
-                                         HorizontalContentAlignment="Center"
-                                         HorizontalAlignment="Center"
-                                         VerticalAlignment="Center"
-                                         IsChecked="{Binding SelectedModel.ParasitesNotPresent}"
-                                         FontSize="16"
-      Content="NO" />
+                            <RadioButton
+                                Grid.Column="1"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                HorizontalContentAlignment="Center"
+                                Content="YES"
+                                FontSize="16"
+                                IsChecked="{Binding SelectedModel.ParasitesPresent}"
+                                Style="{StaticResource MaterialDesignDarkRadioButton}" />
+                            <RadioButton
+                                Grid.Column="2"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                HorizontalContentAlignment="Center"
+                                Content="NO"
+                                FontSize="16"
+                                IsChecked="{Binding SelectedModel.ParasitesNotPresent}"
+                                Style="{StaticResource MaterialDesignDarkRadioButton}" />
 
                         </Grid>
                     </materialDesign:ColorZone>
                 </Grid>
-                <!-- Time in Captivity-->
+                <!--  Time in Captivity  -->
                 <Grid Grid.Row="5" Grid.Column="0">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="40"></ColumnDefinition>
-                        <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                        <ColumnDefinition Width="40" />
+                        <ColumnDefinition Width="0.8*" />
                     </Grid.ColumnDefinitions>
-                    <materialDesign:PackIcon Kind="Handcuffs" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
-                    <TextBox Grid.Column="1"
-                materialDesign:HintAssist.Hint="DAYS IN CAPTIVITY"
-                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                VerticalAlignment="Center" 
-                             Text="{Binding SelectedModel.TimeInCaptivity, Converter={StaticResource StringToNumeric}}"
-                         Margin="2, 2, 2, 0"/>
+                    <materialDesign:PackIcon
+                        Width="24"
+                        Height="24"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Kind="Handcuffs" />
+                    <TextBox
+                        Grid.Column="1"
+                        Margin="2,2,2,0"
+                        VerticalAlignment="Center"
+                        materialDesign:HintAssist.Hint="DAYS IN CAPTIVITY"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                        Text="{Binding SelectedModel.TimeInCaptivity, Converter={StaticResource StringToNumeric}}" />
                 </Grid>
-                <!-- Authoritive Point of contact-->
+                <!--  Authoritive Point of contact  -->
                 <Grid Grid.Row="6" Grid.Column="0">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="40"></ColumnDefinition>
-                        <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                        <ColumnDefinition Width="40" />
+                        <ColumnDefinition Width="0.8*" />
                     </Grid.ColumnDefinitions>
-                    <materialDesign:PackIcon Kind="Contact" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
-                    <TextBox Grid.Column="1"
-                materialDesign:HintAssist.Hint="AUTHORITIVE POINT OF CONTACT"
-                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                             Text="{Binding SelectedModel.AuhtoritivePointOfContact}"
-                VerticalAlignment="Center" 
-                         Margin="2, 2, 2, 0"/>
+                    <materialDesign:PackIcon
+                        Width="24"
+                        Height="24"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Kind="Contact" />
+                    <TextBox
+                        Grid.Column="1"
+                        Margin="2,2,2,0"
+                        VerticalAlignment="Center"
+                        materialDesign:HintAssist.Hint="AUTHORITIVE POINT OF CONTACT"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                        Text="{Binding SelectedModel.AuhtoritivePointOfContact}" />
                 </Grid>
-                <!-- Criminal CASE-->
-                <Border Grid.Row="1" Grid.Column="2" Margin="3, 3" Grid.RowSpan="2" Background="#FAFAFA" CornerRadius="5">
+                <!--  Criminal CASE  -->
+                <Border
+                    Grid.Row="1"
+                    Grid.RowSpan="2"
+                    Grid.Column="2"
+                    Margin="3,3"
+                    Background="#FAFAFA"
+                    CornerRadius="5">
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="40"></ColumnDefinition>
-                            <ColumnDefinition Width="80"></ColumnDefinition>
-                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                            <ColumnDefinition Width="40" />
+                            <ColumnDefinition Width="80" />
+                            <ColumnDefinition Width="1*" />
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="0.5*">
-                            </RowDefinition>
-                            <RowDefinition Height="0.5*">
-                            </RowDefinition>
+                            <RowDefinition Height="0.5*" />
+                            <RowDefinition Height="0.5*" />
                         </Grid.RowDefinitions>
-                        <materialDesign:PackIcon Kind="PoliceBadge" Grid.RowSpan="2" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
-                        <TextBlock TextWrapping="Wrap" VerticalAlignment="Center" FontSize="17" Grid.Column="1" Grid.RowSpan="2" HorizontalAlignment="Center" TextAlignment="Center"> 
-                                CRIMINAL CASE
+                        <materialDesign:PackIcon
+                            Grid.RowSpan="2"
+                            Width="24"
+                            Height="24"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Kind="PoliceBadge" />
+                        <TextBlock
+                            Grid.RowSpan="2"
+                            Grid.Column="1"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontSize="17"
+                            TextAlignment="Center"
+                            TextWrapping="Wrap">
+                            CRIMINAL CASE
                         </TextBlock>
-                        <RadioButton Grid.Column="2" Grid.Row="0"
-                              Style="{StaticResource MaterialDesignDarkRadioButton}"
-                            IsChecked="{Binding SelectedModel.CriminalCase}"
+                        <RadioButton
+                            Grid.Row="0"
+                            Grid.Column="2"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
                             Content="CRIMINAL CASE"
-                                         FontSize="14"
-                                         HorizontalAlignment="Left"
-                                         VerticalAlignment="Center"
-                                />
-                        <RadioButton Grid.Column="2" Grid.Row="1"
-        Style="{StaticResource MaterialDesignDarkRadioButton}"
-                                         HorizontalAlignment="Left"
-                                     IsChecked="{Binding SelectedModel.NoCriminalCase}"
-                                           VerticalAlignment="Top"
-                                         FontSize="14"
-      Content="HAND IN" Margin="0,10,0,0" />
+                            FontSize="14"
+                            IsChecked="{Binding SelectedModel.CriminalCase}"
+                            Style="{StaticResource MaterialDesignDarkRadioButton}" />
+                        <RadioButton
+                            Grid.Row="1"
+                            Grid.Column="2"
+                            Margin="0,10,0,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Content="HAND IN"
+                            FontSize="14"
+                            IsChecked="{Binding SelectedModel.NoCriminalCase}"
+                            Style="{StaticResource MaterialDesignDarkRadioButton}" />
                     </Grid>
                 </Border>
-                <!-- Approx Age-->
+                <!--  Approx Age  -->
                 <Grid Grid.Row="3" Grid.Column="2">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="40"></ColumnDefinition>
-                        <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                        <ColumnDefinition Width="40" />
+                        <ColumnDefinition Width="0.8*" />
                     </Grid.ColumnDefinitions>
-                    <materialDesign:PackIcon Kind="BirthdayCake" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
-                    <ComboBox Grid.Column="1"
-                               materialDesign:HintAssist.Hint="AGE"
-                              Margin="2, 2, 2, 0"
-                              Style="{StaticResource MaterialDesignFloatingHintComboBox}"
-                              VerticalAlignment="Center"
-                              SelectedValuePath="Content"
-                              SelectedValue="{Binding SelectedModel.ApproxAge}">
+                    <materialDesign:PackIcon
+                        Width="24"
+                        Height="24"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Kind="BirthdayCake" />
+                    <ComboBox
+                        Grid.Column="1"
+                        Margin="2,2,2,0"
+                        VerticalAlignment="Center"
+                        materialDesign:HintAssist.Hint="AGE"
+                        SelectedValue="{Binding SelectedModel.ApproxAge}"
+                        SelectedValuePath="Content"
+                        Style="{StaticResource MaterialDesignFloatingHintComboBox}">
                         <ComboBoxItem>
                             Adult
                         </ComboBoxItem>
                         <ComboBoxItem>
-                            Young Adult (> 5KG)
+                            Young Adult (&gt; 5KG)
                         </ComboBoxItem>
                         <ComboBoxItem>
                             Juvenile
@@ -314,90 +459,128 @@
                         </ComboBoxItem>
                     </ComboBox>
                 </Grid>
-                <!-- Health Status -->
+                <!--  Health Status  -->
                 <Grid Grid.Row="4" Grid.Column="2">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="40"></ColumnDefinition>
-                        <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                        <ColumnDefinition Width="40" />
+                        <ColumnDefinition Width="0.8*" />
                     </Grid.ColumnDefinitions>
-                    <materialDesign:PackIcon Kind="Heart" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
-                    <ComboBox Grid.Column="1"
-                               materialDesign:HintAssist.Hint="HEALTH STATUS"
-                              Margin="2, 2, 2, 0"
-                              Style="{StaticResource MaterialDesignFloatingHintComboBox}"
-                              VerticalAlignment="Center"
-                              ItemsSource="{Binding Source={extension:Enumeration {x:Type enums:HealthStatus}}}"
-                              DisplayMemberPath="Description"
-                              SelectedValue="{Binding SelectedModel.HealthState}"
-                              SelectedValuePath="Value"/>
+                    <materialDesign:PackIcon
+                        Width="24"
+                        Height="24"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Kind="Heart" />
+                    <ComboBox
+                        Grid.Column="1"
+                        Margin="2,2,2,0"
+                        VerticalAlignment="Center"
+                        materialDesign:HintAssist.Hint="HEALTH STATUS"
+                        DisplayMemberPath="Description"
+                        ItemsSource="{Binding Source={extension:Enumeration {x:Type enums:HealthStatus}}}"
+                        SelectedValue="{Binding SelectedModel.HealthState}"
+                        SelectedValuePath="Value"
+                        Style="{StaticResource MaterialDesignFloatingHintComboBox}" />
                 </Grid>
-                <!-- Origin -->
+                <!--  Origin  -->
                 <Grid Grid.Row="5" Grid.Column="2">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="40"></ColumnDefinition>
-                        <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                        <ColumnDefinition Width="40" />
+                        <ColumnDefinition Width="0.8*" />
                     </Grid.ColumnDefinitions>
-                    <materialDesign:PackIcon Kind="Map" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
-                    <TextBox Grid.Column="1"
-                materialDesign:HintAssist.Hint="ORIGIN"
-                             Text="{Binding SelectedModel.AreaOriginallyFrom}"
-                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                VerticalAlignment="Center" 
-                         Margin="2, 2, 2, 0"/>
+                    <materialDesign:PackIcon
+                        Width="24"
+                        Height="24"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Kind="Map" />
+                    <TextBox
+                        Grid.Column="1"
+                        Margin="2,2,2,0"
+                        VerticalAlignment="Center"
+                        materialDesign:HintAssist.Hint="ORIGIN"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                        Text="{Binding SelectedModel.AreaOriginallyFrom}" />
                 </Grid>
-                <!-- Mode of Transport-->
+                <!--  Mode of Transport  -->
                 <Grid Grid.Row="6" Grid.Column="2">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="40"></ColumnDefinition>
-                        <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                        <ColumnDefinition Width="40" />
+                        <ColumnDefinition Width="0.8*" />
                     </Grid.ColumnDefinitions>
-                    <materialDesign:PackIcon Kind="Transportation" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
-                    <TextBox Grid.Column="1"
-                materialDesign:HintAssist.Hint="MODE OF TRANSPORT"
-                             Text="{Binding SelectedModel.ModeOfTransport}"
-                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                VerticalAlignment="Center" 
-                         Margin="2, 2, 2, 0"/>
+                    <materialDesign:PackIcon
+                        Width="24"
+                        Height="24"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Kind="Transportation" />
+                    <TextBox
+                        Grid.Column="1"
+                        Margin="2,2,2,0"
+                        VerticalAlignment="Center"
+                        materialDesign:HintAssist.Hint="MODE OF TRANSPORT"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                        Text="{Binding SelectedModel.ModeOfTransport}" />
                 </Grid>
-                <!-- DETAILS OF RECEIVING & ANY OTHER CIRCUMSTANCES-->
-                <Grid Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="3">
+                <!--  DETAILS OF RECEIVING & ANY OTHER CIRCUMSTANCES  -->
+                <Grid
+                    Grid.Row="7"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="3">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="40"></ColumnDefinition>
-                        <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                        <ColumnDefinition Width="40" />
+                        <ColumnDefinition Width="0.8*" />
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="1*"></RowDefinition>
+                        <RowDefinition Height="1*" />
                     </Grid.RowDefinitions>
-                    <materialDesign:PackIcon Kind="Package" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
-                    <TextBox Grid.Column="1"
-                materialDesign:HintAssist.Hint="DETAILS OF RECEIVING AND CIRCUMSTANCES"
-                AcceptsReturn="True"
-                VerticalScrollBarVisibility="Auto"
-                             Background="#FAFAFA"                             
-                VerticalAlignment="Bottom"
-                             Text="{Binding SelectedModel.DetailsOfReceiving}"
-                            TextWrapping="Wrap"                             
-                         Margin="2,0,2,0" MinHeight="60"/>
+                    <materialDesign:PackIcon
+                        Width="24"
+                        Height="24"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Kind="Package" />
+                    <TextBox
+                        Grid.Column="1"
+                        MinHeight="60"
+                        Margin="2,0,2,0"
+                        VerticalAlignment="Bottom"
+                        materialDesign:HintAssist.Hint="DETAILS OF RECEIVING AND CIRCUMSTANCES"
+                        AcceptsReturn="True"
+                        Background="#FAFAFA"
+                        Text="{Binding SelectedModel.DetailsOfReceiving}"
+                        TextWrapping="Wrap"
+                        VerticalScrollBarVisibility="Auto" />
                 </Grid>
-                <!-- DISTINGUISHING MARKS OR DISFIGURATIONS-->
-                <Grid Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="3">
+                <!--  DISTINGUISHING MARKS OR DISFIGURATIONS  -->
+                <Grid
+                    Grid.Row="8"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="3">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="40"></ColumnDefinition>
-                        <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                        <ColumnDefinition Width="40" />
+                        <ColumnDefinition Width="0.8*" />
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="1*"></RowDefinition>
+                        <RowDefinition Height="1*" />
                     </Grid.RowDefinitions>
-                    <materialDesign:PackIcon Kind="Mustache" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
-                    <TextBox Grid.Column="1"
-                materialDesign:HintAssist.Hint="DISTINGUISHING MARKS OR DISFIGURATIONS"
-                AcceptsReturn="True"
-                VerticalScrollBarVisibility="Auto"
-                             Background="#FAFAFA"                             
-                VerticalAlignment="Bottom"
-                             Text="{Binding SelectedModel.DistinguishingMarks}"
-                            TextWrapping="Wrap"                             
-                         Margin="2,0,2,0" MinHeight="60"/>
+                    <materialDesign:PackIcon
+                        Width="24"
+                        Height="24"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Kind="Mustache" />
+                    <TextBox
+                        Grid.Column="1"
+                        MinHeight="60"
+                        Margin="2,0,2,0"
+                        VerticalAlignment="Bottom"
+                        materialDesign:HintAssist.Hint="DISTINGUISHING MARKS OR DISFIGURATIONS"
+                        AcceptsReturn="True"
+                        Background="#FAFAFA"
+                        Text="{Binding SelectedModel.DistinguishingMarks}"
+                        TextWrapping="Wrap"
+                        VerticalScrollBarVisibility="Auto" />
                 </Grid>
             </Grid>
         </Border>

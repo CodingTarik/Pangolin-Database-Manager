@@ -1,236 +1,385 @@
-﻿<UserControl x:Class="Pangolin_Database_App.Views.ReleaseView"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Pangolin_Database_App.Views"
-             xmlns:customcontrols="clr-namespace:Pangolin_Database_App.User_Controls"
-             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             mc:Ignorable="d" 
-             xmlns:enum="clr-namespace:Pangolin_Database_App.Enums"
-             xmlns:ex="clr-namespace:Pangolin_Database_App.Extensions"
-             xmlns:viewmodels="clr-namespace:Pangolin_Database_App.ViewModels"
-             xmlns:views="clr-namespace:Pangolin_Database_App.Views"
-             d:DesignHeight="500" d:DesignWidth="800">
+﻿<UserControl
+    x:Class="Pangolin_Database_App.Views.ReleaseView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:customcontrols="clr-namespace:Pangolin_Database_App.User_Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:enum="clr-namespace:Pangolin_Database_App.Enums"
+    xmlns:ex="clr-namespace:Pangolin_Database_App.Extensions"
+    xmlns:local="clr-namespace:Pangolin_Database_App.Views"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewmodels="clr-namespace:Pangolin_Database_App.ViewModels"
+    xmlns:views="clr-namespace:Pangolin_Database_App.Views"
+    d:DesignHeight="500"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
     <UserControl.Resources>
         <DataTemplate DataType="{x:Type viewmodels:MicrochipViewModel}">
-                <views:MicrochipView DataContext="{Binding}"></views:MicrochipView>
+            <views:MicrochipView DataContext="{Binding}" />
         </DataTemplate>
         <DataTemplate DataType="{x:Type viewmodels:TrackingDeviceViewModel}">
-            <views:TrackingDeviceView DataContext="{Binding}"></views:TrackingDeviceView>
+            <views:TrackingDeviceView DataContext="{Binding}" />
         </DataTemplate>
     </UserControl.Resources>
-    <!-- Dialog for redirect to mcirochip or transmitted -->
-    <materialDesign:DialogHost IsOpen="{Binding IsDialogOpen}" DialogMargin="0, 0, 0, 0">
+    <!--  Dialog for redirect to mcirochip or transmitted  -->
+    <materialDesign:DialogHost DialogMargin="0, 0, 0, 0" IsOpen="{Binding IsDialogOpen}">
         <materialDesign:DialogHost.DialogContent>
-            <ContentControl Content="{Binding DialogContent}" Width="750" Height="450"></ContentControl>
+            <ContentControl
+                Width="750"
+                Height="450"
+                Content="{Binding DialogContent}" />
         </materialDesign:DialogHost.DialogContent>
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.3*"></ColumnDefinition>
-            <ColumnDefinition Width="25"></ColumnDefinition>
-            <ColumnDefinition Width="0.7*"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="50"></RowDefinition>
-            <RowDefinition Height="0.5*"></RowDefinition>
-            <RowDefinition Height="20"></RowDefinition>
-            <RowDefinition Height="0.6*"></RowDefinition>
-        </Grid.RowDefinitions>
-        <!-- Title and Icon-->
-        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" >
-            <materialDesign:PackIcon Kind="Tree" VerticalAlignment="Center" Width="32" Height="32"></materialDesign:PackIcon>
-            <TextBlock FontFamily="Roboto" FontSize="22" VerticalAlignment="Center">PANGOLIN RELEASE</TextBlock>
-        </StackPanel>
-        <!-- Formals -->
-        <Border Grid.Column="0" Grid.Row="1" Background="#E8E8E8" CornerRadius="10" BorderThickness="5" Margin="2, 2">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="40"></RowDefinition>
-                    <RowDefinition Height="0.3*"></RowDefinition>
-                    <RowDefinition Height="0.3*"></RowDefinition>
-                </Grid.RowDefinitions>
-                <!-- Title and Icon-->
-                <StackPanel Orientation="Horizontal" Grid.Row="0">
-                    <TextBlock FontSize="22" Margin="10, 10, 0, 0" FontFamily="Roboto" TextDecorations="Underline">FORMAL</TextBlock>
-                    <materialDesign:PackIcon Kind="Paper" Width="24" Height="24" VerticalAlignment="Center" Margin="2, 5, 0, 0"></materialDesign:PackIcon>
-                </StackPanel>
-                <!-- Reference Number-->
-                <Grid Grid.Row="1">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="40"></ColumnDefinition>
-                        <ColumnDefinition Width="0.8*"></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-                    <materialDesign:PackIcon Kind="FormatListNumberedRightToLeft" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
-                    <ComboBox Grid.Row="0" Grid.Column="1"
-                    Style="{StaticResource Pangolinbox}">
-                    </ComboBox>
-                </Grid>
-                <!-- Date & Time Pick-->
-                <Grid Grid.Row="2">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="40"></ColumnDefinition>
-                        <ColumnDefinition Width="0.5*"></ColumnDefinition>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.3*" />
+                <ColumnDefinition Width="25" />
+                <ColumnDefinition Width="0.7*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+                <RowDefinition Height="0.5*" />
+                <RowDefinition Height="20" />
+                <RowDefinition Height="0.6*" />
+            </Grid.RowDefinitions>
+            <!--  Title and Icon  -->
+            <StackPanel
+                Grid.Row="0"
+                Grid.Column="0"
+                Grid.ColumnSpan="3"
+                Orientation="Horizontal">
+                <materialDesign:PackIcon
+                    Width="32"
+                    Height="32"
+                    VerticalAlignment="Center"
+                    Kind="Tree" />
+                <TextBlock
+                    VerticalAlignment="Center"
+                    FontFamily="Roboto"
+                    FontSize="22">
+                    PANGOLIN RELEASE
+                </TextBlock>
+            </StackPanel>
+            <!--  Formals  -->
+            <Border
+                Grid.Row="1"
+                Grid.Column="0"
+                Margin="2,2"
+                Background="#E8E8E8"
+                BorderThickness="5"
+                CornerRadius="10">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40" />
+                        <RowDefinition Height="0.3*" />
+                        <RowDefinition Height="0.3*" />
+                    </Grid.RowDefinitions>
+                    <!--  Title and Icon  -->
+                    <StackPanel Grid.Row="0" Orientation="Horizontal">
+                        <TextBlock
+                            Margin="10,10,0,0"
+                            FontFamily="Roboto"
+                            FontSize="22"
+                            TextDecorations="Underline">
+                            FORMAL
+                        </TextBlock>
+                        <materialDesign:PackIcon
+                            Width="24"
+                            Height="24"
+                            Margin="2,5,0,0"
+                            VerticalAlignment="Center"
+                            Kind="Paper" />
+                    </StackPanel>
+                    <!--  Reference Number  -->
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="40" />
+                            <ColumnDefinition Width="0.8*" />
+                        </Grid.ColumnDefinitions>
+                        <materialDesign:PackIcon
+                            Width="24"
+                            Height="24"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Kind="FormatListNumberedRightToLeft" />
+                        <ComboBox
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            Style="{StaticResource Pangolinbox}" />
+                    </Grid>
+                    <!--  Date & Time Pick  -->
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="40" />
+                            <ColumnDefinition Width="0.5*" />
 
-                    </Grid.ColumnDefinitions>
-                    <materialDesign:PackIcon Kind="Calendar" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
+                        </Grid.ColumnDefinitions>
+                        <materialDesign:PackIcon
+                            Width="24"
+                            Height="24"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Kind="Calendar" />
 
-                    <DatePicker Grid.Column="1"  Margin="0, 2, 2, 0"            
-                    materialDesign:HintAssist.Hint="Pick Date"
-                                SelectedDate="{Binding SelectedModel.Date}"
-                    Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                        <DatePicker
+                            Grid.Column="1"
+                            Margin="0,2,2,0"
+                            materialDesign:HintAssist.Hint="Pick Date"
+                            SelectedDate="{Binding SelectedModel.Date}"
+                            Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                    </Grid>
                 </Grid>
-            </Grid>
-        </Border>
-        <!-- Save Control-->
-        <customcontrols:SaveControl Grid.Column="0" Grid.Row="3"></customcontrols:SaveControl>
-        <!-- RELEASE -->
-        <Border Grid.Column="2" Grid.Row="1" Grid.RowSpan="3" Background="#E8E8E8" CornerRadius="10" BorderThickness="5" Margin="2, 2">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="25"></RowDefinition>
-                    <RowDefinition Height="0.3*"></RowDefinition>
-                    <RowDefinition Height="0.3*"></RowDefinition>
-                    <RowDefinition Height="0.3*"></RowDefinition>
-                    <RowDefinition Height="0.4*"></RowDefinition>
-                    <RowDefinition Height="0.4*"></RowDefinition>
-                    <RowDefinition Height="0.4*"></RowDefinition>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="0.5*"></ColumnDefinition>
-                    <ColumnDefinition Width="25"></ColumnDefinition>
-                    <ColumnDefinition Width="0.5*"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <!-- Snackbar -->
-                <materialDesign:Snackbar Grid.Row="7" Grid.ColumnSpan="3" Panel.ZIndex="3" Style="{StaticResource SnackbarStyle}">
-                    <materialDesign:SnackbarMessage></materialDesign:SnackbarMessage>
-                </materialDesign:Snackbar>
-                <!-- Title and Icon -->
-                <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3">
-                    <TextBlock FontSize="22" Margin="10, 0, 0, 0" FontFamily="Roboto" TextDecorations="Underline" VerticalAlignment="Center">RELEASE</TextBlock>
-                    <materialDesign:PackIcon Kind="Flower" Width="24" Height="24" VerticalAlignment="Center"></materialDesign:PackIcon>
-                </StackPanel>
-                <!-- LOCATION -->
-                <Grid Grid.Row="1" Grid.Column="0">
+            </Border>
+            <!--  Save Control  -->
+            <customcontrols:SaveControl Grid.Row="3" Grid.Column="0" />
+            <!--  RELEASE  -->
+            <Border
+                Grid.Row="1"
+                Grid.RowSpan="3"
+                Grid.Column="2"
+                Margin="2,2"
+                Background="#E8E8E8"
+                BorderThickness="5"
+                CornerRadius="10">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="25" />
+                        <RowDefinition Height="0.3*" />
+                        <RowDefinition Height="0.3*" />
+                        <RowDefinition Height="0.3*" />
+                        <RowDefinition Height="0.4*" />
+                        <RowDefinition Height="0.4*" />
+                        <RowDefinition Height="0.4*" />
+                    </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="40"></ColumnDefinition>
-                        <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                        <ColumnDefinition Width="0.5*" />
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="0.5*" />
                     </Grid.ColumnDefinitions>
-                    <materialDesign:PackIcon Kind="Location" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
-                    <TextBox Grid.Column="1"
-                materialDesign:HintAssist.Hint="LOCATION"
-                             Text="{Binding SelectedModel.Location}"
-                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                VerticalAlignment="Top"/>
+                    <!--  Snackbar  -->
+                    <materialDesign:Snackbar
+                        Grid.Row="7"
+                        Grid.ColumnSpan="3"
+                        Panel.ZIndex="3"
+                        Style="{StaticResource SnackbarStyle}">
+                        <materialDesign:SnackbarMessage />
+                    </materialDesign:Snackbar>
+                    <!--  Title and Icon  -->
+                    <StackPanel
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="3"
+                        Orientation="Horizontal">
+                        <TextBlock
+                            Margin="10,0,0,0"
+                            VerticalAlignment="Center"
+                            FontFamily="Roboto"
+                            FontSize="22"
+                            TextDecorations="Underline">
+                            RELEASE
+                        </TextBlock>
+                        <materialDesign:PackIcon
+                            Width="24"
+                            Height="24"
+                            VerticalAlignment="Center"
+                            Kind="Flower" />
+                    </StackPanel>
+                    <!--  LOCATION  -->
+                    <Grid Grid.Row="1" Grid.Column="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="40" />
+                            <ColumnDefinition Width="0.8*" />
+                        </Grid.ColumnDefinitions>
+                        <materialDesign:PackIcon
+                            Width="24"
+                            Height="24"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Kind="Location" />
+                        <TextBox
+                            Grid.Column="1"
+                            VerticalAlignment="Top"
+                            materialDesign:HintAssist.Hint="LOCATION"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                            Text="{Binding SelectedModel.Location}" />
+                    </Grid>
+                    <!--  Transmitted  -->
+                    <Grid Grid.Row="2" Grid.Column="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="40" />
+                            <ColumnDefinition Width="1*" />
+                        </Grid.ColumnDefinitions>
+                        <materialDesign:PackIcon
+                            Width="24"
+                            Height="24"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Kind="TrackChanges" />
+                        <ComboBox
+                            Grid.Column="1"
+                            materialDesign:HintAssist.Hint="TRANSMITTED"
+                            SelectedIndex="{Binding Transmitted, Converter={StaticResource BoolToIndex}}"
+                            Style="{StaticResource MaterialDesignFloatingHintComboBox}">
+                            <ComboBoxItem>YES</ComboBoxItem>
+                            <ComboBoxItem>NO</ComboBoxItem>
+                        </ComboBox>
+                    </Grid>
+                    <!--  ID Marks  -->
+                    <Grid Grid.Row="3" Grid.Column="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="40" />
+                            <ColumnDefinition Width="1*" />
+                        </Grid.ColumnDefinitions>
+                        <materialDesign:PackIcon
+                            Width="24"
+                            Height="24"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Kind="Marker" />
+                        <ComboBox
+                            Grid.Column="1"
+                            materialDesign:HintAssist.Hint="ID MARKS"
+                            SelectedIndex="{Binding SelectedModel.IDMarks, Converter={StaticResource BoolToIndex}}"
+                            Style="{StaticResource MaterialDesignFloatingHintComboBox}">
+                            <ComboBoxItem>YES</ComboBoxItem>
+                            <ComboBoxItem>NO</ComboBoxItem>
+                        </ComboBox>
+                    </Grid>
+                    <!--  GPS  -->
+                    <Grid Grid.Row="1" Grid.Column="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="40" />
+                            <ColumnDefinition Width="0.8*" />
+                        </Grid.ColumnDefinitions>
+                        <materialDesign:PackIcon
+                            Width="24"
+                            Height="24"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Kind="GpsFixed" />
+                        <TextBox
+                            Grid.Column="1"
+                            VerticalAlignment="Top"
+                            materialDesign:HintAssist.Hint="GPS CORDINATES"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                            Text="{Binding SelectedModel.GPSCordinates}" />
+                    </Grid>
+                    <!--  MICROCHIPPED  -->
+                    <Grid Grid.Row="2" Grid.Column="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="40" />
+                            <ColumnDefinition Width="1*" />
+                        </Grid.ColumnDefinitions>
+                        <materialDesign:PackIcon
+                            Width="24"
+                            Height="24"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Kind="Chip" />
+                        <ComboBox
+                            Grid.Column="1"
+                            materialDesign:HintAssist.Hint="MICROCHIPPED"
+                            SelectedIndex="{Binding Microchipped, Converter={StaticResource BoolToIndex}}"
+                            Style="{StaticResource MaterialDesignFloatingHintComboBox}">
+                            <ComboBoxItem>YES</ComboBoxItem>
+                            <ComboBoxItem>NO</ComboBoxItem>
+                        </ComboBox>
+                    </Grid>
+                    <!--  TRANSPORTATION TO RELEASE SITE  -->
+                    <Grid Grid.Row="3" Grid.Column="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="40" />
+                            <ColumnDefinition Width="1*" />
+                        </Grid.ColumnDefinitions>
+                        <materialDesign:PackIcon
+                            Width="24"
+                            Height="24"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Kind="Transportation" />
+                        <ComboBox
+                            Grid.Column="1"
+                            materialDesign:HintAssist.Hint="TRANSPORTATION TO RELEASE SITE"
+                            DisplayMemberPath="Description"
+                            ItemsSource="{Binding Source={ex:Enumeration {x:Type enum:Transportation}}}"
+                            SelectedValue="{Binding SelectedModel.TransportationToReleaseSite}"
+                            SelectedValuePath="Value"
+                            Style="{StaticResource MaterialDesignFloatingHintComboBox}" />
+                    </Grid>
+                    <!--  Markings applied  -->
+                    <Grid
+                        Grid.Row="4"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="40" />
+                            <ColumnDefinition Width="0.8*" />
+                        </Grid.ColumnDefinitions>
+                        <materialDesign:PackIcon
+                            Width="24"
+                            Height="24"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Kind="PaintBucket" />
+                        <TextBox
+                            Grid.Column="1"
+                            VerticalAlignment="Center"
+                            materialDesign:HintAssist.Hint="DESCRRIBE MARKINGS APPLIED"
+                            AcceptsReturn="True"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                            Text="{Binding SelectedModel.MarkingDescription}"
+                            TextWrapping="Wrap" />
+                    </Grid>
+                    <!--  Markings applied  -->
+                    <Grid
+                        Grid.Row="5"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="40" />
+                            <ColumnDefinition Width="0.8*" />
+                        </Grid.ColumnDefinitions>
+                        <materialDesign:PackIcon
+                            Width="24"
+                            Height="24"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Kind="Assistant" />
+                        <TextBox
+                            Grid.Column="1"
+                            VerticalAlignment="Center"
+                            materialDesign:HintAssist.Hint="ASSISTED RELEASE OR CONDUCTED BY THF? EXPLAIN."
+                            AcceptsReturn="True"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                            Text="{Binding SelectedModel.ReleaseDescription}"
+                            TextWrapping="Wrap" />
+                    </Grid>
+                    <!--  OTHER OBSERVATIONS  -->
+                    <Grid
+                        Grid.Row="6"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="40" />
+                            <ColumnDefinition Width="0.8*" />
+                        </Grid.ColumnDefinitions>
+                        <materialDesign:PackIcon
+                            Width="24"
+                            Height="24"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Kind="Binoculars" />
+                        <TextBox
+                            Grid.Column="1"
+                            VerticalAlignment="Center"
+                            materialDesign:HintAssist.Hint="ANY OTHER OBSERVATIONS"
+                            AcceptsReturn="True"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                            Text="{Binding SelectedModel.OtherObservations}"
+                            TextWrapping="Wrap" />
+                    </Grid>
                 </Grid>
-                <!-- Transmitted-->
-                <Grid Grid.Row="2" Grid.Column="0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="40"></ColumnDefinition>
-                        <ColumnDefinition Width="1*"></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-                    <materialDesign:PackIcon Kind="TrackChanges" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
-                    <ComboBox Grid.Column="1" Style="{StaticResource MaterialDesignFloatingHintComboBox}" SelectedIndex="{Binding Transmitted, Converter={StaticResource BoolToIndex}}" materialDesign:HintAssist.Hint="TRANSMITTED" >
-                        <ComboBoxItem>YES</ComboBoxItem>
-                        <ComboBoxItem>NO</ComboBoxItem>
-                    </ComboBox>
-                </Grid>
-                <!-- ID Marks -->
-                <Grid Grid.Row="3" Grid.Column="0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="40"></ColumnDefinition>
-                        <ColumnDefinition Width="1*"></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-                    <materialDesign:PackIcon Kind="Marker" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
-                    <ComboBox Grid.Column="1" Style="{StaticResource MaterialDesignFloatingHintComboBox}" SelectedIndex="{Binding SelectedModel.IDMarks, Converter={StaticResource BoolToIndex}}" materialDesign:HintAssist.Hint="ID MARKS" >
-                        <ComboBoxItem>YES</ComboBoxItem>
-                        <ComboBoxItem>NO</ComboBoxItem>
-                    </ComboBox>
-                </Grid>
-                <!-- GPS -->
-                <Grid Grid.Row="1" Grid.Column="2">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="40"></ColumnDefinition>
-                        <ColumnDefinition Width="0.8*"></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-                    <materialDesign:PackIcon Kind="GpsFixed" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
-                    <TextBox Grid.Column="1"
-                materialDesign:HintAssist.Hint="GPS CORDINATES"
-                             Text="{Binding SelectedModel.GPSCordinates}"
-                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                VerticalAlignment="Top"/>
-                </Grid>
-                <!-- MICROCHIPPED -->
-                <Grid Grid.Row="2" Grid.Column="2">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="40"></ColumnDefinition>
-                        <ColumnDefinition Width="1*"></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-                    <materialDesign:PackIcon Kind="Chip" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
-                    <ComboBox Grid.Column="1" Style="{StaticResource MaterialDesignFloatingHintComboBox}" SelectedIndex="{Binding Microchipped, Converter={StaticResource BoolToIndex}}" materialDesign:HintAssist.Hint="MICROCHIPPED" >
-                        <ComboBoxItem>YES</ComboBoxItem>
-                        <ComboBoxItem>NO</ComboBoxItem>
-                    </ComboBox>
-                </Grid>
-                <!-- TRANSPORTATION TO RELEASE SITE -->
-                <Grid Grid.Row="3" Grid.Column="2">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="40"></ColumnDefinition>
-                        <ColumnDefinition Width="1*"></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-                    <materialDesign:PackIcon Kind="Transportation" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
-                    <ComboBox Grid.Column="1" Style="{StaticResource MaterialDesignFloatingHintComboBox}" ItemsSource="{Binding Source={ex:Enumeration {x:Type enum:Transportation}}}" DisplayMemberPath="Description" SelectedValuePath="Value" SelectedValue="{Binding SelectedModel.TransportationToReleaseSite}"   materialDesign:HintAssist.Hint="TRANSPORTATION TO RELEASE SITE" >
-                    </ComboBox>
-                </Grid>
-                <!-- Markings applied -->
-                <Grid Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="40"></ColumnDefinition>
-                        <ColumnDefinition Width="0.8*"></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-                    <materialDesign:PackIcon Kind="PaintBucket" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
-                    <TextBox Grid.Column="1"
-                materialDesign:HintAssist.Hint="DESCRRIBE MARKINGS APPLIED"
-                             TextWrapping="Wrap"
-                             AcceptsReturn="True"
-                             Text="{Binding SelectedModel.MarkingDescription}"
-                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                VerticalAlignment="Center"/>
-                </Grid>
-                <!-- Markings applied -->
-                <Grid Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="40"></ColumnDefinition>
-                        <ColumnDefinition Width="0.8*"></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-                    <materialDesign:PackIcon Kind="Assistant" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
-                    <TextBox Grid.Column="1"
-                             VerticalAlignment="Center"
-                materialDesign:HintAssist.Hint="ASSISTED RELEASE OR CONDUCTED BY THF? EXPLAIN."
-                             TextWrapping="Wrap"
-                             AcceptsReturn="True"
-                             Text="{Binding SelectedModel.ReleaseDescription}"
-                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                />
-                </Grid>
-                <!-- OTHER OBSERVATIONS -->
-                <Grid Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="3">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="40"></ColumnDefinition>
-                        <ColumnDefinition Width="0.8*"></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-                    <materialDesign:PackIcon Kind="Binoculars" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
-                    <TextBox Grid.Column="1"
-                             VerticalAlignment="Center"
-                materialDesign:HintAssist.Hint="ANY OTHER OBSERVATIONS"
-                             TextWrapping="Wrap"
-                             AcceptsReturn="True"
-                             Text="{Binding SelectedModel.OtherObservations}"
-                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-               />
-                </Grid>
-            </Grid>
-        </Border>
-    </Grid>
+            </Border>
+        </Grid>
     </materialDesign:DialogHost>
 </UserControl>

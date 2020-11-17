@@ -15,7 +15,7 @@ namespace Pangolin_Database_App.User_Controls.Login
     public partial class PasswordView : UserControl
     {
 
-        internal PasswordView()
+        public PasswordView()
         {
             InitializeComponent();
             syncProgessbar.IsIndeterminate = false;

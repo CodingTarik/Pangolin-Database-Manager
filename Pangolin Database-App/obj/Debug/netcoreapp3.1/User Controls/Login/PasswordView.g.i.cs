@@ -112,8 +112,7 @@ namespace Pangolin_Database_App.User_Controls.Login {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Pangolin Database-App;V1.0.1.0;component/user%20controls/login/passwordview.xaml" +
-                    "", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Pangolin Database-App;component/user%20controls/login/passwordview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\User Controls\Login\PasswordView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

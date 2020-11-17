@@ -1,33 +1,33 @@
-﻿<UserControl x:Class="Pangolin_Database_App.Views.MainMenuView"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Pangolin_Database_App.Views"
-              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+﻿<UserControl
+    x:Class="Pangolin_Database_App.Views.MainMenuView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Pangolin_Database_App.Views"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
     <materialDesign:DialogHost>
         <materialDesign:DialogHost.DialogContent>
             <StackPanel Margin="16">
                 <TextBlock>Select a Pangolin you want to edit</TextBlock>
-                <ComboBox Style="{StaticResource Pangolinbox}" SelectedValue="{Binding SelectedPangolin}"></ComboBox>
-                <StackPanel
-        Orientation="Horizontal"
-        HorizontalAlignment="Right">
+                <ComboBox SelectedValue="{Binding SelectedPangolin}" Style="{StaticResource Pangolinbox}" />
+                <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
                     <Button
-          Style="{StaticResource MaterialDesignFlatButton}"
-          IsDefault="True"
-          Margin="0 8 8 0"
-           Click="EditButton_Click"
-          Command="materialDesign:DialogHost.CloseDialogCommand">
+                        Margin="0,8,8,0"
+                        Click="EditButton_Click"
+                        Command="materialDesign:DialogHost.CloseDialogCommand"
+                        IsDefault="True"
+                        Style="{StaticResource MaterialDesignFlatButton}">
                         EDIT
                     </Button>
                     <Button
-          Style="{StaticResource MaterialDesignFlatButton}"
-          IsCancel="True"
-          Margin="0 8 8 0"
-          Command="materialDesign:DialogHost.CloseDialogCommand">
+                        Margin="0,8,8,0"
+                        Command="materialDesign:DialogHost.CloseDialogCommand"
+                        IsCancel="True"
+                        Style="{StaticResource MaterialDesignFlatButton}">
                         CANCEL
                     </Button>
                 </StackPanel>
@@ -36,160 +36,196 @@
 
         <Grid>
             <Grid.RowDefinitions>
-            <RowDefinition Height="80"></RowDefinition>
-            <RowDefinition Height="0.8*"></RowDefinition>
-            <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="80" />
+                <RowDefinition Height="0.8*" />
+                <RowDefinition Height="30" />
             </Grid.RowDefinitions>
-        <!-- Welcome-->
-        <DockPanel VerticalAlignment="Center" Grid.Row="0" Grid.Column="0">
-                <Rectangle Width="80" Fill="#161E29" Height="5" Margin="0, 0, 10, 0"></Rectangle>
-            <TextBlock FontFamily="Roboto" FontSize="23" VerticalAlignment="Center">
-                <Run Text="Welcome back,"/>
-                <Run Text="{Binding Name, Mode=OneWay}"/>
-                <Run Text="."/></TextBlock>
-            <materialDesign:PackIcon Kind="Person" Width="32" Height="32" VerticalAlignment="Top"/>
-                <Rectangle DockPanel.Dock="Right" Fill="#161E29" Height="5" Margin="10, 0, 0, 0"></Rectangle>
-        </DockPanel>
-         <!-- Tiles-->
-            <UniformGrid Rows="3" Columns="5" Grid.Row="1" Margin="50, 0, 50, 20">
+            <!--  Welcome  -->
+            <DockPanel
+                Grid.Row="0"
+                Grid.Column="0"
+                VerticalAlignment="Center">
+                <Rectangle
+                    Width="80"
+                    Height="5"
+                    Margin="0,0,10,0"
+                    Fill="#161E29" />
+                <TextBlock
+                    VerticalAlignment="Center"
+                    FontFamily="Roboto"
+                    FontSize="23">
+                    <Run Text="Welcome back," />
+                    <Run Text="{Binding Name, Mode=OneWay}" />
+                    <Run Text="." /></TextBlock>
+                <materialDesign:PackIcon
+                    Width="32"
+                    Height="32"
+                    VerticalAlignment="Top"
+                    Kind="Person" />
+                <Rectangle
+                    Height="5"
+                    Margin="10,0,0,0"
+                    DockPanel.Dock="Right"
+                    Fill="#161E29" />
+            </DockPanel>
+            <!--  Tiles  -->
+            <UniformGrid
+                Grid.Row="1"
+                Margin="50,0,50,20"
+                Columns="5"
+                Rows="3">
                 <UniformGrid.Resources>
-                    <Style TargetType="{x:Type Button}" BasedOn="{StaticResource MaterialDesignFlatDarkBgButton}">
-                        <Setter Property="VerticalAlignment" Value="Stretch"></Setter>
-                        <Setter Property="VerticalContentAlignment" Value="Stretch"></Setter>
-                        <Setter Property="Height" Value="Auto"></Setter>
-                        <Setter Property="Background" Value="#C8D6E5"></Setter>
-                        <Setter Property="BorderBrush" Value="Black"></Setter>
+                    <Style BasedOn="{StaticResource MaterialDesignFlatDarkBgButton}" TargetType="{x:Type Button}">
+                        <Setter Property="VerticalAlignment" Value="Stretch" />
+                        <Setter Property="VerticalContentAlignment" Value="Stretch" />
+                        <Setter Property="Height" Value="Auto" />
+                        <Setter Property="Background" Value="#C8D6E5" />
+                        <Setter Property="BorderBrush" Value="Black" />
                     </Style>
                     <Style TargetType="{x:Type StackPanel}">
-                        <Setter Property="Orientation" Value="Vertical"></Setter>
-                        <Setter Property="VerticalAlignment" Value="Center"></Setter>
-                        <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+                        <Setter Property="Orientation" Value="Vertical" />
+                        <Setter Property="VerticalAlignment" Value="Center" />
+                        <Setter Property="HorizontalAlignment" Value="Center" />
                     </Style>
                     <Style TargetType="{x:Type TextBlock}">
-                        <Setter Property="FontSize" Value="14"></Setter>
-                        <Setter Property="FontFamily" Value="Roboto"></Setter>
-                        <Setter Property="TextWrapping" Value="Wrap"></Setter>
-                        <Setter Property="TextAlignment" Value="Center"></Setter>
-                        <Setter Property="Foreground" Value="Black"></Setter>
+                        <Setter Property="FontSize" Value="14" />
+                        <Setter Property="FontFamily" Value="Roboto" />
+                        <Setter Property="TextWrapping" Value="Wrap" />
+                        <Setter Property="TextAlignment" Value="Center" />
+                        <Setter Property="Foreground" Value="Black" />
                     </Style>
                     <Style TargetType="{x:Type materialDesign:PackIcon}">
-                        
-                            <Setter Property="Width" Value="54"></Setter>
-                        <Setter Property="Height" Value="54"></Setter>
-                        <Setter Property="HorizontalAlignment" Value="Center"></Setter>
-                        <Setter Property="Foreground" Value="Black"></Setter>
+
+                        <Setter Property="Width" Value="54" />
+                        <Setter Property="Height" Value="54" />
+                        <Setter Property="HorizontalAlignment" Value="Center" />
+                        <Setter Property="Foreground" Value="Black" />
 
 
                     </Style>
                 </UniformGrid.Resources>
                 <Button Click="AddNewPangolinButton_Click" Cursor="Hand">
                     <StackPanel>
-                        <materialDesign:PackIcon Kind="Add"></materialDesign:PackIcon>
+                        <materialDesign:PackIcon Kind="Add" />
                         <TextBlock>ADD NEW RECORD</TextBlock>
                     </StackPanel>
                 </Button>
                 <Button Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}">
                     <StackPanel>
-                        <materialDesign:PackIcon Kind="Edit"></materialDesign:PackIcon>
+                        <materialDesign:PackIcon Kind="Edit" />
                         <TextBlock>EDIT RECORD</TextBlock>
-                         
+
                     </StackPanel>
                 </Button>
                 <Button Click="DailyActivitySheet_Click">
                     <StackPanel>
-                        <materialDesign:PackIcon Kind="CalendarDay"></materialDesign:PackIcon>
+                        <materialDesign:PackIcon Kind="CalendarDay" />
                         <TextBlock>DAILY RECORDING</TextBlock>
                     </StackPanel>
                 </Button>
                 <Button Click="InfantFeeding_Click">
                     <StackPanel>
-                        <materialDesign:PackIcon Kind="FoodVariant"></materialDesign:PackIcon>
+                        <materialDesign:PackIcon Kind="FoodVariant" />
                         <TextBlock>INFANT FEEDING</TextBlock>
                     </StackPanel>
                 </Button>
                 <Button Click="VeterinaryTreatment_Click">
                     <StackPanel>
-                        <materialDesign:PackIcon Kind="Doctor"></materialDesign:PackIcon>
+                        <materialDesign:PackIcon Kind="Doctor" />
                         <TextBlock>VETERINARY TREATMENT</TextBlock>
                     </StackPanel>
                 </Button>
                 <Button Click="InterdepartmentMovement_Click">
                     <StackPanel>
-                        <materialDesign:PackIcon Kind="Map"></materialDesign:PackIcon>
+                        <materialDesign:PackIcon Kind="Map" />
                         <TextBlock>INTERDEPARTMENT MOVEMENT</TextBlock>
                     </StackPanel>
                 </Button>
                 <Button Click="PhysicalMeasurements_Click" Cursor="Hand">
                     <StackPanel>
-                        <materialDesign:PackIcon Kind="MotionSensor"></materialDesign:PackIcon>
+                        <materialDesign:PackIcon Kind="MotionSensor" />
                         <TextBlock>MEASUREMENTS</TextBlock>
                     </StackPanel>
                 </Button>
                 <Button Click="Mortality_Click">
                     <StackPanel>
-                        <materialDesign:PackIcon Kind="EmoticonDead"></materialDesign:PackIcon>
+                        <materialDesign:PackIcon Kind="EmoticonDead" />
                         <TextBlock>MORTALITY</TextBlock>
                     </StackPanel>
                 </Button>
                 <Button Click="Release_Click" Cursor="Hand">
                     <StackPanel>
-                        <materialDesign:PackIcon Kind="Tree"></materialDesign:PackIcon>
+                        <materialDesign:PackIcon Kind="Tree" />
                         <TextBlock>RELEASE</TextBlock>
                     </StackPanel>
                 </Button>
                 <Button Click="Microchip_Click" Cursor="Hand">
                     <StackPanel>
-                        <materialDesign:PackIcon Kind="Chip"></materialDesign:PackIcon>
+                        <materialDesign:PackIcon Kind="Chip" />
                         <TextBlock>MICROCHIP</TextBlock>
                     </StackPanel>
                 </Button>
                 <Button Click="TrackingDevice_Click">
                     <StackPanel>
-                        <materialDesign:PackIcon Kind="GpsFixed"></materialDesign:PackIcon>
+                        <materialDesign:PackIcon Kind="GpsFixed" />
                         <TextBlock>TRACKING DEVICE</TextBlock>
                     </StackPanel>
                 </Button>
                 <Button Click="CriminalCase_Click">
                     <StackPanel>
-                        <materialDesign:PackIcon Kind="PoliceBadge"></materialDesign:PackIcon>
+                        <materialDesign:PackIcon Kind="PoliceBadge" />
                         <TextBlock>CRIMINAL CASE OUTECOME</TextBlock>
                     </StackPanel>
                 </Button>
                 <Button Click="Documents_Click">
                     <StackPanel>
-                        <materialDesign:PackIcon Kind="FileDocument"></materialDesign:PackIcon>
+                        <materialDesign:PackIcon Kind="FileDocument" />
                         <TextBlock>DOCUMENTS</TextBlock>
                     </StackPanel>
                 </Button>
-                <Button Cursor="Hand" Click="AdminPanel_Click">
+                <Button Click="AdminPanel_Click" Cursor="Hand">
                     <StackPanel>
-                        <materialDesign:PackIcon Kind="ShieldPerson"></materialDesign:PackIcon>
+                        <materialDesign:PackIcon Kind="ShieldPerson" />
                         <TextBlock>ADMIN PANEL</TextBlock>
                     </StackPanel>
                 </Button>
-                <Button Cursor="Hand" Click="Sync_Click">
+                <Button Click="Sync_Click" Cursor="Hand">
                     <StackPanel>
-                        <materialDesign:PackIcon Kind="Sync"></materialDesign:PackIcon>
+                        <materialDesign:PackIcon Kind="Sync" />
                         <TextBlock>SYNCHRONIZE DATABASE</TextBlock>
                     </StackPanel>
                 </Button>
             </UniformGrid>
-            <!-- Footer -->
+            <!--  Footer  -->
             <Grid Grid.Row="2">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="0.1*"></RowDefinition>
-                    <RowDefinition Height="0.9*"></RowDefinition>
+                    <RowDefinition Height="0.1*" />
+                    <RowDefinition Height="0.9*" />
                 </Grid.RowDefinitions>
-                <Rectangle Fill="Red"></Rectangle>
-                <StackPanel Orientation="Horizontal" Background="#161E29" Grid.Row="1">
-                    <TextBlock Text="© Tarik Azzouzi &amp; Nico Zeitz    -- " Foreground="White" VerticalAlignment="Center" FontFamily="Roboto" Margin="10, 0, 0, 0"></TextBlock>
-                    <TextBlock Text="Sign out" VerticalAlignment="Center" FontFamily="Roboto" Margin="10, 0, 0, 0" Cursor="Hand" MouseDown="SignOut_Click">
+                <Rectangle Fill="Red" />
+                <StackPanel
+                    Grid.Row="1"
+                    Background="#161E29"
+                    Orientation="Horizontal">
+                    <TextBlock
+                        Margin="10,0,0,0"
+                        VerticalAlignment="Center"
+                        FontFamily="Roboto"
+                        Foreground="White"
+                        Text="© Tarik Azzouzi &amp; Nico Zeitz    -- " />
+                    <TextBlock
+                        Margin="10,0,0,0"
+                        VerticalAlignment="Center"
+                        Cursor="Hand"
+                        FontFamily="Roboto"
+                        MouseDown="SignOut_Click"
+                        Text="Sign out">
                         <TextBlock.Style>
                             <Style TargetType="TextBlock">
-                                <Setter Property="Foreground" Value="White"></Setter>
+                                <Setter Property="Foreground" Value="White" />
                                 <Style.Triggers>
                                     <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Foreground" Value="IndianRed"></Setter>
+                                        <Setter Property="Foreground" Value="IndianRed" />
                                     </Trigger>
                                 </Style.Triggers>
                             </Style>
@@ -201,27 +237,27 @@
     </materialDesign:DialogHost>
     <UserControl.Resources>
         <Style TargetType="{x:Type Button}">
-            <Setter Property="Margin" Value="0, 0, 0, 20"></Setter>
-            <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
-            <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
-            <Setter Property="VerticalContentAlignment" Value="Stretch"></Setter>
-            <Setter Property="VerticalAlignment" Value="Stretch"></Setter>
+            <Setter Property="Margin" Value="0,0,0,20" />
+            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="VerticalContentAlignment" Value="Stretch" />
+            <Setter Property="VerticalAlignment" Value="Stretch" />
             <Style.Resources>
-                <SolidColorBrush x:Key="PrimaryHueDarkBrush" Color="#707070"/>
+                <SolidColorBrush x:Key="PrimaryHueDarkBrush" Color="#707070" />
                 <Style TargetType="{x:Type StackPanel}">
-                    <Setter Property="HorizontalAlignment" Value="Center"></Setter>
-                    <Setter Property="VerticalAlignment" Value="Center"></Setter>
+                    <Setter Property="HorizontalAlignment" Value="Center" />
+                    <Setter Property="VerticalAlignment" Value="Center" />
                 </Style>
                 <Style TargetType="{x:Type TextBlock}">
-                    <Setter Property="FontSize" Value="18"></Setter>
-                    <Setter Property="FontFamily" Value="Roboto"></Setter>
-                    <Setter Property="TextAlignment" Value="Center"></Setter>
-                    <Setter Property="HorizontalAlignment" Value="Center"></Setter>
-                    <Setter Property="VerticalAlignment" Value="Center"></Setter>
+                    <Setter Property="FontSize" Value="18" />
+                    <Setter Property="FontFamily" Value="Roboto" />
+                    <Setter Property="TextAlignment" Value="Center" />
+                    <Setter Property="HorizontalAlignment" Value="Center" />
+                    <Setter Property="VerticalAlignment" Value="Center" />
                 </Style>
             </Style.Resources>
             <Style.BasedOn>
-                <StaticResource ResourceKey="MaterialDesignRaisedDarkButton"/>
+                <StaticResource ResourceKey="MaterialDesignRaisedDarkButton" />
             </Style.BasedOn>
         </Style>
     </UserControl.Resources>
