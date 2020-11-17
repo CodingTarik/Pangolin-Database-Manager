@@ -11,8 +11,17 @@ namespace Pangolin_Database_App.Database
     public class PangolinContext : DbContext
     {
         // Tables of database
+        /// <summary>
+        /// CriminalCase
+        /// </summary>
         public DbSet<CriminalCase> CriminalCases { get; set; }
+        /// <summary>
+        /// Daily Activity Table
+        /// </summary>
         public DbSet<DailyActivity> DailyActivities { get; set; }
+        /// <summary>
+        /// Documents
+        /// </summary>
         public DbSet<Document> Documents { get; set; }
         public DbSet<InfantFeeding> InfantFeedings { get; set; }
         public DbSet<Microchip> Microchips { get; set; }

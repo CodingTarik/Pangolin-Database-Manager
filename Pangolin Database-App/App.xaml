@@ -1,44 +1,51 @@
-﻿<Application x:Class="Pangolin_Database_App.App"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:Pangolin_Database_App"
-             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             StartupUri="Views/LoginView.xaml"
-             xmlns:util="clr-namespace:Pangolin_Database_App.Util">
-    <!-- Default Resources for App theme-->
+﻿<Application
+    x:Class="Pangolin_Database_App.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Pangolin_Database_App"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:util="clr-namespace:Pangolin_Database_App.Util"
+    StartupUri="Views/LoginView.xaml">
+    <!--  Default Resources for App theme  -->
     <Application.Resources>
         <ResourceDictionary>
-            <!-- Material design data-->
+            <!--  Material design data  -->
             <ResourceDictionary.MergedDictionaries>
-                <materialDesign:BundledTheme BaseTheme="Light" PrimaryColor="DeepPurple" SecondaryColor="Lime" />
+                <materialDesign:BundledTheme
+                    BaseTheme="Light"
+                    PrimaryColor="DeepPurple"
+                    SecondaryColor="Lime" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
             </ResourceDictionary.MergedDictionaries>
-            <!-- Pangolin box style-->
-            <Style TargetType="ComboBox" x:Key="Pangolinbox" BasedOn="{StaticResource MaterialDesignFloatingHintComboBox}">
+            <!--  Pangolin box style  -->
+            <Style
+                x:Key="Pangolinbox"
+                BasedOn="{StaticResource MaterialDesignFloatingHintComboBox}"
+                TargetType="ComboBox">
                 <Style.Setters>
-                    <Setter Property="materialDesign:HintAssist.Hint" Value="SELECT PANGOLIN"></Setter>
-                    <Setter Property="ItemsSource" Value="{Binding Path=Pangolins, UpdateSourceTrigger=PropertyChanged}"></Setter>
-                    <Setter Property="DisplayMemberPath" Value="ReferenceNumber"></Setter>
-                    <Setter Property="SelectedValue" Value="{Binding SelectedPangolin, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"></Setter>
+                    <Setter Property="materialDesign:HintAssist.Hint" Value="SELECT PANGOLIN" />
+                    <Setter Property="ItemsSource" Value="{Binding Path=Pangolins, UpdateSourceTrigger=PropertyChanged}" />
+                    <Setter Property="DisplayMemberPath" Value="ReferenceNumber" />
+                    <Setter Property="SelectedValue" Value="{Binding SelectedPangolin, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" />
                 </Style.Setters>
             </Style>
-            <!-- Snackbar style-->
-            <Style TargetType="materialDesign:Snackbar" x:Key="SnackbarStyle">
-                <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
-                <Setter Property="Margin" Value="5, 25, 0, 5"></Setter>
-                <Setter Property="IsActive" Value="{Binding SnackbarActive}"></Setter>
+            <!--  Snackbar style  -->
+            <Style x:Key="SnackbarStyle" TargetType="materialDesign:Snackbar">
+                <Setter Property="HorizontalAlignment" Value="Stretch" />
+                <Setter Property="Margin" Value="5,25,0,5" />
+                <Setter Property="IsActive" Value="{Binding SnackbarActive}" />
                 <Style.Resources>
                     <Style TargetType="materialDesign:SnackbarMessage">
-                        <Setter Property="Content" Value="{Binding SnackbarMessage}"></Setter>
-                        <Setter Property="ActionContent" Value="OK"></Setter>
-                        <Setter Property="ActionCommand" Value="{Binding HideSnackbar}"></Setter>
+                        <Setter Property="Content" Value="{Binding SnackbarMessage}" />
+                        <Setter Property="ActionContent" Value="OK" />
+                        <Setter Property="ActionCommand" Value="{Binding HideSnackbar}" />
                     </Style>
                 </Style.Resources>
             </Style>
-            <!-- Value Converter-->
-            <util:ValueConverter x:Key="StringToNumeric"></util:ValueConverter>
-            <util:BoolToIndexConverter x:Key="BoolToIndex"></util:BoolToIndexConverter>
-            <util:IntToMethodConverter x:Key="MedicineTreatmentConvert"></util:IntToMethodConverter>
+            <!--  Value Converter  -->
+            <util:ValueConverter x:Key="StringToNumeric" />
+            <util:BoolToIndexConverter x:Key="BoolToIndex" />
+            <util:IntToMethodConverter x:Key="MedicineTreatmentConvert" />
         </ResourceDictionary>
     </Application.Resources>
 </Application>

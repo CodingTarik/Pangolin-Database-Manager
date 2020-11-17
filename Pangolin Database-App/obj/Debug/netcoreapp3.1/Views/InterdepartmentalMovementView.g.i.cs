@@ -57,7 +57,8 @@ namespace Pangolin_Database_App.Views {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Pangolin Database-App;component/views/interdepartmentalmovementview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Pangolin Database-App;V1.0.1.0;component/views/interdepartmentalmovementview.xam" +
+                    "l", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Views\InterdepartmentalMovementView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

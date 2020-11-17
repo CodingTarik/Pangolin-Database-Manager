@@ -89,7 +89,7 @@ namespace Pangolin_Database_App.Views {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Pangolin Database-App;component/views/adminpanelview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Pangolin Database-App;V1.0.1.0;component/views/adminpanelview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Views\AdminPanelView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

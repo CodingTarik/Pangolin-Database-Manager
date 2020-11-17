@@ -66,6 +66,21 @@
             UseDatabaseManager if you want to get the database
             </summary>
         </member>
+        <member name="P:Pangolin_Database_App.Database.PangolinContext.CriminalCases">
+            <summary>
+            CriminalCase
+            </summary>
+        </member>
+        <member name="P:Pangolin_Database_App.Database.PangolinContext.DailyActivities">
+            <summary>
+            Daily Activity Table
+            </summary>
+        </member>
+        <member name="P:Pangolin_Database_App.Database.PangolinContext.Documents">
+            <summary>
+            Documents
+            </summary>
+        </member>
         <member name="P:Pangolin_Database_App.Database.UserManagment.ActiveUser">
             <summary>
             Property for active user (model)
