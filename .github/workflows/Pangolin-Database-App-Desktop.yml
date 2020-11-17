@@ -59,6 +59,7 @@ jobs:
       Solution_Name: "Pangolin Database-App\\Pangolin Database-App.sln"                      # Replace with your solution name, i.e. MyWpfApp.sln.
       Test_Project_Path: "Pangolin-Database-Unit-Tests\\Pangolin-Database-Unit-Tests.csproj"
       Wpf_Project_Path: "Pangolin Database-App\\Pangolin Database-App.csproj"                                          # Replace with the path to your test project, i.e. MyWpfApp.Tests\MyWpfApp.Tests.csproj.
+      ACTIONS_ALLOW_UNSECURE_COMMANDS: true
    
     steps:
     - name: Checkout
