@@ -50,7 +50,7 @@ namespace Pangolin_Database_App.User_Controls.Login
 
             // set mysql connection string for username and password hash
             Settings.Settings.MYSQLConnectionString = "Server="+Settings.Settings.DatabaseHostAddress+";Port="+Settings.Settings.DatabasePort+
-                ";Database="+Settings.Settings.MYSQLDatabaseName+";Uid="+username+";Pwd="+PasswordBox.Password+";";
+                ";Database="+Settings.Settings.MYSQLDatabaseName+";Uid="+username+";Pwd="+passwordhash+";";
 
             // if sync is checked then sync
             if((bool)Sync.IsChecked)

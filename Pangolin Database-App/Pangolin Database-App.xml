@@ -66,6 +66,16 @@
             UseDatabaseManager if you want to get the database
             </summary>
         </member>
+        <member name="P:Pangolin_Database_App.Database.UserManagment.ActiveUser">
+            <summary>
+            Property for active user (model)
+            </summary>
+        </member>
+        <member name="M:Pangolin_Database_App.Database.UserManagment.UpdateMySQLConString">
+            <summary>
+            Updates the mysql connection strings for active user
+            </summary>
+        </member>
         <member name="M:Pangolin_Database_App.Database.UserManagment.ComputeSha256Hash(System.String)">
             <summary>
             Used for hashing user passwords

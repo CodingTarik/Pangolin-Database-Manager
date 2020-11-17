@@ -12,8 +12,34 @@ namespace Pangolin_Database_App.Database
 {
     internal class UserManagment
     {
+        private static User _user = null;
 
-        public static User ActiveUser { get; set; }
+        /// <summary>
+        /// Property for active user (model)
+        /// </summary>
+        public static User ActiveUser
+        {
+            get => _user;
+            set { _user = value; UpdateMySQLConString(); }
+        }
+
+        /// <summary>
+        /// Updates the mysql connection strings for active user
+        /// </summary>
+        private static void UpdateMySQLConString()
+        {
+            if (ActiveUser != null)
+            {
+                Settings.Settings.MYSQLConnectionString = "Server=" + Settings.Settings.DatabaseHostAddress + ";Port=" + Settings.Settings.DatabasePort +
+                    ";Database=" + Settings.Settings.MYSQLDatabaseName + ";Uid=" + ActiveUser.Username + ";Pwd=" + ActiveUser.PasswordHash + ";";
+            }
+            else
+            {
+                Settings.Settings.MYSQLConnectionString = "";
+            }
+
+            Logger.LogManager.logInfo("Updating MySQL Connection String to --> " + Settings.Settings.MYSQLConnectionString, Logger.LogTopic.Database);
+        }
 
         /// <summary>
         /// Used for hashing user passwords
@@ -62,7 +88,7 @@ namespace Pangolin_Database_App.Database
             }
             else
             {
-                if (!(await AddUserOnMySQLAsync(username, password, isAdmin, mysql)))
+                if (!(await AddUserOnMySQLAsync(username, passwordhash, isAdmin, mysql)))
                 {
                     Logger.LogManager.logWarning("returning, could not add user to mysql database");
                     return false;
@@ -111,21 +137,39 @@ namespace Pangolin_Database_App.Database
             }
             catch (Exception ex)
             {
-                Logger.LogManager.logError(ex, "Error creating user " + ex.Message);
+                Logger.LogManager.logError(ex, "Error creating user, maybe user already exists. Try changing password." + ex.Message);
+                try
+                {
+                    sqlQuery = @"ALTER USER '" + username + @"'@'%' IDENTIFIED BY '" + password + @"';";
+                    Logger.LogManager.logInfo("Running Query: '" + sqlQuery + "'", Logger.LogTopic.Database);
+                    int rowsAddedUsers = await pr.Database.ExecuteSqlRawAsync(sqlQuery);
+                    Logger.LogManager.log("Rows affected for pass change: " + rowsAddedUsers, Logger.LogCategory.info, Logger.LogTopic.User);
+                } catch(Exception exx)
+                {
+                    Logger.LogManager.logError(exx, "Password change failed: " + exx.Message);
+                }
             }
             // Grant Privileges for Database
-            if (isAdmin)
+            try
             {
-                sqlQuery = @"GRANT ALL PRIVILEGES ON *.* TO '" + username + @"'@'%';";
-            }
-            else
-            {
-                sqlQuery = @"GRANT ALL PRIVILEGES ON `" + Settings.Settings.MYSQLDatabaseName + @"`.* TO '" + username + @"'@'%';";
-            }
+                if (isAdmin)
+                {
+                    sqlQuery = @"GRANT ALL PRIVILEGES ON *.* TO '" + username + @"'@'%' WITH GRANT OPTION;";
+                }
+                else
+                {
+                    sqlQuery = @"GRANT ALL PRIVILEGES ON `" + Settings.Settings.MYSQLDatabaseName + @"`.* TO '" + username + @"'@'%';";
+                }
 
-            Logger.LogManager.logInfo("Running Query: '" + sqlQuery + "'", Logger.LogTopic.Database);
-            int rowsAddedPrivileges = await pr.Database.ExecuteSqlRawAsync(@"GRANT ALL PRIVILEGES ON `" + Settings.Settings.MYSQLDatabaseName + @"`.* TO '" + username + @"'@'%';");
-            Logger.LogManager.log("Rows affected for privileges: " + rowsAddedPrivileges, Logger.LogCategory.info, Logger.LogTopic.User);
+                Logger.LogManager.logInfo("Running Query: '" + sqlQuery + "'", Logger.LogTopic.Database);
+                int rowsAddedPrivileges = await pr.Database.ExecuteSqlRawAsync(sqlQuery);
+                Logger.LogManager.log("Rows affected for privileges: " + rowsAddedPrivileges, Logger.LogCategory.info, Logger.LogTopic.User);
+            }
+            catch (Exception ex)
+            {
+                Logger.LogManager.logError(ex, "Error granting privileges " + ex.Message);
+                return false;
+            }
             // return
             return true;
         }
@@ -143,7 +187,7 @@ namespace Pangolin_Database_App.Database
             optionsBuilder.UseMySql(Settings.Settings.MYSQLConnectionString);
             PangolinContext pr = new PangolinContext(optionsBuilder.Options);
             // Create User
-            string sqlQuery = @"ALTER USER '" + username + @"'@'%' IDENTIFIED BY '" + password + @"';";
+            string sqlQuery = @"ALTER USER '" + username + @"'@'%' IDENTIFIED BY '" + ComputeSha256Hash(password) + @"';";
             Logger.LogManager.logInfo("Running Query: '" + sqlQuery + "'", Logger.LogTopic.Database);
             int rowsAddedUsers = await pr.Database.ExecuteSqlRawAsync(sqlQuery);
             Logger.LogManager.log("Rows affected for user adding: " + rowsAddedUsers, Logger.LogCategory.info, Logger.LogTopic.User);
