@@ -80,7 +80,8 @@ namespace Pangolin_Database_App.ViewModels
                 {
                     ShowSnackbar("User could not be added, password not equal");
                 }
-            } catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 ShowSnackbar("Error: " + ex.Message);
                 Logger.LogManager.logError(ex, "Error adding user", Logger.LogTopic.Database);
@@ -158,7 +159,7 @@ namespace Pangolin_Database_App.ViewModels
             {
                 if (_UserListDelete == null)
                 {
-                    var users = Database.DatabaseManager.GetDatabase().Users.ToList();
+                    System.Collections.Generic.List<User> users = Database.DatabaseManager.GetDatabase().Users.ToList();
                     users.Remove(Database.UserManagment.ActiveUser);
                     _UserListDelete = new ObservableCollection<User>(users);
                 }

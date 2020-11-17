@@ -46,7 +46,7 @@ namespace Pangolin_Database_App.Models
         /// No parasites presents
         /// </summary>
         [NotMapped]
-        public bool ParasitesNotPresent { get { return !ParasitesPresent; } set { } }
+        public bool ParasitesNotPresent { get => !ParasitesPresent; set { } }
         /// <summary>
         /// Aproximated age of pangolin
         /// </summary>
@@ -87,7 +87,7 @@ namespace Pangolin_Database_App.Models
         /// No criminal case
         /// </summary>
         [NotMapped]
-        public bool NoCriminalCase { get { return !CriminalCase; } set { } }
+        public bool NoCriminalCase { get => !CriminalCase; set { } }
         /// <summary>
         /// The date
         /// </summary>

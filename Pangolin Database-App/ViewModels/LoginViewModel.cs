@@ -1,6 +1,6 @@
-﻿using Pangolin_Database_App.Models;
+﻿using Pangolin_Database_App.Logger;
+using Pangolin_Database_App.Models;
 using Pangolin_Database_App.Util;
-using Pangolin_Database_App.Logger;
 
 namespace Pangolin_Database_App.ViewModels
 {
@@ -10,23 +10,23 @@ namespace Pangolin_Database_App.ViewModels
 
         public object ModelContent
         {
-            get { return _modelContent; }
+            get => _modelContent;
             set { _modelContent = value; NotifyPropertyChanged(); }
         }
 
         public CredentialsViewModel login { get; set; }
-    public SetupViewModel setup { get; set; }
+        public SetupViewModel setup { get; set; }
         public LoginViewModel(RelayCommand ShowMainMenu) : base(Database.DatabaseManager.GetDatabase().Users)
         {
-            this.login = new CredentialsViewModel(this, ShowMainMenu);
-            this.setup = new SetupViewModel(this);
-            this.ModelContent = login;
+            login = new CredentialsViewModel(this, ShowMainMenu);
+            setup = new SetupViewModel(this);
+            ModelContent = login;
 
         }
 
         public void SwitchContent()
         {
-            if(ModelContent is CredentialsViewModel)
+            if (ModelContent is CredentialsViewModel)
             {
                 LogManager.logInfo("Switching context to setup", LogTopic.Settings);
                 ModelContent = setup;

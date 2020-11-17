@@ -116,7 +116,7 @@ namespace Pangolin_Database_App.Database
         private static async Task<bool> AddUserOnMySQLAsync(string username, string password, bool isAdmin = false, string mysqlConn = null)
         {
             // Build Connection
-            var optionsBuilder = new DbContextOptionsBuilder<PangolinContext>();
+            DbContextOptionsBuilder<PangolinContext> optionsBuilder = new DbContextOptionsBuilder<PangolinContext>();
             if (mysqlConn == null)
             {
                 optionsBuilder.UseMySql(Settings.Settings.MYSQLConnectionString);
@@ -144,7 +144,8 @@ namespace Pangolin_Database_App.Database
                     Logger.LogManager.logInfo("Running Query: '" + sqlQuery + "'", Logger.LogTopic.Database);
                     int rowsAddedUsers = await pr.Database.ExecuteSqlRawAsync(sqlQuery);
                     Logger.LogManager.log("Rows affected for pass change: " + rowsAddedUsers, Logger.LogCategory.info, Logger.LogTopic.User);
-                } catch(Exception exx)
+                }
+                catch (Exception exx)
                 {
                     Logger.LogManager.logError(exx, "Password change failed: " + exx.Message);
                 }
@@ -183,7 +184,7 @@ namespace Pangolin_Database_App.Database
         public static async Task<bool> UpdateUserPassOnMySQLAsync(string username, string password)
         {
             // Build Connection
-            var optionsBuilder = new DbContextOptionsBuilder<PangolinContext>();
+            DbContextOptionsBuilder<PangolinContext> optionsBuilder = new DbContextOptionsBuilder<PangolinContext>();
             optionsBuilder.UseMySql(Settings.Settings.MYSQLConnectionString);
             PangolinContext pr = new PangolinContext(optionsBuilder.Options);
             // Create User
@@ -202,7 +203,7 @@ namespace Pangolin_Database_App.Database
         public static async Task<bool> DeleteUserOnMySQLAsync(string username)
         {
             // Build Connection
-            var optionsBuilder = new DbContextOptionsBuilder<PangolinContext>();
+            DbContextOptionsBuilder<PangolinContext> optionsBuilder = new DbContextOptionsBuilder<PangolinContext>();
             optionsBuilder.UseMySql(Settings.Settings.MYSQLConnectionString);
             PangolinContext pr = new PangolinContext(optionsBuilder.Options);
             // Create User

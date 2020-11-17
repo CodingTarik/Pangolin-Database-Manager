@@ -1,7 +1,6 @@
-﻿using System;
+﻿using Pangolin_Database_App.Logger;
 using System.Configuration;
 using System.IO;
-using Pangolin_Database_App.Logger;
 
 namespace Pangolin_Database_App.Settings
 {
@@ -30,7 +29,7 @@ namespace Pangolin_Database_App.Settings
         /// <returns></returns>
         public static bool UpdateDbHostAndPort(string host, int port)
         {
-            if (!String.IsNullOrEmpty(host) && port > 0)
+            if (!string.IsNullOrEmpty(host) && port > 0)
             {
                 AddUpdateAppSettings("DatabaseHostAddress", host);
                 AddUpdateAppSettings("DatabasePort", port.ToString());
@@ -50,7 +49,7 @@ namespace Pangolin_Database_App.Settings
         {
             try
             {
-                var appSettings = ConfigurationManager.AppSettings;
+                System.Collections.Specialized.NameValueCollection appSettings = ConfigurationManager.AppSettings;
                 string result = appSettings[key];
                 LogManager.logInfo("Reading setting: " + key + " with value " + result, Logger.LogTopic.Settings);
                 return result;
@@ -67,12 +66,12 @@ namespace Pangolin_Database_App.Settings
         /// </summary>
         /// <param name="key"></param>
         /// <param name="value"></param>
-        private  static void AddUpdateAppSettings(string key, string value)
+        private static void AddUpdateAppSettings(string key, string value)
         {
             try
             {
-                var configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-                var settings = configFile.AppSettings.Settings;
+                Configuration configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+                KeyValueConfigurationCollection settings = configFile.AppSettings.Settings;
                 if (settings[key] == null)
                 {
                     settings.Add(key, value);

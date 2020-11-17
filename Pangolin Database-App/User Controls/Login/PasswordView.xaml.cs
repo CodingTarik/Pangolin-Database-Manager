@@ -1,20 +1,11 @@
 ﻿using Pangolin_Database_App.Models;
-using Pangolin_Database_App.Util;
 using Pangolin_Database_App.ViewModels;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Pangolin_Database_App.User_Controls.Login
 {
@@ -27,7 +18,7 @@ namespace Pangolin_Database_App.User_Controls.Login
         internal PasswordView()
         {
             InitializeComponent();
-            this.syncProgessbar.IsIndeterminate = false;
+            syncProgessbar.IsIndeterminate = false;
         }
 
         /// <summary>
@@ -38,28 +29,29 @@ namespace Pangolin_Database_App.User_Controls.Login
         private async void LoginButton_Click(object sender, RoutedEventArgs e)
         {
             // Deactivate login button, activate loading animation
-            this.LoginButton.IsEnabled = false;
-            this.syncProgessbar.IsIndeterminate = true;
+            LoginButton.IsEnabled = false;
+            syncProgessbar.IsIndeterminate = true;
 
             // get model for snackbar function etc.
-            var model = (CredentialsViewModel)this.DataContext;
+            CredentialsViewModel model = (CredentialsViewModel)DataContext;
 
             // get username and passwordhash entered
             string username = UsernameTextbox.Text;
             string passwordhash = Database.UserManagment.ComputeSha256Hash(PasswordBox.Password);
 
             // set mysql connection string for username and password hash
-            Settings.Settings.MYSQLConnectionString = "Server="+Settings.Settings.DatabaseHostAddress+";Port="+Settings.Settings.DatabasePort+
-                ";Database="+Settings.Settings.MYSQLDatabaseName+";Uid="+username+";Pwd="+passwordhash+";";
+            Settings.Settings.MYSQLConnectionString = "Server=" + Settings.Settings.DatabaseHostAddress + ";Port=" + Settings.Settings.DatabasePort +
+                ";Database=" + Settings.Settings.MYSQLDatabaseName + ";Uid=" + username + ";Pwd=" + passwordhash + ";";
 
             // if sync is checked then sync
-            if((bool)Sync.IsChecked)
+            if ((bool)Sync.IsChecked)
             {
                 try
                 {
                     string result = await Database.DatabaseSync.SyncAsync(null);
                     Logger.LogManager.logInfo(result, Logger.LogTopic.Login);
-                } catch(Exception ex)
+                }
+                catch (Exception ex)
                 {
                     Logger.LogManager.logError(ex, "Error synchronizing database at login", Logger.LogTopic.Login);
                     model.ShowSnackbar("Error synchronizing database " + ex.Message, 3);
@@ -89,15 +81,15 @@ namespace Pangolin_Database_App.User_Controls.Login
                 model.ShowSnackbar("Username or password incorrect", 6);
             }
 
-            this.syncProgessbar.IsIndeterminate = false;
-            this.LoginButton.IsEnabled = true;
+            syncProgessbar.IsIndeterminate = false;
+            LoginButton.IsEnabled = true;
 
         }
 
         private void Settings_Click(object sender, MouseButtonEventArgs e)
         {
             Logger.LogManager.logInfo("Switching to setup view", Logger.LogTopic.Login);
-            var model = (CredentialsViewModel)this.DataContext;
+            CredentialsViewModel model = (CredentialsViewModel)DataContext;
             model.model.SwitchContent();
         }
     }

@@ -61,8 +61,8 @@ namespace Pangolin_Database_App
         // ================================================================
         private void win_SourceInitialized(object sender, System.EventArgs e)
         {
-            var handle = (new WindowInteropHelper(this)).Handle;
-            var handleSource = HwndSource.FromHwnd(handle);
+            IntPtr handle = (new WindowInteropHelper(this)).Handle;
+            HwndSource handleSource = HwndSource.FromHwnd(handle);
             if (handleSource == null)
             {
                 return;

@@ -1,13 +1,10 @@
-﻿using Pangolin_Database_App.Util;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using Pangolin_Database_App.Settings;
-using Pangolin_Database_App.Models;
+﻿using Pangolin_Database_App.Models;
+using Pangolin_Database_App.Util;
 using System;
 
 namespace Pangolin_Database_App.ViewModels
 {
-    internal class SetupViewModel : ViewModelBase<ModelBase> 
+    internal class SetupViewModel : ViewModelBase<ModelBase>
     {
 
         public LoginViewModel model { get; set; }
@@ -16,10 +13,10 @@ namespace Pangolin_Database_App.ViewModels
         {
             UpdateDbIPandPort = new RelayCommand(UpdateDbHostandPort);
             InitDbWithUsernameAndPass = new RelayCommand(InitDb);
-            this.DatabaseIP = Settings.Settings.DatabaseHostAddress;
-            this.DatabasePort = Settings.Settings.DatabasePort;
+            DatabaseIP = Settings.Settings.DatabaseHostAddress;
+            DatabasePort = Settings.Settings.DatabasePort;
             this.model = model;
-            this.InitButtonEnabled = true;
+            InitButtonEnabled = true;
         }
 
         private string _databaseIP;
@@ -58,7 +55,7 @@ namespace Pangolin_Database_App.ViewModels
 
         public bool InitButtonEnabled
         {
-            get { return _initButtonEnabled; }
+            get => _initButtonEnabled;
             set { _initButtonEnabled = value; NotifyPropertyChanged(); }
         }
 
@@ -67,7 +64,7 @@ namespace Pangolin_Database_App.ViewModels
 
         private void UpdateDbHostandPort()
         {
-            if(Settings.SettingsManager.UpdateDbHostAndPort(DatabaseIP, DatabasePort))
+            if (Settings.SettingsManager.UpdateDbHostAndPort(DatabaseIP, DatabasePort))
             {
                 ShowSnackbar("Updated Database host settings successfully", 6);
             }
@@ -86,7 +83,8 @@ namespace Pangolin_Database_App.ViewModels
             {
                 await Database.DatabaseSync.CreateDatabaseOnServerAsync(DbInitUsername, DbInitPassword);
                 ShowSnackbar("Successfull initalized database", 5);
-            } catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 Logger.LogManager.logError(ex, "Could not init database: " + ex.Message, Logger.LogTopic.Database);
                 ShowSnackbar("Could not initalize database: " + ex.Message);

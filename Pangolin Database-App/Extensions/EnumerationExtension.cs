@@ -42,7 +42,7 @@ namespace Pangolin_Database_App.Extensions
                     return;
                 }
 
-                var enumType = Nullable.GetUnderlyingType(value) ?? value;
+                Type enumType = Nullable.GetUnderlyingType(value) ?? value;
 
                 if (enumType.IsEnum == false)
                 {
@@ -62,7 +62,7 @@ namespace Pangolin_Database_App.Extensions
         /// <returns></returns>
         public override object ProvideValue(IServiceProvider serviceProvider)
         {
-            var enumValues = Enum.GetValues(EnumType);
+            Array enumValues = Enum.GetValues(EnumType);
 
             return (
               from object enumValue in enumValues
@@ -80,7 +80,7 @@ namespace Pangolin_Database_App.Extensions
         /// <returns></returns>
         private string GetDescription(object enumValue)
         {
-            var descriptionAttribute = EnumType
+            DescriptionAttribute descriptionAttribute = EnumType
               .GetField(enumValue.ToString())
               .GetCustomAttributes(typeof(DescriptionAttribute), false)
               .FirstOrDefault() as DescriptionAttribute;

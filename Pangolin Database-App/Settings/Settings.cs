@@ -15,7 +15,7 @@ namespace Pangolin_Database_App.Settings
         public const int DebugMaxRows = 10;
         public static string MYSQLConnectionString { get; set; }
         public const string MYSQLDatabaseName = "database";
-        public static string DatabaseHostAddress { get { return SettingsManager.ReadSetting("DatabaseHostAddress"); } }
-        public static int DatabasePort { get { return int.Parse(SettingsManager.ReadSetting("DatabasePort") ?? "3306"); } }
+        public static string DatabaseHostAddress => SettingsManager.ReadSetting("DatabaseHostAddress");
+        public static int DatabasePort => int.Parse(SettingsManager.ReadSetting("DatabasePort") ?? "3306");
     }
 }

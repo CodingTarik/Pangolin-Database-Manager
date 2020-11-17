@@ -9,7 +9,7 @@ namespace Pangolin_Database_App.ViewModels
     {
         public TrackingDeviceViewModel(Pangolin p = null) : base(Database.DatabaseManager.GetDatabase().TrackingDevices)
         {
-            this.SelectedModel = new TrackingDevice() { Date = DateTime.Now };
+            SelectedModel = new TrackingDevice() { Date = DateTime.Now };
             UpdateModelEvent += TrackingDeviceViewModel_UpdateModelEvent;
             PangolinChanged += TrackingDeviceViewModel_PangolinChanged;
             if (p != null)

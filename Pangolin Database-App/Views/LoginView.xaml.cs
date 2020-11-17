@@ -1,6 +1,5 @@
 ﻿using Pangolin_Database_App.Models;
 using Pangolin_Database_App.ViewModels;
-using System.Linq;
 using System.Windows;
 
 namespace Pangolin_Database_App.Views
@@ -39,7 +38,7 @@ namespace Pangolin_Database_App.Views
             main.Show();
         }
 
-   
+
 
         /// <summary>
         /// close

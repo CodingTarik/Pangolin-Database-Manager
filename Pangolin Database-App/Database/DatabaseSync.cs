@@ -3,7 +3,6 @@ using Dotmim.Sync.MySql;
 using Dotmim.Sync.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using System;
-using System.IO;
 using System.Threading.Tasks;
 
 namespace Pangolin_Database_App.Database
@@ -52,13 +51,13 @@ namespace Pangolin_Database_App.Database
                 File.Delete(Settings.Settings.DbFilename);
             }*/
 
-            var optionsBuilder = new DbContextOptionsBuilder<PangolinContext>();
+            DbContextOptionsBuilder<PangolinContext> optionsBuilder = new DbContextOptionsBuilder<PangolinContext>();
             string mysqlConString = "Server=" + Settings.Settings.DatabaseHostAddress + ";Port=" + Settings.Settings.DatabasePort + ";Database=database;Uid=" + username + ";Pwd=" + password + ";";
             Logger.LogManager.logInfo("Initalizing database with connection string: '" + mysqlConString + "'", Logger.LogTopic.Database);
             optionsBuilder.UseMySql(mysqlConString);
             PangolinContext pr = new PangolinContext(optionsBuilder.Options);
             await pr.Database.EnsureDeletedAsync();
-            await pr.Database.EnsureCreatedAsync();           
+            await pr.Database.EnsureCreatedAsync();
             await UserManagment.AddDefaultAdminUser(mysqlConString, pr);
             pr.Dispose();
         }
