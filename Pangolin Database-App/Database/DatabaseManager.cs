@@ -21,6 +21,7 @@ namespace Pangolin_Database_App.Database
             LogManager.log("Initalizing database", LogCategory.info, LogTopic.Database);
             GetDatabase();
             RefreshPangolinList();
+            LogManager.log("Database initalized", LogCategory.info, LogTopic.Database);
         }
         /// <summary>
         /// Singelton-Pattern to get database
@@ -33,8 +34,8 @@ namespace Pangolin_Database_App.Database
                 LogManager.log("Database is null, creating database context", LogCategory.info, LogTopic.Database);
                 database = new PangolinContext();
 
-                LogManager.log("ensuring database was created", LogCategory.info, LogTopic.Database);
-                database.Database.EnsureCreated(); // SYNC AT THIS POINT (IF INTERNET)
+                LogManager.log("Ensuring database was created", LogCategory.info, LogTopic.Database);
+                database.Database.EnsureCreated();
             }
             return database;
         }

@@ -2,7 +2,9 @@
 using Dotmim.Sync.MySql;
 using Dotmim.Sync.Sqlite;
 using Microsoft.EntityFrameworkCore;
+using Pangolin_Database_App.Logger;
 using System;
+using System.IO;
 using System.Threading.Tasks;
 
 namespace Pangolin_Database_App.Database
@@ -10,9 +12,15 @@ namespace Pangolin_Database_App.Database
     internal class DatabaseSync
     {
 
+        /// <summary>
+        /// Provider for local client database
+        /// </summary>
+        private static SqliteSyncProvider clientProvider = new SqliteSyncProvider(Settings.Settings.DbFilename);
 
-        public static SqliteSyncProvider clientProvider = new SqliteSyncProvider(Settings.Settings.DbFilename);
-        public static readonly string[] tables = {
+        /// <summary>
+        /// Tables to synchronize
+        /// </summary>
+        private static readonly string[] tables = {
             "CriminalCases", "DailyActivities", "Documents",
             "InfantFeedings", "InterdepartmentalMovements",
             "Microchips", "Mortalities", "Pangolins",
@@ -24,9 +32,14 @@ namespace Pangolin_Database_App.Database
         /// </summary>
         public static async Task<string> SyncAsync(IProgress<ProgressArgs> progress)
         {
+            // Create serverprovider and sync agent
+            LogManager.log("Creating server provider and synchronization provider for synchronization", LogCategory.info, LogTopic.Database);
             MySqlSyncProvider serverProvider = new MySqlSyncProvider(Settings.Settings.MYSQLConnectionString);
             SyncAgent agent = new SyncAgent(clientProvider, serverProvider, tables);
             SyncResult result = null;
+
+            // Synchronize
+            LogManager.log("Synchronizing data with sync agent", LogCategory.info, LogTopic.Database);
             if (progress != null)
             {
                 result = await agent.SynchronizeAsync(progress);
@@ -36,7 +49,7 @@ namespace Pangolin_Database_App.Database
                 result = await agent.SynchronizeAsync();
             }
 
-            Logger.LogManager.log("Sync-Result: " + result.ToString());
+            LogManager.log("Sync-Result: " + result.ToString());
             return result.ToString();
         }
 
@@ -51,14 +64,23 @@ namespace Pangolin_Database_App.Database
                 File.Delete(Settings.Settings.DbFilename);
             }*/
 
+            LogManager.log("reinitalizing new database", LogCategory.info, LogTopic.Database);
+
+            // Create Pangolin context for mysql
             DbContextOptionsBuilder<PangolinContext> optionsBuilder = new DbContextOptionsBuilder<PangolinContext>();
             string mysqlConString = "Server=" + Settings.Settings.DatabaseHostAddress + ";Port=" + Settings.Settings.DatabasePort + ";Database=database;Uid=" + username + ";Pwd=" + password + ";";
-            Logger.LogManager.logInfo("Initalizing database with connection string: '" + mysqlConString + "'", Logger.LogTopic.Database);
+            LogManager.logInfo("Initalizing database with connection string: '" + mysqlConString + "'", Logger.LogTopic.Database);
             optionsBuilder.UseMySql(mysqlConString);
             PangolinContext pr = new PangolinContext(optionsBuilder.Options);
+
+            // delete old database and create new one
+            LogManager.logInfo("Deleting old mysql database", Logger.LogTopic.Database);
             await pr.Database.EnsureDeletedAsync();
+            LogManager.logInfo("Creating new database on mysql server", Logger.LogTopic.Database);
             await pr.Database.EnsureCreatedAsync();
+            LogManager.logInfo("Adding default admin user on mysql", Logger.LogTopic.User);
             await UserManagment.AddDefaultAdminUser(mysqlConString, pr);
+            LogManager.logInfo("Disposing database", Logger.LogTopic.User);
             pr.Dispose();
         }
     }

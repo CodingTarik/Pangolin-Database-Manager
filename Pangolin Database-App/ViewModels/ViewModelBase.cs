@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Pangolin_Database_App.Database;
+using Pangolin_Database_App.Logger;
 using Pangolin_Database_App.Models;
 using Pangolin_Database_App.Util;
 using System;
@@ -13,15 +14,20 @@ using System.Threading.Tasks;
 
 namespace Pangolin_Database_App.ViewModels
 {
+    /// <summary>
+    /// validation result for model validation
+    /// </summary>
     public struct ValidationResult
     {
         public bool valid;
         public string propertyNameNotValid;
     }
+    /// <summary>
+    /// view model base for most views
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     internal abstract class ViewModelBase<T> : NotEmptyValidationRule, INotifyPropertyChanged, IUpdateModel where T : ModelBase
     {
-
-
         private bool _snackbarActive;
 
         public delegate void IntValue(int count);
@@ -73,7 +79,7 @@ namespace Pangolin_Database_App.ViewModels
         public string SnackbarMessage
         {
             get => _snackbarMessage;
-            set { _snackbarMessage = value; NotifyPropertyChanged(); }
+            set { _snackbarMessage = value; NotifyPropertyChanged(); LogManager.logInfo("Showing Snackbar message: " + value, LogTopic.Other); }
         }
 
         /// <summary>
@@ -169,6 +175,7 @@ namespace Pangolin_Database_App.ViewModels
             {
                 if (value != _selectedPangolin)
                 {
+                    LogManager.logInfo("Changing selected pangolin for view model base", LogTopic.Pangolin);
                     _selectedPangolin = value;
                     ChangePangolinReferenceForModel();
                     NotifyPropertyChanged();
@@ -192,6 +199,7 @@ namespace Pangolin_Database_App.ViewModels
             {
                 if (prop.PropertyType == typeof(Pangolin))
                 {
+                    LogManager.logInfo("Changing selected pangolin for selected model on view model base", LogTopic.Pangolin);
                     prop.SetValue(SelectedModel, SelectedPangolin);
                     NotifyPropertyChanged("SelectedModel");
                     return;
@@ -212,6 +220,7 @@ namespace Pangolin_Database_App.ViewModels
             {
                 if (_selectedModel != value)
                 {
+                    LogManager.logInfo("Switching selected model", LogTopic.Other);
                     T modelForReset = _selectedModel;
                     _selectedModel = value;
                     ReloadModel(modelForReset);
@@ -234,6 +243,7 @@ namespace Pangolin_Database_App.ViewModels
         {
             try
             {
+                LogManager.logInfo("Updating selected model", LogTopic.Database);
                 PangolinContext db = DatabaseManager.GetDatabase();
                 if (db != null && SelectedModel != null)
                 {
@@ -243,11 +253,13 @@ namespace Pangolin_Database_App.ViewModels
                         if (ModelExistInDatabase(SelectedModel))
                         {
                             db.Update(SelectedModel);
+                            LogManager.logInfo("Model was successfull updated", LogTopic.Database);
                             ShowSnackbar("The model has been sucessfull updated");
                         }
                         else
                         {
                             db.Add(SelectedModel);
+                            LogManager.logInfo("Model was successfull added", LogTopic.Database);
                             ShowSnackbar("The model has been sucessfull added");
                         }
                         db.SaveChanges(); // save
@@ -260,6 +272,7 @@ namespace Pangolin_Database_App.ViewModels
                     }
                     else
                     {
+                        LogManager.logInfo("Model was not valid, adding aborted", LogTopic.Database);
                         ShowSnackbar("Model could not be updated, validation failed for property --> " + result.propertyNameNotValid);
                     }
 
@@ -277,6 +290,7 @@ namespace Pangolin_Database_App.ViewModels
         /// <returns></returns>
         public ValidationResult ValidateModel()
         {
+            LogManager.logInfo("Validating selected model", LogTopic.Database);
             Type type = SelectedModel.GetType();
             PropertyInfo[] properties = type.GetProperties();
             foreach (PropertyInfo p in properties)
@@ -290,10 +304,12 @@ namespace Pangolin_Database_App.ViewModels
                 {
                     if (!SelectedModel.Validate(p.GetValue(SelectedModel), null).IsValid)
                     {
+                        LogManager.logWarning("Model was not valid because the property " + p.Name + " is required but is set to null", LogTopic.Database);
                         return new ValidationResult() { valid = false, propertyNameNotValid = p.Name };
                     }
                 }
             }
+            LogManager.logInfo("Model was successfull validated", LogTopic.Database);
             return new ValidationResult { valid = true };
         }
 
@@ -428,6 +444,7 @@ namespace Pangolin_Database_App.ViewModels
         /// </summary>
         public virtual void ResetSelectedModelToDefaultValues()
         {
+            LogManager.logInfo("Reseting model default values", LogTopic.Database);
             Type type = SelectedModel.GetType();
             PropertyInfo[] properties = type.GetProperties();
             foreach (PropertyInfo p in properties)

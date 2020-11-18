@@ -6,7 +6,7 @@ using System.Windows.Controls;
 
 namespace Pangolin_Database_App.Util
 {
-    public class NotEmptyValidationRule : IDataErrorInfo
+    public abstract class NotEmptyValidationRule : IDataErrorInfo
     {
         /// <summary>
         /// can check if a value of a column is valid, make sure ValidateOnDataErrors is set to true in data binding

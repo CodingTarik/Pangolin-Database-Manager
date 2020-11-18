@@ -49,6 +49,16 @@
             Refreshes the pangolin list
             </summary>
         </member>
+        <member name="F:Pangolin_Database_App.Database.DatabaseSync.clientProvider">
+            <summary>
+            Provider for local client database
+            </summary>
+        </member>
+        <member name="F:Pangolin_Database_App.Database.DatabaseSync.tables">
+            <summary>
+            Tables to synchronize
+            </summary>
+        </member>
         <member name="M:Pangolin_Database_App.Database.DatabaseSync.SyncAsync(System.IProgress{Dotmim.Sync.ProgressArgs})">
             <summary>
             Syncs local database
@@ -80,6 +90,18 @@
             <summary>
             Documents
             </summary>
+        </member>
+        <member name="M:Pangolin_Database_App.Database.PangolinContext.OnConfiguring(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder)">
+            <summary>
+            Configures entity framework with sqlite
+            </summary>
+            <param name="optionsBuilder"></param>
+        </member>
+        <member name="M:Pangolin_Database_App.Database.PangolinContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            Configures models for context
+            </summary>
+            <param name="modelBuilder"></param>
         </member>
         <member name="P:Pangolin_Database_App.Database.UserManagment.ActiveUser">
             <summary>
@@ -269,6 +291,11 @@
             </summary>
             <summary>
             MainWindow
+            </summary>
+        </member>
+        <member name="M:Pangolin_Database_App.MainWindow.#ctor">
+            <summary>
+            Main window constructor
             </summary>
         </member>
         <member name="M:Pangolin_Database_App.MainWindow.MinimizeWindow_Click(System.Object,System.Windows.Input.MouseButtonEventArgs)">
@@ -1231,6 +1258,13 @@
             <param name="sender"></param>
             <param name="e"></param>
         </member>
+        <member name="M:Pangolin_Database_App.User_Controls.Login.PasswordView.Settings_Click(System.Object,System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            Switch to settings view if settings icon is clicked
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
         <member name="M:Pangolin_Database_App.User_Controls.Login.PasswordView.InitializeComponent">
             <summary>
             InitializeComponent
@@ -1255,6 +1289,21 @@
             </summary>
             <summary>
             SaveControl
+            </summary>
+        </member>
+        <member name="E:Pangolin_Database_App.User_Controls.SaveControl.YesClickEvent">
+            <summary>
+            Save control yes click event
+            </summary>
+        </member>
+        <member name="E:Pangolin_Database_App.User_Controls.SaveControl.NoClickEvent">
+            <summary>
+            Save control no click event
+            </summary>
+        </member>
+        <member name="E:Pangolin_Database_App.User_Controls.SaveControl.CancelClickEvent">
+            <summary>
+            Save control cancel click event
             </summary>
         </member>
         <member name="M:Pangolin_Database_App.User_Controls.SaveControl.NoClick(System.Object,System.Windows.RoutedEventArgs)">
@@ -1288,9 +1337,59 @@
             Converts index to bool and back for combobox (yes, no)
             </summary>
         </member>
+        <member name="M:Pangolin_Database_App.Util.BoolToIndexConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            true means index 0 and false index 1 ==> used for indexing combo box elements for e.g. yes, no
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Pangolin_Database_App.Util.BoolToIndexConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            If index = 0 (yes) then return true else return false
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Pangolin_Database_App.Util.IHasDialog">
+            <summary>
+            Interface for view models if the view provieds dialogs
+            </summary>
+        </member>
         <member name="T:Pangolin_Database_App.Util.IntToMethodConverter">
             <summary>
             Used in vet treatment to convert bit mask to vet treatment method
+            </summary>
+        </member>
+        <member name="M:Pangolin_Database_App.Util.IntToMethodConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Converts bit mask to string for vet treatment method bits a ordered --> Subcut|I.M.|I.V.|Oral
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Pangolin_Database_App.Util.IntToMethodConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Not used
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Pangolin_Database_App.Util.IUpdateModel">
+            <summary>
+            Used for save control to get methods
             </summary>
         </member>
         <member name="T:Pangolin_Database_App.Util.MoonPhases">
@@ -1338,6 +1437,68 @@
             <param name="value"></param>
             <param name="cultureInfo"></param>
             <returns>invalid validation result if value is empty</returns>
+        </member>
+        <member name="T:Pangolin_Database_App.Util.PasswordValidation">
+            <summary>
+            Checks if password has more than five characters
+            </summary>
+        </member>
+        <member name="M:Pangolin_Database_App.Util.PasswordValidation.Validate(System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Checks if password has more than five characters
+            </summary>
+            <param name="value"></param>
+            <param name="cultureInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Pangolin_Database_App.Util.RelayCommand">
+            <summary>
+            This class can relay ICommand commands to a other method (Action)
+            </summary>
+        </member>
+        <member name="M:Pangolin_Database_App.Util.RelayCommand.#ctor(System.Action)">
+            <summary>
+            Provides action to relay command
+            </summary>
+            <param name="action"></param>
+        </member>
+        <member name="M:Pangolin_Database_App.Util.RelayCommand.CanExecute(System.Object)">
+            <summary>
+            Can always execute
+            </summary>
+            <param name="parameter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Pangolin_Database_App.Util.RelayCommand.Execute(System.Object)">
+            <summary>
+            Executes provided action
+            </summary>
+            <param name="parameter"></param>
+        </member>
+        <member name="T:Pangolin_Database_App.Util.ValueConverter">
+            <summary>
+            Converts a number to a string and a string to a number
+            </summary>
+        </member>
+        <member name="M:Pangolin_Database_App.Util.ValueConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Converts a number to a string
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Pangolin_Database_App.Util.ValueConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Converts a string to a number
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
         </member>
         <member name="M:Pangolin_Database_App.ViewModels.AddPangolinViewModel.#ctor">
             <summary>
@@ -1436,12 +1597,34 @@
             Relay command for hide snackbar
             </summary>
         </member>
+        <member name="T:Pangolin_Database_App.ViewModels.CredentialsViewModel">
+            <summary>
+            View model for credentials
+            </summary>
+        </member>
+        <member name="M:Pangolin_Database_App.ViewModels.CriminalCaseViewModel.#ctor">
+            <summary>
+            default constructor
+            </summary>
+        </member>
+        <member name="M:Pangolin_Database_App.ViewModels.CriminalCaseViewModel.CriminalCaseViewModel_UpdateModelEvent(System.Object,System.EventArgs)">
+            <summary>
+            creates new criminal case as selected model if model has been added or updated
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
         <member name="M:Pangolin_Database_App.ViewModels.DailyActivitySheetViewModel.SetModelByPangolinAndDate(System.DateTime,Pangolin_Database_App.Models.Pangolin)">
             <summary>
             Triers to get a existing model by date and pangolin or returns a new one if no found
             </summary>
             <param name="date"></param>
             <param name="p"></param>
+        </member>
+        <member name="M:Pangolin_Database_App.ViewModels.DailyActivitySheetViewModel.#ctor">
+            <summary>
+            default constructo for daily activity
+            </summary>
         </member>
         <member name="M:Pangolin_Database_App.ViewModels.DailyActivitySheetViewModel.DailyActivitySheetViewModel_PangolinChanged(System.Object,Pangolin_Database_App.Models.Pangolin)">
             <summary>
@@ -1519,6 +1702,43 @@
             <param name="bit"></param>
             <returns></returns>
         </member>
+        <member name="M:Pangolin_Database_App.ViewModels.DocumentsViewModel.#ctor">
+            <summary>
+            default constructor
+            </summary>
+        </member>
+        <member name="M:Pangolin_Database_App.ViewModels.DocumentsViewModel.DocumentsViewModel_PangolinChanged(System.Object,Pangolin_Database_App.Models.Pangolin)">
+            <summary>
+            Update documents if pangolin changed
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Pangolin_Database_App.ViewModels.DocumentsViewModel.DocumentsViewModel_UpdateModelEvent(System.Object,System.EventArgs)">
+            <summary>
+            Add new document model as selected model if previous was added 
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Pangolin_Database_App.ViewModels.DocumentsViewModel.File_Drop(System.Object,System.Windows.DragEventArgs)">
+            <summary>
+            If file droped in file drop area then get file data and set selectedmodel properties
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Pangolin_Database_App.ViewModels.DocumentsViewModel.UploadFile(System.Object)">
+            <summary>
+            adds the draged file to the database
+            </summary>
+            <param name="sender"></param>
+        </member>
+        <member name="P:Pangolin_Database_App.ViewModels.DocumentsViewModel.DocumentForPangolin">
+            <summary>
+            List that returns all files for a selected pangolin
+            </summary>
+        </member>
         <member name="P:Pangolin_Database_App.ViewModels.InfantFeedingViewModel.RoyalCaninKitty">
             <summary>
             Formula for Royal Canin Kitty
@@ -1547,6 +1767,37 @@
             DefectationCount
             </summary>
         </member>
+        <member name="M:Pangolin_Database_App.ViewModels.InterdepartmentalMovementViewModel.InterdepartmentalMovementViewModel_UpdateModelEvent(System.Object,System.EventArgs)">
+            <summary>
+            adds new model if previous was updated
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="P:Pangolin_Database_App.ViewModels.LoginViewModel.ModelContent">
+            <summary>
+            Property for either credentials view model or setup view model
+            </summary>
+        </member>
+        <member name="M:Pangolin_Database_App.ViewModels.LoginViewModel.#ctor(Pangolin_Database_App.Util.RelayCommand)">
+            <summary>
+            default constructor 
+            </summary>
+            <param name="ShowMainMenu">RelayCommand for the show main menu method</param>
+        </member>
+        <member name="M:Pangolin_Database_App.ViewModels.LoginViewModel.SwitchContent">
+            <summary>
+            Switches content to either credentials login or set up menu
+            </summary>
+        </member>
+        <member name="M:Pangolin_Database_App.ViewModels.MortalityViewModel.MortalityViewModel_PangolinChanged(System.Object,Pangolin_Database_App.Models.Pangolin)">
+            <summary>
+            If pangolin changed check if there is already a existing mortality model for this pangolin if yes set as selected model
+            if no create new model for selected model
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
         <member name="M:Pangolin_Database_App.ViewModels.PhysicalMesaurementsViewModel.Pangolin_Changed(System.Object,Pangolin_Database_App.Models.Pangolin)">
             <summary>
             Sets model for pangolin
@@ -1571,6 +1822,53 @@
             Saves view model for extended dialog
             </summary>
         </member>
+        <member name="P:Pangolin_Database_App.ViewModels.ReleaseViewModel.Microchipped">
+            Microchipped
+        </member>
+        <member name="P:Pangolin_Database_App.ViewModels.ReleaseViewModel.Transmitted">
+            Transmitted
+        </member>
+        <member name="M:Pangolin_Database_App.ViewModels.SetupViewModel.#ctor(Pangolin_Database_App.ViewModels.LoginViewModel)">
+            <summary>
+            default constructor
+            </summary>
+            <param name="model"></param>
+        </member>
+        <member name="P:Pangolin_Database_App.ViewModels.SetupViewModel.DatabaseIP">
+            <summary>
+            database host proeprty
+            </summary>
+        </member>
+        <member name="P:Pangolin_Database_App.ViewModels.SetupViewModel.DatabasePort">
+            <summary>
+            database port property
+            </summary>
+        </member>
+        <member name="P:Pangolin_Database_App.ViewModels.SetupViewModel.DbInitUsername">
+            <summary>
+            database username for db init
+            </summary>
+        </member>
+        <member name="P:Pangolin_Database_App.ViewModels.SetupViewModel.DbInitPassword">
+            <summary>
+            database user password for db init
+            </summary>
+        </member>
+        <member name="P:Pangolin_Database_App.ViewModels.SetupViewModel.InitButtonEnabled">
+            <summary>
+            Property if user can click init button
+            </summary>
+        </member>
+        <member name="M:Pangolin_Database_App.ViewModels.SetupViewModel.UpdateDbHostandPort">
+            <summary>
+            updates db host and port settings
+            </summary>
+        </member>
+        <member name="M:Pangolin_Database_App.ViewModels.SetupViewModel.InitDb">
+            <summary>
+            initalizes, resets database on mysql server side
+            </summary>
+        </member>
         <member name="P:Pangolin_Database_App.ViewModels.SynchronizeViewModel.StatusText">
             <summary>
             Current status text
@@ -1591,6 +1889,86 @@
             Report for status change in sync
             </summary>
             <param name="value"></param>
+        </member>
+        <member name="M:Pangolin_Database_App.ViewModels.TrackingDeviceViewModel.#ctor(Pangolin_Database_App.Models.Pangolin)">
+            <summary>
+            default constructor
+            </summary>
+            <param name="p"></param>
+        </member>
+        <member name="M:Pangolin_Database_App.ViewModels.TrackingDeviceViewModel.TrackingDeviceViewModel_PangolinChanged(System.Object,Pangolin_Database_App.Models.Pangolin)">
+            <summary>
+            update previous devices if pangolin changed
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Pangolin_Database_App.ViewModels.TrackingDeviceViewModel.TrackingDeviceViewModel_UpdateModelEvent(System.Object,System.EventArgs)">
+            <summary>
+            create new model if old ones updated
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="P:Pangolin_Database_App.ViewModels.TrackingDeviceViewModel.PreviousDevices">
+            <summary>
+            returns a list of all previous devices attached to the selected pangolin
+            </summary>
+        </member>
+        <member name="M:Pangolin_Database_App.ViewModels.VeterinaryTreatmentViewModel.#ctor">
+            <summary>
+            default constructor
+            </summary>
+        </member>
+        <member name="M:Pangolin_Database_App.ViewModels.VeterinaryTreatmentViewModel.VeterinaryTreatmentViewModel_UpdateModelEvent(System.Object,System.EventArgs)">
+            <summary>
+            create new model if previous was added / updated
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Pangolin_Database_App.ViewModels.VeterinaryTreatmentViewModel.VeterinaryTreatmentViewModel_PangolinChanged(System.Object,Pangolin_Database_App.Models.Pangolin)">
+            <summary>
+            update previous treatments if model changed
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="P:Pangolin_Database_App.ViewModels.VeterinaryTreatmentViewModel.PreviousTreatments">
+            <summary>
+            returns a list of previous treatments for a pangolin
+            </summary>
+        </member>
+        <member name="P:Pangolin_Database_App.ViewModels.VeterinaryTreatmentViewModel.Subcut">
+            <summary>
+            read if property is checked for model by bit mask value
+            </summary>
+        </member>
+        <member name="P:Pangolin_Database_App.ViewModels.VeterinaryTreatmentViewModel.IM">
+            <summary>
+            read if property is checked for model by bit mask value
+            </summary>
+        </member>
+        <member name="P:Pangolin_Database_App.ViewModels.VeterinaryTreatmentViewModel.IS">
+            <summary>
+            read if property is checked for model by bit mask value
+            </summary>
+        </member>
+        <member name="P:Pangolin_Database_App.ViewModels.VeterinaryTreatmentViewModel.Oral">
+            <summary>
+            read if property is checked for model by bit mask value
+            </summary>
+        </member>
+        <member name="T:Pangolin_Database_App.ViewModels.ValidationResult">
+            <summary>
+            validation result for model validation
+            </summary>
+        </member>
+        <member name="T:Pangolin_Database_App.ViewModels.ViewModelBase`1">
+            <summary>
+            view model base for most views
+            </summary>
+            <typeparam name="T"></typeparam>
         </member>
         <member name="M:Pangolin_Database_App.ViewModels.ViewModelBase`1.SetBit(System.Int32,System.Int32,System.Boolean,Pangolin_Database_App.ViewModels.ViewModelBase{`0}.IntValue)">
             <summary>

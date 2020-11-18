@@ -8,6 +8,9 @@ namespace Pangolin_Database_App.ViewModels
     {
         private object _modelContent;
 
+        /// <summary>
+        /// Property for either credentials view model or setup view model
+        /// </summary>
         public object ModelContent
         {
             get => _modelContent;
@@ -16,6 +19,11 @@ namespace Pangolin_Database_App.ViewModels
 
         public CredentialsViewModel login { get; set; }
         public SetupViewModel setup { get; set; }
+
+        /// <summary>
+        /// default constructor 
+        /// </summary>
+        /// <param name="ShowMainMenu">RelayCommand for the show main menu method</param>
         public LoginViewModel(RelayCommand ShowMainMenu) : base(Database.DatabaseManager.GetDatabase().Users)
         {
             login = new CredentialsViewModel(this, ShowMainMenu);
@@ -24,6 +32,9 @@ namespace Pangolin_Database_App.ViewModels
 
         }
 
+        /// <summary>
+        /// Switches content to either credentials login or set up menu
+        /// </summary>
         public void SwitchContent()
         {
             if (ModelContent is CredentialsViewModel)

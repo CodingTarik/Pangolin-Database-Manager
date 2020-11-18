@@ -58,7 +58,7 @@ namespace Pangolin_Database_App.ViewModels
             set { dialogContent = value; NotifyPropertyChanged(); }
         }
 
-        // Microchipped
+        /// Microchipped
         public bool Microchipped
         {
             get => SelectedModel.Microchipped;
@@ -75,7 +75,7 @@ namespace Pangolin_Database_App.ViewModels
         }
 
 
-        // Transmitted
+        /// Transmitted
         public bool Transmitted
         {
             get => SelectedModel.Transmitted;

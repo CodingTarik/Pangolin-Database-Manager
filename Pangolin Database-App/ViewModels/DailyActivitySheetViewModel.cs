@@ -34,6 +34,10 @@ namespace Pangolin_Database_App.ViewModels
             // Updating all properties 
             UpdateAllProperties();
         }
+
+        /// <summary>
+        /// default constructo for daily activity
+        /// </summary>
         public DailyActivitySheetViewModel() : base(DatabaseManager.GetDatabase().DailyActivities)
         {
             PangolinChanged += DailyActivitySheetViewModel_PangolinChanged;

@@ -16,8 +16,10 @@ namespace Pangolin_Database_App.Settings
             string fullFolderName = Settings.USER_APPDATA + "\\" + Settings.TempFileFolderName;
             if (!Directory.Exists(fullFolderName))
             {
+                LogManager.logInfo("Temp folder for app does not exist creating...", LogTopic.IO);
                 Directory.CreateDirectory(fullFolderName);
             }
+            LogManager.logInfo("returning folder temp folder path: " + fullFolderName, LogTopic.IO);
             return fullFolderName;
         }
 
@@ -31,12 +33,14 @@ namespace Pangolin_Database_App.Settings
         {
             if (!string.IsNullOrEmpty(host) && port > 0)
             {
+                LogManager.logInfo("Updating host --> " + host + " and port --> " + port + " for database", LogTopic.Settings);
                 AddUpdateAppSettings("DatabaseHostAddress", host);
                 AddUpdateAppSettings("DatabasePort", port.ToString());
                 return true;
             }
             else
             {
+                LogManager.logWarning("Could not update db host or port because host is null or empty or port is not > 0", LogTopic.Settings);
                 return false;
             }
         }
@@ -70,6 +74,7 @@ namespace Pangolin_Database_App.Settings
         {
             try
             {
+                LogManager.logInfo("Try updating settings key " + key + " with new value " + value, LogTopic.Settings);
                 Configuration configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
                 KeyValueConfigurationCollection settings = configFile.AppSettings.Settings;
                 if (settings[key] == null)

@@ -12,6 +12,11 @@ namespace Pangolin_Database_App.ViewModels
             UpdateModelEvent += InterdepartmentalMovementViewModel_UpdateModelEvent;
         }
 
+        /// <summary>
+        /// adds new model if previous was updated
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void InterdepartmentalMovementViewModel_UpdateModelEvent(object sender, System.EventArgs e)
         {
             SelectedModel = new InterdepartmentalMovement() { ReferenceNumber = SelectedPangolin, Date = DateTime.Now };

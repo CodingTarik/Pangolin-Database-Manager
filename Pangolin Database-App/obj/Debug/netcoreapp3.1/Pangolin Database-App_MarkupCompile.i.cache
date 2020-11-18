@@ -16,5 +16,5 @@ D:\Programmierprojekte\Pangolin\Pangolin Database-App\App.xaml
 225-492310070
 MainWindow.xaml;User Controls\Login\PasswordView.xaml;User Controls\Login\SetupView.xaml;User Controls\SaveControl.xaml;Views\AddPangolinView.xaml;Views\AdminPanelView.xaml;Views\CriminalCaseView.xaml;Views\DailyActivitySheetView.xaml;Views\DocumentsView.xaml;Views\InfantFeedingView.xaml;Views\InterdepartmentalMovementView.xaml;Views\LoginView.xaml;Views\MainMenuView.xaml;Views\MicrochipView.xaml;Views\MortalityView.xaml;Views\PhysicalMeasurementsView.xaml;Views\ReleaseView.xaml;Views\SyncView.xaml;Views\TemplateView.xaml;Views\TrackingDeviceView.xaml;Views\VeterinaryTreatmentView.xaml;
 
-False
+True
 

@@ -13,6 +13,12 @@ namespace Pangolin_Database_App.ViewModels
             PangolinChanged += MortalityViewModel_PangolinChanged;
         }
 
+        /// <summary>
+        /// If pangolin changed check if there is already a existing mortality model for this pangolin if yes set as selected model
+        /// if no create new model for selected model
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MortalityViewModel_PangolinChanged(object sender, Pangolin e)
         {
             // Check if there is already a existing one

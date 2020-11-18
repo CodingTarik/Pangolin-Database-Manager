@@ -40,19 +40,30 @@ namespace Pangolin_Database_App.Database
         {
 
         }
+
+        /// <summary>
+        /// Configures entity framework with sqlite
+        /// </summary>
+        /// <param name="optionsBuilder"></param>
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-                LogManager.log("Configuring database", LogCategory.info, LogTopic.Database);
+                LogManager.log("Configuring EF-Database with options builder", LogCategory.info, LogTopic.Database);
                 optionsBuilder.UseSqlite(Pangolin_Database_App.Settings.Settings.SQLiteConnectionString);
             }
 
         }
 
+        /// <summary>
+        /// Configures models for context
+        /// </summary>
+        /// <param name="modelBuilder"></param>
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //Write Fluent API configurations here
+            //Write Fluent API configurations here            
+            LogManager.log("Configuring EF-Models", LogCategory.info, LogTopic.Database);
+
             //Property Configurations    
             modelBuilder.Entity<Pangolin>().HasIndex(p => p.ReferenceNumber).IsUnique();
             modelBuilder.Entity<User>().HasIndex(u => u.Username).IsUnique();

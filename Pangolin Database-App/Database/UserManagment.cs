@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Pangolin_Database_App.Logger;
 using Pangolin_Database_App.Models;
 using System;
 using System.IO;
@@ -28,6 +29,7 @@ namespace Pangolin_Database_App.Database
         /// </summary>
         private static void UpdateMySQLConString()
         {
+            LogManager.logInfo("Updating MYSQL Connection string", Logger.LogTopic.User);
             if (ActiveUser != null)
             {
                 Settings.Settings.MYSQLConnectionString = "Server=" + Settings.Settings.DatabaseHostAddress + ";Port=" + Settings.Settings.DatabasePort +
@@ -38,7 +40,7 @@ namespace Pangolin_Database_App.Database
                 Settings.Settings.MYSQLConnectionString = "";
             }
 
-            Logger.LogManager.logInfo("Updating MySQL Connection String to --> " + Settings.Settings.MYSQLConnectionString, Logger.LogTopic.Database);
+            LogManager.logInfo("Updated MySQL Connection String to --> " + Settings.Settings.MYSQLConnectionString, Logger.LogTopic.User);
         }
 
         /// <summary>
@@ -48,6 +50,7 @@ namespace Pangolin_Database_App.Database
         /// <returns>hashed sha256 string</returns>
         public static string ComputeSha256Hash(string rawData)
         {
+            LogManager.logInfo("Calculating SHA256-Hash", LogTopic.Util);
             using (SHA256 sha256Hash = SHA256.Create())
             {
                 // ComputeHash - returns byte array 
@@ -59,6 +62,7 @@ namespace Pangolin_Database_App.Database
                 {
                     builder.Append(bytes[i].ToString("x2"));
                 }
+                LogManager.logInfo("Calculated SHA-256 Hash of " + rawData + " --> " + builder.ToString(), LogTopic.Util);
                 return builder.ToString();
             }
         }
@@ -74,7 +78,7 @@ namespace Pangolin_Database_App.Database
         public static async Task<bool> AddNewUser(string firstname, string lastname, string username, string passwordhash, string password, bool isAdmin = false, string mysql = null, PangolinContext overrideContext = null)
         {
 
-
+            LogManager.logInfo("Adding " + username + " with passwordhash " + passwordhash, Logger.LogTopic.User);
             PangolinContext db = DatabaseManager.GetDatabase();
             if (overrideContext != null)
             {
@@ -83,17 +87,23 @@ namespace Pangolin_Database_App.Database
             // check for same username
             if (db.Users.Any(user => user.Username == username))
             {
+                LogManager.logWarning("User already exists", LogTopic.User);
                 // there is already a user with this username
                 return false;
             }
+
             else
             {
+                Logger.LogManager.logInfo("adding user on mysql", LogTopic.Database);
+                // adding user on mysql
                 if (!(await AddUserOnMySQLAsync(username, passwordhash, isAdmin, mysql)))
                 {
-                    Logger.LogManager.logWarning("returning, could not add user to mysql database");
+                    Logger.LogManager.logWarning("returning, could not add user to mysql database", LogTopic.Database);
                     return false;
                 }
+
                 // create user model
+                Logger.LogManager.logInfo("adding user on Entity-Framework", LogTopic.Database);
                 User newUser = new User();
                 newUser.FirstName = firstname;
                 newUser.LastName = lastname;
@@ -127,6 +137,7 @@ namespace Pangolin_Database_App.Database
             }
 
             PangolinContext pr = new PangolinContext(optionsBuilder.Options);
+
             // Create User
             string sqlQuery = @"CREATE USER '" + username + @"'@'%' IDENTIFIED BY '" + password + @"';";
             try
@@ -162,15 +173,16 @@ namespace Pangolin_Database_App.Database
                     sqlQuery = @"GRANT ALL PRIVILEGES ON `" + Settings.Settings.MYSQLDatabaseName + @"`.* TO '" + username + @"'@'%';";
                 }
 
-                Logger.LogManager.logInfo("Running Query: '" + sqlQuery + "'", Logger.LogTopic.Database);
+                LogManager.logInfo("Running Query: '" + sqlQuery + "'", Logger.LogTopic.Database);
                 int rowsAddedPrivileges = await pr.Database.ExecuteSqlRawAsync(sqlQuery);
-                Logger.LogManager.log("Rows affected for privileges: " + rowsAddedPrivileges, Logger.LogCategory.info, Logger.LogTopic.User);
+                LogManager.log("Rows affected for privileges: " + rowsAddedPrivileges, Logger.LogCategory.info, Logger.LogTopic.User);
             }
             catch (Exception ex)
             {
-                Logger.LogManager.logError(ex, "Error granting privileges " + ex.Message);
+                LogManager.logError(ex, "Error granting privileges " + ex.Message);
                 return false;
             }
+
             // return
             return true;
         }
@@ -183,6 +195,8 @@ namespace Pangolin_Database_App.Database
         /// <returns></returns>
         public static async Task<bool> UpdateUserPassOnMySQLAsync(string username, string password)
         {
+            LogManager.logInfo("Updating user pass for " + username + " on mysql", LogTopic.Database);
+
             // Build Connection
             DbContextOptionsBuilder<PangolinContext> optionsBuilder = new DbContextOptionsBuilder<PangolinContext>();
             optionsBuilder.UseMySql(Settings.Settings.MYSQLConnectionString);
@@ -202,15 +216,17 @@ namespace Pangolin_Database_App.Database
         /// <returns></returns>
         public static async Task<bool> DeleteUserOnMySQLAsync(string username)
         {
+            LogManager.logInfo("Deleting user " + username + " on mysql", LogTopic.Database);
+
             // Build Connection
             DbContextOptionsBuilder<PangolinContext> optionsBuilder = new DbContextOptionsBuilder<PangolinContext>();
             optionsBuilder.UseMySql(Settings.Settings.MYSQLConnectionString);
             PangolinContext pr = new PangolinContext(optionsBuilder.Options);
             // Create User
             string sqlQuery = @"DROP USER '" + username + @"'@'%';";
-            Logger.LogManager.logInfo("Running Query: '" + sqlQuery + "'", Logger.LogTopic.Database);
+            LogManager.logInfo("Running Query: '" + sqlQuery + "'", Logger.LogTopic.Database);
             int rowsAddedUsers = await pr.Database.ExecuteSqlRawAsync(sqlQuery);
-            Logger.LogManager.log("Rows affected for user adding: " + rowsAddedUsers, Logger.LogCategory.info, Logger.LogTopic.User);
+            LogManager.log("Rows affected for user adding: " + rowsAddedUsers, Logger.LogCategory.info, Logger.LogTopic.User);
             return true;
         }
 
@@ -219,6 +235,7 @@ namespace Pangolin_Database_App.Database
         /// </summary>
         public static async Task AddDefaultAdminUser(string mysqlConnection = null, PangolinContext pr = null)
         {
+            LogManager.logInfo("Adding default admin user ", LogTopic.User);
             if (mysqlConnection == null)
             {
                 await AddNewUser("Admin", "", "Admin", ComputeSha256Hash("admin"), "admin", true);
@@ -237,6 +254,7 @@ namespace Pangolin_Database_App.Database
         /// <returns></returns>
         public static User GetUserByUsernameAndPassword(string username, string password)
         {
+            LogManager.logInfo("Querying database by password for user  --> " + username, LogTopic.Database);
             return Database.DatabaseManager.GetDatabase().Users.Where(user =>
             user.Username.Equals(username) &&
             user.PasswordHash == ComputeSha256Hash(password)).FirstOrDefault();
@@ -250,6 +268,7 @@ namespace Pangolin_Database_App.Database
         /// <returns></returns>
         public static User GetUserByUsernameAndCookie(string username, string cookie)
         {
+            LogManager.logInfo("Querying database by cookie for user  --> " + username, LogTopic.Database);
             return Database.DatabaseManager.GetDatabase().Users.Where(user =>
             user.Username.Equals(username) &&
             user.sessionCookie == cookie).FirstOrDefault();
@@ -262,6 +281,7 @@ namespace Pangolin_Database_App.Database
         {
             if (File.Exists("userdata.xml"))
             {
+                LogManager.logInfo("Deleting cookie data", LogTopic.IO);
                 File.Delete("userdata.xml");
             }
         }
@@ -270,6 +290,7 @@ namespace Pangolin_Database_App.Database
         /// </summary>
         public static void SaveLoginData()
         {
+            LogManager.logInfo("Saving login data for user " + ActiveUser.Username, LogTopic.IO);
             XmlWriter userDataWriter = XmlWriter.Create("userdata.xml");
 
             // start
@@ -285,6 +306,7 @@ namespace Pangolin_Database_App.Database
             DatabaseManager.GetDatabase().SaveChanges();
 
             // set session cookie
+            LogManager.logInfo("Creating cookie for " + ActiveUser.Username, LogTopic.IO);
             userDataWriter.WriteStartElement("cookie");
             userDataWriter.WriteString(ActiveUser.sessionCookie);
             userDataWriter.WriteEndElement();
@@ -292,6 +314,7 @@ namespace Pangolin_Database_App.Database
             // end
             userDataWriter.WriteEndDocument();
             userDataWriter.Close();
+            LogManager.logInfo("Login Data successfully saved " + ActiveUser.Username, LogTopic.IO);
         }
 
         /// <summary>
@@ -300,10 +323,11 @@ namespace Pangolin_Database_App.Database
         /// <returns>if there are valid cookie datas then return of the user else null</returns>
         public static User LoadUserByCookie()
         {
+            LogManager.logInfo("Try loading user by cookie", LogTopic.IO);
             if (File.Exists("userdata.xml"))
             {
                 XmlReader userDataReader = XmlReader.Create("userdata.xml");
-
+                LogManager.logInfo("Cookie found, reading data...", LogTopic.IO);
                 userDataReader.MoveToContent();
 
                 string username = "";
@@ -325,10 +349,12 @@ namespace Pangolin_Database_App.Database
                     }
                 }
                 userDataReader.Close();
+                LogManager.logInfo("Returning user by cookie data", LogTopic.IO);
                 return GetUserByUsernameAndCookie(username, cookie);
             }
             else
             {
+                LogManager.logInfo("No cookie found, returning null", LogTopic.IO);
                 return null;
             }
         }

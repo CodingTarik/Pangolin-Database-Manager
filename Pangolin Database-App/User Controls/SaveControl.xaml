@@ -1,64 +1,104 @@
-﻿<UserControl x:Class="Pangolin_Database_App.User_Controls.SaveControl"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             xmlns:local="clr-namespace:Pangolin_Database_App.User_Controls"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+﻿<UserControl
+    x:Class="Pangolin_Database_App.User_Controls.SaveControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Pangolin_Database_App.User_Controls"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
     <Grid>
-        <Border Grid.Column="0" Grid.Row="2" Background="#E8E8E8" CornerRadius="10" BorderThickness="5" Margin="2, 2">
+        <Border
+            Grid.Row="2"
+            Grid.Column="0"
+            Margin="2,2"
+            Background="#E8E8E8"
+            BorderThickness="5"
+            CornerRadius="10">
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="40"></RowDefinition>
-                    <RowDefinition Height="0.3*"></RowDefinition>
-                    <RowDefinition Height="0.3*"></RowDefinition>
-                    <RowDefinition Height="0.3*"></RowDefinition>
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="0.3*" />
+                    <RowDefinition Height="0.3*" />
+                    <RowDefinition Height="0.3*" />
                 </Grid.RowDefinitions>
-                <!-- Title and Icon -->
-                <StackPanel Orientation="Horizontal" Grid.Row="0">
-                    <TextBlock FontSize="22" Margin="10, 10, 0, 0" FontFamily="Roboto" TextDecorations="Underline">SAVE</TextBlock>
-                    <materialDesign:PackIcon Kind="ContentSave" Width="24" Height="24" VerticalAlignment="Center" Margin="2, 5, 0, 0"></materialDesign:PackIcon>
+                <!--  Title and Icon  -->
+                <StackPanel Grid.Row="0" Orientation="Horizontal">
+                    <TextBlock
+                        Margin="10,10,0,0"
+                        FontFamily="Roboto"
+                        FontSize="22"
+                        TextDecorations="Underline">
+                        SAVE
+                    </TextBlock>
+                    <materialDesign:PackIcon
+                        Width="24"
+                        Height="24"
+                        Margin="2,5,0,0"
+                        VerticalAlignment="Center"
+                        Kind="ContentSave" />
                 </StackPanel>
-                <!-- SAVE YES-->
+                <!--  SAVE YES  -->
                 <Grid Grid.Row="1">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="40"></ColumnDefinition>
-                        <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                        <ColumnDefinition Width="40" />
+                        <ColumnDefinition Width="0.8*" />
                     </Grid.ColumnDefinitions>
-                    <materialDesign:PackIcon Kind="ThumbUp" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
-                    <Button Grid.Column="1" Click="YesClick"
-    Style="{StaticResource MaterialDesignFlatDarkBgButton}"
-    ToolTip="MaterialDesignFlatDarkButton">
+                    <materialDesign:PackIcon
+                        Width="24"
+                        Height="24"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Kind="ThumbUp" />
+                    <Button
+                        Grid.Column="1"
+                        Click="YesClick"
+                        Style="{StaticResource MaterialDesignFlatDarkBgButton}"
+                        ToolTip="MaterialDesignFlatDarkButton">
                         YES
                     </Button>
                 </Grid>
-                <!-- SAVE NO-->
+                <!--  SAVE NO  -->
                 <Grid Grid.Row="2">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="40"></ColumnDefinition>
-                        <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                        <ColumnDefinition Width="40" />
+                        <ColumnDefinition Width="0.8*" />
                     </Grid.ColumnDefinitions>
-                    <materialDesign:PackIcon Kind="ThumbDown" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
-                    <Button Grid.Column="1"
-                             Style="{StaticResource MaterialDesignFlatLightBgButton}"
-     
-    ToolTip="MaterialDesignFlatAccentBackgroundButton" Click="NoClick">
+                    <materialDesign:PackIcon
+                        Width="24"
+                        Height="24"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Kind="ThumbDown" />
+                    <Button
+                        Grid.Column="1"
+                        Click="NoClick"
+                        Style="{StaticResource MaterialDesignFlatLightBgButton}"
+                        ToolTip="MaterialDesignFlatAccentBackgroundButton">
                         NO
                     </Button>
                 </Grid>
-                <!-- CANCEL -->
+                <!--  CANCEL  -->
                 <Grid Grid.Row="3">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="40"></ColumnDefinition>
-                        <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                        <ColumnDefinition Width="40" />
+                        <ColumnDefinition Width="0.5*" />
 
                     </Grid.ColumnDefinitions>
-                    <materialDesign:PackIcon Kind="Cancel" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
-                    <Button Grid.Column="1"
-    Style="{StaticResource MaterialDesignFlatAccentBgButton}"
-    ToolTip="MaterialDesignFlatLightButton" Click="CancelClick" Cursor="Hand">
+                    <materialDesign:PackIcon
+                        Width="24"
+                        Height="24"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Kind="Cancel" />
+                    <Button
+                        Grid.Column="1"
+                        Click="CancelClick"
+                        Cursor="Hand"
+                        Style="{StaticResource MaterialDesignFlatAccentBgButton}"
+                        ToolTip="MaterialDesignFlatLightButton">
                         CANCEL
                     </Button>
                 </Grid>

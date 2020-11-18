@@ -16,8 +16,17 @@ namespace Pangolin_Database_App.User_Controls
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Save control yes click event
+        /// </summary>
         public event EventHandler YesClickEvent;
+        /// <summary>
+        /// Save control no click event
+        /// </summary>
         public event EventHandler NoClickEvent;
+        /// <summary>
+        /// Save control cancel click event
+        /// </summary>
         public event EventHandler CancelClickEvent;
 
         /// <summary>

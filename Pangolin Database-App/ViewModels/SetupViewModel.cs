@@ -9,6 +9,10 @@ namespace Pangolin_Database_App.ViewModels
 
         public LoginViewModel model { get; set; }
 
+        /// <summary>
+        /// default constructor
+        /// </summary>
+        /// <param name="model"></param>
         public SetupViewModel(LoginViewModel model) : base(null)
         {
             UpdateDbIPandPort = new RelayCommand(UpdateDbHostandPort);
@@ -21,6 +25,9 @@ namespace Pangolin_Database_App.ViewModels
 
         private string _databaseIP;
 
+        /// <summary>
+        /// database host proeprty
+        /// </summary>
         public string DatabaseIP
         {
             get => _databaseIP;
@@ -29,6 +36,9 @@ namespace Pangolin_Database_App.ViewModels
 
         private int _databasePort;
 
+        /// <summary>
+        /// database port property
+        /// </summary>
         public int DatabasePort
         {
             get => _databasePort;
@@ -37,6 +47,9 @@ namespace Pangolin_Database_App.ViewModels
 
         private string _dbInitUsername;
 
+        /// <summary>
+        /// database username for db init
+        /// </summary>
         public string DbInitUsername
         {
             get => _dbInitUsername;
@@ -45,6 +58,9 @@ namespace Pangolin_Database_App.ViewModels
 
         private string _dbInitPassword;
 
+        /// <summary>
+        /// database user password for db init
+        /// </summary>
         public string DbInitPassword
         {
             get => _dbInitPassword;
@@ -53,6 +69,9 @@ namespace Pangolin_Database_App.ViewModels
 
         private bool _initButtonEnabled;
 
+        /// <summary>
+        /// Property if user can click init button
+        /// </summary>
         public bool InitButtonEnabled
         {
             get => _initButtonEnabled;
@@ -62,6 +81,9 @@ namespace Pangolin_Database_App.ViewModels
         public RelayCommand UpdateDbIPandPort { get; set; }
         public RelayCommand InitDbWithUsernameAndPass { get; set; }
 
+        /// <summary>
+        /// updates db host and port settings
+        /// </summary>
         private void UpdateDbHostandPort()
         {
             if (Settings.SettingsManager.UpdateDbHostAndPort(DatabaseIP, DatabasePort))
@@ -76,6 +98,9 @@ namespace Pangolin_Database_App.ViewModels
         }
 
 
+        /// <summary>
+        /// initalizes, resets database on mysql server side
+        /// </summary>
         private async void InitDb()
         {
             InitButtonEnabled = false;

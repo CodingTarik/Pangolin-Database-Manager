@@ -14,8 +14,13 @@ namespace Pangolin_Database_App
     /// </summary>
     public partial class MainWindow : Window
     {
+        // values will be set in constructor with minwidth and min height, used for window resizing
         private static double minX = 0;
         private static double minY = 0;
+
+        /// <summary>
+        /// Main window constructor
+        /// </summary>
         public MainWindow()
         {
             DatabaseManager.InitDatabase();
