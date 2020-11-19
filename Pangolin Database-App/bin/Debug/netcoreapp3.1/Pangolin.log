@@ -1,0 +1,96 @@
+[20:53:57][INFO][Database][GetDatabase]:Database is null, creating database context
+[20:53:58][INFO][Database][GetDatabase]:Ensuring database was created
+[20:53:58][INFO][Database][OnConfiguring]:Configuring EF-Database with options builder
+[20:53:59][INFO][Database][OnModelCreating]:Configuring EF-Models
+[20:53:59][INFO][Database][RefreshPangolinList]:Refreshing Pangolin list
+[20:53:59][INFO][Database][RefreshPangolinList]:Refreshing Pangolin list
+[20:53:59][INFO][Database][RefreshPangolinList]:Refreshing Pangolin list
+[20:53:59][INFO][Settings][ReadSetting]:Reading setting: DatabaseHostAddress with value localhost
+[20:53:59][INFO][Settings][ReadSetting]:Reading setting: DatabasePort with value 3306
+[20:53:59][INFO][IO][LoadUserByCookie]:Try loading user by cookie
+[20:53:59][INFO][IO][LoadUserByCookie]:Cookie found, reading data...
+[20:53:59][INFO][IO][LoadUserByCookie]:Returning user by cookie data
+[20:53:59][INFO][Database][GetUserByUsernameAndCookie]:Querying database by cookie for user  --> Bob
+[20:53:59][INFO][User][UpdateMySQLConString]:Updating MYSQL Connection string
+[20:54:00][INFO][Settings][ReadSetting]:Reading setting: DatabaseHostAddress with value localhost
+[20:54:00][INFO][Settings][ReadSetting]:Reading setting: DatabasePort with value 3306
+[20:54:00][INFO][User][UpdateMySQLConString]:Updated MySQL Connection String to --> Server=localhost;Port=3306;Database=database;Uid=Bob;Pwd=6ca13d52ca70c883e0f0bb101e425a89e8624de51db2d2392593af6a84118090;
+[20:54:00][INFO][Database][InitDatabase]:Initalizing database
+[20:54:00][INFO][Database][RefreshPangolinList]:Refreshing Pangolin list
+[20:54:00][INFO][Database][InitDatabase]:Database initalized
+[20:54:00][INFO][Database][RefreshPangolinList]:Refreshing Pangolin list
+[20:54:01][INFO][Database][RefreshPangolinList]:Refreshing Pangolin list
+[20:54:01][INFO][Other][SelectedModel]:Switching selected model
+[20:54:43][INFO][Database][GetDatabase]:Database is null, creating database context
+[20:54:44][INFO][Database][GetDatabase]:Ensuring database was created
+[20:54:44][INFO][Database][OnConfiguring]:Configuring EF-Database with options builder
+[20:54:45][INFO][Database][OnModelCreating]:Configuring EF-Models
+[20:54:45][INFO][Database][RefreshPangolinList]:Refreshing Pangolin list
+[20:54:45][INFO][Database][RefreshPangolinList]:Refreshing Pangolin list
+[20:54:45][INFO][Database][RefreshPangolinList]:Refreshing Pangolin list
+[20:54:45][INFO][Settings][ReadSetting]:Reading setting: DatabaseHostAddress with value localhost
+[20:54:45][INFO][Settings][ReadSetting]:Reading setting: DatabasePort with value 3306
+[20:54:45][INFO][IO][LoadUserByCookie]:Try loading user by cookie
+[20:54:45][INFO][IO][LoadUserByCookie]:Cookie found, reading data...
+[20:54:45][INFO][IO][LoadUserByCookie]:Returning user by cookie data
+[20:54:45][INFO][Database][GetUserByUsernameAndCookie]:Querying database by cookie for user  --> Bob
+[20:54:45][INFO][User][UpdateMySQLConString]:Updating MYSQL Connection string
+[20:54:45][INFO][Settings][ReadSetting]:Reading setting: DatabaseHostAddress with value localhost
+[20:54:45][INFO][Settings][ReadSetting]:Reading setting: DatabasePort with value 3306
+[20:54:45][INFO][User][UpdateMySQLConString]:Updated MySQL Connection String to --> Server=localhost;Port=3306;Database=database;Uid=Bob;Pwd=6ca13d52ca70c883e0f0bb101e425a89e8624de51db2d2392593af6a84118090;
+[20:54:45][INFO][Database][InitDatabase]:Initalizing database
+[20:54:45][INFO][Database][RefreshPangolinList]:Refreshing Pangolin list
+[20:54:45][INFO][Database][InitDatabase]:Database initalized
+[20:54:46][INFO][Database][RefreshPangolinList]:Refreshing Pangolin list
+[20:54:48][INFO][Other][AdminPanel_Click]:Closing you are not admin dialog
+[20:54:50][INFO][Database][RefreshPangolinList]:Refreshing Pangolin list
+[20:54:50][INFO][Other][SelectedModel]:Switching selected model
+[20:54:52][INFO][Other][SelectedModel]:Switching selected model
+[20:54:54][INFO][Database][UpdateSelectedModel]:Updating selected model
+[20:54:54][INFO][Database][ValidateModel]:Validating selected model
+[20:54:54][INFO][Database][ValidateModel]:Model was successfull validated
+[20:54:54][INFO][Database][UpdateSelectedModel]:Model was successfull updated
+[20:54:54][INFO][Other][SnackbarMessage]:Showing Snackbar message: The model has been sucessfull updated
+[20:54:57][INFO][Database][RefreshPangolinList]:Refreshing Pangolin list
+[20:54:58][INFO][Database][RefreshPangolinList]:Refreshing Pangolin list
+[20:54:58][INFO][Other][SelectedModel]:Switching selected model
+[20:55:05][INFO][Database][UpdateSelectedModel]:Updating selected model
+[20:55:05][INFO][Database][ValidateModel]:Validating selected model
+[20:55:05][INFO][Database][ValidateModel]:Model was successfull validated
+[20:55:05][INFO][Database][UpdateSelectedModel]:Model was successfull added
+[20:55:05][INFO][Other][SnackbarMessage]:Showing Snackbar message: The model has been sucessfull added
+[20:55:06][INFO][Database][RefreshPangolinList]:Refreshing Pangolin list
+[20:55:07][INFO][Database][RefreshPangolinList]:Refreshing Pangolin list
+[20:55:07][INFO][Database][SyncAsync]:Creating server provider and synchronization provider for synchronization
+[20:55:07][INFO][Database][SyncAsync]:Synchronizing data with sync agent
+[20:55:10][INFO][Other][SyncAsync]:Sync-Result: Synchronization done. 
+	Total changes  uploaded: 3
+	Total changes  downloaded: 0 
+	Total changes  applied: 0 
+	Total resolved conflicts: 0
+	Total duration :0:0:2.289 
+[20:55:13][INFO][Database][RefreshPangolinList]:Refreshing Pangolin list
+[20:55:14][INFO][Database][RefreshPangolinList]:Refreshing Pangolin list
+[20:55:14][INFO][Other][SelectedModel]:Switching selected model
+[20:55:15][INFO][Pangolin][SelectedPangolin]:Changing selected pangolin for view model base
+[20:55:15][INFO][Pangolin][ChangePangolinReferenceForModel]:Changing selected pangolin for selected model on view model base
+[20:55:16][INFO][Other][SelectedModel]:Switching selected model
+[20:55:17][INFO][Database][UpdateSelectedModel]:Updating selected model
+[20:55:17][INFO][Database][ValidateModel]:Validating selected model
+[20:55:17][INFO][Database][ValidateModel]:Model was successfull validated
+[20:55:17][INFO][Database][UpdateSelectedModel]:Model was successfull added
+[20:55:17][INFO][Other][SnackbarMessage]:Showing Snackbar message: The model has been sucessfull added
+[20:55:18][INFO][Database][RefreshPangolinList]:Refreshing Pangolin list
+[20:55:20][INFO][Database][RefreshPangolinList]:Refreshing Pangolin list
+[20:55:21][INFO][Database][SyncAsync]:Creating server provider and synchronization provider for synchronization
+[20:55:21][INFO][Database][SyncAsync]:Synchronizing data with sync agent
+[20:55:21][INFO][Other][SyncAsync]:Sync-Result: Synchronization done. 
+	Total changes  uploaded: 1
+	Total changes  downloaded: 0 
+	Total changes  applied: 0 
+	Total resolved conflicts: 0
+	Total duration :0:0:0.585 
+[20:55:26][INFO][Database][RefreshPangolinList]:Refreshing Pangolin list
+[20:55:29][INFO][Other][AdminPanel_Click]:Closing you are not admin dialog
+[20:55:30][INFO][Database][RefreshPangolinList]:Refreshing Pangolin list
+[20:55:30][INFO][Other][SelectedModel]:Switching selected model

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.IO;
 using System.Runtime.CompilerServices;
 
 namespace Pangolin_Database_App.Logger
@@ -75,10 +76,12 @@ namespace Pangolin_Database_App.Logger
         /// Prints debug output
         /// </summary>
         /// <param name="message"></param>
-        private static void Print(string message)
+        private async static void Print(string message)
         {
             DateTime dt = DateTime.Now;
-            Debug.WriteLine("[" + dt.ToString("T") + "]" + message);
+            string outputMessage = "[" + dt.ToString("T") + "]" + message;
+            Debug.WriteLine(outputMessage);
+            await File.AppendAllTextAsync("Pangolin.log", outputMessage + "\r\n");
         }
     }
 }
