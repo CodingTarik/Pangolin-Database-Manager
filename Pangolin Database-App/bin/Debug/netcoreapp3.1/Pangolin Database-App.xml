@@ -1283,6 +1283,19 @@
             InitializeComponent
             </summary>
         </member>
+        <member name="T:Pangolin_Database_App.User_Controls.Messagebox">
+            <summary>
+            Interaktionslogik für Messagebox.xaml
+            </summary>
+            <summary>
+            Messagebox
+            </summary>
+        </member>
+        <member name="M:Pangolin_Database_App.User_Controls.Messagebox.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
         <member name="T:Pangolin_Database_App.User_Controls.SaveControl">
             <summary>
             Interaktionslogik für SaveControl.xaml

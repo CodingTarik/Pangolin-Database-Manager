@@ -1,4 +1,6 @@
-﻿using Pangolin_Database_App.Models;
+﻿using MaterialDesignThemes.Wpf;
+using Pangolin_Database_App.Logger;
+using Pangolin_Database_App.Models;
 using Pangolin_Database_App.ViewModels;
 using System.Windows;
 using System.Windows.Controls;
@@ -132,9 +134,21 @@ namespace Pangolin_Database_App.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void AdminPanel_Click(object sender, RoutedEventArgs e)
+        private async void AdminPanel_Click(object sender, RoutedEventArgs e)
         {
-            Window.GetWindow(this).DataContext = new AdminPanelViewModel();
+            if (Database.UserManagment.ActiveUser.IsAdmin)
+            {
+                Window.GetWindow(this).DataContext = new AdminPanelViewModel();
+            }
+            else
+            {
+                var messageboxDialog = new Pangolin_Database_App.User_Controls.Messagebox()
+                {
+                    DataContext = new MessageboxViewModel("You are not an admin")
+                };
+            await DialogHost.Show(messageboxDialog, "messageboxDialogHost");
+                LogManager.logInfo("Closing you are not admin dialog", LogTopic.Other);
+            }
         }
 
         /// <summary>

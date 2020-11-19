@@ -13,6 +13,9 @@
     <Compile Update="User Controls\Login\SetupView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="User Controls\Messagebox.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="User Controls\SaveControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -76,6 +79,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="User Controls\Login\SetupView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="User Controls\Messagebox.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="User Controls\SaveControl.xaml">
