@@ -11,6 +11,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace Pangolin_Database_App.ViewModels
 {
@@ -206,6 +207,31 @@ namespace Pangolin_Database_App.ViewModels
                 }
             }
             throw new Exception("No Pangolin model found for selected model");
+        }
+
+        /// <summary>
+        /// returns all models from database of a pangolin
+        /// </summary>
+        /// <param name="pangolin"></param>
+        /// <returns></returns>
+        public ObservableCollection<T> GetOldModelsForPangolin(Pangolin pangolin)
+        {
+            PropertyInfo[] properties = typeof(T).GetProperties();
+            PropertyInfo prop = properties.Where(p => p.PropertyType == typeof(Pangolin)).First();
+            List<T> oldModels = dbset.Where(n => prop.GetValue(n) == pangolin).ToList();
+            return new ObservableCollection<T>(oldModels);
+        }
+
+        /// <summary>
+        /// sets a model
+        /// </summary>
+        /// <param name="model"></param>
+        public void SetModel(T model)
+        {
+            PropertyInfo[] properties = typeof(T).GetProperties();
+            PropertyInfo prop = properties.Where(p => p.PropertyType == typeof(Pangolin)).First();
+            SelectedPangolin = (Pangolin)prop.GetValue(model);
+            SelectedModel = model;
         }
 
         private T _selectedModel;

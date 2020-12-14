@@ -1243,6 +1243,19 @@
             <param name="key"></param>
             <param name="value"></param>
         </member>
+        <member name="T:Pangolin_Database_App.User_Controls.EditOldModelView">
+            <summary>
+            Interaktionslogik für Messagebox.xaml
+            </summary>
+            <summary>
+            EditOldModelView
+            </summary>
+        </member>
+        <member name="M:Pangolin_Database_App.User_Controls.EditOldModelView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
         <member name="T:Pangolin_Database_App.User_Controls.Login.PasswordView">
             <summary>
             Interaktionslogik für CredentialsView.xaml
@@ -2079,6 +2092,19 @@
             <summary>
             Searches for Pangolin references in model and sets it to selectedpangolin
             </summary>
+        </member>
+        <member name="M:Pangolin_Database_App.ViewModels.ViewModelBase`1.GetOldModelsForPangolin(Pangolin_Database_App.Models.Pangolin)">
+            <summary>
+            returns all models from database of a pangolin
+            </summary>
+            <param name="pangolin"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Pangolin_Database_App.ViewModels.ViewModelBase`1.SetModel(`0)">
+            <summary>
+            sets a model
+            </summary>
+            <param name="model"></param>
         </member>
         <member name="P:Pangolin_Database_App.ViewModels.ViewModelBase`1.SelectedModel">
             <summary>

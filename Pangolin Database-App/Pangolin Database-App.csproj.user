@@ -81,6 +81,9 @@
     <Page Update="User Controls\Login\SetupView.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="User Controls\EditOldModelView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="User Controls\Messagebox.xaml">
       <SubType>Designer</SubType>
     </Page>

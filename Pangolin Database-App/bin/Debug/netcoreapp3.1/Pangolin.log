@@ -94,3 +94,34 @@
 [20:55:29][INFO][Other][AdminPanel_Click]:Closing you are not admin dialog
 [20:55:30][INFO][Database][RefreshPangolinList]:Refreshing Pangolin list
 [20:55:30][INFO][Other][SelectedModel]:Switching selected model
+[11:41:35][INFO][Database][GetDatabase]:Database is null, creating database context
+[11:41:35][INFO][Database][GetDatabase]:Ensuring database was created
+[11:41:35][INFO][Database][OnConfiguring]:Configuring EF-Database with options builder
+[11:41:37][INFO][Database][OnModelCreating]:Configuring EF-Models
+[11:41:38][INFO][Database][RefreshPangolinList]:Refreshing Pangolin list
+[11:41:38][INFO][Database][RefreshPangolinList]:Refreshing Pangolin list
+[11:41:38][INFO][Database][RefreshPangolinList]:Refreshing Pangolin list
+[11:41:38][INFO][Settings][ReadSetting]:Reading setting: DatabaseHostAddress with value localhost
+[11:41:38][INFO][Settings][ReadSetting]:Reading setting: DatabasePort with value 3306
+[11:41:38][INFO][IO][LoadUserByCookie]:Try loading user by cookie
+[11:41:38][INFO][IO][LoadUserByCookie]:Cookie found, reading data...
+[11:41:38][INFO][IO][LoadUserByCookie]:Returning user by cookie data
+[11:41:38][INFO][Database][GetUserByUsernameAndCookie]:Querying database by cookie for user  --> Bob
+[11:41:38][INFO][User][UpdateMySQLConString]:Updating MYSQL Connection string
+[11:41:38][INFO][Settings][ReadSetting]:Reading setting: DatabaseHostAddress with value localhost
+[11:41:38][INFO][Settings][ReadSetting]:Reading setting: DatabasePort with value 3306
+[11:41:38][INFO][User][UpdateMySQLConString]:Updated MySQL Connection String to --> Server=localhost;Port=3306;Database=database;Uid=Bob;Pwd=6ca13d52ca70c883e0f0bb101e425a89e8624de51db2d2392593af6a84118090;
+[11:41:38][INFO][Database][InitDatabase]:Initalizing database
+[11:41:38][INFO][Database][RefreshPangolinList]:Refreshing Pangolin list
+[11:41:38][INFO][Database][InitDatabase]:Database initalized
+[11:41:39][INFO][Database][RefreshPangolinList]:Refreshing Pangolin list
+[11:41:42][INFO][IO][DeleteCookieData]:Deleting cookie data
+[11:41:42][INFO][User][UpdateMySQLConString]:Updating MYSQL Connection string
+[11:41:42][INFO][User][UpdateMySQLConString]:Updated MySQL Connection String to --> 
+[11:41:42][INFO][Database][RefreshPangolinList]:Refreshing Pangolin list
+[11:41:42][INFO][Database][RefreshPangolinList]:Refreshing Pangolin list
+[11:41:42][INFO][Database][RefreshPangolinList]:Refreshing Pangolin list
+[11:41:42][INFO][Settings][ReadSetting]:Reading setting: DatabaseHostAddress with value localhost
+[11:41:42][INFO][Settings][ReadSetting]:Reading setting: DatabasePort with value 3306
+[11:41:42][INFO][IO][LoadUserByCookie]:Try loading user by cookie
+[11:41:42][INFO][IO][LoadUserByCookie]:No cookie found, returning null

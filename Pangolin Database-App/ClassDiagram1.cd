@@ -1,0 +1,648 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Alphabetical" MembersFormat="FullSignature">
+  <Class Name="Pangolin_Database_App.Database.DatabaseManager">
+    <Position X="117.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAJAAEAAAAQAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>Database\DatabaseManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pangolin_Database_App.Database.DatabaseSync">
+    <Position X="104.75" Y="7" Width="1.25" />
+    <Compartments>
+      <Compartment Name="Members" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAACABAAAAAAAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>Database\DatabaseSync.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pangolin_Database_App.Database.PangolinContext">
+    <Position X="108.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIBAAKAAAUAAAAAAACAQAAAEEAAAABACAAAKIAAAAAA=</HashCode>
+      <FileName>Database\PangolinContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pangolin_Database_App.Database.UserManagment">
+    <Position X="121.75" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAIAAAIAAQAQAACAAAAAAYAQCAUAIAAAAAA=</HashCode>
+      <FileName>Database\UserManagment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pangolin_Database_App.Extensions.EnumerationExtension">
+    <Position X="107" Y="2.75" Width="1.5" />
+    <NestedTypes>
+      <Class Name="Pangolin_Database_App.Extensions.EnumerationExtension.EnumerationMember" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Extensions\EnumerationExtension.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAoAAAAAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>Extensions\EnumerationExtension.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pangolin_Database_App.Extensions.ProgressbarExtension">
+    <Position X="117.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Extensions\ProgressbarExtension.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pangolin_Database_App.Logger.LogManager">
+    <Position X="105" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAIAAAAAgAACAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Logger\LogManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pangolin_Database_App.Models.CriminalCase">
+    <Position X="74.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAQAAAAAAAAAAAAAAAAAAAIAAIABAAAAAAAAIAA=</HashCode>
+      <FileName>Models\CriminalCase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pangolin_Database_App.Models.DailyActivity">
+    <Position X="79.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ARAAAAAEAAIUAAAAEAAAAEACAAIEIAABAAAAAAAABAA=</HashCode>
+      <FileName>Models\DailyActivity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pangolin_Database_App.Models.Document">
+    <Position X="86.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAIAAAAAAAAAgAAAAAAAEEBBAEAAABAIBA=</HashCode>
+      <FileName>Models\Document.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pangolin_Database_App.Models.InfantFeeding">
+    <Position X="91" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAMAAAAAAAAAAAAgACAABQgBAAIAAAAAIQA=</HashCode>
+      <FileName>Models\InfantFeeding.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pangolin_Database_App.Models.InterdepartmentalMovement">
+    <Position X="95.75" Y="5.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAEABAAAAAAAAAAAAAAAAAAAAABAAAAAAAAIAQ=</HashCode>
+      <FileName>Models\InterdepartmentalMovement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pangolin_Database_App.Models.Microchip">
+    <Position X="98.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAIAAAAAAAAAAABAQAAAAAAAAAABAAAAAABAIAA=</HashCode>
+      <FileName>Models\Microchip.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pangolin_Database_App.Models.ModelBase">
+    <Position X="85.25" Y="4" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ModelBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pangolin_Database_App.Models.Mortality">
+    <Position X="101" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAMACgAICAAAAAAAAIAAARAgAAAAIABAAAAAASAICI=</HashCode>
+      <FileName>Models\Mortality.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pangolin_Database_App.Models.Pangolin">
+    <Position X="70" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAhAEAAIEAAAICBAAABAAYAgCACAAARQAAIAgAAIQA=</HashCode>
+      <FileName>Models\Pangolin.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Pangolin_Database_App.Models.PhysicalMeasurements">
+    <Position X="72.25" Y="5.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAQEiAAAQAAIAACgAAgAAIAAAgAAAJAAQAAYFAIII=</HashCode>
+      <FileName>Models\PhysicalMeasurements.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pangolin_Database_App.Models.Release">
+    <Position X="77" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAICAAAAAAgAAAAIAAAAAAAQBIAABCgAAAAAAIAA=</HashCode>
+      <FileName>Models\Release.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pangolin_Database_App.Models.TrackingDevice">
+    <Position X="81.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAIAAAAAAAAAQAAAAIAAAAABYAAAAAAQIQA=</HashCode>
+      <FileName>Models\TrackingDevice.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pangolin_Database_App.Models.User">
+    <Position X="88.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAEAAAAAAAAAAAQAAAAgACAAAAAAEAAAAAAAAAAg=</HashCode>
+      <FileName>Models\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pangolin_Database_App.Models.VeterinaryTreatment">
+    <Position X="93.25" Y="5.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>IAAIAAAAAAAAIAIAAAAgQAAAAAIIAAABAAIAAAAAIQI=</HashCode>
+      <FileName>Models\VeterinaryTreatment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pangolin_Database_App.Settings.Settings">
+    <Position X="110.25" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAIBABACQAEAAAAAAgAABEAEgAAAAAAA=</HashCode>
+      <FileName>Settings\Settings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pangolin_Database_App.Settings.SettingsManager">
+    <Position X="112" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAACAAAAAAAAAAAEAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Settings\SettingsManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pangolin_Database_App.User_Controls.Login.PasswordView" BaseTypeListCollapsed="true">
+    <Position X="112.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>User Controls\Login\PasswordView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Pangolin_Database_App.User_Controls.Login.SetupView" BaseTypeListCollapsed="true">
+    <Position X="115.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>User Controls\Login\SetupView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Pangolin_Database_App.User_Controls.EditOldModelView" BaseTypeListCollapsed="true">
+    <Position X="113.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>User Controls\EditOldModelView.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pangolin_Database_App.User_Controls.SaveControl" BaseTypeListCollapsed="true">
+    <Position X="121.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAEAAAAAAAAAACIAAAAAgAAAAAAAAAAAQAA=</HashCode>
+      <FileName>User Controls\SaveControl.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Pangolin_Database_App.Util.BoolToIndexConverter" BaseTypeListCollapsed="true">
+    <Position X="110.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Util\BoolToIndexConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Pangolin_Database_App.Util.IntToMethodConverter" BaseTypeListCollapsed="true">
+    <Position X="114" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Util\IntToMethodConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Pangolin_Database_App.Util.MoonCalculator">
+    <Position X="105.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Util\Moonphase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pangolin_Database_App.Util.NotEmptyValidationRule">
+    <Position X="62.5" Y="1.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAQAACAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Util\NotEmptyValidationRule.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Pangolin_Database_App.Util.PasswordValidation">
+    <Position X="112" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Util\PasswordValidation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pangolin_Database_App.Util.RelayCommand" BaseTypeListCollapsed="true">
+    <Position X="121.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAACAAQAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Util\RelayCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Pangolin_Database_App.Util.ValueConverter" BaseTypeListCollapsed="true">
+    <Position X="110.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Util\ValueConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Pangolin_Database_App.ViewModels.AddPangolinViewModel">
+    <Position X="30" Y="13.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAiAAAAAAAAAAAAAAgAAJAAEAAQAACAAAQAAAAAAA=</HashCode>
+      <FileName>ViewModels\AddPangolinViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pangolin_Database_App.ViewModels.AdminPanelViewModel">
+    <Position X="83.75" Y="5.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>iFHBAAAAgAQACMAAKJAQAIAAgAAAIEAgMaA0BFMABAA=</HashCode>
+      <FileName>ViewModels\AdminPanelViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Pangolin_Database_App.ViewModels.CredentialsViewModel">
+    <Position X="35.5" Y="13.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAIAAA=</HashCode>
+      <FileName>ViewModels\CredentialsViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pangolin_Database_App.ViewModels.CriminalCaseViewModel">
+    <Position X="40.75" Y="13.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\CriminalCaseViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pangolin_Database_App.ViewModels.DailyActivitySheetViewModel">
+    <Position X="46.75" Y="13.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>ACGAAAAAAEACAAAAAABAACAAAMAAAAABAgCAACCgAAA=</HashCode>
+      <FileName>ViewModels\DailyActivitySheetViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pangolin_Database_App.ViewModels.DocumentsViewModel">
+    <Position X="52.25" Y="13.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAQAAAAAAAAAAAAAAAABAAAAAABAEAAAAAA=</HashCode>
+      <FileName>ViewModels\DocumentsViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pangolin_Database_App.ViewModels.InfantFeedingViewModel">
+    <Position X="57.75" Y="13.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>DAAAAACgAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAEAAAA=</HashCode>
+      <FileName>ViewModels\InfantFeedingViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pangolin_Database_App.ViewModels.InterdepartmentalMovementViewModel">
+    <Position X="63.25" Y="13.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\InterdepartmentalMovementViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pangolin_Database_App.ViewModels.LoginViewModel">
+    <Position X="24.5" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAABAAAAAAgAAAAAAAAAAAABAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>ViewModels\LoginViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pangolin_Database_App.ViewModels.MainMenuViewModel">
+    <Position X="121.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAQACAAAABAAAAAAAACAAAg=</HashCode>
+      <FileName>ViewModels\MainMenuViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pangolin_Database_App.ViewModels.MessageboxViewModel">
+    <Position X="114" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\MessageboxViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pangolin_Database_App.ViewModels.MicrochipViewModel">
+    <Position X="32.75" Y="13.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\MicrochipViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pangolin_Database_App.ViewModels.MortalityViewModel">
+    <Position X="38.25" Y="13.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\MortalityViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pangolin_Database_App.ViewModels.PhysicalMesaurementsViewModel">
+    <Position X="43.5" Y="13.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\PhysicalMesaurementsViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pangolin_Database_App.ViewModels.ReleaseViewModel">
+    <Position X="49.75" Y="13.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAoAAAAKBAAAAAAIAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\ReleaseViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Pangolin_Database_App.ViewModels.SetupViewModel">
+    <Position X="55" Y="13.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>ABADAAAAIAAABAAAAAACAAAACAAAgAAQAAIEABgIgAA=</HashCode>
+      <FileName>ViewModels\SetupViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pangolin_Database_App.ViewModels.SynchronizeViewModel">
+    <Position X="60.5" Y="13.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAADAAAAAgCAAAAAAAAAAAIAAAAABAA=</HashCode>
+      <FileName>ViewModels\SynchronizeViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Pangolin_Database_App.ViewModels.TrackingDeviceViewModel">
+    <Position X="67" Y="13.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAABQ=</HashCode>
+      <FileName>ViewModels\TrackingDeviceViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pangolin_Database_App.ViewModels.VeterinaryTreatmentViewModel">
+    <Position X="26.75" Y="13.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAgAAAACAAAAAAAAQAAAAAAAAAAAAAAAAAABQAAQ=</HashCode>
+      <FileName>ViewModels\VeterinaryTreatmentViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pangolin_Database_App.ViewModels.ViewModelBase&lt;T&gt;">
+    <Position X="46" Y="4" Width="1.75" />
+    <NestedTypes>
+      <Delegate Name="Pangolin_Database_App.ViewModels.ViewModelBase&lt;T&gt;.IntValue" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>ViewModels\ViewModelBase.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAIFAAQECAAQgYCAAECAAIAQoCAAEFgGGQAFABCIBAE=</HashCode>
+      <FileName>ViewModels\ViewModelBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Pangolin_Database_App.Views.AddPangolinView" BaseTypeListCollapsed="true">
+    <Position X="108.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\AddPangolinView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Pangolin_Database_App.Views.AdminPanelView" BaseTypeListCollapsed="true">
+    <Position X="105.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>Views\AdminPanelView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Pangolin_Database_App.Views.CriminalCaseView" BaseTypeListCollapsed="true">
+    <Position X="112.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\CriminalCaseView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Pangolin_Database_App.Views.DailyActivitySheetView" BaseTypeListCollapsed="true">
+    <Position X="119.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAEAIAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\DailyActivitySheetView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Pangolin_Database_App.Views.DocumentsView" BaseTypeListCollapsed="true">
+    <Position X="106.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQCAAAAAAAAEAAAAAAgQAAAAAAAAAAAASAAgAAA=</HashCode>
+      <FileName>Views\DocumentsView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Pangolin_Database_App.Views.InfantFeedingView" BaseTypeListCollapsed="true">
+    <Position X="114" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\InfantFeedingView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Pangolin_Database_App.Views.InterdepartmentalMovementView" BaseTypeListCollapsed="true">
+    <Position X="117.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\InterdepartmentalMovementView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Pangolin_Database_App.Views.Login" BaseTypeListCollapsed="true">
+    <Position X="115.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAACAAAAAYAAA=</HashCode>
+      <FileName>Views\LoginView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Pangolin_Database_App.Views.MainMenuView" BaseTypeListCollapsed="true">
+    <Position X="105.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>4AAgAAAAICAUAAAAAQBAAAEAAEAAAAAAAFAAIAAAQAA=</HashCode>
+      <FileName>Views\MainMenuView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Pangolin_Database_App.Views.MicrochipView" BaseTypeListCollapsed="true">
+    <Position X="115.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\MicrochipView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Pangolin_Database_App.Views.MortalityView" BaseTypeListCollapsed="true">
+    <Position X="106.5" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\MortalityView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Pangolin_Database_App.Views.PhysicalMeasurementsView" BaseTypeListCollapsed="true">
+    <Position X="114" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\PhysicalMeasurementsView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Pangolin_Database_App.Views.ReleaseView" BaseTypeListCollapsed="true">
+    <Position X="109.5" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\ReleaseView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Pangolin_Database_App.Views.SyncView" BaseTypeListCollapsed="true">
+    <Position X="119.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\SyncView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Pangolin_Database_App.Views.TemplateView" BaseTypeListCollapsed="true">
+    <Position X="108.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\TemplateView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Pangolin_Database_App.Views.TrackingDeviceView" BaseTypeListCollapsed="true">
+    <Position X="104.75" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\TrackingDeviceView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Pangolin_Database_App.Views.VeterinaryTreatmentView" BaseTypeListCollapsed="true">
+    <Position X="116" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\VeterinaryTreatmentView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Pangolin_Database_App.App">
+    <Position X="107" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pangolin_Database_App.MainWindow" BaseTypeListCollapsed="true">
+    <Position X="119.5" Y="7.25" Width="1.5" />
+    <NestedTypes>
+      <Struct Name="Pangolin_Database_App.MainWindow.MINMAXINFO" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>MainWindow.xaml.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Struct Name="Pangolin_Database_App.MainWindow.POINT" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>MainWindow.xaml.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Class Name="Pangolin_Database_App.MainWindow.MONITORINFO" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>MainWindow.xaml.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Struct Name="Pangolin_Database_App.MainWindow.RECT" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>MainWindow.xaml.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>ADAAAAAAAAAAAAAAAAAAIMAAAIAAGAAAAAYIAAAAAAA=</HashCode>
+      <FileName>MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Struct Name="Pangolin_Database_App.ViewModels.ValidationResult">
+    <Position X="104" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACQ=</HashCode>
+      <FileName>ViewModels\ViewModelBase.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Interface Name="Pangolin_Database_App.Util.IHasDialog">
+    <Position X="108" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Util\IHasDialog.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Pangolin_Database_App.Util.IUpdateModel">
+    <Position X="117.75" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>Util\IUpdateModel.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="Pangolin_Database_App.Enums.HealthStatus">
+    <Position X="107.75" Y="11.25" Width="1.25" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAACAAAAAAAAAAAAAIAIAAAAAAAAAAE=</HashCode>
+      <FileName>Enums\HealthStatus.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Pangolin_Database_App.Enums.Sex">
+    <Position X="117.5" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>Enums\Sex.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Pangolin_Database_App.Enums.Transportation">
+    <Position X="110" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Enums\Transportation.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Pangolin_Database_App.Logger.LogCategory">
+    <Position X="116.5" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAAAAAAAAQAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Logger\LogCategory.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Pangolin_Database_App.Logger.LogTopic">
+    <Position X="112" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAABAAAACEAAAAAAAAAAAQAAAAAAABAAgAAQAACAEAA=</HashCode>
+      <FileName>Logger\LogTopic.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Pangolin_Database_App.Util.MoonPhases">
+    <Position X="114.5" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAGAAAAIAAAAAEAAAAAgAACAAAAAAAA=</HashCode>
+      <FileName>Util\Moonphase.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
