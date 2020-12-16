@@ -26,11 +26,11 @@ To use this application you need a MySQL-Server. You can also work with this app
 - Enter the following command
   
   ```shell
-  $ git clone https://github.com/CodingTarik/Pangolin-Database-App.git## License
+  $ git clone https://github.com/CodingTarik/Pangolin-Database-App.git
   ```
 
 ## License
-
+![GitHub](https://img.shields.io/github/license/CodingTarik/Pangolin-Database-App)
 ## Pictures
 ![](Assets/1.png)
 ![](Assets/2.png)
