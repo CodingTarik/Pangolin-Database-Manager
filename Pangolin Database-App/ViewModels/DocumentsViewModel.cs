@@ -1,5 +1,7 @@
-﻿using Pangolin_Database_App.Logger;
+﻿using Microsoft.Win32;
+using Pangolin_Database_App.Logger;
 using Pangolin_Database_App.Models;
+using Pangolin_Database_App.Settings;
 using System;
 using System.Collections.ObjectModel;
 using System.IO;
@@ -88,6 +90,24 @@ namespace Pangolin_Database_App.ViewModels
         {
             get => new ObservableCollection<Document>(Database.DatabaseManager.GetDatabase().Documents.Where(n => n.ReferenceNumber == SelectedPangolin).ToList());
             set { }
+        }
+
+        public void SaveReport(bool open, bool selectPath, bool print)
+        {
+            string path = SettingsManager.GetTempFilePath() + "\\report.xlsx";
+            if (SelectedPangolin != null)
+            {
+                if(selectPath)
+                {
+                    SaveFileDialog sv = new SaveFileDialog();
+                    sv.Filter = "|Excel-File|.xlsx";
+                    if (sv.ShowDialog() == true)
+                    {                       
+                        path = sv.FileName;
+                    }
+                }
+                Report.Report.GenerateReportForPangolin(SelectedPangolin, path, open);
+            }
         }
     }
 }

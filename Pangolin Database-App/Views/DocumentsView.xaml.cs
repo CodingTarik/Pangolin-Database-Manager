@@ -1,4 +1,5 @@
-﻿using Pangolin_Database_App.ViewModels;
+﻿using Pangolin_Database_App.Logger;
+using Pangolin_Database_App.ViewModels;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -34,12 +35,14 @@ namespace Pangolin_Database_App.Views
 
         private void SaveReport_Click(object sender, RoutedEventArgs e)
         {
-
+            LogManager.logInfo("Creating report");
+            ((DocumentsViewModel)DataContext).SaveReport(true, true, false);
         }
 
         private void OpenReport_Click(object sender, RoutedEventArgs e)
         {
-
+            LogManager.logInfo("Creating report");
+            ((DocumentsViewModel)DataContext).SaveReport(true, false, false);
         }
 
         private void Border_Drop(object sender, DragEventArgs e)

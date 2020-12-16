@@ -13,8 +13,7 @@ namespace Pangolin_Database_App.Util
         /// </summary>
         /// <param name="columnName"></param>
         /// <returns></returns>
-        [NotMapped]
-        [Category("Validation")]
+        [Category("Validation"), NotMapped]
         public string this[string columnName]
         {
             get
@@ -41,8 +40,7 @@ namespace Pangolin_Database_App.Util
             }
         }
 
-        [NotMapped]
-        [Category("validation")]
+        [Category("validation"), NotMapped]
         public string Error
         {
             get => null;

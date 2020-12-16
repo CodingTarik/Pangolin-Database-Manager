@@ -113,3 +113,25 @@ D:\Programmierprojekte\Pangolin\Pangolin Database-App\obj\Debug\netcoreapp3.1\Pa
 D:\Programmierprojekte\Pangolin\Pangolin Database-App\obj\Debug\netcoreapp3.1\Pangolin Database-App.dll
 D:\Programmierprojekte\Pangolin\Pangolin Database-App\obj\Debug\netcoreapp3.1\Pangolin Database-App.pdb
 D:\Programmierprojekte\Pangolin\Pangolin Database-App\obj\Debug\netcoreapp3.1\Pangolin Database-App.genruntimeconfig.cache
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\obj\Debug\netcoreapp3.1\Pangolin Database-App.csprojAssemblyReference.cache
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\bin\Debug\netcoreapp3.1\EPPlus.dll
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.FileExtensions.dll
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Json.dll
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileProviders.Abstractions.dll
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileProviders.Physical.dll
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileSystemGlobbing.dll
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\bin\Debug\netcoreapp3.1\Microsoft.Win32.SystemEvents.dll
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\bin\Debug\netcoreapp3.1\System.ComponentModel.Annotations.dll
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\bin\Debug\netcoreapp3.1\System.Drawing.Common.dll
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\bin\Debug\netcoreapp3.1\System.Formats.Asn1.dll
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\bin\Debug\netcoreapp3.1\System.Runtime.CompilerServices.Unsafe.dll
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\bin\Debug\netcoreapp3.1\System.Security.Cryptography.Cng.dll
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\bin\Debug\netcoreapp3.1\System.Security.Cryptography.Pkcs.dll
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\bin\Debug\netcoreapp3.1\System.Text.Encoding.CodePages.dll
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\bin\Debug\netcoreapp3.1\System.Xml.XPath.XmlDocument.dll
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Security.Cryptography.Cng.dll
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Security.Cryptography.Pkcs.dll
+D:\Programmierprojekte\Pangolin\Pangolin Database-App\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Text.Encoding.CodePages.dll

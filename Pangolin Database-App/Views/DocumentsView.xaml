@@ -429,9 +429,9 @@
                                 Kind="ContentSaveOutline" />
                             <Button
                                 Grid.Column="1"
-                                Click="PrintReport_Click"
+                                Click="SaveReport_Click"
                                 Style="{StaticResource MaterialDesignRaisedDarkButton}"
-                                ToolTip="MaterialDesignFlatDarkButton">
+                                ToolTip="MaterialDesignFlatDarkButton" Cursor="Hand">
                                 SAVE REPORT
                             </Button>
                         </Grid>

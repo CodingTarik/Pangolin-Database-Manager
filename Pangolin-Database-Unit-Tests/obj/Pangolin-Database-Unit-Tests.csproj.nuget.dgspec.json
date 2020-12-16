@@ -56,6 +56,10 @@
               "target": "Package",
               "version": "[0.5.8-beta-0460, )"
             },
+            "EPPlus": {
+              "target": "Package",
+              "version": "[5.4.2, )"
+            },
             "MaterialDesignColors": {
               "target": "Package",
               "version": "[2.0.0-ci2063, )"
