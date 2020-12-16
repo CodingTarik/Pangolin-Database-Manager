@@ -3,7 +3,34 @@
 This program was specially developed for an animal welfare organization in order to clearly save data on the animal pangolin and to collaborate with various doctors. We hope that it can also help further. 
 
 ## Installation
-To use this application you need a MySQL-Server. You can also work with this application offline and synchronize your data later.
+Following features are included:
+-Offline / Online Synchronization
+-Report generation for Pangolins (as Excel-File)
+-User managment
+-Team collaboration
+-Pangolin data managment
+
+Requirements are:
+-You need at least windows 7 
+-To synchronize your data you need a MySQL Server
+
+How to setup?
+1. No MySQL-Server initialized:
+-Set up your MySQL Server (you can use the program XAMPP for instance)
+-Start the application and click in the left corner on "settings"
+-Set the Host (can be a domain or ip) and the port (default 3306 of MySQL) of your MySQL Server
+-Open initialize database menu
+-Enter a admin username and the password of your MySQL-Server
+-Click on initalize Database
+-Now you can log in with the default user "Admin" with password "admin"
+-Change Admin-Password in Admin Panel
+-Make sure to check "synchronize" if you log in the first time
+
+2. MySQL-Server initialized:
+-Click on the settings "left corner" 
+-Set up host and port (default 3306)
+-Then you can log in with your credentials
+-Make sure to check "synchronize" if you log in the first time
 
 ## Table of content
 
