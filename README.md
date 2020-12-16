@@ -11,9 +11,27 @@ To use this application you need a MySQL-Server. You can also work with this app
 - [Stats](#stats)
 - [Clone](#clone)
 - [License](#License)
+- [Pictures](#Pictures)
 
 ## Preview
 ![](Assets/pangolin.gif)
+
+## Stats
+![Application](https://github.com/CodingTarik/Pangolin-Database-App/workflows/.NET%20Core%20Desktop/badge.svg)
+
+## Clone
+
+> You need Visual Studio 2019
+
+- Enter the following command
+  
+  ```shell
+  $ git clone https://github.com/CodingTarik/Pangolin-Database-App.git## License
+  ```
+
+## License
+
+## Pictures
 ![](Assets/1.png)
 ![](Assets/2.png)
 ![](Assets/3.png)
@@ -33,17 +51,3 @@ To use this application you need a MySQL-Server. You can also work with this app
 ![](Assets/17.png)
 ![](Assets/18.png)
 ![](Assets/119.png)
-## Stats
-![Application](https://github.com/CodingTarik/Pangolin-Database-App/workflows/.NET%20Core%20Desktop/badge.svg)
-
-## Clone
-
-> You need Visual Studio 2019
-
-- Enter the following command
-  
-  ```shell
-  $ git clone https://github.com/CodingTarik/Pangolin-Database-App.git## License
-  ```
-
-## License
