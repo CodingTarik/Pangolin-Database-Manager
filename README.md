@@ -55,7 +55,7 @@ How to setup?
 ![](Assets/pangolin.gif)
 
 ## Stats📊
-![Application](https://github.com/CodingTarik/Pangolin-Database-App/workflows/.NET%20Core%20Desktop/badge.svg)
+![Application](https://github.com/CodingTarik/Pangolin-Database-Manager/workflows/.NET%20Core%20Desktop/badge.svg)
 
 ## Clone🔄
 > You need at least Visual Studio 2019
@@ -87,7 +87,7 @@ How to setup?
 ![](Assets/119.png)
 
 ## License📜
-![GitHub](https://img.shields.io/github/license/CodingTarik/Pangolin-Database-App)
+![GitHub](https://img.shields.io/github/license/CodingTarik/Pangolin-Database-Manager)
 
 ## Credits🧑
 This program was created by Tarik Azzouzi and Nico Zeitz as a school project at the Berufliches Gymnasium Gelnhausen in cooperation with the Tikki Hywood Foundation.
