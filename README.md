@@ -2,7 +2,7 @@
 This program was specially developed for an animal welfare organization in order to save data of pangolins and to collaborative work together. 
 
 ## Table of content
-- [Features](#Features🚦)
+- [Features](#Features)
 - [Important Notes](#Important-Notes)
 - [Installation](#Installation)
 - [Preview](#preview)
@@ -51,13 +51,13 @@ How to setup?
 -Then you can log in with your credentials
 -Make sure to check "synchronize" if you log in the first time
 
-## Preview
+## Preview🎈
 ![](Assets/pangolin.gif)
 
-## Stats
+## Stats📊
 ![Application](https://github.com/CodingTarik/Pangolin-Database-App/workflows/.NET%20Core%20Desktop/badge.svg)
 
-## Clone
+## Clone🔄
 > You need at least Visual Studio 2019
 
 - Enter the following command
@@ -65,7 +65,7 @@ How to setup?
   ```shell
   $ git clone https://github.com/CodingTarik/Pangolin-Database-App.git
   ```
-## Pictures
+## Pictures🎴
 ![](Assets/1.png)
 ![](Assets/2.png)
 ![](Assets/3.png)
@@ -86,8 +86,8 @@ How to setup?
 ![](Assets/18.png)
 ![](Assets/119.png)
 
-## License
+## License📜
 ![GitHub](https://img.shields.io/github/license/CodingTarik/Pangolin-Database-App)
 
-## Credits
+## Credits🧑
 This program was created by Tarik Azzouzi and Nico Zeitz as a school project at the Berufliches Gymnasium Gelnhausen in cooperation with the Tikki Hywood Foundation.
