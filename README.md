@@ -4,7 +4,7 @@ This program was specially developed for an animal welfare organization in order
 ## Table of content
 - [Features](#Features🚦)
 - [Important Notes](#Important Notes💥)
-- [Installation](#Installation💻)
+- [Installation](#Installation)
 - [Preview](#preview)
 - [Stats](#stats)
 - [Clone](#clone)
