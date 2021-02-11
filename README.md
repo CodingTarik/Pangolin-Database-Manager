@@ -1,29 +1,31 @@
 # Pangolin-Database-App
 
-This program was specially developed for an animal welfare organization in order to clearly save data on the animal pangolin and to collaborate with various doctors. We hope that it can also help further. 
+This program was specially developed for an animal welfare organization in order to save data of pangolins and to collaborative work together. We hope that it can also help further. 
 
-## Installation
+## Features
 Following features are included:
 -Offline / Online Synchronization
 -Report generation for Pangolins (as Excel-File)
+-File upload / download
 -User managment
 -Team collaboration
 -Pangolin data managment
 
+## Installation
 Requirements are:
--You need at least windows 7 
--To synchronize your data you need a MySQL Server
+-You need at least windows 7, recommended: Windows 10 
+-To synchronize your data you need a MySQL or MariaDB Server; recommended: MariaDB
 
 How to setup?
 1. No MySQL-Server initialized:
--Set up your MySQL Server (you can use the program XAMPP for instance)
+-Set up your MySQL / MariaDB Server (you can use the program XAMPP for instance)
 -Start the application and click in the left corner on "settings"
 -Set the Host (can be a domain or ip) and the port (default 3306 of MySQL) of your MySQL Server
 -Open initialize database menu
 -Enter a admin username and the password of your MySQL-Server
 -Click on initalize Database
 -Now you can log in with the default user "Admin" with password "admin"
--Change Admin-Password in Admin Panel
+-Change Admin-Password in admin panel
 -Make sure to check "synchronize" if you log in the first time
 
 2. MySQL-Server initialized:
@@ -33,7 +35,6 @@ How to setup?
 -Make sure to check "synchronize" if you log in the first time
 
 ## Table of content
-
 - [Preview](#preview)
 - [Stats](#stats)
 - [Clone](#clone)
@@ -58,6 +59,7 @@ How to setup?
 
 ## License
 ![GitHub](https://img.shields.io/github/license/CodingTarik/Pangolin-Database-App)
+
 ## Pictures
 ![](Assets/1.png)
 ![](Assets/2.png)
