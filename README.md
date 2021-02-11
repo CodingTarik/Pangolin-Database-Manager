@@ -1,8 +1,18 @@
-# Pangolin-Database-App
+# Pangolin Database Application🦔
+This program was specially developed for an animal welfare organization in order to save data of pangolins and to collaborative work together. 
 
-This program was specially developed for an animal welfare organization in order to save data of pangolins and to collaborative work together. We hope that it can also help further. 
+## Table of content
+- [Features](#Features🚦)
+- [Important Notes](#Important Notes💥)
+- [Installation](### Installation💻)
+- [Preview](#preview)
+- [Stats](#stats)
+- [Clone](#clone)
+- [Pictures](#Pictures)
+- [License](#License)
+- [Credits](#Credits)
 
-## Features
+## Features🚦
 Following features are included:
 -Offline / Online Synchronization
 -Report generation for Pangolins (as Excel-File)
@@ -11,9 +21,16 @@ Following features are included:
 -Team collaboration
 -Pangolin data managment
 
-## Installation
+## Important Notes💥
+**There are some features that could be security relevant to you**
+-To be able to log in with multiple users in offline mode the local sqlite database also saves user data on client computer local database (usernames, passwordhash)
+-The following security features still need to be added:
+--> Adding salt values to each password
+--> encrypting local database
+
+## Installation💻
 Requirements are:
--You need at least windows 7, recommended: Windows 10 
+-You need at least windows 7; recommended: Windows 10 
 -To synchronize your data you need a MySQL or MariaDB Server; recommended: MariaDB
 
 How to setup?
@@ -34,13 +51,6 @@ How to setup?
 -Then you can log in with your credentials
 -Make sure to check "synchronize" if you log in the first time
 
-## Table of content
-- [Preview](#preview)
-- [Stats](#stats)
-- [Clone](#clone)
-- [License](#License)
-- [Pictures](#Pictures)
-
 ## Preview
 ![](Assets/pangolin.gif)
 
@@ -48,18 +58,13 @@ How to setup?
 ![Application](https://github.com/CodingTarik/Pangolin-Database-App/workflows/.NET%20Core%20Desktop/badge.svg)
 
 ## Clone
-
-> You need Visual Studio 2019
+> You need at least Visual Studio 2019
 
 - Enter the following command
   
   ```shell
   $ git clone https://github.com/CodingTarik/Pangolin-Database-App.git
   ```
-
-## License
-![GitHub](https://img.shields.io/github/license/CodingTarik/Pangolin-Database-App)
-
 ## Pictures
 ![](Assets/1.png)
 ![](Assets/2.png)
@@ -80,3 +85,9 @@ How to setup?
 ![](Assets/17.png)
 ![](Assets/18.png)
 ![](Assets/119.png)
+
+## License
+![GitHub](https://img.shields.io/github/license/CodingTarik/Pangolin-Database-App)
+
+## Credits
+This program was created by Tarik Azzouzi and Nico Zeitz as a school project at the Berufliches Gymnasium Gelnhausen in cooperation with the Tikki Hywood Foundation.
