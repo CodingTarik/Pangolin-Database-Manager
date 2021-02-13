@@ -57,7 +57,7 @@ How to setup?
 ## Stats📊
 ![Application](https://github.com/CodingTarik/Pangolin-Database-Manager/workflows/.NET%20Core%20Desktop/badge.svg)
 
-![Badge](https://img.shields.io/github/languages/code-size/CodingTarik/Pangolin-Database-Manager)
+![Badge](https://img.shields.io/github/repo-size/CodingTarik/Pangolin-Database-Manager)
 
 ## Clone🔄
 > You need at least Visual Studio 2019
