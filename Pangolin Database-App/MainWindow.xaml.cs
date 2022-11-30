@@ -17,7 +17,7 @@ namespace Pangolin_Database_App
         // values will be set in constructor with minwidth and min height, used for window resizing
         private static double minX = 0;
         private static double minY = 0;
-
+        private int test = 00;
         /// <summary>
         /// Main window constructor
         /// </summary>

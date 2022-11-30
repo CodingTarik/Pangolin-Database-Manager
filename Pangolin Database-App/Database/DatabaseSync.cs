@@ -70,9 +70,10 @@ namespace Pangolin_Database_App.Database
             DbContextOptionsBuilder<PangolinContext> optionsBuilder = new DbContextOptionsBuilder<PangolinContext>();
             string mysqlConString = "Server=" + Settings.Settings.DatabaseHostAddress + ";Port=" + Settings.Settings.DatabasePort + ";Database=database;Uid=" + username + ";Pwd=" + password + ";";
             LogManager.logInfo("Initalizing database with connection string: '" + mysqlConString + "'", Logger.LogTopic.Database);
-            optionsBuilder.UseMySql(mysqlConString);
+            optionsBuilder.UseMySql(mysqlConString, options => options.EnableRetryOnFailure());
             PangolinContext pr = new PangolinContext(optionsBuilder.Options);
-
+            await pr.Database.GetDbConnection().OpenAsync();
+            LogManager.logInfo("Can connect to database: " + await pr.Database.CanConnectAsync(), Logger.LogTopic.Database);
             // delete old database and create new one
             LogManager.logInfo("Deleting old mysql database", Logger.LogTopic.Database);
             await pr.Database.EnsureDeletedAsync();
